@@ -147,7 +147,7 @@ Il reste à préciser qui vient.
         ),
         authoritative_context=authoritative_context,
         connected_source_status="Calendrier observé à 08:00.",
-        agent_name="Lyra",
+        agent_name="Iris",
         host_tools_available=delegation,
         message_received_at=message_received_at,
         working_state_revised_at=scene.revised_at,
@@ -379,7 +379,7 @@ def test_authority_hierarchy_keeps_operational_agenda_without_scene_or_source_bl
 def test_compiler_exposes_identity_relation_evidence_and_resources():
     brief = compile_voice_brief(_plan())
 
-    assert brief.identity.agent_name == "Lyra"
+    assert brief.identity.agent_name == "Iris"
     assert brief.identity.persona == "Une présence précise."
     assert brief.relationship.manner == "Laisser de la place à l'autre."
     assert brief.relationship.stable_user_context == (

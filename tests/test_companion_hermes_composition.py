@@ -166,7 +166,7 @@ def _fixture(
     reviewed = build_setup_plan(
         SetupRequest(
             host=HostKind.HERMES,
-            daemon_name="Lyra",
+            daemon_name="Iris",
             daemon_gender="feminine",
             provider=selection,
         ),
@@ -248,7 +248,7 @@ def test_composes_consistent_private_hermes_installation(
     identity = json.loads(
         (layout.runtime.memory_root / "core/daemon_identity.json").read_text()
     )
-    assert identity == {"name": "Lyra", "gender": "feminine"}
+    assert identity == {"name": "Iris", "gender": "feminine"}
     assert (layout.runtime.memory_root / "persona.md").read_text() == "canonical voice\n"
     provider_text = (layout.runtime.state_root / "config/provider.json").read_text()
     assert "synthetic-secret" not in provider_text
@@ -437,7 +437,7 @@ def test_public_reordered_other_host_and_provider_mismatch_are_rejected(
     public = build_setup_plan(
         SetupRequest(
             HostKind.HERMES,
-            "Lyra",
+            "Iris",
             "feminine",
             selection,
         ),

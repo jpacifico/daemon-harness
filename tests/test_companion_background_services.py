@@ -235,7 +235,7 @@ def _fixture(tmp_path: Path, target_os: str):
     layout = BackgroundServicesLayout(runtime, environment, target_os, "synthetic-user")
     plan = SetupPlan(
         HostProbe(HostKind.HERMES, True, True, config_path="synthetic"),
-        "Lyra",
+        "Iris",
         "feminine",
         {"kind": "synthetic"},
         (background_services_step(layout),),

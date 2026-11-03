@@ -100,7 +100,7 @@ def _scene_payload() -> dict:
             },
             {
                 "title": "La playlist devient un atelier partagé",
-                "subjects": ["Utilisateur", "Lyra"],
+                "subjects": ["Utilisateur", "Iris"],
                 "facets": ["musique", "création partagée"],
                 "established": [
                     {
@@ -155,7 +155,7 @@ def test_episodic_rem_writes_sourced_obsidian_scenes_and_advances(
     assert "truth_scope: past_only" in first
     assert "## Établi" in first
     assert "\n## Lectures ouvertes\n" in first
-    assert "Lyra" not in first
+    assert "Iris" not in first
     assert (
         "[[levels/L0_ground_zero/conversations/garden_2026-08-26.md#"
         "2026-08-26T19:00:00 — user]]"
@@ -240,7 +240,7 @@ def test_episodic_rem_replay_is_idempotent_and_repairs_index(tmp_path):
     assert index.count("- theme/scenes_episodiques/2026/08/") == 2
 
 
-def test_episode_identity_does_not_depend_on_optional_lyra_reading(tmp_path):
+def test_episode_identity_does_not_depend_on_optional_open_reading(tmp_path):
     root = _memory(tmp_path)
     _prepare(root)
     first = run_episodic_rem(

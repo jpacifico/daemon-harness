@@ -18,7 +18,7 @@ from daemon_core.voice_brief import _compile_identity
 
 @pytest.mark.parametrize(
     "name,gender",
-    [("Lyra", "feminine"), ("Noé", "masculine")],
+    [("Iris", "feminine"), ("Noé", "masculine")],
 )
 def test_identity_is_private_and_separate_from_unchanged_persona(
     tmp_path: Path,
@@ -51,8 +51,8 @@ def test_existing_voice_files_remain_byte_identical_across_identity_updates(
     manner.write_bytes(b"Existing conversational balance\n")
     before = {path: path.read_bytes() for path in (core, personal, manner)}
 
-    assert save_daemon_identity(tmp_path, "Lyra", "feminine") == "created"
-    assert save_daemon_identity(tmp_path, "Lyra", "feminine") == "unchanged"
+    assert save_daemon_identity(tmp_path, "Iris", "feminine") == "created"
+    assert save_daemon_identity(tmp_path, "Iris", "feminine") == "unchanged"
     assert save_daemon_identity(tmp_path, "Noé", "masculine") == "updated"
 
     assert {path: path.read_bytes() for path in before} == before
@@ -110,7 +110,7 @@ def test_configured_identity_changes_only_the_existing_identity_sentence() -> No
         daemon_persona=persona.DEFAULT_DAEMON_PERSONA,
         conversation_manner="",
         recent_dialogue="",
-        agent_name="Lyra",
+        agent_name="Iris",
     )
     configured = build_thin_sovereign_messages(
         message="Hello",
@@ -122,7 +122,7 @@ def test_configured_identity_changes_only_the_existing_identity_sentence() -> No
     )
     assert len(baseline) == len(configured)
     assert configured[0]["content"] == baseline[0]["content"].replace(
-        "You are Lyra.",
+        "You are Iris.",
         "You are Noé (refer to yourself using masculine grammatical agreement).",
         1,
     )
@@ -149,12 +149,12 @@ def test_invalid_name_is_rejected_before_writing(tmp_path: Path, name: str) -> N
 
 def test_invalid_gender_and_malformed_existing_state_fail_closed(tmp_path: Path) -> None:
     with pytest.raises(ValueError):
-        save_daemon_identity(tmp_path, "Lyra", "other")
+        save_daemon_identity(tmp_path, "Iris", "other")
     target = tmp_path / "core" / "daemon_identity.json"
     target.parent.mkdir(parents=True)
-    target.write_text('{"name": "Lyra", "unexpected": true}\n')
+    target.write_text('{"name": "Iris", "unexpected": true}\n')
     with pytest.raises(ValueError, match="unknown format"):
-        save_daemon_identity(tmp_path, "Lyra", "feminine")
+        save_daemon_identity(tmp_path, "Iris", "feminine")
     assert "unexpected" in target.read_text()
 
 
@@ -165,5 +165,5 @@ def test_identity_writer_refuses_symbolic_link(tmp_path: Path) -> None:
     target.parent.mkdir(parents=True)
     target.symlink_to(external)
     with pytest.raises(ValueError, match="symbolic link"):
-        save_daemon_identity(tmp_path / "memory", "Lyra", "feminine")
+        save_daemon_identity(tmp_path / "memory", "Iris", "feminine")
     assert external.read_text() == "do not overwrite\n"

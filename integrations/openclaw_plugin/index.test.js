@@ -2537,7 +2537,7 @@ test("an immediate repeated recall keeps the exact souvenir result", async () =>
       return response({
         system_prompt_addition: "",
         sovereign_system_prompt: "SYSTEME ATLAS",
-        souvenirs: ["theme/famille/grand_mere_macon"],
+        souvenirs: ["theme/famille/grand_mere_annecy"],
         voice_path: "canonical",
         canary_trace_id: "trace-repeat",
         route: { mode: "canonical" },
@@ -2550,16 +2550,16 @@ test("an immediate repeated recall keeps the exact souvenir result", async () =>
             result: {
               status: "capsule_sources",
               capsules: [{
-                path: "theme/famille/grand_mere_macon",
+                path: "theme/famille/grand_mere_annecy",
                 content: "La grand-mère de Camille vit seule à Annecy.",
               }],
             },
-            read_souvenirs: ["theme/famille/grand_mere_macon"],
+            read_souvenirs: ["theme/famille/grand_mere_annecy"],
             library_preflight_consumed: true,
           }
         : {
             result: { status: "not_found" },
-            read_souvenirs: ["theme/famille/grand_mere_macon"],
+            read_souvenirs: ["theme/famille/grand_mere_annecy"],
             library_preflight_consumed: true,
           });
     }

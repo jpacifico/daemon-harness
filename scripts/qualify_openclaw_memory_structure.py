@@ -82,7 +82,7 @@ def main():
     source = args.source.resolve()
     if not root.is_relative_to(Path("/private/tmp")) or root.exists():
         raise ValueError("Use a fresh /private/tmp directory")
-    if not args.archive.resolve().is_relative_to(Path.home() / "daemon-harness-canonical/exports/private"):
+    if not args.archive.resolve().is_relative_to(REPO / "exports/private"):
         raise ValueError("Evidence must remain in the private local archive")
     os.umask(0o077)
     root.mkdir(parents=True, mode=0o700)

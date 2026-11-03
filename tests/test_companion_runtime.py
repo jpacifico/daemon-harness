@@ -41,7 +41,7 @@ def _plan(step: PlanStep = RUNTIME_PLAN_STEP) -> SetupPlan:
             version="synthetic",
             version_status="verified",
         ),
-        daemon_name="Lyra",
+        daemon_name="Iris",
         daemon_gender="feminine",
         provider={"kind": "synthetic", "settings": {}, "required_secret_names": []},
         steps=(step,),
@@ -423,7 +423,7 @@ def test_public_setup_plan_remains_non_executable(tmp_path: Path) -> None:
     layout = _layout(tmp_path)
     public_plan = SetupPlan(
         selected_host=_plan().selected_host,
-        daemon_name="Lyra",
+        daemon_name="Iris",
         daemon_gender="feminine",
         provider={"kind": "synthetic", "settings": {}, "required_secret_names": []},
         steps=(

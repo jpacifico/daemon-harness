@@ -368,7 +368,7 @@ def test_whole_memory_export_supplies_a_missing_identity_only_in_the_backup(sour
     with pytest.raises(backup.BackupError, match="missing-identity") as raised:
         backup.create_archive(source, tmp_path / "refused.zip", preserve_unknown=True)
     assert raised.value.area == "identity"
-    identity = backup.supplied_identity("Lyra", "feminine")
+    identity = backup.supplied_identity("Iris", "feminine")
 
     manifest = backup.create_archive(source, tmp_path / "whole.zip", preserve_unknown=True, identity=identity)
 
@@ -376,9 +376,9 @@ def test_whole_memory_export_supplies_a_missing_identity_only_in_the_backup(sour
     assert manifest["files"][".daemon/core/daemon_identity.json"]["size"] == len(identity)
     backup.restore_archive(tmp_path / "whole.zip", tmp_path / "restored")
     restored = json.loads((tmp_path / "restored/.daemon/core/daemon_identity.json").read_text())
-    assert restored == {"name": "Lyra", "gender": "feminine"}
+    assert restored == {"name": "Iris", "gender": "feminine"}
     (source / ".daemon/core/daemon_identity.json").write_text('{"name": "Nova", "gender": "feminine"}')
     with pytest.raises(backup.BackupError, match="identity-exists"):
         backup.create_archive(source, tmp_path / "again.zip", preserve_unknown=True, identity=identity)
     with pytest.raises(backup.BackupError, match="invalid-identity"):
-        backup.supplied_identity("Lyra", "neutral")
+        backup.supplied_identity("Iris", "neutral")

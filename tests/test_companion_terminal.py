@@ -81,7 +81,7 @@ def test_untrusted_terminal_controls_are_neutralized(value):
 
 
 def test_safe_text_retains_normal_multilingual_text():
-    assert safe_text("Maël\nAvery & Lyra") == "Maël\nAvery & Lyra"
+    assert safe_text("Maël\nAvery & Iris") == "Maël\nAvery & Iris"
 
 
 @pytest.mark.parametrize("host,version,selection", [("hermes", "0.21.5", 0), ("openclaw", "2026.9.1-beta.1", 1)])

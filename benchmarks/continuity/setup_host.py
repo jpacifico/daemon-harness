@@ -1,6 +1,6 @@
 """Prepare a Continuity Benchmark home: Companion's pinned Hermes, the official Codex CLI, two sign-ins.
 
-Everything lands under CONTINUITY_HOME (default ~/.codex/worktrees/continuum-host);
+Everything lands under CONTINUITY_HOME (default ~/continuity-bench);
 no existing host, profile, login or service is read or changed. The two ChatGPT
 sign-ins are made by the person running the benchmark, in their browser.
 """

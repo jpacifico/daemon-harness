@@ -50,7 +50,7 @@ def _plan() -> SetupPlan:
             version="synthetic",
             version_status="verified",
         ),
-        daemon_name="Lyra",
+        daemon_name="Iris",
         daemon_gender="feminine",
         provider={"kind": "synthetic", "settings": {}, "required_secret_names": []},
         steps=(PROFILE_STEP,),
@@ -453,7 +453,7 @@ def test_public_complete_plan_cannot_be_mistaken_for_supported_install(
     plan = build_setup_plan(
         SetupRequest(
             HostKind.HERMES,
-            "Lyra",
+            "Iris",
             "feminine",
             ProviderSelection(
                 ProviderKind.OPENAI_API,

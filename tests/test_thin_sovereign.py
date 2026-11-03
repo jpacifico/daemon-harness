@@ -72,7 +72,7 @@ def test_english_contracts_do_not_rewrite_supplied_language_or_exact_sources(
         "authoritative_context": "# Agenda exact\nRendez-vous conditionnel.",
         "episodic_scene_text": (
             "## Établi\n" + personal_text
-            + "\n## Lectures ouvertes de Lyra\nUne lecture, pas un fait."
+            + "\n## Lectures ouvertes de Iris\nUne lecture, pas un fait."
         ),
         "prior_dialogue": "## Extrait antérieur\nCe que j'avais dit exactement.",
     }
@@ -118,7 +118,7 @@ def test_thin_atlas_voice_keeps_exact_dialogue_and_bounded_context():
         episodic_scene_text=(
             "# Un ancien atelier\n\n"
             "## Établi\n\n- Un objet commun avait été nommé.\n\n"
-            "## Lectures ouvertes de Lyra\n\n"
+            "## Lectures ouvertes de Iris\n\n"
             "- Ce pouvait être un lieu où revenir."
         ),
         connected_source_status=(
@@ -154,7 +154,7 @@ def test_thin_atlas_voice_keeps_exact_dialogue_and_bounded_context():
     assert "Un ancien atelier" in system
     episodic_contract = " ".join(system.split())
     assert "never describes the present state" in episodic_contract
-    # Scenes written before 1 November 2026 still carry "Lectures ouvertes de Lyra".
+    # Scenes written before 1 November 2026 still carry "Lectures ouvertes de Iris".
     assert "the `Lectures ouvertes` remain readings" in episodic_contract
     assert 'Host tools' in system
     assert "Préférences de format de discussion prioritaires" not in system

@@ -33,7 +33,7 @@ cette vision n'est jamais mise à jour, pour deux raisons :
   sources incohérentes. Le daemon rejette alors toute la mise à jour, et c'est
   voulu : il ne doit jamais transformer une supposition en fait.
 
-Sur le daemon de test du propriétaire, il a échoué avec les deux réglages, et
+Sur le daemon de test du mainteneur, il a échoué avec les deux réglages, et
 sans réflexion il a aussi échoué sur deux des quatre conversations de test.
 Ses réponses et ce qu'il retient fonctionnaient, mais un daemon qui perd le fil
 de la situation n'offre pas l'expérience complète. Il réessaie aussi en
@@ -52,7 +52,7 @@ conversation de sept messages envoyée à Grok 4.7 et à GPT-6 Astra :
   pour quand ? ») là où Astra réagit à la personne.
 - **Plus lent.** 19 secondes par réponse en moyenne, 29 avec la réflexion
   maximale, contre 8 pour Astra.
-- **Sur un vrai daemon de test**, le propriétaire a trouvé ses réponses sobres
+- **Sur un vrai daemon de test**, le mainteneur a trouvé ses réponses sobres
   et impersonnelles.
 
 Sur ce daemon de test, la persona et le contexte du daemon lui parvenaient

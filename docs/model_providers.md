@@ -14,18 +14,18 @@ warning.
 | ChatGPT subscription | GPT-5.6 Terra | 2026-08-31 | No | Withdrawn on 2026-10-29: Companion warned that the experience may be degraded with it, and a warned model is not offered. |
 | Mistral (API key) | Mistral Large 4 | 2026-10-29, again after its public release the same evening | No | Loses track of what is going on in the conversation, and records unconfirmed things as facts. See below. |
 | OpenAI (API key) | — | Not tested | To decide | Same model family as the subscription, but reached through another route, with other settings. Not yet tested. |
-| Anthropic (API key) | Claude Opus 5.5 | 2026-10-29, 2026-10-30 | Only this model | On a real test daemon the owner judged its replies relevant and the daemon at the expected level overall. Known gap below. The other Claude models are not offered. |
+| Anthropic (API key) | Claude Opus 5.5 | 2026-10-29, 2026-10-30 | Only this model | On a real test daemon the maintainer judged its replies relevant and the daemon at the expected level overall. Known gap below. The other Claude models are not offered. |
 | SpaceXSI (API key) | Grok 4.7 | 2026-10-29 | No | Its replies are shorter, drier and slower than the reference's. See below. |
 
 Setup recommends the ChatGPT subscription with GPT-6 Astra, on both hosts.
 
 ## Claude Opus 5.5: known gap
 
-Opus replies are longer than Astra's; the owner keeps them as they are
-(measure). On the owner's test
+Opus replies are longer than Astra's; the maintainer keeps them as they are
+(measure). On the maintainer's test
 daemon, its memory radar did not keep a one-off exception to a daily routine
 slipped into a sign-off (a sleep-in the next morning), in five replays of five,
-where Astra kept it each time; when the owner later corrected the daemon, it
+where Astra kept it each time; when the maintainer later corrected the daemon, it
 kept the correction each time
 (report). The instruction is
 not adapted to that case.
@@ -45,7 +45,7 @@ this picture is never updated, for two reasons:
   gives inconsistent sources. The daemon then discards the whole update, on
   purpose: it must never turn a guess into a fact.
 
-On the owner's test daemon it failed in both settings, and with reasoning
+On the maintainer's test daemon it failed in both settings, and with reasoning
 turned off it also failed two of four test conversations. Its replies and what
 it remembers worked, but a daemon that loses track of the situation is not the
 complete experience. It also keeps retrying in the background after each
@@ -63,7 +63,7 @@ seven-message conversation sent to Grok 4.7 and to GPT-6 Astra:
   Astra reacts to the person.
 - **Slower.** 19 seconds per reply on average, 29 with maximum reasoning,
   against 8 for Astra.
-- **On a real test daemon** the owner found its replies sober and impersonal.
+- **On a real test daemon** the maintainer found its replies sober and impersonal.
 
 On that test daemon, the daemon's persona and context reached it in full
 (checked from the request sizes, about 12 000 tokens per message).

@@ -47,7 +47,7 @@ def _canonical_messages():
         {
             "role": "system",
             "content": (
-                "# Identity\n\nTu es Lyra.\n\nPersona.\n\n# Stable personal reference points\n\nRepères.\n\n# Turn contract\n\nContrat.\n\n# Temporal frame\n\nHeure actuelle : 2026-08-03T12:00:00+02:00.\n\n# Situation at the turn threshold\n\nSituation.\n\n# Current authoritative durable sources\n\nAgenda.\n\n# Exact memories already open\n\nAucune.\n\n# Durable memory catalog\n\n- theme/a\n\n# Outils de l'hôte\n\nOutils."
+                "# Identity\n\nTu es Iris.\n\nPersona.\n\n# Stable personal reference points\n\nRepères.\n\n# Turn contract\n\nContrat.\n\n# Temporal frame\n\nHeure actuelle : 2026-08-03T12:00:00+02:00.\n\n# Situation at the turn threshold\n\nSituation.\n\n# Current authoritative durable sources\n\nAgenda.\n\n# Exact memories already open\n\nAucune.\n\n# Durable memory catalog\n\n- theme/a\n\n# Outils de l'hôte\n\nOutils."
             ),
         },
         {

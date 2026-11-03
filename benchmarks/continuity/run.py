@@ -36,7 +36,7 @@ from benchmarks.useful_continuity.run import internal_scope, process_run, visibl
 
 ROOT = Path(__file__).resolve().parents[2]
 REAL_HOME = Path.home()
-BENCH_HOME = Path(os.environ.get("CONTINUITY_HOME", REAL_HOME / ".codex/worktrees/continuum-host")).absolute()
+BENCH_HOME = Path(os.environ.get("CONTINUITY_HOME", REAL_HOME / "continuity-bench")).absolute()
 STORE = BENCH_HOME / "credentials"
 CODEX_BINARY = BENCH_HOME / "codex/0.159.2/bin/codex"  # the official package Companion pins (setup_host.py)
 MODEL = "gpt-6-astra"

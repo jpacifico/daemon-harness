@@ -21,8 +21,10 @@ vault therefore cannot be audited from these records. The local home directory
 is written as `~`.
 
 The records keep the field names of the code that wrote them: a scenario is a
-"life" there. Recompute them with that version's tag, from a copy, after
-removing the derived files (`judging/merged.json`, `report/`):
+"life" there. Recompute them with that version's tag, which holds only the
+`benchmarks/` directory that ran and judged the campaign. It needs Python 3.11
+with PyYAML. Work on a copy of the campaign directory, after removing its
+derived files (`judging/merged.json`, `report/`):
 
 ```bash
 git worktree add ../continuity-1.1.0 continuity-1.1.0
@@ -31,5 +33,5 @@ python -m benchmarks.continuity.judge merge --campaign <copy of continuity-1.1.0
 python -m benchmarks.continuity.report --campaign <copy of continuity-1.1.0-20261031b>
 ```
 
-Both campaigns were checked this way on 1 November 2026: the merged verdicts,
-`summary.json` and `table.md` came out byte for byte identical.
+Both campaigns were checked this way: the merged verdicts, `summary.json` and
+`table.md` come out byte for byte identical.

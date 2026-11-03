@@ -204,7 +204,7 @@ def main():
         return
     if root.exists():
         raise FileExistsError('No overwrites or quality rerolls')
-    if not args.archive.resolve().is_relative_to(Path.home() / 'daemon-harness-canonical/exports/private'):
+    if not args.archive.resolve().is_relative_to(REPO / 'exports/private'):
         raise ValueError('Private evidence archive required')
     tracked=subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=args.source,text=True)
     if tracked.strip():

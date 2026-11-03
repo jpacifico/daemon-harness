@@ -40,7 +40,7 @@ def _plan(host: HostKind = HostKind.HERMES):
     return build_setup_plan(
         SetupRequest(
             host=host,
-            daemon_name="Lyra",
+            daemon_name="Iris",
             daemon_gender="feminine",
             provider=ProviderSelection(
                 ProviderKind.OPENAI_API,

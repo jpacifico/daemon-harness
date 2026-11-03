@@ -203,7 +203,7 @@ def _fixture(tmp_path: Path, target_os: str = "macos", job_namespace=None):
         credential_available=True,
     )
     reviewed = build_setup_plan(
-        SetupRequest(HostKind.HERMES, "Lyra", "feminine", selection),
+        SetupRequest(HostKind.HERMES, "Iris", "feminine", selection),
         (
             HostProbe(
                 HostKind.HERMES,

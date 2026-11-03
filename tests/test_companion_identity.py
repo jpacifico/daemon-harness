@@ -121,7 +121,7 @@ def test_existing_identity_update_changes_only_two_metadata_values(tmp_path: Pat
     _write_voice_files(layout)
     layout.identity_file.parent.mkdir(parents=True, exist_ok=True)
     layout.identity_file.write_text(
-        '{\n  "name": "Lyra",\n  "gender": "feminine"\n}\n',
+        '{\n  "name": "Iris",\n  "gender": "feminine"\n}\n',
         encoding="utf-8",
     )
     layout.identity_file.chmod(0o640)
@@ -203,7 +203,7 @@ def test_interruption_is_recovered_by_fresh_adapter(tmp_path: Path) -> None:
     layout = _layout(tmp_path)
     layout.identity_file.parent.mkdir(parents=True)
     layout.identity_file.write_text(
-        '{"name":"Lyra","gender":"feminine"}\n',
+        '{"name":"Iris","gender":"feminine"}\n',
         encoding="utf-8",
     )
     layout.identity_file.chmod(0o640)
@@ -427,7 +427,7 @@ def test_the_name_prompt_accepts_accents_and_keeps_a_refused_name():
 
     ui = UI(["Aurélie"])
     assert ask_daemon_name(ui) == "Aurélie" and not ui.messages
-    ui = UI(["Hélène / Lyra", "Hélène"])
+    ui = UI(["Hélène / Iris", "Hélène"])
     assert ask_daemon_name(ui, "Aster") == "Hélène"
-    assert ui.fields == ["Aster", "Hélène / Lyra"]
+    assert ui.fields == ["Aster", "Hélène / Iris"]
     assert ui.messages == ["Daemon name must be 1–40 letters, numbers, spaces, dots, apostrophes or hyphens."]

@@ -210,7 +210,7 @@ def _fixture(tmp_path: Path, target_os: str = "macos", job_namespace=None):
         credential_available=True,
     )
     reviewed = build_setup_plan(
-        SetupRequest(HostKind.OPENCLAW, "Lyra", "feminine", selection),
+        SetupRequest(HostKind.OPENCLAW, "Iris", "feminine", selection),
         (
             HostProbe(
                 HostKind.OPENCLAW,

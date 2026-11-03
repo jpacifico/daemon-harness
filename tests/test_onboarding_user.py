@@ -116,7 +116,7 @@ def test_canonical_first_context_is_scoped_and_current_turn_unchanged(tmp_path, 
     def compose(user='12345', channel=platform, message='Hello'):
         return compose_canonical_voice_messages(user, message, platform=channel, message_received_at=123.0)[0]
     before = compose()
-    save_daemon_identity(tmp_path, 'Lyra', 'feminine', user=UserPreferences('Morgan', 'they/them').for_user('12345', platform))
+    save_daemon_identity(tmp_path, 'Iris', 'feminine', user=UserPreferences('Morgan', 'they/them').for_user('12345', platform))
     after = compose()
     assert 'Morgan' in json.dumps(after)
     assert 'Initial addressing preferences' in json.dumps(after)
@@ -125,7 +125,7 @@ def test_canonical_first_context_is_scoped_and_current_turn_unchanged(tmp_path, 
     # configuration without user settings rather than the default gender.
     target = tmp_path / 'core/daemon_identity.json'
     with_user = target.read_bytes()
-    target.write_text('{"name":"Lyra","gender":"feminine"}')
+    target.write_text('{"name":"Iris","gender":"feminine"}')
     baseline_other = compose('54321')
     baseline_wrong = compose(channel='cli')
     target.write_bytes(with_user)

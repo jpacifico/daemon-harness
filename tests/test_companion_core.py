@@ -84,7 +84,7 @@ def test_config_marker_without_executable_is_detected_but_not_usable(tmp_path: P
 def test_plan_refuses_to_install_or_target_an_absent_host() -> None:
     request = SetupRequest(
         host=HostKind.HERMES,
-        daemon_name="Lyra",
+        daemon_name="Iris",
         daemon_gender="feminine",
         provider=ProviderSelection(
             ProviderKind.OPENAI_API,

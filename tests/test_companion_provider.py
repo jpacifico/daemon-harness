@@ -66,7 +66,7 @@ def _plan(step: PlanStep = PROVIDER_STEP) -> SetupPlan:
             usable=True,
             executable="/synthetic/hermes",
         ),
-        daemon_name="Lyra",
+        daemon_name="Iris",
         daemon_gender="feminine",
         provider={"kind": "synthetic", "settings": {}, "required_secret_names": []},
         steps=(step,),

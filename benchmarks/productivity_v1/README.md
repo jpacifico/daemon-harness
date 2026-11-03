@@ -2,8 +2,8 @@
 
 This directory implements the first reproducibility milestone from the
 [frozen English protocol](../../docs/productivity-benchmark.md).
-Its independent-copy validation is recorded in the
-canonical evaluation report.
+Its independent-copy validation is recorded in an evaluation report that is
+not part of this repository.
 
 Implemented now:
 
@@ -129,8 +129,7 @@ opens a distinct scored session. No arm is seeded through a private memory
 write. All three turns count toward latency and tokens.
 
 The first longitudinal dry-run and its two rejected instrumentation attempts
-are documented in the
-canonical evaluation report.
+are documented in an evaluation report that is not part of this repository.
 The report's original OpenClaw comparison was later invalidated: arm A had no
 native memory provider and the Codex process was not isolated from the host
 home. Its raw bundle is deliberately not versioned because one failed native

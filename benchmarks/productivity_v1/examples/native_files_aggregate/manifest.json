@@ -1,0 +1,61 @@
+{
+  "analysis": {
+    "percentile_method": "nearest-rank"
+  },
+  "arms": [
+    {
+      "id": "A",
+      "label": "native_host"
+    },
+    {
+      "id": "C",
+      "label": "host_with_daemon"
+    }
+  ],
+  "campaign_id": "schema-example-native-files-aggregate",
+  "campaign_kind": "schema-example",
+  "environment": {
+    "architecture": "schema-example",
+    "operating_system": "schema-example",
+    "python_version": "3.11"
+  },
+  "hosts": [
+    {
+      "arm_attestations": [
+        {
+          "arm_id": "A",
+          "context_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "tool_catalog_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        {
+          "arm_id": "C",
+          "context_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "tool_catalog_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ],
+      "binary_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "id": "hermes",
+      "model": {
+        "name": "schema-example",
+        "provider": "schema-example",
+        "reasoning_effort": "schema-example"
+      },
+      "version": "schema-example"
+    }
+  ],
+  "language": "en",
+  "ordering_seed": 20260829,
+  "protocol_version": "1.0.0",
+  "report_eligible": false,
+  "scenarios": [
+    {
+      "id": "native.files.aggregate",
+      "max_turns": 1,
+      "seeds": [
+        1101
+      ],
+      "timeout_ms": 300000
+    }
+  ],
+  "schema_version": "daemon.public-productivity.manifest.v1"
+}

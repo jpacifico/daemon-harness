@@ -23,7 +23,7 @@ Anonymous `curl` / `irm` cannot access private GitHub releases.
 Paste this single command into Terminal, without `sudo`:
 
 ```sh
-(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness-canonical/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
+(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
 ```
 
 It downloads and verifies the DMG, checks the application signature and bundle
@@ -37,7 +37,7 @@ again. No personal daemon, vault, credential or service is moved or restarted.
 Paste into **PowerShell**, in your normal session:
 
 ```powershell
-$daemonsScript = gh api 'repos/jpacifico/daemon-harness-canonical/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
+$daemonsScript = gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
 ```
 
 The script verifies the EXE, runs the existing per-user NSIS installer, then

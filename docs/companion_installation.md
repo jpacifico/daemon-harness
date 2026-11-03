@@ -43,7 +43,7 @@ gh auth login --hostname github.com --web --git-protocol https
 Après la connexion réussie, lancer cette commande dans Terminal, sans `sudo` :
 
 ```sh
-(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness-canonical/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
+(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
 ```
 
 L’app est installée dans `~/Applications/Daemons Companion.app`.
@@ -82,7 +82,7 @@ gh auth login --hostname github.com --web --git-protocol https
 **4. Télécharger et installer la Companion**, après la connexion réussie :
 
 ```powershell
-$daemonsScript = gh api 'repos/jpacifico/daemon-harness-canonical/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
+$daemonsScript = gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
 ```
 
 L’app est installée dans

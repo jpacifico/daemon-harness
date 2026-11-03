@@ -16,9 +16,9 @@ def fixture():
     assets = []
     for name, package in zip(SCRIPTS, PACKAGES):
         if name.endswith(".sh"):
-            text = f"daemon_tag={TAG}\ndaemon_sha={'a' * 64}\ndaemon_asset={package}\ndaemon_repo=jpacifico/daemon-harness-canonical\n"
+            text = f"daemon_tag={TAG}\ndaemon_sha={'a' * 64}\ndaemon_asset={package}\ndaemon_repo=jpacifico/daemon-harness\n"
         else:
-            text = f"$daemonTag = '{TAG}'\n$daemonDigest = '{'a' * 64}'\n$daemonAsset = '{package}'\n$daemonRepo = 'jpacifico/daemon-harness-canonical'\n"
+            text = f"$daemonTag = '{TAG}'\n$daemonDigest = '{'a' * 64}'\n$daemonAsset = '{package}'\n$daemonRepo = 'jpacifico/daemon-harness'\n"
         scripts[name] = text.encode()
         assets.extend(
             [

@@ -10,7 +10,7 @@ mémoire personnelle pendant un test.
 DAEMON_REVISION="$(git rev-parse HEAD)"
 docker build \
   --build-arg DAEMON_CORE_RUNTIME_REVISION="$DAEMON_REVISION" \
-  -t daemon-harness-canonical:"$DAEMON_REVISION" .
+  -t daemon-harness:"$DAEMON_REVISION" .
 ```
 
 ## État Hors Du Dépôt
@@ -25,12 +25,12 @@ reste prioritaire sur une éventuelle ancienne valeur du `.env` :
 
 ```bash
 docker run --detach --restart unless-stopped \
-  --name daemon-harness-canonical \
+  --name daemon-harness \
   --env-file .env \
   -e DAEMON_CORE_RUNTIME_REVISION="$DAEMON_REVISION" \
   -v "$DAEMON_STATE_DIR/memory:/app/memory" \
   -p 127.0.0.1:8000:8000 \
-  daemon-harness-canonical:"$DAEMON_REVISION"
+  daemon-harness:"$DAEMON_REVISION"
 ```
 
 Contrôler ensuite `/health` puis `/ready`. Une readiness dégradée interdit la

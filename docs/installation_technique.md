@@ -23,8 +23,8 @@ channel and provider configuration for tests. A Git worktree alone does not
 isolate any of those resources.
 
 ~~~sh
-git clone https://github.com/jpacifico/daemon-harness-canonical.git
-cd daemon-harness-canonical
+git clone https://github.com/jpacifico/daemon-harness.git
+cd daemon-harness
 python3.12 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt
 PYTHONPATH=.:src .venv/bin/python -m pytest -q

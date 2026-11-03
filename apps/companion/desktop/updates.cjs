@@ -8,7 +8,7 @@ const path = require('node:path');
 
 // The one place that names where updates come from. A move to another
 // repository ships as a last release on this channel built with the new value.
-const SOURCE = Object.freeze({repository: 'jpacifico/daemon-harness-canonical',
+const SOURCE = Object.freeze({repository: 'jpacifico/daemon-harness',
   path: 'apps/companion/distribution/channel.json',
   refs: Object.freeze({main: 'main', candidate: 'companion-candidate'})});
 const SCHEMA = 'daemon.companion.channel.v1';

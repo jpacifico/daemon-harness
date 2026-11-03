@@ -21,7 +21,7 @@ import re
 import subprocess
 import tempfile
 
-REPO = "jpacifico/daemon-harness-canonical"
+REPO = "jpacifico/daemon-harness"
 DIRECTORY = "apps/companion/distribution"
 SCRIPTS = ("install-macos.sh", "install-windows.ps1")
 PACKAGES = ("Daemons-Companion-macOS-arm64.dmg", "Daemons-Companion-Windows-x64.exe")

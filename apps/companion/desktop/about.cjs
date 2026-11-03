@@ -1,6 +1,6 @@
 'use strict';
 // Fixed, user-approved destinations. No arbitrary URL or private data is accepted.
-const project = 'https://github.com/jpacifico/daemon-harness-canonical';
+const project = 'https://github.com/jpacifico/daemon-harness';
 const destinations = Object.freeze({project, contact: project + '/issues', guide: project + '/blob/main/docs/getting-started.md', obsidian:'https://obsidian.md/download', telegram:'https://web.telegram.org/k/'});
 function destination(key) {
   if (!Object.hasOwn(destinations, key)) throw new Error('Unsupported project link.');

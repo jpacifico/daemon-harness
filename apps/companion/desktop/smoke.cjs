@@ -445,7 +445,7 @@ async function appearanceTrial(window, backend, output) {
   const before=backend.smokeOpenedLinks.length;
   await evaluate("document.querySelector('[data-project-link=contact]').click();document.querySelector('[data-project-link=project]').click()");
   for(let i=0;i<50&&backend.smokeOpenedLinks.length<before+2;i++)await new Promise(r=>setTimeout(r,20));
-  if(backend.smokeOpenedLinks.slice(before).join(',')!=='https://github.com/jpacifico/daemon-harness-canonical/issues,https://github.com/jpacifico/daemon-harness-canonical')throw new Error('Wrong About destinations');
+  if(backend.smokeOpenedLinks.slice(before).join(',')!=='https://github.com/jpacifico/daemon-harness/issues,https://github.com/jpacifico/daemon-harness')throw new Error('Wrong About destinations');
   return {status:'passed',elapsed_ms:Math.round(performance.now()-started),themes:['light','dark'],legacy_system_preserved:true,theme_keyboard:true,settings_page:true,frame_without_title_band:true,languages:['en','fr'],minimum_window:true,contrast_minimum:4.5,theme_reload:true,system_resolved_dark:systemDark,native_about_menu:true,fixed_links:true};
 }
 async function newInstanceTrial(window, backend, instances, output) {

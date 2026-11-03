@@ -465,12 +465,12 @@ Les propositions initiales expliquent
 la réflexion historique ; pour l'arborescence actuelle, leurs notions de vues,
 Home et chemins fixes sont remplacées par les contrats décrits ici.
 
-[prototype]: https://github.com/jpacifico/daemon-harness-canonical/tree/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3
-[layout]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/src/daemon_core/memory/library_layout.py
-[pages]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/src/daemon_core/memory/context_pages.py
-[obsidian]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/src/daemon_core/memory/obsidian.py
-[agent]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/src/daemon_core/memory_agent.py
-[reader]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/src/daemon_core/memory/reader.py
-[atlas]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/src/daemon_core/semantic_atlas.py
-[migration]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/src/daemon_core/memory/root_migration.py
-[tests]: https://github.com/jpacifico/daemon-harness-canonical/blob/78762769d8f9cf7b1219ef2d8109fbac53ce9cd3/tests/test_memory_root_folders.py
+[prototype]: ../README.md
+[layout]: ../src/daemon_core/memory/library_layout.py
+[pages]: ../src/daemon_core/memory/context_pages.py
+[obsidian]: ../src/daemon_core/memory/obsidian.py
+[agent]: ../src/daemon_core/memory_agent.py
+[reader]: ../src/daemon_core/memory/reader.py
+[atlas]: ../src/daemon_core/semantic_atlas.py
+[migration]: ../src/daemon_core/memory/root_migration.py
+[tests]: ../tests/test_memory_root_folders.py

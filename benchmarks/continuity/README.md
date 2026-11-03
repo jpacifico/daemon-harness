@@ -1,6 +1,6 @@
 # Continuity Benchmark — reproduction
 
-Protocol: [docs/50_continuity_benchmark.md](../../docs/50_continuity_benchmark.md).
+Protocol: [docs/continuity-benchmark.md](../../docs/continuity-benchmark.md).
 Versions 1.0.0 and 1.1.0 are kept at the tags `continuity-1.0.0` and
 `continuity-1.1.0`; this checkout runs the current version.
 Scenarios as a reusable dataset: [dataset/](dataset/README.md).

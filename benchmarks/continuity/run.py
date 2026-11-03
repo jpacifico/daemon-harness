@@ -5,7 +5,7 @@ accounting. No memory is seeded beyond Companion's fixed voice templates and
 identity, and no host source is patched. In the final conversation of each
 scenario, a separate Claude Opus 5.5 plays the person (simulate.py). Version 1.0,
 with its native tasks, is kept at the tag continuity-1.0.0.
-Protocol: docs/50_continuity_benchmark.md.
+Protocol: docs/continuity-benchmark.md.
 """
 
 from __future__ import annotations

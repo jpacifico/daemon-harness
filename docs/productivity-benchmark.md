@@ -1,18 +1,18 @@
 # Public Productivity Benchmark V1 Specification
 
+[Version française](productivity-benchmark.fr.md)
+
 Protocol version: `1.0.0`
 
-Status: frozen for implementation; no scored public campaign has run
+Status: frozen for implementation; no scored public campaign has run. Three of
+the ten scenarios are implemented; see
+[`benchmarks/productivity_v1/`](../benchmarks/productivity_v1/README.md).
 
 Authoritative language: English
 
 This document defines the benchmark before its results are known. A campaign
 may support a public adoption claim only if its protocol was frozen, versioned,
 and published before the first scored turn.
-
-The [French design document](44_specification_banc_public_productivite_v1.md)
-is retained for a future, separately scored French track. It is not normative
-for the English V1 campaign.
 
 ## Question And Scope
 
@@ -310,7 +310,7 @@ If a host or model version is no longer available, offline recalculation
 remains exact, but the new live run is a different-version campaign. It does
 not claim to reproduce the unavailable environment.
 
-The future `benchmarks/productivity_v1/` directory must contain:
+The `benchmarks/productivity_v1/` directory must contain:
 
 ```text
 README.md                 exact offline and live commands
@@ -361,9 +361,7 @@ Implementation proceeds in this order:
 A later correction produces a new protocol and corpus version such as `1.0.1`
 or `1.1.0`, plus a distinct campaign. The previous report stays available.
 
-## Next Implementation Step
-
-Build only the public directory skeleton, the result schema, and offline
-recalculation for **one** deterministic file scenario. Until that small path
-recalculates identically from a second repository copy, none of the 240 scored
-V1 episodes may run.
+None of the 240 scored V1 episodes may run until every scenario is implemented
+and its offline recalculation is identical from a second repository copy. What
+is implemented today is listed in
+[`benchmarks/productivity_v1/README.md`](../benchmarks/productivity_v1/README.md).

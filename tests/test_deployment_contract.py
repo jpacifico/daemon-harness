@@ -52,12 +52,13 @@ def test_docker_image_has_revision_and_readiness_contract():
 
 
 def test_docker_runbook_preserves_the_built_revision_over_dotenv():
-    runbook = (ROOT / "docs" / "05_deploiement.md").read_text(encoding="utf-8")
+    for name in ("docker.md", "docker.fr.md"):
+        runbook = (ROOT / "docs" / name).read_text(encoding="utf-8")
 
-    assert '--env-file .env' in runbook
-    assert '-e DAEMON_CORE_RUNTIME_REVISION="$DAEMON_REVISION"' in runbook
-    assert 'test -d "$DAEMON_STATE_DIR/memory/users"' in runbook
-    assert "docker run --detach --restart unless-stopped" in runbook
+        assert '--env-file .env' in runbook, name
+        assert '-e DAEMON_CORE_RUNTIME_REVISION="$DAEMON_REVISION"' in runbook, name
+        assert 'test -d "$DAEMON_STATE_DIR/memory/users"' in runbook, name
+        assert "docker run --detach --restart unless-stopped" in runbook, name
 
 
 def test_direct_dependencies_are_exactly_pinned():

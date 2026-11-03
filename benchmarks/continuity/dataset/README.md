@@ -27,7 +27,7 @@ assistant carry what a person told it across separate conversations, and use it
 well, without being told again? Every person, fact and message is invented.
 
 The full protocol, how the scenarios are run and scored, and what results may
-claim is in [docs/50_continuity_benchmark.md](../../../docs/50_continuity_benchmark.md).
+claim is in [docs/continuity-benchmark.md](../../../docs/continuity-benchmark.md).
 Version 1.1.0 replays the 24 scenarios of 1.0.0 with a final conversation over
 several turns. Version 1.0.0 (a single scored reply, and 12 native tool tasks)
 is kept at the repository tag `continuity-1.0.0`.

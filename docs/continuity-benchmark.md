@@ -1,9 +1,15 @@
 # Continuity Benchmark
 
-Protocol version: `1.1.0`
+[Version française](continuity-benchmark.fr.md)
 
-Status: version 1.1.0 specified on 31 October 2026, before any 1.1 run.
-Both versions ran on 31 October 2026 and are on `main` since 1 November 2026.
+The Continuity Benchmark asks one question: **does the daemon make Hermes a better personal
+assistant across conversations, without making it a worse agent?** It compares
+the same Hermes, with the same model and the same tools, with and without the
+daemon. Every claim it can support is fixed below, before its results are
+known.
+
+Protocol version: `1.1.0`. Language of the corpus and of this protocol:
+English. Version 1.1.0 was specified on 31 October 2026, before any 1.1 run.
 
 | Version | Campaign | Code | Report | Outcome |
 | --- | --- | --- | --- | --- |
@@ -12,20 +18,10 @@ Both versions ran on 31 October 2026 and are on `main` since 1 November 2026.
 
 Records of both campaigns: [`benchmarks/continuity/records/`](../benchmarks/continuity/records/README.md).
 
-Naming: the unit is a **scenario**. The code of both tags called it a "life"
-(`LIVES`, `lives.jsonl`); the rename afterwards changed no scenario, message,
-criterion or instruction, and the published scenario file is byte for byte the
-same.
+The unit of the benchmark is a **scenario**: one invented person talking to
+their assistant over several conversations (see [Part 1](#part-1--personal-assistant-where-c-must-be-better)).
 
-Language: English
-
-The Continuity Benchmark asks one question: **does the daemon make Hermes a better personal
-assistant across conversations, without making it a worse agent?** It compares
-the same Hermes, with the same model and the same tools, with and without the
-daemon. Every claim it can support is fixed below, before its results are
-known.
-
-It replaces nothing. The [Public Productivity Benchmark V1](44_public_productivity_benchmark_v1.md)
+It replaces nothing. The [Public Productivity Benchmark V1](productivity-benchmark.md)
 and the [Useful Continuity Benchmark v0.1](../benchmarks/useful_continuity/README.md)
 stay as they are, with their own campaigns. It reuses V1's two native
 tasks and their checkers, and learns from UCB v0.1: its useful-context and
@@ -37,9 +33,9 @@ seen.
 
 Version 1.0 judged a single reply: the answer to the opening message of the
 final conversation. An assistant that first asks a question it needs could
-never show what it does with the answer. The owner asked that the
-personal-assistant part of 1.0 be replayed with continuity judged over several
-turns, and nothing else. Version 1.1 changes the following, and nothing else.
+never show what it does with the answer. Version 1.1 replays the
+personal-assistant part of 1.0 with continuity judged over several turns. It
+changes the following, and nothing else.
 
 1. **The same 24 scenarios.** The scenarios, their messages and their criteria are
    those of 1.0, unchanged; 1.0's useful next step becomes `outcome`, judged at
@@ -98,13 +94,6 @@ Known limits of 1.1, stated before the run: the simulated person and the judges
 are the same model family, Claude Opus 5.5; the scenarios and person sheets were
 written by Claude Opus 5.5 too; the final conversation is capped at three
 person messages; the scenarios were already seen in 1.0.
-
-A first draft of 1.1 used 36 new scenarios and a threshold of 9 of 36. Its
-campaign (`continuity-1.1.0-20261031-abandoned-36`) was stopped after its
-engineering episodes and one scored scenario, whose replies were not read, when
-the owner pointed out that only the 1.0 personal-assistant part was to be
-replayed. Its corpus stays in the history at `00bf25c3`; none of its episodes
-counts.
 
 ## What is compared
 
@@ -266,25 +255,10 @@ safeguards are the code checks, the blinding, two independent judging agents
 with published instructions, and the swap of presentation order. Agreement
 between the two judges is published, and every disagreement is listed.
 
-Amended on 31 October 2026, before any verdict, at the owner's request: the
-first wording added a blind review by people; it is removed, and the
-judgment is the automatic one above.
-
-**Preview.** At the owner's request, the scenarios finished around mid-campaign
-may be judged once as a preview, in a separate directory with its own label
-key. The preview changes nothing in the campaign and never counts: the final
-judgment draws new labels and judges all scenarios afresh.
-
-Corrected on 31 October 2026, **after** the preview verdicts: the judge
-instructions did not carry the rule this protocol set before any episode,
-"unless the case requires a question first", for the useful next step. They
-now say that a question counts as a useful next step when the reply could not
-reasonably act without its answer, and does not count when the person's
-messages already hold that answer. The owner asked for this after reading the
-preview. Because the correction came after verdicts were seen, it is disclosed
-here; the first preview, judged without the rule, is kept unchanged as
-`preview-1-judging`, and the preview was judged again with the corrected
-instructions. No criterion of any scenario changed.
+**Preview.** The scenarios finished around mid-campaign may be judged once as
+a preview, in a separate directory with its own label key. The preview changes
+nothing in the campaign and never counts: the final judgment draws new labels
+and judges all scenarios afresh.
 
 ## Results table
 
@@ -361,8 +335,8 @@ When a rule fails, the report says which, and the claim is not made.
 
 ## Isolation and credentials
 
-The benchmark never touches a personal installation: not the owner's Hermes,
-Companion daemons, memory or channels. Hermes is installed by Companion's own
+The benchmark never touches a personal installation: no personal Hermes,
+Companion daemon, memory or channel. Hermes is installed by Companion's own
 installer into a dedicated benchmark directory. The voice and the daemon's
 internal calls use two separate ChatGPT sign-ins made for the benchmark, because
 ChatGPT refresh tokens rotate and must not be shared between programs. Episodes
@@ -390,8 +364,11 @@ answers, blinded packets, raw judge answers, verdicts, blind keys and reports.
 Every runtime directory is left out (Hermes and Codex homes, sign-ins, logs,
 caches and the bench daemon's vault), the local home directory is written as
 `~`, and the export is refused if a credential or personal-path pattern
-remains. The records keep the field names of the code that wrote them (a
-scenario is a "life" there) and are recalculated with that version's tag.
+remains. The records keep the field names of the code that wrote them: that
+code called a scenario a "life" (`LIVES`, `lives.jsonl`). The later rename
+changed no scenario, message, criterion or instruction, and the published
+scenario file is byte for byte the same. The records are recalculated with
+that version's tag.
 The records of the 1.0 and 1.1 reference campaigns are in
 `benchmarks/continuity/records/`.
 
@@ -414,3 +391,30 @@ The records of the 1.0 and 1.1 reference campaigns are in
 
 A change to the corpus, criteria or rules after step 1 makes a new protocol
 version and a new campaign; earlier ones stay published.
+
+## Amendments and disclosures
+
+Changes made to this protocol after it was first written, and runs that do
+not count, are listed here so that a reader can judge their effect.
+
+- **Human review removed, before any verdict (31 October 2026).** The first
+  wording added a blind review by people. At the request of the project's
+  maintainer it was removed; the judgment is the automatic one described in
+  [Who judges](#who-judges).
+- **Judge instructions corrected, after the preview verdicts (31 October
+  2026).** The judge instructions did not carry the rule this protocol set
+  before any episode, "unless the case requires a question first", for the
+  useful next step. They now say that a question counts as a useful next step
+  when the reply could not reasonably act without its answer, and does not
+  count when the person's messages already hold that answer. The project's
+  maintainer asked for this after reading the preview. The first preview,
+  judged without the rule, is kept unchanged as `preview-1-judging`, and the
+  preview was judged again with the corrected instructions. No criterion of
+  any scenario changed.
+- **Abandoned first draft of 1.1.** A first draft of 1.1 used 36 new scenarios
+  and a threshold of 9 of 36. Its campaign
+  (`continuity-1.1.0-20261031-abandoned-36`) was stopped after its engineering
+  episodes and one scored scenario, whose replies were not read, when the
+  project's maintainer pointed out that 1.1 was to replay only the 1.0
+  personal-assistant part. Its corpus is not part of this repository; none of
+  its episodes counts.

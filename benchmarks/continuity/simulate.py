@@ -3,7 +3,7 @@
 It sees what the person told the assistant before, the person's sheet and the
 final conversation so far. It never sees the criteria or which system it is
 talking to. Every raw answer is kept with the episode.
-Protocol: docs/50_continuity_benchmark.md, "Final conversation".
+Protocol: docs/continuity-benchmark.md, "Final conversation".
 """
 
 from __future__ import annotations

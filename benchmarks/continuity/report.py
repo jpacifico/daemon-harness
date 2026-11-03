@@ -1,7 +1,7 @@
 """Continuity Benchmark report: the published results table, recomputed offline from the records.
 
 No model call. Inputs: runs.jsonl and judging/merged.json of one campaign.
-Protocol: docs/50_continuity_benchmark.md, "Results table" and "What may be said publicly".
+Protocol: docs/continuity-benchmark.md, "Results table" and "What may be said publicly".
 """
 
 from __future__ import annotations

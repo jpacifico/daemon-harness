@@ -2,7 +2,7 @@
 
 Used by the simulated person and by the judges: no tool, no MCP server, no
 project setting, no saved session, an empty working directory, the prompt on
-standard input. Protocol: docs/50_continuity_benchmark.md.
+standard input. Protocol: docs/continuity-benchmark.md.
 """
 
 from __future__ import annotations

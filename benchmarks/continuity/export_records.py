@@ -5,7 +5,7 @@ answers, blinded packets, raw judge answers, verdicts, the blind keys (opened
 after judging) and the reports. Left out: every runtime directory (Hermes and
 Codex homes, sign-ins, the bench daemon's vault, logs and caches). The local
 home directory is written as `~` in every kept file. A scan refuses the export
-if a forbidden pattern remains. Protocol: docs/50_continuity_benchmark.md,
+if a forbidden pattern remains. Protocol: docs/continuity-benchmark.md,
 "Publication and reproducibility".
 """
 

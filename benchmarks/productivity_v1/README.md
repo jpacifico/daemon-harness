@@ -1,7 +1,7 @@
 # Public Productivity Benchmark V1
 
 This directory implements the first reproducibility milestone from the
-[frozen English protocol](../../docs/44_public_productivity_benchmark_v1.md).
+[frozen English protocol](../../docs/productivity-benchmark.md).
 Its independent-copy validation is recorded in the
 canonical evaluation report.
 

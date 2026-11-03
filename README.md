@@ -124,7 +124,7 @@ and [OpenClaw](integrations/openclaw_plugin/INSTALL.md) guides.
 
 ## What has been measured
 
-The [Continuity Benchmark](docs/50_continuity_benchmark.md) compares the same
+The [Continuity Benchmark](docs/continuity-benchmark.md) compares the same
 Hermes Agent, model and tools with and without the daemon, on 24 synthetic
 personal-assistant scenarios judged blind by two Claude Opus 5.5 judges. Its
 claims were fixed before any run. Version 1.1 (31 October 2026):
@@ -140,7 +140,7 @@ claims were fixed before any run. Version 1.1 (31 October 2026):
 - a full turn, after-turn memory work included, used 3.42 times the tokens of
   Hermes alone.
 
-[Reports, records and limits](docs/50_continuity_benchmark.md).
+[Reports, records and limits](docs/continuity-benchmark.md).
 
 ## Documentation and development
 
@@ -154,7 +154,7 @@ developer references:
 - [Operations and troubleshooting](docs/operations.md).
 - [Contributing and local tests](CONTRIBUTING.md).
 - The
-  [Continuity Benchmark](docs/50_continuity_benchmark.md) and its
+  [Continuity Benchmark](docs/continuity-benchmark.md) and its
   [reproduction guide](benchmarks/continuity/README.md).
 - [App source and distribution](apps/companion/README.md).
 

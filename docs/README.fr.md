@@ -118,7 +118,7 @@ plateforme.
 
 ## Ce qui a été mesuré
 
-Le [Continuity Benchmark](50_continuity_benchmark.md) (en anglais) compare le
+Le [Continuity Benchmark](continuity-benchmark.fr.md) compare le
 même Hermes Agent, avec le même modèle et les mêmes outils, avec et sans le
 daemon, sur 24 scénarios synthétiques d’assistant personnel jugés à l’aveugle
 par deux juges Claude Opus 5.5. Ce qu’il permet d’affirmer a été fixé avant
@@ -137,7 +137,7 @@ toute exécution. Version 1.1 (31 octobre 2026) :
 - un tour complet, travail mémoire d’après-tour compris, a consommé 3,42 fois
   les tokens de Hermes seul.
 
-[Rapports, enregistrements et limites](50_continuity_benchmark.md) (en anglais).
+[Rapports, enregistrements et limites](continuity-benchmark.fr.md).
 
 ## Comprendre et contribuer
 

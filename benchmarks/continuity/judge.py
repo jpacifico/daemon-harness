@@ -4,7 +4,7 @@ Each judge is one isolated Claude Opus 5.5 call (opus.py, Claude subscription)
 per batch of packets. A packet holds the person's earlier messages and the two
 versions of the final conversation, judged as a whole. It never sees an arm name; the label key stays in
 the campaign's private directory until every verdict exists.
-Protocol: docs/50_continuity_benchmark.md, "Who judges".
+Protocol: docs/continuity-benchmark.md, "Who judges".
 """
 
 from __future__ import annotations

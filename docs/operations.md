@@ -22,6 +22,9 @@ below manage the shared names listed here.
 | Shared worker | `com.daemonharness.after-turn-worker` | `after_turn_worker.log` |
 | Nightly maintenance | `com.daemonharness.dreaming` | `dreaming_cron.log` |
 
+The OpenClaw local API can also run in a container for an isolated test; see
+[Run the local HTTP API in Docker](docker.md).
+
 ## Read-only checks
 
 Run from the source checkout belonging to the manual deployment:

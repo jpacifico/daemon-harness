@@ -1,6 +1,6 @@
 # Continuity Benchmark 1.1.0
 
-Date: 31 October 2026. Protocol: [docs/50_continuity_benchmark.md](../50_continuity_benchmark.md),
+Date: 31 October 2026. Protocol: [docs/continuity-benchmark.md](../continuity-benchmark.md),
 section "Version 1.1". Branch `codex/continuum`,
 merged to `main` on 1 November 2026.
 Previous version: [Continuity Benchmark 1.0.0](2026-10-31_continuity_benchmark_1_0.md).

@@ -43,15 +43,16 @@ Dreaming, REM, receipts and canary.
 - [Companion source, branches and distribution](../apps/companion/README.md).
 - [Daemon health and installation diagnostics](companion-health.md): installed-state evidence and safe report export.
 - [Health actions and opening memory in Obsidian](companion-health-actions.md).
+- [Run the local HTTP API in Docker](docker.md): an isolated container for the OpenClaw bridge.
 
 ## Evidence
 
-The [Continuity Benchmark](50_continuity_benchmark.md) compares Hermes with and
+The [Continuity Benchmark](continuity-benchmark.md) compares Hermes with and
 without the daemon as a personal assistant; its
 [reproduction guide](../benchmarks/continuity/README.md),
 [scenario dataset](../benchmarks/continuity/dataset/README.md) and
 [campaign records](../benchmarks/continuity/records/README.md) let anyone
 recompute or rerun the 1.0 and 1.1 results.
-The [public benchmark protocol](44_public_productivity_benchmark_v1.md)
+The [public benchmark protocol](productivity-benchmark.md)
 and [benchmark implementation](../benchmarks/productivity_v1/README.md)
 describe reproducible measurement; unexecuted cases are not results.

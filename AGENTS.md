@@ -24,9 +24,9 @@ outils ou de l'après-tour, lire également :
   propriétaires de chaque écriture ;
 - `docs/parga.md` et `docs/memory_structure_developer_guide.md` pour la
   mémoire ;
-- `docs/44_public_productivity_benchmark_v1.md` et
+- `docs/productivity-benchmark.md` et
   `benchmarks/productivity_v1/README.md` avant toute évolution du banc public ;
-- `docs/50_continuity_benchmark.md` et `benchmarks/continuity/README.md`
+- `docs/continuity-benchmark.md` et `benchmarks/continuity/README.md`
   avant toute évolution du Continuity Benchmark ;
 - le fichier `INSTALL.md` de l'intégration concernée avant un déploiement.
 

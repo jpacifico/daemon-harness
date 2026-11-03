@@ -1,0 +1,212 @@
+{
+  "schema": "daemon.windows-setup-probe.v1",
+  "source": "e20400ee1969a961577f78632c6bdb2c21fedef4",
+  "root": "D:\\a\\_temp\\dr-e0651p5f",
+  "telegram": false,
+  "real_model": false,
+  "oauth": false,
+  "passed": false,
+  "phases": [
+    "Downloading and verifying Hermes 0.21.5...",
+    "Extracting and verifying Hermes files...",
+    "Installing private Python 3.12...",
+    "Installing Hermes dependencies. This may take a few minutes...",
+    "Checking the installed host...",
+    "Preparing the private setup library...",
+    "Reproducing the published legacy Python rollback failure...",
+    "Preparing private installation...",
+    "Checking your installation and ChatGPT access...",
+    "Checking previous installation and preparing recovery...",
+    "Recovery prepared. The previous failed Python build and its journal are retained; your connections and memory are unchanged.",
+    "Preserved build: D:\\a\\_temp\\dr-e0651p5f\\c\\hosts\\hermes\\installations\\15b3d49a40f64d52b5f3b315305defc7\\daemon\\data\\runtime\\.retained-legacy-python",
+    "Verifying your saved Telegram connection...",
+    "Saved connection verified \u2014 Telegram @synthetic_bot. Installing your daemon next.",
+    "Installing runtime, plugins and private services. This can take several minutes...",
+    "Installing runtime, plugins and private services...",
+    "Copy daemon files \u2014 snapshot...",
+    "Copy daemon files \u2014 apply...",
+    "Copy daemon files \u2014 verify...",
+    "Install Python and dependencies \u2014 snapshot...",
+    "Install Python and dependencies \u2014 apply...",
+    "Install Python and dependencies \u2014 verify...",
+    "Configure daemon identity \u2014 snapshot...",
+    "Configure daemon identity \u2014 apply...",
+    "Configure daemon identity \u2014 verify...",
+    "Configure model access \u2014 snapshot...",
+    "Configure model access \u2014 apply...",
+    "Configure model access \u2014 verify...",
+    "Connect Hermes plugins \u2014 snapshot...",
+    "Connect Hermes plugins \u2014 apply...",
+    "Connect Hermes plugins \u2014 verify...",
+    "Register private background jobs \u2014 snapshot...",
+    "Register private background jobs \u2014 apply...",
+    "Register private background jobs \u2014 verify...",
+    "Register private background jobs \u2014 rollback...",
+    "Connect Hermes plugins \u2014 rollback...",
+    "Configure model access \u2014 rollback...",
+    "Configure daemon identity \u2014 rollback...",
+    "Install Python and dependencies \u2014 rollback...",
+    "Copy daemon files \u2014 rollback...",
+    "Checking the restored private installation...",
+    "Failed step: Register private background jobs (verify).",
+    "Installation cause: RuntimeError: Private runtime environment content changed.",
+    "Rollback needs recovery. Do not reinstall into this profile. Affected steps: background-services, runtime-environment, runtime-layout",
+    "Diagnostic saved: D:\\a\\_temp\\dr-e0651p5f\\c\\hosts\\hermes\\installations\\15b3d49a40f64d52b5f3b315305defc7\\installation-diagnostic.json",
+    "For help, share this diagnostic file, never your bot token or .env file."
+  ],
+  "cleanup": true,
+  "scheduler_commands": [
+    {
+      "seconds": 0.578,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.235,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.218,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.203,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.203,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.218,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.204,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.25,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.344,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.234,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.266,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.218,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.203,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.219,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 0.203,
+      "exit": 3,
+      "stderr": ""
+    }
+  ],
+  "powershell_startup": [
+    {
+      "environment": "filtered",
+      "seconds": 3.516,
+      "exit": 0,
+      "stdout": "ready\n",
+      "stderr": ""
+    },
+    {
+      "environment": "ci_session",
+      "seconds": 0.172,
+      "exit": 0,
+      "stdout": "ready\n",
+      "stderr": ""
+    }
+  ],
+  "host_ready_s": 44.297,
+  "legacy": {
+    "exit": 0,
+    "stdout": "{\"status\": \"rollback_failed\", \"completed\": [\"runtime-layout\"], \"rolled_back\": [\"runtime-layout\"], \"failed\": [\"runtime-environment\"], \"causes\": [{\"type\": \"TransactionRecoveryError\", \"message\": \"Installation failed and rollback needs manual recovery.\", \"stderr\": \"\"}, {\"type\": \"RuntimeError\", \"message\": \"Injected pre-publication failure after real managed Python acquisition\", \"stderr\": \"\"}]}\n",
+    "stderr": ""
+  },
+  "legacy_remaining_tree": {
+    "kind": "directory",
+    "tree_sha256": "a48394c39f7ab4a3cc2c1037e21794de3312ad6b7b31f3d0b5fb8cef10f3774b"
+  },
+  "causes": [
+    {
+      "type": "TransactionRecoveryError",
+      "message": "Installation failed and rollback needs manual recovery."
+    },
+    {
+      "type": "RuntimeError",
+      "message": "Private runtime environment content changed."
+    }
+  ],
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_transaction.py\", line 148, in execute\n    adapter.verify(step)\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_install_diagnostics.py\", line 52, in verify\n    return self._call('verify', step)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_install_diagnostics.py\", line 37, in _call\n    return getattr(self.adapter, phase)(step, *args)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_hermes_ready_composition.py\", line 128, in verify\n    self._step(step).verify(step)\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_background_services.py\", line 527, in verify\n    for job in self._validate(step):\n               ^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_background_services.py\", line 552, in _validate\n    return build_background_jobs(self.layout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_background_services.py\", line 396, in build_background_jobs\n    environment = resolve_release_environment(layout.runtime_environment)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_runtime_environment.py\", line 520, in resolve_release_environment\n    _verify_environment(\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_runtime_environment.py\", line 577, in _verify_environment\n    raise RuntimeError(\"Private runtime environment content changed.\")\nRuntimeError: Private runtime environment content changed.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\scripts\\qualification\\companion_windows_setup_probe.py\", line 375, in main\n    assert complete_private_setup(\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_setup.py\", line 346, in complete_private_setup\n    return _complete_private_setup(owner, ui, request, response)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_setup.py\", line 279, in _complete_private_setup\n    result = execute_prepared_installation(prepared, adapter=observed,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_install_session.py\", line 120, in execute_prepared_installation\n    return TransactionEngine(transactions_root).execute(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_transaction.py\", line 158, in execute\n    raise TransactionRecoveryError(\ndaemon_core.companion_transaction.TransactionRecoveryError: Installation failed and rollback needs manual recovery.\n",
+  "logs": {
+    "installation-diagnostic.json": "{\n  \"schema\": \"daemon.installation-diagnostic.v1\",\n  \"at\": \"2026-10-06T06:11:21.742665+00:00\",\n  \"transaction_id\": \"06aa2e43088e4fa28283eaa66aa28950\",\n  \"step\": \"background-services\",\n  \"phase\": \"verify\",\n  \"causes\": [\n    {\n      \"type\": \"RuntimeError\",\n      \"message\": \"Private runtime environment content changed.\"\n    }\n  ],\n  \"transaction_status\": \"rollback_failed\",\n  \"rollback_failed_steps\": [\n    \"background-services\",\n    \"runtime-environment\",\n    \"runtime-layout\"\n  ],\n  \"rollback_causes\": [\n    {\n      \"step\": \"background-services\",\n      \"causes\": [\n        {\n          \"type\": \"RuntimeError\",\n          \"message\": \"Private runtime environment content changed.\"\n        }\n      ]\n    },\n    {\n      \"step\": \"runtime-environment\",\n      \"causes\": [\n        {\n          \"type\": \"RuntimeError\",\n          \"message\": \"Runtime environment has concurrent changes; rollback was refused: published environment\"\n        }\n      ]\n    },\n    {\n      \"step\": \"runtime-layout\",\n      \"causes\": [\n        {\n          \"type\": \"PermissionError\",\n          \"message\": \"[WinError 32] The process cannot access the file because it is being used by another process: '\\\\\\\\\\\\\\\\?\\\\\\\\D:\\\\\\\\a\\\\\\\\_temp\\\\\\\\dr-e0651p5f\\\\\\\\c\\\\\\\\hosts\\\\\\\\hermes\\\\\\\\installations\\\\\\\\15b3d49a40f64d52b5f3b315305defc7\\\\\\\\daemon\\\\\\\\data\\\\\\\\runtime\\\\\\\\releases\\\\\\\\[opaque value removed]'\",\n          \"errno\": 13,\n          \"winerror\": 32\n        }\n      ]\n    }\n  ]\n}\n"
+  },
+  "receipts": {},
+  "elapsed_s": 258.578
+}

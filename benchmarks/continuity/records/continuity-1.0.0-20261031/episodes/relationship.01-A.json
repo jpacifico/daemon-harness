@@ -1,0 +1,249 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "2ec397a5d42c4eada8438ef0b408d0f01adb23e1eae14da332c6a95ace0067a0",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "6e15f953379ebc7585cfbad05c50b1d017a4c40bb66388f869c906735b8f4021",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "relationship.01",
+  "episode_ms": 93213,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "relationship.01-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 41344
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 54659
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1465
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 260
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 97468
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 2923,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10021,
+      "prompt": "Bit of a stressful day. My dad has a heart check-up this afternoon and I'm worried about it.",
+      "response": "That’s an unsettling thing to have hanging over the day. You don’t have to talk yourself out of being worried about your dad.\n\nIs this a routine check-up, or is there something specific they’re looking into?",
+      "response_ms": 10021,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 12089,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 27640,
+      "prompt": "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+      "response": "Basil wants warm, sunny growing conditions—not just a spot that looks bright indoors. A windowsill can work, but light, cold glass, and watering are the first things I’d check. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil))\n\nHere’s what it actually needs:\n\n• Plenty of direct sun. Aim for at least six hours daily. If your window gets only a little morning sun, especially in winter, a grow light may be needed. Water and fertilizer can’t substitute for adequate light. ([extension.umd.edu](https://www.extension.umd.edu/resource/growing-basil-home-garden?utm_source=openai))\n\n• Warmth without cold drafts. Basil is unusually cold-sensitive: temperatures around 50°F can damage it and blacken leaves. Keep it away from chilly glass and drafty windows, particularly overnight. ([extension.illinois.edu](https://extension.illinois.edu/herbs/basil))\n\n• Moist soil, but air around the roots. Check the soil rather than watering on a fixed schedule. Let the upper layer begin to dry, then water thoroughly. Constantly wet soil deprives roots of oxygen; don’t assume a drooping plant automatically needs more water. ([ask.extension.org](https://ask.extension.org/kb/faq.php?id=904518&utm_source=openai))\n\n• A pot that drains. Use potting mix and a container with holes underneath—not a sealed decorative pot that traps water. Basil needs moisture and good drainage together. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil))\n\n• Regular, gentle harvesting. Snip stem tips just above a pair of leaves to encourage branching, leaving foliage behind. Pinch off flower buds to keep it producing leaves. For indoor plants, light feeding—half-strength liquid fertilizer every four to six weeks—is usually enough. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil))\n\nWhich direction does your window face, and what happens before the plants die—do they turn yellow, go black, or wilt? Also, does the pot have drainage holes?",
+      "response_ms": 27640,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 2,
+      "first_native_text_ms": 8595,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18801,
+      "prompt": "How often should I water it, and how do I tell if I'm overdoing it?",
+      "response": "Check it daily, but water according to the soil—not a fixed schedule. For indoor basil, water when the soil feels dry about ½ inch below the surface. If it still feels damp there, wait and check tomorrow. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-herbs?utm_source=openai))\n\nWhen you water, wet the potting mix thoroughly and let excess water drain out. Empty the saucer or decorative outer pot afterward; don’t leave the roots sitting in water. ([extension.umd.edu](https://extension.umd.edu/resource/growing-herbs-containers-and-indoors?utm_source=openai))\n\nSigns you may be overdoing it:\n• The soil stays wet between waterings, and the pot stays heavy. Pot weight is a useful second check alongside your finger. ([extension.umd.edu](https://extension.umd.edu/resource/watering-indoor-plants?utm_source=openai))\n• Leaves yellow or wilt even though the soil is moist. Wilting alone doesn’t mean thirst—overwatering can cause it too. ([missouribotanicalgarden.org](https://www.missouribotanicalgarden.org/Portals/0/Gardening/Gardening%20Help/Visual%20Guides/Culinary%20Herbs%20Problems-Indoors.pdf?utm_source=openai))\n\nIf it’s wilting in wet soil, pause watering and check that the drainage holes aren’t blocked. The aim is lightly moist soil, not constantly soggy soil or a completely dried-out root ball. ([extension.psu.edu](https://extension.psu.edu/growing-herbs-indoors?utm_source=openai))",
+      "response_ms": 18801,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 8604,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19979,
+      "prompt": "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?",
+      "response": "Supermarket pots are worth keeping—you don’t need to start from seed. The catch is that a bushy supermarket “plant” is usually lots of seedlings crowded into one pot. Splitting them up can give them a better chance. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n\nFor your next supermarket pot:\n• Gently separate the root ball into smaller clumps.\n• Repot each clump in fresh potting mix, in containers with drainage holes.\n• Keep them indoors in a warm, sunny spot. Supermarket herbs can struggle with a sudden move outdoors. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n\nSeeds are worth trying if you enjoy growing things from scratch or want varieties beyond ordinary sweet basil. They give you a much wider choice, but you’ll have a wait before you have a usable plant. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai)) Sow thinly in moist seed-starting mix; at around 70°F, basil typically germinates in about a week. ([kidsgardening.org](https://kidsgardening.org/wp-content/uploads/2018/11/Basil-Growing-Guide.pdf?utm_source=openai))\n\nMy recommendation: try splitting a supermarket pot first. But address the windowsill conditions too—seed-grown basil still needs the same strong light, warmth, and drainage, so seeds alone won’t solve repeated losses. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil?utm_source=openai))",
+      "response_ms": 19979,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 11862,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 16696,
+      "prompt": "Could you suggest something quick for dinner tonight?",
+      "response": "I’d go with chickpea and spinach curry: canned chickpeas, tomatoes, and spinach, with a short simmer. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/chana-masala-spinach?utm_source=openai))\n\nMy shortcut version: briefly fry garlic and curry powder in oil, add drained chickpeas and canned diced tomatoes, and simmer for 10 minutes. Stir in spinach until wilted, season to taste, and serve with microwave rice or toast.\n\nIf that’s not your thing, tell me what’s in your fridge and I’ll suggest something that uses it.",
+      "response_ms": 16696,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,306 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "f9696d3e9affef60c6c2f98c1421b2b398b0f8387b98f9d883b774dec521c49b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "8e30da088d005e713d20ea07720e6635f5c4f3e32ae90c2c7bf743b2060001a1",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "people.01",
+  "episode_ms": 157199,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "people.01-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 103552
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 9,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 39314
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2307
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 109
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 145173
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 24,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 17,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 690,
+      "name": "terminal",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 2824,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11336,
+      "prompt": "My friend Noor is coming over on Saturday afternoon. She just had knee surgery, so she can't manage stairs and needs to sit most of the time.",
+      "response": "Let’s plan around a step-free route from where Noor arrives to a comfortable seat, with a bathroom she can reach without stairs. Keep food and drinks nearby so she won’t need to keep getting up, and ask whether she needs a footrest or pillows.\n\nAre there any steps at your entrance or on the way to the bathroom?",
+      "response_ms": 11336,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 3637,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13337,
+      "prompt": "My flat is on the ground floor, which helps. We both love board games, and I'd like a cosy afternoon in rather than going out.",
+      "response": "A cosy board-game afternoon sounds like a good fit. Set up at a table with a comfortable, supportive chair for Noor, clear space around it, and room to rest her leg if she needs to.\n\nPick a couple of favourites you can play without a long commitment, put snacks and drinks within reach, and leave time for chatting or a break. You could text her: “Looking forward to Saturday! We’ll stay in with board games—anything I can have ready to make sitting comfortably easier?”",
+      "response_ms": 13337,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 5612,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 35820,
+      "prompt": "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+      "response": "Ocean tides are long, slow changes in sea level caused mainly by the Moon’s gravity, with an important contribution from the Sun. The key is that gravity does not pull equally strongly on every part of Earth.\n\nThe Moon stretches the oceans\n\nThe Moon pulls on the whole Earth—rock, water, and all. But its pull is stronger on the side closest to it and weaker on the side farthest away.\n\nTo understand the tide, compare the pull at each location with the pull at Earth’s center:\n\n• On the near side, the ocean is pulled toward the Moon more strongly than Earth’s center is. That difference tends to draw water outward, toward the Moon.\n\n• On the far side, the ocean is pulled toward the Moon less strongly than Earth’s center is. Earth’s center accelerates toward the Moon more than that water does, so the water tends to fall behind, outward relative to the center.\n\n• Around the sides of Earth, the differences in gravitational pull tend to draw water inward toward the Earth–Moon axis.\n\nTogether, these effects stretch the ocean into a roughly elongated shape, with one high-water region facing the Moon and another facing away from it. These are often called the two “tidal bulges.”\n\nThe far-side bulge does not mean the Moon repels water. The Moon attracts everything; the crucial point is that it attracts different parts of Earth by different amounts.\n\nWhy there are usually two high tides a day\n\nImagine, for a moment, an Earth covered entirely by a deep ocean. As Earth rotates, a coastal location would pass through both high-water regions and both low-water regions. That gives two high tides and two low tides.\n\nBut the timing is not exactly twice every 24 hours. While Earth rotates, the Moon moves forward in its orbit. Earth has to turn a little farther before the same location faces the Moon again.\n\nThis “lunar day” lasts about 24 hours and 50 minutes. In a simple twice-daily tide pattern, successive high tides are therefore about 12 hours and 25 minutes apart, and high tide occurs roughly 50 minutes later from one day to the next. Actual local timing varies.\n\nWhat the Sun adds\n\nThe Sun also produces tides. Although its overall gravitational pull on Earth is stronger than the Moon’s, it is so far away that its pull varies less across Earth. Its tide-producing effect is therefore smaller—about half the Moon’s.\n\nThe Sun’s and Moon’s effects combine:\n\n• At new and full moons, the Sun, Earth, and Moon are approximately aligned. Their tidal effects reinforce each other, producing spring tides: a larger difference between high and low water. “Spring” here has nothing to do with the season.\n\n• Near the first- and third-quarter moons, the solar and lunar tidal patterns partly counteract each other, producing neap tides: a smaller difference between high and low water.\n\nWhy real coastlines are more complicated\n\nThe two-bulge picture explains the basic driving force, but it is not a literal map of the ocean’s surface. Continents obstruct the water, and ocean depth, coastline shape, friction, and Earth’s rotation all influence how tidal waves travel through ocean basins.\n\nConsequently, some places have two fairly similar high tides each lunar day; others have two very unequal ones; and some have mainly one. Bays can also amplify tides dramatically when their natural sloshing rhythm matches the tidal forcing.\n\nIn short: the Moon’s uneven gravitational pull creates a predominantly twice-per-lunar-day driving force. Earth’s rotation gives it a repeating rhythm, and the geography of the oceans determines the tides you actually see at the shore.",
+      "response_ms": 35820,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2907,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15220,
+      "prompt": "Interesting. And why are spring tides bigger than neap tides?",
+      "response": "Spring tides are bigger because the Moon’s and Sun’s tide-producing effects reinforce each other; at neap tides, they partly oppose each other.\n\nEach produces a stretching effect on the oceans, with two opposite high-water regions rather than just one.\n\nAt new and full moons, the Sun, Earth, and Moon are approximately in a straight line. Their stretching effects act along the same axis, making high tides generally higher and low tides lower. This produces the larger tidal range—the difference between high and low water—called a spring tide.\n\nThat works even at full moon, when the Sun and Moon are on opposite sides of Earth. They aren’t simply competing to pull water in opposite directions: each produces a two-sided stretching pattern, and those patterns line up.\n\nAt first and third quarter, the directions from Earth to the Sun and Moon are roughly at right angles. The Sun’s tide-producing effect tends to raise water where the Moon’s tends to lower it, and vice versa. They partially cancel, giving lower high tides and higher low tides: a neap tide.\n\nSo “bigger” means a greater rise and fall of sea level, not necessarily bigger breaking waves.",
+      "response_ms": 15220,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 9463,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22355,
+      "prompt": "One more: how do tide tables get predicted so far in advance?",
+      "response": "Because tides are driven by predictable astronomical cycles. We can calculate the motions of Earth, the Moon, and the Sun far into the future, then combine those cycles with measurements of how a particular coastline responds. That makes tide prediction very different from weather forecasting. ([livnocweb2.nerc-liv.ac.uk](https://livnocweb2.nerc-liv.ac.uk/ntslf/tides/about-tides/tides-faq?utm_source=openai))\n\nThe usual method works in three stages:\n\n1. Measure the local tides.\n\nA tide gauge records water levels over time—preferably for a year or longer. Those observations capture the local response, including the effects of the surrounding ocean basin and coastline. Each location needs its own information; knowing the Moon’s position alone isn’t enough. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\n2. Separate the pattern into repeating components.\n\nUsing a method called harmonic analysis, scientists break the record into a collection of regular oscillations, called tidal constituents. Each has a known astronomical frequency, plus a locally measured size and timing offset. Think of separating a musical chord into individual notes: a complicated pattern becomes a combination of simpler ones. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\n3. Run those components forward and add them together.\n\nA computer calculates where each oscillation will be on a future date and sums their contributions. The resulting curve gives predicted water levels; its peaks and troughs give the times and heights of high and low tides. The spring–neap cycle emerges naturally as the lunar and solar components reinforce or partly cancel each other. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\nThe important limitation: a tide table predicts the astronomical tide, not every influence on sea level. Strong winds, atmospheric pressure, and storm surge can make the actual water level substantially different. Those effects require shorter-term weather and ocean forecasts. ([marinenavigation.noaa.gov](https://marinenavigation.noaa.gov/forecasts.html?utm_source=openai))",
+      "response_ms": 22355,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 11584,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 21794,
+      "prompt": "Saturday's coming up. What should I plan?",
+      "response": "For Noor’s visit, I’d stick with the cosy board-game afternoon you mentioned:\n\n- Set up a comfortable chair with space for her leg; ask beforehand whether she wants pillows or a footrest.\n- Keep the route from the entrance to the table and bathroom clear and step-free.\n- Choose a couple of familiar, two-player games you can pause easily.\n- Put snacks and drinks within reach, and leave the finish time flexible so she can head home when she’s tired.\n\nYou could text: “Looking forward to games and a catch-up! Anything I can have ready to make you more comfortable?”\n\nOne date check: today is Saturday, October 31. Do you mean today’s visit or next Saturday, November 7?",
+      "response_ms": 21794,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 7572,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 2732,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 22229,
+      "prompt": "Next Saturday, the 7th. Can you make it more of an actual plan for the afternoon? She's coming around 2 and leaving around 6.",
+      "response": "Saturday, November 7 — a cosy afternoon with Noor, 2–6 p.m.\n\nBefore she arrives\n  Set up your games at a table with a comfortable chair and room for her leg. Keep the entrance and route to the bathroom clear, and put drinks and snacks within reach. Ask her beforehand what would make sitting comfortable and whether she has any food preferences.\n\n2:00–2:30 — Settle in and catch up\n  Offer tea or another drink and a small snack. Let her get comfortable before starting a game.\n\n2:30–3:15 — First game\n  Start with a familiar two-player favourite that needs little explanation. You can handle fetching pieces or anything that falls.\n\n3:15–3:45 — Tea and snack break\n  Have something easy to eat at the table—sandwiches, cake, or whatever you both enjoy. Leave this as proper chatting time rather than rushing into another round.\n\n3:45–4:45 — Main game\n  Play something a little longer if you’re both keen, or do a few shorter rounds. Keep it easy to pause.\n\n4:45–5:15 — Light early supper\n  Serve something you’ve prepared ahead, such as soup and bread or a simple quiche, so you’re not spending the visit cooking.\n\n5:15–5:45 — Choose-your-energy finish\n  One last short game if she feels like it; otherwise, music and a catch-up. No need to fill every minute.\n\n5:45–6:00 — Unhurried departure\n  Gather her belongings and help with anything she wants carried so leaving doesn’t feel rushed.\n\nTreat the times as a loose guide, not a timetable she needs to keep. The games are optional; being comfortable and spending time together are the point.",
+      "response_ms": 22229,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 7420,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

@@ -1,0 +1,394 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "8551a7613d99fb06a2d4ed716c78eb5c6de75d0e784c9b3cd2feb34ba9b6803a",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "14686f805aeac1d1ddcf6bbf3fa9f1932a83a2017b140bb0a301a470a83b12d7",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 750,
+  "dry_run": false,
+  "episode": "work.01",
+  "episode_ms": 363898,
+  "family": "work",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "work.01-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 218880
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 18,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 104069
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 6234
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 508
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 329183
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 46592
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 66535
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1710
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 262
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 114837
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 38830,
+      "first_native_text_ms": 8732,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3490,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13783,
+      "prompt": "I'm organising our street's spring clean-up. The flyers are printed and the council has approved the date.",
+      "response": "Flyers printed and the date approved—two things you no longer have to chase. What’s still left to organise?",
+      "response_ms": 13783,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 24679,
+      "first_native_text_ms": 13940,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5240,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19641,
+      "prompt": "What's left: borrowing litter pickers, and finding someone to bring a first-aid kit.",
+      "response": "Two concrete asks for the neighbours: “Does anyone have litter pickers we could borrow for the clean-up? And could someone bring a first-aid kit? Let me know so I can tick both off.”",
+      "response_ms": 19641,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 24538,
+      "first_native_text_ms": 7691,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6990,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 31280,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good opening isn’t mainly about memorising moves. It’s about reaching a position where **your pieces can work, your king is safe, and you’re ready for a fight in the centre.**\n\n### 1. Fight for the centre\nThe central squares—**e4, d4, e5 and d5**—give your pieces access to more of the board. Pawns in the centre also help restrict your opponent’s pieces.\n\nStarting with **1. e4** or **1. d4** claims central space and opens lines for a bishop.\n\n### 2. Develop your pieces\nBring your knights and bishops off their starting squares onto useful squares. Think *getting everyone involved*, rather than finding one piece to do everything.\n\n- Knights usually work well toward the centre.\n- Avoid moving the same piece repeatedly without a concrete reason.\n- Don’t spend all your early moves pushing pawns while your pieces stay at home.\n\n### 3. Get your king safe\nCastling early usually puts your king somewhere safer and brings a rook closer to the action. Once you’ve castled, be cautious about advancing the pawns protecting your king.\n\n### 4. Don’t send your queen out alone\nAn early queen excursion can let your opponent develop pieces while attacking her. Each retreat is a move you didn’t spend bringing another piece into play.\n\nThe queen is powerful; that doesn’t make her a good advance party.\n\n### 5. Watch what your opponent is doing\nThese are principles, not a script. Before every move, ask:\n\n- **What did their last move threaten?**\n- **Is anything undefended?**\n- **Can I improve a piece while addressing that threat?**\n\nIf a piece is about to be lost, “but I’m developing” is not much of a defence.\n\n### A simple example\n**1. e4 e5 2. Nf3 Nc6 3. Bc4**\n\nWhite has:\n- Claimed central space with the e-pawn.\n- Developed a knight while attacking Black’s e-pawn.\n- Developed a bishop and cleared the way to castle.\n\nNothing spectacular—and that’s the point. Each move does useful work.\n\n**A handy rule: aim to involve more pieces, not to make more threats with the same piece.** Early attacks are much stronger when the rest of your army can join them.",
+      "response_ms": 31280,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 21602,
+      "first_native_text_ms": 10263,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8739,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24788,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The main difference is **the pawn structure—especially in the centre**, not simply how many pieces remain on the board. ([6319de2c787f6367e66a12713cdab094.cdn.bubble.io](https://6319de2c787f6367e66a12713cdab094.cdn.bubble.io/f1706328608859x755191621466259100/CMB-1%20%282%29.pdf?utm_source=openai))\n\n### Open position\nCentral pawns have been exchanged, leaving clear lines for pieces to move and attack. **Bishops and rooks** benefit from those open diagonals and files. Play often becomes tactical, with threats that need an immediate answer. ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))\n\nYour opening priorities become particularly urgent: **develop quickly and get your king safe**. If you’re ahead in development, opening the centre can help your active pieces exploit that lead. ([northcountychess.com](https://northcountychess.com/docs/principles.pdf?utm_source=openai))\n\n### Closed position\nCentral pawns are locked against one another, blocking routes through the board. **Knights often do well** because they can jump over the blockage, while bishops may struggle to find useful diagonals. There’s usually more emphasis on manoeuvring and preparing a *pawn break*: a pawn advance that challenges the opposing pawns and opens lines. ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))\n\n**A useful shorthand:** in an open position, look for clear lines to use; in a closed position, look for ways to improve your pieces and eventually create those lines. Closed doesn’t mean permanently closed—the pawn break can change the whole character of the game. ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))",
+      "response_ms": 24788,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 31216,
+      "first_native_text_ms": 11754,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 11363,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 27353,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "**Treat endgames as little games to beat, not chapters to finish.** I’d try this:\n\n- **Try first, study second.** Pick a position and give yourself a few minutes to win it—or hold a draw—before looking at the explanation.\n- **Play both sides.** Once you’ve won it, switch sides and try to frustrate your opponent. Make defending part of the challenge.\n- **Use your own games.** Start with an ending where you thought, “Surely I should have won that.” You’ve already got a reason to care.\n- **Change one detail.** Move a pawn one square or change whose turn it is. Predict whether the result changes, then check.\n- **Stop after ten minutes.** My suggested session: one challenge, one explanation, one retry. No endurance medal required.\n\nFor a starting point, I’d choose **king-and-pawn endings**, then move to rook endings rather than trying to cover everything. Chess.com has playable drills organised by endgame type; Lichess has a basic rook-endgame practice section against the computer. ([support.chess.com](https://support.chess.com/en/articles/8708978-how-do-i-practice-endgames?utm_source=openai))\n\nSet yourself a concrete target: **“Can I win this twice without hints?”** Much better than “I must study endgames.”",
+      "response_ms": 27353,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 36714,
+      "first_native_text_ms": 3745,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13985,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8178,
+      "prompt": "Good news: the community centre is lending us twenty litter pickers.",
+      "response": "Twenty litter pickers secured—that’s one of the two loose ends tied up. Have you found someone to bring the first-aid kit yet?",
+      "response_ms": 8178,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 37162,
+      "first_native_text_ms": 2739,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 15737,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 14193,
+      "prompt": "I've got half an hour now. What should I do for the clean-up?",
+      "response": "**Use the half-hour to sort the first-aid kit—the last loose end you mentioned.**\n\n- **First 5 minutes:** If nobody’s confirmed yet, send a specific ask to the neighbours: “Could someone bring a first-aid kit to the street clean-up? Please let me know so I can mark it as covered.”\n- **Next 10 minutes:** Check the collection and return arrangements for the community centre’s twenty litter pickers, unless those are already agreed.\n- **Remaining 15 minutes:** Check the flyer distribution: where they still need to go, and deliver a small batch if there’s time.\n\nAim for a **named person bringing the kit**, not just a message sent. If you’re waiting for replies, move on rather than spending the half-hour watching your phone.",
+      "response_ms": 14193,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9416,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

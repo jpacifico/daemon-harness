@@ -1,0 +1,255 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "f9696d3e9affef60c6c2f98c1421b2b398b0f8387b98f9d883b774dec521c49b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "19695241ad3def750d68f01644918c0fe08c224e83d9d1f02ecb536d5a8fc402",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "unknown.04",
+  "episode_ms": 110347,
+  "family": "unknown",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "unknown.04-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 56448
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 39825
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1533
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 108
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 97806
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 30,
+      "name": "memory",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 7174,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12249,
+      "prompt": "My parking permit number is K-4471. I'll need it when I call the council.",
+      "response": "Saved your parking permit number: K-4471.",
+      "response_ms": 12249,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 5670,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 36111,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through a combination of elite fashion, imperial trade, falling prices, and everyday rituals. It began as an expensive import and gradually became a drink people across social classes could afford.\n\nFrom curiosity to fashionable luxury\n\nTea originated in China and reached Britain commercially in the mid-1600s, initially appearing in London coffeehouses. Samuel Pepys recorded trying it in 1660, describing it as a “China drink”—a sign of how unfamiliar it still was.\n\nCatherine of Braganza, the Portuguese princess who married Charles II in 1662, helped make tea fashionable at court. She didn’t introduce it to Britain, as is sometimes claimed, but her association with it gave the drink prestige. Wealthy households served it using expensive porcelain, and tea drinking became a way to display taste and status.\n\nTrade, sugar, and smuggling\n\nDuring the 1700s, the East India Company imported increasing quantities of Chinese tea. Tea became part of domestic social life: offering a cup gave people a reason to gather and hosts a ritual for entertaining.\n\nSugar helped broaden its appeal. Britain’s growing taste for sweetened tea was tied to Caribbean sugar plantations and the labor of enslaved people. What came to seem like a quintessentially British comfort depended on a global—and often coercive—trading system.\n\nTea remained heavily taxed, however, making legal supplies expensive. Smuggling flourished and helped spread the drink beyond wealthy households. A major turning point came in 1784, when the government sharply reduced tea duties. Legal tea became much cheaper, and smuggling lost much of its advantage.\n\nEmpire and mass consumption\n\nIn the 1800s, tea became an everyday staple. Britain initially depended on China for its supply. The East India Company’s sale of Indian opium into China helped finance purchases of Chinese goods, including tea; British defense of that trade contributed to the Opium Wars.\n\nBritish businesses also developed large tea plantations in India and, later, Ceylon—now Sri Lanka. These expanded supplies, relying on colonial land control and frequently exploitative labor conditions. Greater production and cheaper transport helped put tea within reach of more households.\n\nA drink fitted to daily life\n\nTea was warm, stimulating, easy to serve, and compatible with a quick meal or a break from work. People built it into routines: breakfast, workplace breaks, visits, and evening meals. Nineteenth-century afternoon tea added an upper-class social ritual, but ordinary tea drinking was already widespread.\n\nSo it wasn’t simply royal influence or Britain’s climate. Fashion made tea desirable; trade and empire made it available; lower prices made it accessible; and daily habits made it feel indispensable.",
+      "response_ms": 36111,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 4906,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 26893,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was the main commercial link that turned tea from an exotic luxury into a widely available British drink. It also tied tea drinking to Britain’s growing imperial power.\n\nControlling the supply\n\nThe Company held a monopoly over Britain’s legal tea imports from China until 1833. It purchased tea, shipped it to Britain, and sold it at auction to merchants who supplied retailers. Its shipping networks and access to capital made a large, regular trade possible.\n\nThat didn’t mean it always made tea cheap. The monopoly restricted competition, and government duties added heavily to retail prices. Smugglers supplied a substantial competing market. After the tea tax was cut in 1784, the Company expanded legal imports to meet demand that smugglers had previously served.\n\nConnecting Chinese tea to Indian opium\n\nThe Company needed to pay for Chinese tea, but there was insufficient Chinese demand for British products to balance those purchases. Britain therefore paid heavily in silver.\n\nAs the Company gained territorial power in India, it controlled opium production and sales in Bengal. It auctioned opium to private traders, who carried it into China, where its import was prohibited. The proceeds helped finance the tea trade.\n\nAn important distinction: the Company generally did not itself carry the contraband opium into China. It profited from—and sustained—the supply system while private merchants handled the smuggling. This trade helped create the conflict that led to the First Opium War in 1839–1842, after the Company’s monopoly over trade with China had ended.\n\nDeveloping an alternative to Chinese tea\n\nThe Company also supported early efforts to establish commercial tea production in Assam, in northeastern India, during the 1830s. Growing tea under British control promised to reduce dependence on China. Private plantation businesses subsequently expanded the industry, using labor systems marked by coercion and harsh conditions.\n\nIn short, the Company didn’t create Britain’s taste for tea on its own. It built much of the supply system that satisfied that taste—and used its power in India to help pay for, and eventually produce, the tea Britain consumed.",
+      "response_ms": 26893,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 13785,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29091,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "Tea bags emerged in the United States in the early 1900s, but they didn’t become an everyday British habit until well after the Second World War. ([nationalgeographic.com](https://www.nationalgeographic.com/culture/article/tools-6-things-to-know-about-tea-bags?utm_source=openai))\n\nTheir origin is less clear-cut than the familiar story suggests. A patent application for a mesh “tea leaf holder” was filed in 1901. New York tea merchant Thomas Sullivan is often credited with popularizing the idea around 1908: according to the famous account, customers put his silk sample pouches straight into hot water rather than emptying out the leaves. That’s better treated as a popular origin story than a firmly established moment of invention. ([irishtimes.com](https://www.irishtimes.com/life-and-style/homes-and-property/fine-art-antiques/design-moment-tea-bag-1901-1.3720851?utm_source=openai))\n\nIn Britain, Tetley’s 1953 launch was a major commercial milestone—not an instant revolution. Tea bags still represented less than 3 percent of the British market in the early 1960s. Loose-leaf tea remained deeply entrenched. ([tetley.com](https://www.tetley.com/history-tetley?utm_source=openai))\n\nWhat eventually won people over was convenience:\n  • Less mess: no wet leaves to scrape out of a teapot.\n  • Less equipment: no separate tea strainer.\n  • Easier individual servings: tea could be brewed directly in a cup or mug.\n\nThose advantages suited the postwar enthusiasm for labor-saving household products. In Britain, easier cleanup was especially important—more so than precisely controlling brewing time. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\nSo tea bags didn’t make Britain a tea-drinking nation; they made an already established habit easier to maintain. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))",
+      "response_ms": 29091,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2330,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 5917,
+      "prompt": "I'm on hold with the council. What's my permit number?",
+      "response": "Your parking permit number is K-4471.",
+      "response_ms": 5917,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

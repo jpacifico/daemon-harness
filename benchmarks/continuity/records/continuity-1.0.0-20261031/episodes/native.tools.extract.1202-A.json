@@ -1,0 +1,321 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "246204fd57b18cd1feb73d458da50382823cf939ed0f46ec0faa9f81ac7b5115",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "c2658848ba1aa4fbee1943603c834a4ca7b7ae389c80311283e3c55a275e9b51",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "native.tools.extract.1202",
+  "episode_ms": 43937,
+  "family": "native.tools.extract",
+  "kind": "native",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 1,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 1,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": {
+    "actual": {
+      "actions": [
+        {
+          "due_date": "2026-09-05",
+          "evidence_refs": [
+            "EV-02-01-1",
+            "EV-02-01-2"
+          ],
+          "id": "WI-02-01",
+          "owner": "Avery Chen",
+          "risk": "at risk"
+        },
+        {
+          "due_date": "2026-09-08",
+          "evidence_refs": [
+            "EV-02-02-1",
+            "EV-02-02-2"
+          ],
+          "id": "WI-02-02",
+          "owner": "Riley Evans",
+          "risk": "at risk"
+        },
+        {
+          "due_date": "2026-09-15",
+          "evidence_refs": [
+            "EV-02-05-1"
+          ],
+          "id": "WI-02-05",
+          "owner": "Jordan Blake",
+          "risk": "at risk"
+        },
+        {
+          "due_date": "2026-09-22",
+          "evidence_refs": [
+            "EV-02-08-1",
+            "EV-02-08-2"
+          ],
+          "id": "WI-02-08",
+          "owner": "Morgan Diaz",
+          "risk": "needs attention"
+        }
+      ],
+      "source_paths": [
+        "/evidence.json",
+        "/index.json",
+        "/owners.json",
+        "/records/page-1.json",
+        "/records/page-2.json"
+      ]
+    },
+    "assessment_type": "deterministic",
+    "authoritative": true,
+    "checks": {
+      "action_order_is_exact": true,
+      "extraction_is_exact": true,
+      "only_expected_output_changed": true,
+      "output_exists": true,
+      "output_is_valid_json": true,
+      "required_sources_accessed": true,
+      "source_payloads_unchanged": true
+    },
+    "expected": {
+      "actions": [
+        {
+          "due_date": "2026-09-05",
+          "evidence_refs": [
+            "EV-02-01-1",
+            "EV-02-01-2"
+          ],
+          "id": "WI-02-01",
+          "owner": "Avery Chen",
+          "risk": "at risk"
+        },
+        {
+          "due_date": "2026-09-08",
+          "evidence_refs": [
+            "EV-02-02-1",
+            "EV-02-02-2"
+          ],
+          "id": "WI-02-02",
+          "owner": "Riley Evans",
+          "risk": "at risk"
+        },
+        {
+          "due_date": "2026-09-15",
+          "evidence_refs": [
+            "EV-02-05-1"
+          ],
+          "id": "WI-02-05",
+          "owner": "Jordan Blake",
+          "risk": "at risk"
+        },
+        {
+          "due_date": "2026-09-22",
+          "evidence_refs": [
+            "EV-02-08-1",
+            "EV-02-08-2"
+          ],
+          "id": "WI-02-08",
+          "owner": "Morgan Diaz",
+          "risk": "needs attention"
+        }
+      ],
+      "source_paths": [
+        "/evidence.json",
+        "/index.json",
+        "/owners.json",
+        "/records/page-1.json",
+        "/records/page-2.json"
+      ]
+    },
+    "passed": true,
+    "scenario_id": "native.tools.extract",
+    "workspace_files": [
+      "out/action_register.json"
+    ]
+  },
+  "run_id": "native.tools.extract.1202-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 97664
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 14353
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1122
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 113139
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 598,
+      "name": "terminal",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 16,
+      "name": "terminal",
+      "status": "error"
+    },
+    {
+      "duration_ms": 10,
+      "name": "execute_code",
+      "status": "error"
+    },
+    {
+      "duration_ms": 179,
+      "name": "terminal",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 115,
+      "name": "write_file",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 163,
+      "name": "terminal",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 36496,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 43916,
+      "prompt": "Inspect the controlled local source starting at http://127.0.0.1:52329/index.json with the tools available in the host. Write out/action_register.json as a JSON object with exactly two top-level keys: actions and source_paths. Include only work items whose status is open and whose priority is at least 3. For every included item, emit exactly due_date, evidence_refs, id, owner, and risk; resolve owners and risk labels from the linked sources and include every matching evidence reference in alphabetical order. Sort actions by due_date and then id. List every consulted source path, including /index.json, in source_paths alphabetically. Do not create any other file. Validate the JSON and the selection before answering.",
+      "response": "Created and validated 4 qualifying actions against all 5 consulted sources. Exact fields, owner and risk resolution, evidence completeness, and sorting passed. No other files were created.\n\nFile: ~/.codex/worktrees/continuum-host/campaigns/continuity-1.0.0-20261031/private/native.tools.extract.1202-A/workspace/out/action_register.json",
+      "response_ms": 43916,
+      "returncode": 0,
+      "scored": true,
+      "session": 0,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "daemon.windows-setup-probe.v1",
+  "source": "b6066d98ee9366081046f10b8858c8a79151ca35",
+  "root": "D:\\a\\_temp\\dr-bcx96gzv",
+  "telegram": false,
+  "real_model": false,
+  "oauth": false,
+  "passed": false,
+  "phases": [
+    "Downloading and verifying Hermes 0.21.5...",
+    "Extracting and verifying Hermes files...",
+    "Installing private Python 3.12...",
+    "Installing Hermes dependencies. This may take a few minutes...",
+    "Checking the installed host...",
+    "Preparing the private setup library...",
+    "Reproducing the published legacy Python rollback failure...",
+    "Preparing private installation...",
+    "Checking your installation and ChatGPT access...",
+    "Checking previous installation and preparing recovery..."
+  ],
+  "cleanup": true,
+  "scheduler_commands": [
+    {
+      "seconds": 28.891,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.828,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.812,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 22.141,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.937,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.86,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.843,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.719,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.766,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.922,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.797,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.812,
+      "exit": 3,
+      "stderr": ""
+    }
+  ],
+  "powershell_startup": [
+    {
+      "environment": "filtered",
+      "seconds": 2.75,
+      "exit": 0,
+      "stdout": "ready\n",
+      "stderr": ""
+    },
+    {
+      "environment": "ci_session",
+      "seconds": 0.172,
+      "exit": 0,
+      "stdout": "ready\n",
+      "stderr": ""
+    }
+  ],
+  "host_ready_s": 110.328,
+  "legacy": {
+    "exit": 0,
+    "stdout": "{\"status\": \"rollback_failed\", \"completed\": [\"runtime-layout\"], \"rolled_back\": [\"runtime-layout\"], \"failed\": [\"runtime-environment\"], \"causes\": [{\"type\": \"TransactionRecoveryError\", \"message\": \"Installation failed and rollback needs manual recovery.\", \"stderr\": \"\"}, {\"type\": \"RuntimeError\", \"message\": \"Private runtime contains a special file.\", \"stderr\": \"\"}]}\n",
+    "stderr": ""
+  },
+  "legacy_remaining_tree": {
+    "kind": "absent"
+  },
+  "causes": [
+    {
+      "type": "RuntimeError",
+      "message": "Recovery found an existing runtime; it is preserved."
+    }
+  ],
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\scripts\\qualification\\companion_windows_setup_probe.py\", line 368, in main\n    assert complete_private_setup(\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_setup.py\", line 346, in complete_private_setup\n    return _complete_private_setup(owner, ui, request, response)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_setup.py\", line 226, in _complete_private_setup\n    retained = retain_failed_python_build(scope, journal, scheduler)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_recovery.py\", line 131, in retain_failed_python_build\n    _absent(path)\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_recovery.py\", line 55, in _absent\n    raise RuntimeError(\"Recovery found an existing runtime; it is preserved.\")\nRuntimeError: Recovery found an existing runtime; it is preserved.\n",
+  "logs": {},
+  "elapsed_s": 407.844
+}

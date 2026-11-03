@@ -1,0 +1,326 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "dafc00c71f7583db1064d6e6437c7da9f94bbb6176cc277a04619082cecdf64a",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "4115a9db10ec2fbd25f12e55ba3ece1149bbb6945ee6ddc3012fc619b28ac23c",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 574,
+  "dry_run": false,
+  "episode": "unknown.04",
+  "episode_ms": 316978,
+  "family": "unknown",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "unknown.04-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 158080
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 13,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 83069
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 4569
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 687
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 245718
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 32128
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 70487
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2043
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 243
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 104658
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 43167,
+      "first_native_text_ms": 2598,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3493,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7542,
+      "prompt": "My parking permit number is K-4471. I'll need it when I call the council.",
+      "response": "Got it — your parking permit number is **K-4471**, for when you call the council.",
+      "response_ms": 7542,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 29122,
+      "first_native_text_ms": 12582,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5245,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 46340,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through a combination of **fashion, falling prices, sugar and imperial trade**. The important distinction is between what made people *want* it and what eventually let almost everyone *afford* it. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection?utm_source=openai))\n\n### 1. It started as an expensive novelty\nTea from China appeared in London coffee houses in the **1650s**. After Catherine of Braganza married Charles II in **1662**, her tea-drinking helped make it fashionable at court. She didn’t introduce Britain to tea, but she helped give it social prestige. The East India Company placed its first tea order in 1664. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection?utm_source=openai))\n\nTea became a way of displaying refinement as well as wealth. Around the beginning of the eighteenth century, wealthy households served it in small porcelain cups, with elaborate equipment. The leaves were valuable enough to keep in **locked tea caddies**—rather different from leaving a box of teabags beside the kettle. ([vam.ac.uk](https://www.vam.ac.uk/articles/teapots-through-time?utm_source=openai))\n\n### 2. Sugar helped turn a luxury into a habit\nDuring the eighteenth century, tea drinking spread beyond the aristocracy, and sweetening it helped its appeal. Tea and sugar consumption grew together. That domestic pleasure had a brutal economic foundation: much of the sugar came from Caribbean plantations worked by enslaved Africans. Slavery wasn’t incidental to the story of the British sweet tooth. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cup-char))\n\n### 3. Smugglers—and then a tax cut—made it cheaper\nHigh taxes kept legal tea expensive, so smugglers supplied a huge market. This matters because tea was already desired across social classes before legal imports became affordable.\n\nIn **1784**, William Pitt the Younger’s government cut the tea tax from **119% to 12.5%**. That sharply undercut smuggling and made legally purchased tea much more accessible. It was a major turning point in tea’s transformation from luxury to ordinary grocery. ([tea.co.uk](https://www.tea.co.uk/history-of-tea?hl=en-GB))\n\n### 4. Nineteenth-century imperial production expanded the supply\nBritain initially relied on Chinese tea. During the nineteenth century, British-controlled production expanded in **India**, and later **Ceylon, now Sri Lanka**. Cheaper imports helped deepen an already established habit: annual British consumption rose from under two pounds per person in 1851 to over six pounds in 1901. Tea didn’t become popular simply because Britain grew it in its empire; colonial production helped make an existing popular drink cheaper and more abundant. ([tea.co.uk](https://www.tea.co.uk/history-of-tea?hl=en-GB))\n\n### 5. It fitted into several kinds of social life\nTea could be a formal act of hospitality or an everyday working-class drink. By the mid-nineteenth century, it had become the most popular working-class beverage; temperance campaigners also promoted it as an alternative to alcohol. The elaborate Victorian custom of **afternoon tea** was therefore one branch of a much broader habit—not the origin of Britain’s tea drinking. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cup-char))\n\nThe striking thing is how thoroughly an imported luxury became a domestic necessity: **prestige drew people in, affordability widened access, and repeated social rituals made it feel British.** Behind that familiar cup were Chinese expertise, international commerce, Caribbean slavery and colonial plantations. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection?utm_source=openai))",
+      "response_ms": 46340,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26598,
+      "first_native_text_ms": 10878,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6996,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 35931,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was **the main commercial link between Britain’s appetite for tea and its supply from China**. But it wasn’t simply a shipping business: it became a territorial power in India, and those two roles became deeply entangled. ([qdl.qa](https://www.qdl.qa/en/brief-history-english-east-india-company-1600%E2%80%931858?utm_source=openai))\n\n**1. It brought Chinese tea into Britain on a vast scale.**  \nIts privileged trading position let it dominate legal British imports of Chinese tea. By 1800, it was buying about **23 million pounds of tea a year**. Fashion helped create the demand; the Company supplied the trade that could satisfy it. ([visualizingcultures.mit.edu](https://visualizingcultures.mit.edu/opium_wars_01/ow1_essay.pdf?utm_source=openai))\n\n**2. It was a monopoly—not simply a force for cheaper tea.**  \nThe Company’s interests were commercial, not a mission to make tea affordable. Its exclusive trading rights restricted competition; Parliament abolished its last remaining monopoly, over the China tea trade, in **1833**, with the change taking effect in **1834**. Other merchants could then enter that trade. So its role in expanding supply needs to be distinguished from the later opening of the market. ([parliament.uk](https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/east-india-company-and-raj-1785-1858/?utm_source=openai))\n\n**3. It helped finance tea purchases through opium.**  \nBuying Chinese tea required silver. The Company developed a system in which it auctioned opium produced in Bengal to private traders, who smuggled it into China and sold it for silver. That silver helped finance the Company’s purchases of Chinese goods. This distinction matters: the Company did not have to carry the contraband into China itself to profit from and sustain the system. Tea was thus tied directly to the destructive opium trade. ([journals.sagepub.com](https://journals.sagepub.com/doi/10.1177/0260107920907196?utm_source=openai))\n\n**4. It helped establish an alternative supply in India.**  \nIn **1834**, the Company’s administration established a Tea Committee to investigate production in India. It supported the development of plantations in Assam and efforts to acquire Chinese plants and production expertise. This was not merely agricultural experimentation: it involved colonial control of land and coercive, poorly paid labour. ([globalcapitalism.history.ox.ac.uk](https://globalcapitalism.history.ox.ac.uk/files/case33-englisheastindiacompanypdf?utm_source=openai))\n\nIn short: **the Company helped supply Britain’s tea habit, then used its power in India both to finance that habit and to develop another source of tea.** The familiar domestic drink and the imperial business were parts of the same story. ([journals.sagepub.com](https://journals.sagepub.com/doi/10.1177/0260107920907196?utm_source=openai))",
+      "response_ms": 35931,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 30148,
+      "first_native_text_ms": 15966,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8747,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 31012,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "**Tea bags emerged around the turn of the twentieth century—but Britain adopted them much later.** A recognisably modern “tea-leaf holder” was patented by Roberta Lawson and Mary McLaren in 1903, following their 1901 application. ([bostonteapartyship.com](https://www.bostonteapartyship.com/tea-blog/who-invented-the-teabag?utm_source=openai))\n\nThe famous origin story concerns **Thomas Sullivan, a New York tea merchant**, who reportedly sent samples in little silk bags around **1908**. Customers supposedly put the whole bag into hot water rather than emptying it. It’s a good story, but not a secure account of the invention: earlier designs already existed. ([time.com](https://time.com/3996712/a-brief-history-of-the-tea-bag/?utm_source=openai))\n\nIn Britain, **Tetley’s 1953 launch was a major commercial turning point**, rather than an overnight conversion. Tea bags still represented **less than 3% of the British market in the early 1960s**. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\nThey eventually caught on chiefly because they removed small, repetitive chores:\n- No strainer was needed.\n- There were no loose, wet leaves to scrape out of the pot.\n- Making a single mug became straightforward.\n\nThat fitted the post-war appeal of labour-saving household products. The selling point was less “better tea” than **“the tea you already drink, with less clearing up.”** ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))",
+      "response_ms": 31012,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 48800,
+      "first_native_text_ms": 3465,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 11377,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 8439,
+      "prompt": "I'm on hold with the council. What's my permit number?",
+      "response": "Your permit number is **K-4471**.",
+      "response_ms": 8439,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 9149,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

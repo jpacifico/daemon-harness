@@ -1,0 +1,290 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "e4356524164480f66d3bc44efa2c333f3d1de12b62a0eec6570271282adafca0",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "d87b87b6b315aaf0509e7e4590c96ec4b9ce95adf4c3d308b1d6120926949dec",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "relationship.04",
+  "episode_ms": 142581,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "relationship.04-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 60032
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 62268
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2081
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 233
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 124381
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2692,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8362,
+      "prompt": "I was really nervous about my job interview this morning.",
+      "response": "That sounds stressful. How did it go—are you feeling any more settled now?",
+      "response_ms": 8362,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 12087,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 43109,
+      "prompt": "How does a sourdough starter actually work, chemically and biologically?",
+      "response": "A sourdough starter is a small, repeatedly fed ecosystem: yeasts and bacteria living in wet flour. They turn flour’s carbohydrates into gas, acids, alcohol, and flavor compounds. The gas helps bread rise; the acids give sourdough its tang and help shape which microbes survive. ([doi.org](https://doi.org/10.1128/mSphere.00950-19?utm_source=openai))\n\n1. Flour supplies both food and microbes\n\nFlour isn’t sterile: it brings microorganisms into the mixture. Your hands and surroundings can contribute others, so making a starter isn’t simply “catching wild yeast from the air.” Adding water allows microbial growth and lets flour’s enzymes start making its nutrients accessible. ([doi.org](https://doi.org/10.1128/mSphere.00950-19?utm_source=openai))\n\nMost of the carbohydrate in flour is starch—long chains of sugar units. Yeasts generally cannot consume that starch directly. Flour enzymes called amylases break it into smaller carbohydrates, including maltose, which is a sugar made from two glucose units. Other enzymatic reactions supply glucose and additional usable nutrients. Think of the enzymes as preparing food for the microbes. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8117929/?utm_source=openai))\n\n2. Yeasts produce the lift\n\nYeasts ferment available sugars. The simplified chemical pathway is:\n\n    Glucose → ethanol + carbon dioxide + usable cellular energy\n\nThe carbon dioxide forms bubbles. When the flour-and-water mixture holds those bubbles, it expands; in bread dough, the gluten network is particularly important for retaining gas. The yeast isn’t trying to inflate bread—it’s obtaining energy, and the bubbles are a by-product. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8117929/?utm_source=openai))\n\n3. Bacteria produce the acidity—and sometimes gas\n\nLactic acid bacteria are the other major players. Depending on the species and conditions, their fermentation produces mainly lactic acid, or a mixture of lactic acid, carbon dioxide, and ethanol or acetic acid. So “yeast makes gas, bacteria make acid” is useful shorthand, but some bacteria contribute gas too. Lactic acid gives a relatively gentle sourness; acetic acid contributes a sharper, vinegar-like character and aroma. ([tandfonline.com](https://www.tandfonline.com/doi/full/10.1080/10408398.2021.1976100?utm_source=openai))\n\nAs those acids accumulate, the pH falls. That changes the habitat: many early inhabitants become less competitive, while acid-tolerant bacteria and yeasts persist. A starter becoming established is therefore a process of ecological selection, not just a growing population of one kind of yeast. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8117929/?utm_source=openai))\n\n4. The microbes share—and compete for—the food\n\nThe partnership isn’t identical in every starter. Some organisms compete for the same sugars; others occupy complementary niches. For example, the sourdough bacterium Fructilactobacillus sanfranciscensis can use maltose, while its frequent yeast companion, Kazachstania humilis, cannot. That difference reduces direct competition for that particular food source. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8117929/?utm_source=openai))\n\n5. Feeding resets the growing conditions\n\nAdding fresh flour and water supplies nutrients and dilutes accumulated acids and other fermentation products. Transferring a portion of the old starter carries an established microbial population into that fresh food. Repeating this process selects for organisms that thrive under your particular flour, temperature, hydration, and feeding schedule. Discarding some starter mainly keeps the culture manageable and lets a reasonable amount of fresh flour adequately refresh what remains. ([tandfonline.com](https://www.tandfonline.com/doi/full/10.1080/10408398.2021.1976100?utm_source=openai))\n\nThere’s chemistry beyond bubbles and sourness, too: flour proteases and microbial enzymes break proteins into smaller peptides and amino acids, and microbes transform some of those into flavor compounds. So fermentation changes the dough’s texture and aroma as well as its volume. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))\n\nThe central idea: you’re maintaining a community whose metabolism does useful work—enzymes release food, microbes consume it, and their by-products transform flour and water into something that can leaven and flavor bread. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))",
+      "response_ms": 43109,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 7030,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 17310,
+      "prompt": "Why does it smell sour sometimes and like alcohol other times?",
+      "response": "Because it produces both acids and alcohol, and their balance changes as it ferments—not because it switches between two entirely different processes. Time since feeding, temperature, and the microbes present all affect which smell dominates. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8117929/?utm_source=openai))\n\nA sour, vinegary smell comes especially from acetic acid made by bacteria. Lactic acid also contributes sourness to the taste, but is much less noticeable to your nose. So “smells sour” and “tastes sour” aren’t quite the same chemistry. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8117929/?utm_source=openai))\n\nA boozy or beer-like smell comes from ethanol produced during fermentation, principally by yeast. It can become especially noticeable when the starter has gone a while without feeding and fermentation products have accumulated. That doesn’t mean the yeast only makes alcohol when hungry—it makes it while fermenting sugars, too. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC8117929/?utm_source=openai))\n\nIn practice, an established starter that smells strongly alcoholic usually needs a feeding, not replacing. Alcohol smell alone is normal; visible mold or pink/orange discoloration means discard it. ([shop.kingarthurbaking.com](https://shop.kingarthurbaking.com/content/recipes/SourdoughBooklet_2_2026.pdf?utm_source=openai))",
+      "response_ms": 17310,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 8270,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 16434,
+      "prompt": "How long can a starter survive in the fridge without feeding?",
+      "response": "An established sourdough starter can often survive weeks—and sometimes several months—in the fridge without feeding. But surviving isn’t the same as being ready to bake: a neglected starter may need repeated feedings to recover. There’s no guaranteed expiration date. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\nFor routine care, feed it about once a week. That’s a maintenance recommendation, not a deadline after which it dies. ([kingarthurbaking.com](https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe?utm_source=openai))\n\nIf yours has been sitting a while:\n- An alcoholic smell alone doesn’t mean it’s spoiled. Visible mold, pink or orange discoloration, or a putrid smell means discard the whole starter. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/faq?utm_source=openai))\n- If there are no spoilage signs, resume room-temperature feedings about every 12 hours. Wait for reliable bubbling and rising before using it to leaven bread; recovery after months of neglect can take several days or longer. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\nHow long has yours been in the fridge?",
+      "response_ms": 16434,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2476,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7465,
+      "prompt": "Update: I got the job! Very relieved, it's all sorted.",
+      "response": "Congratulations! That must be a huge weight off your shoulders. I hope you get a chance to celebrate.",
+      "response_ms": 7465,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2465,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 7019,
+      "prompt": "Help me plan a small celebration this weekend?",
+      "response": "What’s the occasion, roughly how many people, and would you rather host at home or go out? Any budget you’d like to stay within?",
+      "response_ms": 7019,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9513,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 4157,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 23815,
+      "prompt": "Celebrating the new job. Four close friends, Saturday evening at my place, around 80 euros.",
+      "response": "Congratulations on the new job. I’d keep it relaxed: dinner, a toast, and plenty of time to catch up—not a night you spend in the kitchen.\n\nAssuming it’s you plus four friends, here’s an €80 spending plan. These are budget caps rather than checked local prices:\n\n  €30 — Main meal: a build-your-own taco spread with beans, peppers,\n         onions, tortillas, salsa, and either chicken or extra beans.\n  €10 — Chips and dips to put out as people arrive.\n  €12 — Dessert: one cake or ice cream with chocolate and berries.\n  €20 — Drinks: choose one alcoholic option, plus sparkling water\n         and a nonalcoholic option for the toast.\n   €8 — Buffer for extras.\n\nA simple Saturday schedule:\n  17:30 — Prep the fillings, chill drinks, and set out plates.\n  19:00 — Friends arrive; snacks and music.\n  19:45 — Dinner, served family-style.\n  20:30 — A short toast to the new job, then dessert.\n  After — Keep chatting or bring out a game you already own.\n\nFor a personal touch, ask everyone for one song that belongs on your “new chapter” playlist. Use whatever candles or lighting you already have; skip buying decorations.\n\nBefore shopping, check dietary restrictions and whether people want alcohol. If you’d rather not cook, replace the taco spread with frozen pizzas and a big salad, keeping the same food budget.",
+      "response_ms": 23815,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9414,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

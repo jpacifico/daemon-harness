@@ -1,0 +1,344 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "57d746426f91678c758098d6b2f7de3ff835b83238872a66810139100ca97b67",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "e42f7ca4f8843a9125c326276f3510bbf6aef3ba81a69138adce47d1b5a6dabc",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "work.03",
+  "episode_ms": 178116,
+  "family": "work",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 9,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 9,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "work.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 139136
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 12,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 59460
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2252
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 190
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 200848
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 20,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 4,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 12,
+      "name": "clarify",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2536,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8836,
+      "prompt": "I'm moving flats at the end of the month. I've booked the van and given notice to my landlord.",
+      "response": "You’ve got two big jobs sorted. Which date are you moving, and would you like help making a checklist for what’s left?",
+      "response_ms": 8836,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2606,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 6870,
+      "prompt": "Still to do: redirect my post and sort out internet at the new place.",
+      "response": "Still to do:\n- Redirect your post to the new address.\n- Arrange internet at the new flat.\n\nAlready done: van booked and notice given to your landlord.",
+      "response_ms": 6870,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 8525,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 41055,
+      "prompt": "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+      "response": "Ocean tides are the repeated rise and fall of sea level caused mainly by the Moon’s gravity, with an important contribution from the Sun. Most coastlines experience two high tides and two low tides during a lunar day—but continents, water depth, and the shape of ocean basins make the actual pattern more complicated.\n\nThe key: gravity pulls unevenly\n\nThe Moon attracts the whole Earth, including its oceans. But its pull is stronger on the side facing the Moon and weaker on the side facing away.\n\nTo understand tides, compare those pulls with the Moon’s pull on Earth’s center:\n\n• On the near side, ocean water is pulled toward the Moon more strongly than Earth’s center is. That tends to stretch the ocean outward toward the Moon.\n\n• On the far side, ocean water is pulled toward the Moon less strongly than Earth’s center is. Earth’s center accelerates toward the Moon more than that water does, so the water tends to lie farther outward on the opposite side.\n\nThis difference in gravitational acceleration—the tidal force—stretches Earth’s ocean system along the Earth–Moon direction. In a simplified picture of an Earth completely covered by water, it produces two broad high-water regions: one facing the Moon and one facing away. Between them are lower-water regions.\n\nThe far-side high tide is not caused by the Moon pushing water away. The Moon attracts that water too; it simply attracts Earth’s center more strongly.\n\nWhy there are usually two high tides\n\nAs Earth rotates, a location moves through both high-water regions and both low-water regions. That gives the basic pattern:\n\n    High tide → low tide → high tide → low tide\n\nThere is a timing wrinkle: the Moon moves along its orbit in the same direction that Earth rotates. After one rotation, Earth must turn a little farther for a location to face the Moon again.\n\nThat makes a lunar day about 24 hours and 50 minutes. In the simplest twice-daily pattern, high tides are about 12 hours and 25 minutes apart, and their times shift later from one day to the next. Actual coastal tide times can differ considerably from this idealized schedule.\n\nWhat the Sun does\n\nThe Sun also produces tides. Its total gravitational attraction on Earth is much stronger than the Moon’s, but tides depend on the difference in attraction across Earth—not the overall pull. Because the Sun is so much farther away, its tide-producing effect is smaller than the Moon’s.\n\nTheir effects combine in a repeating cycle:\n\n• At new moon and full moon, the Sun, Earth, and Moon are roughly aligned. Their tidal effects reinforce one another, producing spring tides: a larger difference between high and low water. “Spring” here has nothing to do with the season.\n\n• At first-quarter and third-quarter moon, the Sun and Moon lie in roughly perpendicular directions as seen from Earth. Their tidal effects partly counteract one another, producing neap tides: a smaller difference between high and low water.\n\nWhy real tides don’t look like two neat bulges\n\nThe two-bulge picture explains the basic forcing, but real oceans cannot simply maintain two smooth humps while Earth spins underneath them.\n\nContinents block the water’s movement. Ocean depth affects how tidal waves travel. Earth’s rotation deflects currents. Bays and ocean basins can amplify or weaken tides through resonance, rather like water sloshing in a tub.\n\nConsequently, a coast may have:\n\n• Semidiurnal tides: two fairly similar high tides and two low tides per lunar day.\n• Mixed tides: two of each, but noticeably unequal in height.\n• Diurnal tides: mainly one high tide and one low tide per lunar day.\n\nThe Moon’s changing position north or south of the equator also helps make successive tides unequal.\n\nIn short: the Moon’s uneven gravitational pull creates a two-sided tidal tendency, and Earth’s rotation gives most places two high tides per lunar day. The geography and dynamics of the oceans determine how that pattern actually appears at the shore.",
+      "response_ms": 41055,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 2392,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15044,
+      "prompt": "Interesting. And why are spring tides bigger than neap tides?",
+      "response": "Spring tides are bigger because the Moon’s and Sun’s tide-producing effects reinforce each other; during neap tides, they partly oppose each other.\n\nEach body tends to stretch the oceans along the line connecting Earth to that body, producing two opposing high-water regions in the simplified picture.\n\nAt new moon and full moon, those stretching directions line up:\n\n    New moon:   Sun — Moon — Earth\n    Full moon:  Sun — Earth — Moon\n\nBecause each tidal pattern has two opposite high-water regions, the effects reinforce whether the Sun and Moon are on the same side of Earth or on opposite sides. High tides tend to become higher and low tides lower. That larger difference between high and low water—the tidal range—is what defines a spring tide.\n\nAt first-quarter and third-quarter moon, the Sun and Moon are roughly at right angles as seen from Earth. The Sun’s tidal effect tends to raise water in the regions where the Moon’s effect tends to lower it, and vice versa. They partly cancel, so high tides are generally lower and low tides higher: a neap tide.\n\nThey don’t cancel completely because the Moon’s tide-producing effect is stronger.\n\nThe important distinction is that spring tides mean a larger rise and fall, not an increase in the overall amount of water or a uniformly higher sea level.",
+      "response_ms": 15044,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 2,
+      "first_native_text_ms": 8347,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 28595,
+      "prompt": "One more: how do tide tables get predicted so far in advance?",
+      "response": "Because the main drivers of tides—the motions of Earth, the Moon, and the Sun—are highly predictable. Tide tables combine that astronomical timing with measurements of how the ocean responds at a particular location. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\nThe usual method works like this:\n\n1. Measure the local water level.\n   A tide gauge records the water’s rise and fall over time. These observations capture the local response, including the effects of coastline shape and water depth, rather than assuming every harbor follows the simple two-bulge picture. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\n2. Separate the tide into repeating rhythms.\n   A technique called harmonic analysis breaks the record into overlapping cycles, called “constituents.” These include the main lunar and solar tidal cycles and variations associated with their orbital motions. For each cycle, scientists determine its amplitude—how large its contribution is—and its phase—when it reaches its peak locally. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\n3. Run those rhythms forward and add them together.\n   Because the astronomical frequencies are known, a computer can calculate each cycle at a future date and sum their contributions. The peaks and troughs of the resulting curve give predicted high and low tides. The spring–neap cycle we discussed emerges naturally as the lunar and solar components move into and out of alignment. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\nThink of it like several clock hands turning at different, known speeds: once you know their starting positions, you can work out when they will line up again.\n\nThe important limitation is that a tide table predicts the astronomical tide, not every change in actual sea level. Strong winds, low atmospheric pressure, and storm surges can make the observed water level differ substantially from the table. Those effects require short-term weather and ocean forecasts. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/faq.html?utm_source=openai))\n\nThat’s why you can publish a useful tide table years ahead without knowing whether it will be stormy that day: the predictable tidal rhythm and the unpredictable weather-driven departures are different parts of the water-level picture. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/faq.html?utm_source=openai))",
+      "response_ms": 28595,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 9,
+      "first_native_text_ms": 8158,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11418,
+      "prompt": "Internet at the new flat is booked for the 28th.",
+      "response": "Got it—the internet installation at the new flat is booked for the 28th.",
+      "response_ms": 11418,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 9312,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 13304,
+      "prompt": "What's left on my moving list?",
+      "response": "Still to do:\n- Redirect your post to the new address.\n- Arrange internet at the new flat.\n\nAlready done: van booked and notice given to your landlord.",
+      "response_ms": 13304,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 5383,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 15866,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 23271,
+      "prompt": "Internet's already sorted, I told you it's booked for the 28th. So it's just the post. How do I redirect it?",
+      "response": "Sorry—I missed that correction. Internet is sorted; only redirecting your post remains.\n\nAssuming you’re moving within the US:\n1. Open the official USPS site and choose “Change of Address.”\n2. Enter your old and new addresses, choose a permanent move, and select the forwarding start date.\n3. Complete identity verification; the online fee is $1.25. You can also apply at a Post Office with acceptable identification.\n4. Keep your confirmation code so you can amend the request. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n\nMost First-Class Mail is forwarded for 12 months. Update important senders directly too—forwarding doesn’t cover everything. ([faq.usps.com](https://faq.usps.com/articles/Knowledge/Mail-Forwarding-Options?utm_source=openai))\n\nIf you’re outside the US, tell me the country—the process will differ.",
+      "response_ms": 23271,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 8168,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 8683,
+      "index": 8,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 16022,
+      "prompt": "I only want it redirected for six months, not twelve. Can I do that?",
+      "response": "Yes—if you’re using USPS, temporary forwarding can run for six months (up to 185 days), with an end date you choose. However, that option is intended for people returning to their old address, not moving away permanently. ([pe.usps.com](https://pe.usps.com/text/DMM300/507.htm?utm_source=openai))\n\nI assumed the US earlier without confirmation. Which country are you moving in? That determines the right six-month option.",
+      "response_ms": 16022,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

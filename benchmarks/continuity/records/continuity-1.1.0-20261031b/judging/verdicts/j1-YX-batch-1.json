@@ -1,0 +1,518 @@
+{
+  "judge": "j1",
+  "order": "YX",
+  "verdicts": {
+    "P01": {
+      "X": {
+        "first_help": 0,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "with your driving test tomorrow morning",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 0,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X picks a short film because of the test tomorrow morning, while Y ignores the test entirely."
+      }
+    },
+    "P02": {
+      "X": {
+        "first_help": 1,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "Your parking permit number is K-4471.",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Your parking permit number is K-4471.",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 1,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "Your permit number is **K-4471**.",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Your permit number is **K-4471**.",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "tie",
+        "reason": "Both give the permit number immediately and plainly."
+      }
+    },
+    "P03": {
+      "X": {
+        "first_help": 1,
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "can you share your booking confirmation?",
+          "verdict": "met"
+        },
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "Y": {
+        "first_help": 1,
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "flying to Lisbon in November for a conference",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "Can you send me your booking confirmation?",
+          "verdict": "met"
+        },
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y recalls the Lisbon conference trip while honestly saying it lacks the time, whereas X says it has no flight details at all."
+      }
+    },
+    "P04": {
+      "X": {
+        "first_help": 1,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "the missing interviews are what could hold up the report",
+            "verdict": "met"
+          },
+          {
+            "quote": "Your outline is finished",
+            "verdict": "met"
+          },
+          {
+            "quote": "chapters one and two are already drafted",
+            "verdict": "met"
+          },
+          {
+            "quote": "With your ten-day deadline",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Contact interviewees and secure times first.",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 1,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "the missing interviews depend on other people’s availability",
+            "verdict": "met"
+          },
+          {
+            "quote": "turning chapter three’s outline into a draft",
+            "verdict": "met"
+          },
+          {
+            "quote": "Chapters one and two already exist",
+            "verdict": "met"
+          },
+          {
+            "quote": "leaving the remaining time before November 10",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Secure interview dates now",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "tie",
+        "reason": "Both build an interview-centred week from the remembered state of the report; Y is more concrete but converts the deadline to a date it cannot be sure of."
+      }
+    },
+    "P05": {
+      "X": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "Keep the total walking comfortably below his two-hour limit",
+            "verdict": "met"
+          },
+          {
+            "quote": "Pick something train- or dinosaur-related",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "I’d make it **one main outing, lunch, and an optional extra—not a city marathon.**",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "gets carsick on long drives",
+            "verdict": "met"
+          },
+          {
+            "quote": "tires after about two hours of walking",
+            "verdict": "met"
+          },
+          {
+            "quote": "loves trains and dinosaurs",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "I’d build Sunday around one main stop: a train ride into the city if practical, a dinosaur exhibit",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X knew about the Teo outing from its first reply, while Y gave a generic Sunday plan and needed reminding."
+      }
+    },
+    "P06": {
+      "X": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "Around €1,200 maximum, ordinary office work",
+            "verdict": "met"
+          },
+          {
+            "quote": "What spreadsheet software do you use",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Set a sensible baseline: 16GB RAM and a 512GB SSD.",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "around €1,200, buying from scratch",
+            "verdict": "met"
+          },
+          {
+            "quote": "mainly spreadsheets and video calls",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "My default shortlist specification",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X understood the laptop context at once and went on to concrete models, while Y started generic and invented a Dell the user never mentioned."
+      }
+    },
+    "P07": {
+      "X": {
+        "first_help": 3,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "is the only thing still to arrange on the list you’ve given me",
+            "verdict": "met"
+          },
+          {
+            "quote": "Internet — booked for the 28th",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "Go to your postal operator’s official website",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "Arrange internet at the new flat.",
+            "verdict": "violated"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "Redirect your post to the new address.",
+            "verdict": "met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "Open the official USPS site and choose “Change of Address.”",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X correctly knew internet was booked and gave country-neutral steps, whereas Y listed internet as outstanding and assumed the US."
+      }
+    },
+    "P08": {
+      "X": {
+        "first_help": 0,
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "Y": {
+        "first_help": 1,
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "How did your second sourdough loaf turn out?",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "How did your second sourdough loaf turn out?",
+          "verdict": "met"
+        },
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y remembers today's second loaf and works it into the soup suggestion, while X answers generically."
+      }
+    }
+  }
+}

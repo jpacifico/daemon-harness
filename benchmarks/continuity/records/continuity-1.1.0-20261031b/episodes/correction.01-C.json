@@ -1,0 +1,430 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "62986fdc285b636e98d1bb14a6b607009855ef192ed2740386b4a2ce3310c725",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "030056ebd1d75e3a3071635ed891d2efc1ef123dfdecef7cf63fb1fb688cf4b2",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 902,
+  "dry_run": false,
+  "episode": "correction.01",
+  "episode_ms": 581590,
+  "family": "correction",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 8,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 8,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "correction.01-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 340480
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 28,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 181026
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 12562
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 2943
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 534068
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 56832
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 70070
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1992
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 309
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 128894
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 65213,
+      "first_native_text_ms": 5205,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4368,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10377,
+      "prompt": "My sister's wedding is on the 14th of June, in Porto.",
+      "response": "How are you feeling about your sister getting married?",
+      "response_ms": 10377,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 28022,
+      "first_native_text_ms": 4435,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6118,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 30889,
+      "prompt": "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+      "response": "Ocean tides are long waves driven mainly by the Moon’s gravity, with a substantial contribution from the Sun. Most coasts experience **two high tides and two low tides each lunar day**, though the timing and height depend heavily on the shape of the ocean nearby.\n\n## 1. The key is a difference in gravity\n\nThe Moon pulls on the whole Earth—not just the oceans. But its pull is stronger on the side closest to it and weaker on the far side.\n\nCompare each side with Earth’s centre:\n\n- **Near side:** Water is pulled toward the Moon more strongly than Earth’s centre is.\n- **Far side:** Earth’s centre is pulled toward the Moon more strongly than the water is. Relative to the centre, that water is left farther outward.\n\nSo the tidal effect stretches Earth along the Earth–Moon line, rather than simply pulling all the water toward the Moon.\n\nIn an idealized picture of an Earth completely covered by water, that creates **two broad tidal bulges**: one facing the Moon and one facing away from it. Between them, water levels are lower.\n\nThe far-side bulge is often the puzzling part. The Moon does **not** push that water away. It pulls the rest of Earth toward itself more strongly.\n\n## 2. Why that produces two tides a day\n\nAs Earth rotates, a place on its surface passes through both sides of this tidal pattern: high water, low water, high water, low water.\n\nBut the Moon also moves along its orbit in the same direction Earth rotates. After one rotation, Earth must turn a little farther for a particular location to face the Moon again.\n\nThat makes a **lunar day about 24 hours and 50 minutes**, rather than 24 hours. In the simplest twice-daily pattern:\n\n- High tides are about **12 hours and 25 minutes apart**.\n- A high tide and the following low tide are about **6 hours and 12 minutes apart**.\n- Corresponding tides occur roughly **50 minutes later each day**.\n\nThose are useful averages, not a reliable timetable for a particular harbour.\n\n## 3. What the Sun contributes\n\nThe Sun is far more massive than the Moon, but much farther away. Tidal strength depends on how much gravity *changes across Earth*, which decreases very rapidly with distance. Consequently, the Sun’s tide-producing effect is roughly half the Moon’s.\n\nTheir effects combine:\n\n- **New and full moons:** The Sun, Earth and Moon are approximately aligned. Their tidal effects reinforce each other, producing **spring tides**—a larger difference between high and low water. “Spring” here has nothing to do with the season.\n- **First and last quarter moons:** The solar and lunar tidal patterns partly counteract each other, producing **neap tides**—a smaller difference between high and low water.\n\n## 4. Why “usually” matters\n\nThe two-bulge picture explains the basic forcing, but real oceans cannot rearrange themselves freely. Continents block their motion; depth, coastline shape, friction and Earth’s rotation alter how tidal waves travel. Ocean basins can also resonate, amplifying some tidal rhythms.\n\nAs a result, a coast may have two similar high tides daily, two noticeably unequal ones, or just one dominant high tide and low tide.\n\n**The Moon and Sun supply the gravitational rhythm; the geography of the oceans determines how that rhythm shows up on your beach.**",
+      "response_ms": 30889,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 29670,
+      "first_native_text_ms": 2835,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7868,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14482,
+      "prompt": "Interesting. And why are spring tides bigger than neap tides?",
+      "response": "Because **the Sun’s and Moon’s tidal effects reinforce each other at spring tides, but partly oppose each other at neap tides**. The key is how their *stretching patterns* line up—not simply whether both bodies pull in the same direction.\n\nAt a **new moon**, the Sun and Moon are on roughly the same side of Earth. Their tidal patterns line up: both tend to stretch the oceans along the same axis, producing a larger tidal range.\n\nAt a **full moon**, they’re on opposite sides—but their patterns still line up. Remember that each produces a tidal effect on **both** sides of Earth. Switching the Moon to the opposite side doesn’t change the axis of that stretching. So full moons produce spring tides too.\n\nAt the **quarter moons**, the Sun and Moon lie roughly at right angles as seen from Earth. Where the Moon’s tidal pattern tends to raise water levels, the Sun’s tends to lower them, and vice versa. They partly cancel, giving a smaller tidal range.\n\nSo “bigger” means **a greater difference between high and low water**: spring tides generally bring higher highs *and* lower lows, rather than raising the sea throughout the day.",
+      "response_ms": 14482,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26007,
+      "first_native_text_ms": 9285,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9617,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 25291,
+      "prompt": "One more: how do tide tables get predicted so far in advance?",
+      "response": "Because **tide tables predict an astronomical rhythm—not the weather**. The Moon’s and Sun’s positions can be calculated far ahead; the other ingredient is knowing how a particular stretch of coast responds to them. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\n### 1. Measure the local pattern\nA tide gauge records water levels over time. Scientists analyse those measurements to separate the regular tidal signal into a set of overlapping cycles, called **harmonic constituents**. A year of observations can identify many of these; longer records help refine the analysis. This captures the local response rather than assuming every harbour behaves alike. ([livnocweb2.nerc-liv.ac.uk](https://livnocweb2.nerc-liv.ac.uk/ntslf/tides/about-tides/tides-faq?utm_source=openai))\n\n### 2. Separate the rhythms\nThink of the tide as several clock hands turning at different speeds. Each constituent has:\n- A **period**: how long its cycle takes.\n- An **amplitude**: how much it raises and lowers the water locally.\n- A **phase**: where it sits in its cycle at a given time.\n\nAstronomy supplies the regular frequencies; observations establish the local amplitudes and phases. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\n### 3. Run those clocks forward and add them up\nFor a future date, calculate each cycle’s contribution and sum them. The result is a predicted water-level curve; its peaks and troughs give the high and low tides. The reinforcement and cancellation we discussed emerge from that addition automatically. NOAA’s standard method uses 37 constituents. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\n### 4. Keep the weather separate\nThe actual sea level can depart from that curve because of weather, including storm surge. Those effects aren’t captured by an astronomical tide table and require separate forecasts. So a table printed years ahead can predict the regular tide, but not the extra water a storm might bring on that day. ([livnocweb2.nerc-liv.ac.uk](https://livnocweb2.nerc-liv.ac.uk/ntslf/tides/about-tides/tides-faq?utm_source=openai))",
+      "response_ms": 25291,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 51643,
+      "first_native_text_ms": 2723,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13121,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 6989,
+      "prompt": "Sorry, I got that wrong: it's on the 21st of June, and it's in Braga, not Porto.",
+      "response": "Got it—your sister’s wedding is on **21 June in Braga**, not 14 June in Porto.",
+      "response_ms": 6989,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 62569,
+      "first_native_text_ms": 6003,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 15752,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 9835,
+      "prompt": "Can you help me plan the trip for the wedding?",
+      "response": "Is your sister’s wedding on 21 June 2027, or a different year?",
+      "response_ms": 9835,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 12283,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 57974,
+      "first_native_text_ms": 6574,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 19255,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 10489,
+      "prompt": "It's on the 21st of June in Braga, like I mentioned before. I'm not sure about the year, sorry.",
+      "response": "We can leave the year open for now—21 June in Braga is noted. Where will you be travelling from?",
+      "response_ms": 10489,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9014,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 114942,
+      "first_native_text_ms": 11437,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 8
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 24513,
+        "terminal_turn_count": 8,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15587,
+      "prompt": "Not sure yet. I'd like to arrive two days before and stay until the 23rd, if that helps. I'm going alone and have a mid-range budget.",
+      "response": "That gives us 19–23 June—four nights, travelling solo—with the year and departure point still open. Roughly how much would you like to spend per night on accommodation, and in which currency?",
+      "response_ms": 15587,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

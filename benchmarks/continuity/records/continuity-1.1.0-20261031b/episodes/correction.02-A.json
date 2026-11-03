@@ -1,0 +1,301 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "a3d188a2e6351fce957e4f192b03add887d712b1ebe9018028f5f2986c08fe5c",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "317de2beb78a1752430b24524b15def58b637770059be4223c3c0dd3da615a76",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "correction.02",
+  "episode_ms": 175923,
+  "family": "correction",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "correction.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 96000
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 9,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 64361
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2263
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 267
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 162624
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 19,
+      "name": "memory",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 22,
+      "name": "memory",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 14347,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19357,
+      "prompt": "My new manager is called Daniel and he likes updates by email.",
+      "response": "I’ll remember that your manager is Daniel and he prefers updates by email.",
+      "response_ms": 19357,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 14593,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 50240,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through a combination of fashion, falling prices, imperial trade, and social habit. It began as an expensive Chinese import and gradually became an everyday drink across social classes—not simply because a royal introduced it. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n1. A fashionable luxury: the 1600s\n\nTea was being sold in London by 1658, initially through coffeehouses, and was sometimes advertised for its supposed medicinal benefits. Catherine of Braganza, the Portuguese wife of Charles II, helped make tea fashionable at court after their marriage in 1662. She did not introduce tea to Britain, but royal enthusiasm gave it prestige among the aristocracy. ([takingtea.exeter.ac.uk](https://takingtea.exeter.ac.uk/histories/britain/))\n\nIts expense was part of its appeal: serving tea demonstrated wealth and sophistication. Fine porcelain and elaborate equipment turned drinking it into a domestic ceremony. Tea was valuable enough that wealthy households kept it in lockable caddies. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/the-history-of-tea))\n\n2. Sugar and sociability broadened its appeal: the 1700s\n\nIncreasing imports helped tea spread beyond elite circles. It became something people drank at home, in pleasure gardens, and in spa towns. Preparing and serving it offered a social ritual that could be adopted by households far removed from the royal court. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/the-history-of-tea))\n\nAdding sugar also mattered. Sweetened tea became increasingly popular during the eighteenth century, linking British consumption to Caribbean plantations worked by enslaved people. The comforting domestic drink therefore had a history inseparable from slavery and overseas commerce. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cup-char?utm_source=openai))\n\n3. Smuggling—and then a tax cut—made it more affordable\n\nHigh taxes kept legal tea expensive, but smugglers supplied a much wider market. A decisive change came in 1784, when the Commutation Act reduced the tea tax from 119% to 12.5%. That sharply undermined smuggling and made legally imported tea more affordable. Tea’s rise was as much an economic story as a matter of taste. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n4. Expanding supplies made it an everyday staple: the 1800s\n\nDuring the nineteenth century, cheaper tea from Assam, Darjeeling, and Ceylon—now Sri Lanka—expanded the supply. Tea became embedded in working life as well as domestic life: some employers supplied it to workers, while inexpensive tearooms helped spread public tea-drinking. The temperance movement also promoted it as an alternative to alcohol. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/the-history-of-tea))\n\nThere was a violent side to the trade, too. British demand for Chinese tea contributed to a trade imbalance that the East India Company helped offset through Indian opium sold into China. Chinese attempts to suppress that trade led to conflict with Britain in the Opium Wars. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n5. “Afternoon tea” came after tea was already popular\n\nThe elaborate afternoon tea of sandwiches and cakes was a nineteenth-century social fashion, traditionally associated with Anna, Duchess of Bedford, around 1840. It did not start Britain’s tea habit. Nor was it the same as “high tea,” which was a substantial meal associated with working-class households. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/the-history-of-tea))\n\nThe key distinction is between what made tea desirable and what made it ubiquitous: elite fashion helped create demand; cheaper supplies and lower taxes widened access; and everyday rituals gave people repeated reasons to put the kettle on. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection?utm_source=openai))",
+      "response_ms": 50240,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 8681,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 32251,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was the commercial machinery behind Britain’s tea habit: it supplied the drink on a large scale, controlled the legal import trade, and connected British demand to colonial power in Asia. ([qdl.qa](https://www.qdl.qa/en/brief-history-english-east-india-company-1600%E2%80%931858?utm_source=openai))\n\nIt played three main roles:\n\n1. Bringing Chinese tea to Britain\n\nDespite its name, the Company bought tea from China. Its ships and trading networks carried tea alongside porcelain, silk, and other goods. Its government-backed monopoly meant that, for much of tea’s rise in Britain, legitimate importers could not freely compete with it. That made it central to the supply—but not simply a force for cheap tea, since monopoly protected its commercial interests. Parliament abolished its remaining China-trade monopoly in 1833, taking effect in 1834. ([qdl.qa](https://www.qdl.qa/en/brief-history-english-east-india-company-1600%E2%80%931858?utm_source=openai))\n\n2. Financing tea through opium\n\nBuying Chinese tea required substantial payments in silver. The Company used its control over Indian opium production and sales to help finance that trade. Private merchants carried the opium into China illegally; the resulting trade helped provide funds for purchasing tea. So this was not simply a direct exchange of tea for opium between governments, but an interconnected commercial system. ([lib.cam.ac.uk](https://www.lib.cam.ac.uk/rcs/projects-exhibitions/opium-morally-indefensible-trade-horrible-drug/opium-captions?utm_source=openai))\n\nThis also sharpens something in my earlier answer: tea demand alone did not cause the Opium Wars. The opium trade, Chinese efforts to suppress it, and Britain’s intervention to protect commercial interests were the more immediate connections. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade?utm_source=openai))\n\n3. Helping establish tea production in India\n\nIn the 1830s, the Company’s administration backed experiments in growing and processing tea in Assam, seeking an alternative to Chinese supplies. It supported plantations and efforts to obtain Chinese expertise. This helped lay the foundations of the Indian tea industry, although much of its later expansion happened under private companies rather than through the East India Company’s own tea trade. ([globalcapitalism.history.ox.ac.uk](https://globalcapitalism.history.ox.ac.uk/files/case33-englisheastindiacompanypdf?utm_source=openai))\n\nIn short: fashion helped make Britons want tea; the Company built much of the trading system that supplied it—and tied that everyday pleasure to monopoly, colonial rule, and the opium trade. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/what-was-the-east-india-company?utm_source=openai))",
+      "response_ms": 32251,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 12323,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 32839,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "Tea bags emerged in their modern form in the early 1900s, but they didn’t become an everyday British habit until decades later. Their main selling point was convenience. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nAn American invention—with a disputed origin story\n\nA 1901 American patent application described a mesh “tea-leaf holder” for brewing an individual cup. The better-known story concerns New York tea merchant Thomas Sullivan: around 1908, he supposedly sent samples in silk pouches, and customers brewed the tea without emptying them. It’s an appealing story, but the details are poorly documented, and the earlier patent means he shouldn’t be credited unambiguously as the inventor. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nBritain took its time\n\nTetley launched tea bags on the British market in 1953. That was an important commercial milestone, not the date of their invention. ([tetley.com](https://www.tetley.com/history-tetley))\n\nNor was it an overnight revolution. In 1970, a British consumer survey still found over 90% of housewives using loose-leaf “packet tea,” while about 30% used tea bags—some used both. Tea bags overtook loose tea in that survey’s usage figures in 1977. ([amsr.org.uk](https://www.amsr.org.uk/tgi-archive-nugget-no-5/))\n\nWhy they caught on\n\nThey simplified an existing habit: a ready-measured portion, no loose leaves to strain, easier disposal, and a convenient way to make just one cup. The small tea particles commonly used in bags also produced a strong brew quickly. That fitted the growing appeal of labour-saving products in postwar households. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nSo tea bags didn’t make Britain a tea-drinking nation. They won by making its established daily ritual less work. ([amsr.org.uk](https://www.amsr.org.uk/tgi-archive-nugget-no-5/))",
+      "response_ms": 32839,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 8002,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12398,
+      "prompt": "Correction: it's Danielle, not Daniel, and she prefers a short Teams message, not an email.",
+      "response": "Updated: Danielle, and she prefers a short Teams message—not an email.",
+      "response_ms": 12398,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 3584,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 7852,
+      "prompt": "Can you help me write my weekly update for my manager?",
+      "response": "Send me rough notes on this week’s wins, work still in progress, any blockers, and next week’s priorities. I’ll turn them into a short Teams update for Danielle.",
+      "response_ms": 7852,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 6100,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 3150,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 7808,
+      "prompt": "This week I finished the client onboarding guide and fixed two bugs in the billing export. Next week I'm starting on the reporting dashboard. No blockers.",
+      "response": "Hi Danielle, quick weekly update:\n\n- Finished the client onboarding guide.\n- Fixed two bugs in the billing export.\n- Next week: starting on the reporting dashboard.\n\nNo blockers.",
+      "response_ms": 7808,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 6986,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "daemon.companion-release-verification.v1",
+  "source_commit": "6bc25c3e49e96991f43fb0f19b975a9445307917",
+  "branch": "codex/companion-host-acquisition",
+  "release_tag": "assistant-windows-recovery-2026-10-06",
+  "packages": {
+    "DAEMONS-Mac.zip": {
+      "sha256": "7aca03b2d0c5bfa18f89ec68580b4df915045fdc1e28228b439ab9f95413a570",
+      "bytes": 19356198,
+      "payload_files": 832,
+      "packaged_files": 836,
+      "payload_matches_git_archive": true,
+      "manifest_verified_for_target": "macos",
+      "zip_integrity_verified": true,
+      "file_modes_preserved": true
+    },
+    "DAEMONS-Windows.zip": {
+      "sha256": "9d0e77262f9ef15b17464bde55eafdd00a3eea301f36a840ffdb75991a81ea84",
+      "bytes": 51824686,
+      "payload_files": 832,
+      "packaged_files": 837,
+      "payload_matches_git_archive": true,
+      "manifest_verified_for_target": "windows",
+      "zip_integrity_verified": true,
+      "file_modes_preserved": true
+    }
+  },
+  "proofs": {
+    "native_windows_complete": "https://github.com/jpacifico/daemon-harness-canonical/actions/runs/37426211745",
+    "native_windows_utf8": "https://github.com/jpacifico/daemon-harness-canonical/actions/runs/37427081599",
+    "python_tests": 1909,
+    "python_skipped": 4,
+    "python_seconds": 80.14,
+    "openclaw_tests": 71,
+    "native_windows_complete_seconds": 328.938,
+    "native_windows_model_response_seconds": 17.922,
+    "native_windows_exchange_memory_confirmed_seconds": 20.016,
+    "native_windows_provider_tests": 14,
+    "native_windows_primitives_tests": 20
+  },
+  "macos_launch": [
+    {
+      "path": "wizard",
+      "exit": 130,
+      "seconds": 8.312,
+      "quarantine": "retained"
+    },
+    {
+      "path": "repeat-logo",
+      "exit": 0,
+      "seconds": 0.774,
+      "quarantine": "retained"
+    },
+    {
+      "tampered_payload": "rejected_before_bootstrap"
+    }
+  ],
+  "limitations": [
+    "Windows full setup exercised native Hermes, services, storage and Telegram adapter with a loopback simulated Telegram Bot API and model; real ChatGPT authentication, account, bot and model remain to be confirmed by the user.",
+    "Old pre-publication rollback_failed state reproduced by an injected failure after real managed Python acquisition; original user codec error text was not reproduced.",
+    "Runtime candidate not merged or deployed to production; personal services unchanged.",
+    "Mac qualification covers package launch in a PTY with quarantine retained, not a new complete macOS setup."
+  ],
+  "github_download_verification": {
+    "release_url": "https://github.com/jpacifico/daemon-harness-canonical/releases/tag/assistant-windows-recovery-2026-10-06",
+    "zip_sha256_and_integrity": true,
+    "verification_json_and_checksums_exact": true
+  }
+}

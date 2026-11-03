@@ -1,0 +1,311 @@
+"""Continuity Benchmark 1.1 corpus: the 24 scenarios of 1.0, unchanged, with a person sheet for the final conversation.
+
+Criteria are judge instructions and never reach a host. The runner sends the
+user messages of each scenario; in the final conversation, an isolated Claude Opus
+5.5 plays the person from its sheet and the earlier messages, never from the
+criteria. `outcome` is 1.0's useful next step, now judged at the end of the
+final conversation. Docs: docs/50_continuity_benchmark.md.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, replace
+
+
+@dataclass(frozen=True)
+class Scenario:
+    id: str
+    family: str
+    counter: bool
+    telling: tuple[str, ...]
+    change: tuple[str, ...]
+    asking: str                    # first message of the final conversation
+    must_use: tuple[str, ...]      # earlier facts the assistant relies on without being told again
+    must_not: tuple[str, ...]      # outdated or unrelated context the assistant must not apply
+    no_repeat: tuple[str, ...]     # what the assistant must not ask again
+    unknown: tuple[str, ...]       # never given: stating it as known is inventing
+    outcome: str                   # the concrete help the person has by the end of the final conversation
+    elsewhere: int                 # index into ELSEWHERE
+    person: str = ""               # what the simulated person wants now and can say if asked
+
+
+# Session 2 of every scenario: ordinary, unrelated requests that push the facts out
+# of the voice's verbatim window. Assigned by index; they share nothing with the facts.
+ELSEWHERE = (
+    ("Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+     "Interesting. And why are spring tides bigger than neap tides?",
+     "One more: how do tide tables get predicted so far in advance?"),
+    ("I'd like to understand the history of tea in Britain. How did it become so popular?",
+     "What was the role of the East India Company in all that?",
+     "And when did tea bags appear, and why did they catch on?"),
+    ("My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+     "How often should I water it, and how do I tell if I'm overdoing it?",
+     "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"),
+    ("Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+     "So is it mostly the gyroscopic effect, or something else?",
+     "Why is it so much harder to balance when you go very slowly?"),
+    ("I want to get better at chess. Can you explain the main ideas behind a good opening?",
+     "What's the difference between an open and a closed position?",
+     "Any advice on how to study endgames without getting bored?"),
+    ("How does a sourdough starter actually work, chemically and biologically?",
+     "Why does it smell sour sometimes and like alcohol other times?",
+     "How long can a starter survive in the fridge without feeding?"),
+)
+
+_SCENARIOS_1_0 = (
+    # People and constraints
+    Scenario("people.01", "people", False,
+         ("My friend Noor is coming over on Saturday afternoon. She just had knee surgery, so she can't manage stairs and needs to sit most of the time.",
+          "My flat is on the ground floor, which helps. We both love board games, and I'd like a cosy afternoon in rather than going out."),
+         (), "Saturday's coming up. What should I plan?",
+         ("Noor cannot manage stairs and needs to sit most of the time after her knee surgery.",
+          "The afternoon is meant to be cosy and at home, and both enjoy board games."),
+         ("Proposing an outing or activity that needs walking, standing for long, or stairs.",),
+         ("Who is coming.", "Whether Noor has any mobility limits.", "Whether they prefer going out."),
+         (), "A concrete plan for a seated, at-home afternoon (for example games, snacks, timing).", 0),
+    Scenario("people.02", "people", False,
+         ("My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+          "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning."),
+         (), "Can you give me a shopping list for tomorrow's dinner?",
+         ("Lena is vegan.", "Idris is allergic to sesame.", "One shared meal for everyone."),
+         ("Including any animal product or any sesame ingredient (sesame oil, tahini, sesame seeds) in the meal.",),
+         ("The guests' dietary needs.", "How many people are eating."),
+         (), "A shopping list for one specific vegan, sesame-free meal.", 1),
+    Scenario("people.03", "people", False,
+         ("I'm taking my nephew Teo, who's seven, into the city on Sunday. He gets carsick on long drives and gets tired after about two hours of walking.",
+          "He's obsessed with trains and dinosaurs."),
+         (), "Help me sketch a plan for Sunday?",
+         ("Teo gets carsick on long drives.", "Teo tires after about two hours of walking.",
+          "Teo loves trains and dinosaurs."),
+         ("Planning a long drive or more than about two hours of continuous walking.",),
+         ("Teo's age or interests.", "Whether he has any travel issues."),
+         (), "An outline of the day built around his interests and limits.", 2),
+    Scenario("people.04", "people", True,
+         ("When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week.",),
+         ("She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home.",),
+         "Any tips to make the chips really good?",
+         ("The meal is for the user and Sam, who want proper salty fish and chips.",),
+         ("Imposing low-salt cooking or the mother's restriction on tonight's meal.",
+          "Asking or assuming that the mother is joining tonight."),
+         ("Who is eating tonight.",),
+         (), "Practical tips for crisp, well-seasoned chips.", 3),
+
+    # Ongoing work
+    Scenario("work.01", "work", False,
+         ("I'm organising our street's spring clean-up. The flyers are printed and the council has approved the date.",
+          "What's left: borrowing litter pickers, and finding someone to bring a first-aid kit."),
+         ("Good news: the community centre is lending us twenty litter pickers.",),
+         "I've got half an hour now. What should I do for the clean-up?",
+         ("The first-aid kit is still missing.", "The litter pickers are now sorted."),
+         ("Recommending work on flyers, the date approval, or borrowing litter pickers as still to do.",),
+         ("What is left to organise.",),
+         (), "A concrete half-hour action toward finding a first-aid kit.", 4),
+    Scenario("work.02", "work", False,
+         ("I'm writing a 20-page report for my evening course. Chapters one and two are drafted. Chapter three, the case study, isn't started. It's due in ten days.",),
+         ("Update: I finished the outline of chapter three last night. What's missing now is the interviews for the case study.",),
+         "Where should I put my effort this week?",
+         ("The chapter three interviews are what is missing.", "The chapter three outline is done.",
+          "Chapters one and two are drafted.", "The deadline is about ten days away."),
+         ("Telling the user to outline chapter three or to draft chapters one and two as if not done.",),
+         ("Which chapters are done.", "When the report is due."),
+         (), "A plan for the week centred on arranging and doing the interviews.", 5),
+    Scenario("work.03", "work", False,
+         ("I'm moving flats at the end of the month. I've booked the van and given notice to my landlord.",
+          "Still to do: redirect my post and sort out internet at the new place."),
+         ("Internet at the new flat is booked for the 28th.",),
+         "What's left on my moving list?",
+         ("Redirecting the post is still to do.",
+          "The van, the notice and the internet booking are done."),
+         ("Listing the van, the notice or the internet as still to do.",),
+         (),
+         (), "Naming the post redirection as what remains, with a way to do it.", 0),
+    Scenario("work.04", "work", True,
+         ("For my bike repair project I decided not to buy new wheels. I'll true the old ones myself. That's settled.",),
+         ("Completely separate thing: I'm buying a new laptop for work, from scratch. Budget around 1,200 euros, mostly spreadsheets and video calls.",),
+         "How should I choose?",
+         ("The laptop budget is about 1,200 euros.", "It is mostly for spreadsheets and video calls."),
+         ("Applying the bike decision (repair rather than buy) to the laptop.",
+          "Bringing up the bike wheels."),
+         ("The budget.", "What the laptop is for."),
+         (), "Concrete criteria or a shortlist approach for that budget and use.", 1),
+
+    # Time and commitments
+    Scenario("time.01", "time", False,
+         ("Every Tuesday and Thursday I swim at 7 in the morning before work.",),
+         ("This Thursday the pool is closed for maintenance, so there's no swim that morning.",),
+         "Can you help me plan my Thursday morning?",
+         ("There is no swim this Thursday because the pool is closed.",),
+         ("Scheduling the 7 am swim on Thursday.",),
+         ("Whether there is a swim on Thursday.", "The usual swim routine."),
+         (), "A plan for a Thursday morning without the swim.", 2),
+    Scenario("time.02", "time", False,
+         ("I've got a dentist appointment tomorrow at 9:30, and I'm not allowed to eat for two hours afterwards.",),
+         (), "What could I have for breakfast and lunch tomorrow?",
+         ("The dentist appointment is at 9:30 tomorrow.", "No eating for two hours after it."),
+         ("Suggesting food between the appointment and about 11:30.",),
+         ("The appointment time.", "The eating restriction."),
+         (), "A breakfast before the appointment and a lunch after the two hours.", 3),
+    Scenario("time.03", "time", False,
+         ("My daughter's school pickup is at 3:30 and it's always been my job.",),
+         ("From today, my partner does the weekday pickups. His new job has flexible hours.",),
+         "I'd like to fit a long run into my weekday afternoons. Any suggestions?",
+         ("The partner now does the weekday pickups, so the user's afternoons are free of it.",),
+         ("Planning the afternoons around the user doing the 3:30 pickup.",),
+         ("Who does the school pickup.",),
+         (), "A concrete afternoon slot or weekly pattern for the run.", 4),
+    Scenario("time.04", "time", True,
+         ("Last month I was on night shifts, so I slept until noon every day.",),
+         ("That rota is over. I'm back on day shifts now, starting at 8 every morning.",),
+         "What's a better time for a yoga class this week, morning or evening?",
+         ("The user now works day shifts starting at 8.",),
+         ("Planning around night shifts or sleeping until noon.",),
+         ("The current work schedule.",),
+         (), "A clear recommendation of a time that fits a day shift starting at 8.", 5),
+
+    # Corrections
+    Scenario("correction.01", "correction", False,
+         ("My sister's wedding is on the 14th of June, in Porto.",),
+         ("Sorry, I got that wrong: it's on the 21st of June, and it's in Braga, not Porto.",),
+         "Can you help me plan the trip for the wedding?",
+         ("The wedding is on the 21st of June.", "It is in Braga."),
+         ("Using the 14th of June or Porto as the wedding date or place.",),
+         ("The date.", "The city."),
+         (), "Trip planning steps for Braga around the 21st of June.", 0),
+    Scenario("correction.02", "correction", False,
+         ("My new manager is called Daniel and he likes updates by email.",),
+         ("Correction: it's Danielle, not Daniel, and she prefers a short Teams message, not an email.",),
+         "Can you help me write my weekly update for my manager?",
+         ("The manager is Danielle.", "She prefers a short Teams message."),
+         ("Addressing the update to Daniel or writing it as an email.",),
+         ("The manager's name.", "The preferred format."),
+         (), "A draft short Teams message for Danielle.", 1),
+    Scenario("correction.03", "correction", False,
+         ("Book club is at Clara's place on Wednesday, and I'm bringing dessert.",),
+         ("Change of plan: we're meeting at the café on Rose Street instead, and I don't need to bring anything, the café serves food.",),
+         "What do I need to prepare for book club?",
+         ("Book club is at the café on Rose Street.", "The user does not need to bring anything."),
+         ("Telling the user to bring dessert or that it is at Clara's.",),
+         ("Where book club is.", "Whether to bring food."),
+         (), "What is actually left to prepare (for example the book), or that nothing else is needed.", 2),
+    Scenario("correction.04", "correction", True,
+         ("Both my cousins visit this summer: Ana arrives on the 2nd of August, Luis on the 9th of August.",),
+         ("Correction for Luis only: he now arrives on the 16th of August. Ana's date hasn't changed.",),
+         "When should I get the spare room ready for Ana?",
+         ("Ana arrives on the 2nd of August.",),
+         ("Applying Luis's new date to Ana.",),
+         ("Ana's arrival date.",),
+         (), "A concrete day to prepare the room, before the 2nd of August.", 3),
+
+    # Not inventing
+    Scenario("unknown.01", "unknown", False,
+         ("I'm flying to Lisbon next month for a conference.",),
+         (), "What time is my flight again?",
+         ("The trip is a flight to Lisbon next month for a conference.",),
+         (),
+         (),
+         ("The flight's date and time were never given.",),
+         "Saying it does not know the time and offering a way to find it (for example the booking confirmation).", 4),
+    Scenario("unknown.02", "unknown", False,
+         ("My doctor has prescribed new tablets for my blood pressure.",),
+         (), "What dose did the doctor say I should take?",
+         ("The tablets are new blood pressure tablets from the doctor.",),
+         (),
+         (),
+         ("The dose was never given.",),
+         "Saying it does not know the dose and pointing to the prescription, the label or the pharmacist.", 5),
+    Scenario("unknown.03", "unknown", False,
+         ("My friend Priya is opening a bakery in town soon.",),
+         (), "What's the name of Priya's bakery? I want to tell my colleagues.",
+         ("Priya is opening a bakery in town.",),
+         (),
+         (),
+         ("The bakery's name was never given.",),
+         "Saying it does not know the name and suggesting how to tell colleagues anyway or how to find out.", 0),
+    Scenario("unknown.04", "unknown", True,
+         ("My parking permit number is K-4471. I'll need it when I call the council.",),
+         (), "I'm on hold with the council. What's my permit number?",
+         ("The permit number is K-4471.",),
+         ("Claiming not to know the permit number.",),
+         ("The permit number.",),
+         (),
+         "Giving the number K-4471.", 1),
+
+    # Relationship
+    Scenario("relationship.01", "relationship", False,
+         ("Bit of a stressful day. My dad has a heart check-up this afternoon and I'm worried about it.",),
+         (), "Could you suggest something quick for dinner tonight?",
+         ("The user's father had a heart check-up this afternoon that the user was worried about.",),
+         ("Making the check-up the whole reply, or giving medical speculation about it.",),
+         (),
+         ("How the check-up went was never given.",),
+         "A quick dinner idea, with a brief, warm word or question about the father's check-up.", 2),
+    Scenario("relationship.02", "relationship", False,
+         ("I've got my driving test tomorrow morning. Third attempt, fingers crossed.",),
+         (), "Can you recommend a film for tonight?",
+         ("The user's driving test is tomorrow morning.",),
+         ("Ignoring the request for a film.",),
+         (),
+         (),
+         "A film suggestion that suits the evening before the test (for example light, not too late), with a brief good-luck word.", 3),
+    Scenario("relationship.03", "relationship", False,
+         ("I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof.",),
+         (), "What should I have with soup tonight?",
+         ("The user is baking a second sourdough loaf today, with a longer proof, after a flat first one.",),
+         (),
+         (),
+         ("How the second loaf turned out was never given.",),
+         "A suggestion for tonight that connects to the loaf being baked today, or asks how it turned out.", 4),
+    Scenario("relationship.04", "relationship", True,
+         ("I was really nervous about my job interview this morning.",),
+         ("Update: I got the job! Very relieved, it's all sorted.",),
+         "Help me plan a small celebration this weekend?",
+         ("The user got the job.",),
+         ("Treating the interview as still pending or wishing luck for it.",),
+         ("Whether the user got the job.",),
+         (),
+         "A concrete plan for a small weekend celebration.", 5),
+)
+
+_ENGINEERING_1_0 = Scenario(
+    "engineering", "engineering", False,
+    ("I'm making a small scrapbook for my cousin's birthday. The photos are printed already.",),
+    ("The photos are sorted into three envelopes. I still need a cover and a short opening note.",),
+    "What would you start with?",
+    ("The photos are printed and sorted.",), ("Telling the user to print the photos.",),
+    ("Whether the photos are printed.",), (), "A first step on the cover or the note.", 0,
+)
+
+
+# What each simulated person wants from the final conversation, and the details
+# they can give if asked: never given before, so asking for them is legitimate,
+# and never needed to meet a criterion.
+PERSONS = {
+    "people.01": "You want a plan for Saturday afternoon with Noor. If asked: she arrives around 2 and leaves around 6, you have Ticket to Ride and Codenames, and she likes tea and something sweet.",
+    "people.02": "You want a shopping list for tomorrow's dinner. If asked: four people including you, you like Italian or Indian food, and the budget is about 40 euros.",
+    "people.03": "You want a plan for Sunday with Teo. If asked: you'll take the train into the city, about 40 minutes, you'd like to be home by 6, and the budget is about 50 euros.",
+    "people.04": "You want tips for really good chips tonight. If asked: you have a deep pan but no fryer, and floury potatoes.",
+    "work.01": "You want to know what to do with your half hour. If asked: the clean-up is in two weeks and there's a neighbours' group chat with about thirty people.",
+    "work.02": "You want a plan for this week. If asked: you need three interviews of about thirty minutes, two colleagues have said they might agree, and your evenings are free.",
+    "work.03": "You want to know what's left and how to do it. If asked: you'd like your post redirected for six months.",
+    "work.04": "You want help choosing a laptop. If asked: you prefer Windows, you carry it to the office twice a week, and you need it within two weeks.",
+    "time.01": "You want a plan for Thursday morning. If asked: work starts at 9, you usually leave home at 8:15, and you'd like to stay active.",
+    "time.02": "You want breakfast and lunch ideas for tomorrow. If asked: you'll be home after the appointment and you have no particular diet.",
+    "time.03": "You want ideas for fitting a long run into weekday afternoons. If asked: you work from home and finish at 4 most days, and you'd like about ninety minutes, twice a week.",
+    "time.04": "You want to know whether morning or evening is better for yoga this week. If asked: you finish work at 4:30, and the studio has classes at 6:30 in the morning and 7 in the evening.",
+    "correction.01": "You want help planning the trip. If asked: you'd like to arrive two days before and stay until the 23rd, you're travelling alone, and you have a mid-range budget.",
+    "correction.02": "You want a draft of your weekly update. If asked: this week you finished the client onboarding guide and fixed two bugs in the billing export, next week you start the reporting dashboard, and there are no blockers.",
+    "correction.03": "You want to know what to prepare for book club. If asked: this month's book is The Remains of the Day and you're halfway through it.",
+    "correction.04": "You want a day to get the spare room ready for Ana. If asked: you mean next summer, you work on weekdays, and the room needs fresh sheets and a cleared desk.",
+    "unknown.01": "You want your flight time. You don't know it: it's in your booking confirmation email.",
+    "unknown.02": "You want the dose. You don't remember it: the box and the prescription are at home.",
+    "unknown.03": "You want the bakery's name. You don't know it either: Priya posted about it on Instagram.",
+    "unknown.04": "You want your permit number, quickly: you're on hold.",
+    "relationship.01": "You want a quick dinner idea. If asked: you have pasta, eggs, a tin of tomatoes and some spinach. If asked about your dad: you haven't heard yet, he's calling later.",
+    "relationship.02": "You want a film for tonight. If asked: you like comedies, nothing longer than two hours.",
+    "relationship.03": "You want something to have with soup tonight. If asked: it's tomato soup. If asked about the loaf: it's still in the oven.",
+    "relationship.04": "You want a plan for a small celebration this weekend. If asked: four close friends, Saturday evening, at home, and a budget of about 80 euros.",
+    "engineering": "You want a first step for the scrapbook. If asked: the birthday is in ten days and your cousin likes the sea.",
+}
+
+SCENARIOS = tuple(replace(scenario, person=PERSONS[scenario.id]) for scenario in _SCENARIOS_1_0)
+ENGINEERING = replace(_ENGINEERING_1_0, person=PERSONS["engineering"])

@@ -1,0 +1,409 @@
+[
+  {
+    "criteria": {
+      "must_not": [
+        "Using the 14th of June or Porto as the wedding date or place."
+      ],
+      "must_use": [
+        "The wedding is on the 21st of June.",
+        "It is in Braga."
+      ],
+      "no_repeat": [
+        "The date.",
+        "The city."
+      ],
+      "outcome": "Trip planning steps for Braga around the 21st of June.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "My sister's wedding is on the 14th of June, in Porto."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "Sorry, I got that wrong: it's on the 21st of June, and it's in Braga, not Porto."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Is your sister’s wedding on 21 June 2027, or a different year?",
+          "person": "Can you help me plan the trip for the wedding?"
+        },
+        {
+          "assistant": "We can leave the year open for now—21 June in Braga is noted. Where will you be travelling from?",
+          "person": "It's on the 21st of June in Braga, like I mentioned before. I'm not sure about the year, sorry."
+        },
+        {
+          "assistant": "That gives us 19–23 June—four nights, travelling solo—with the year and departure point still open. Roughly how much would you like to spend per night on accommodation, and in which currency?",
+          "person": "Not sure yet. I'd like to arrive two days before and stay until the 23rd, if that helps. I'm going alone and have a mid-range budget."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Yes—you previously mentioned your sister’s wedding in Porto on June 14. You didn’t specify the year, so I’ll tentatively use June 14, 2027; confirm that before booking.\n\nI’d build the trip around this schedule:\n\n  June 11–12: Arrive in Porto, settle in, and leave room for travel delays.\n  June 13: Keep flexible for family plans or a rehearsal dinner.\n  June 14: Wedding—no sightseeing or travel commitments.\n  June 15: Relax and spend time with family.\n  June 16: Travel home, or start an optional extension.\n\nFor accommodation, check whether the couple has a hotel block or arranged transport before choosing a hotel. I’d prioritize proximity to the wedding shuttle or venue over sightseeing convenience.\n\nFor the airport transfer, Porto’s Metro Line E connects the airport with Trindade in the city centre. We can decide between that and a car transfer once we know your accommodation and luggage needs. ([visitporto.travel](https://visitporto.travel/en-GB/city?utm_source=openai))\n\nTo turn this into a flight shortlist and realistic budget, I still need your departure airport, number of travelers, approximate budget, and the venue or wedding hotel. The year is the first detail to confirm.",
+          "person": "Can you help me plan the trip for the wedding?"
+        },
+        {
+          "assistant": "Thanks for correcting me—June 21 in Braga replaces June 14 in Porto.\n\nYour revised plan:\n  June 19: Arrive in Braga and check in.\n  June 20: Flexible day for family plans or exploring.\n  June 21: Your sister’s wedding.\n  June 22: Relax or spend time with family.\n  June 23: Check out and travel home.\n\nThat’s four nights, traveling solo, with a mid-range budget. The year remains unconfirmed; my earlier mention of 2027 was only an assumption.\n\nI’d keep accommodation flexible until you know the venue or any wedding shuttle arrangements. A refundable hotel or guesthouse would be my starting point, rather than committing to a particular neighborhood now.\n\nPorto Airport is still an option for reaching Braga—not your accommodation base. The airport lists direct bus connections to Braga, so we can consider that transfer once your flights are known. ([portoairport.pt](https://www.portoairport.pt/en/opo/access-parking/getting-to-and-from-the-airport/public-transportation?language=en&utm_source=openai))\n\nNo need to settle departure details yet. The remaining booking essentials are the year, departure airport, and venue; I’d hold off on flight prices and a firm trip total until those are known.",
+          "person": "Actually I corrected that, it's on the 21st of June and in Braga, not Porto. I'd like to arrive two days before and stay until the 23rd. Just me travelling, mid-range budget. I don't know the venue or departure details yet."
+        }
+      ]
+    },
+    "packet": "P17"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Treating the interview as still pending or wishing luck for it."
+      ],
+      "must_use": [
+        "The user got the job."
+      ],
+      "no_repeat": [
+        "Whether the user got the job."
+      ],
+      "outcome": "A concrete plan for a small weekend celebration.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "I was really nervous about my job interview this morning."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "Update: I got the job! Very relieved, it's all sorted."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Who would you like to celebrate with, or are you thinking of a little celebration just for yourself?",
+          "person": "Help me plan a small celebration this weekend?"
+        },
+        {
+          "assistant": "Five of you at home—nice and manageable. How much cooking do you feel like doing?",
+          "person": "With four close friends, at home"
+        },
+        {
+          "assistant": "€80 for the five of you gives us a useful budget. Any dietary restrictions or allergies to plan around?",
+          "person": "No strong preference really, whatever works. Budget's about 80 euros if that helps."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "What’s the occasion, roughly how many people, and would you rather host at home or go out? Any budget you’d like to stay within?",
+          "person": "Help me plan a small celebration this weekend?"
+        },
+        {
+          "assistant": "Congratulations on the new job. I’d keep it relaxed: dinner, a toast, and plenty of time to catch up—not a night you spend in the kitchen.\n\nAssuming it’s you plus four friends, here’s an €80 spending plan. These are budget caps rather than checked local prices:\n\n  €30 — Main meal: a build-your-own taco spread with beans, peppers,\n         onions, tortillas, salsa, and either chicken or extra beans.\n  €10 — Chips and dips to put out as people arrive.\n  €12 — Dessert: one cake or ice cream with chocolate and berries.\n  €20 — Drinks: choose one alcoholic option, plus sparkling water\n         and a nonalcoholic option for the toast.\n   €8 — Buffer for extras.\n\nA simple Saturday schedule:\n  17:30 — Prep the fillings, chill drinks, and set out plates.\n  19:00 — Friends arrive; snacks and music.\n  19:45 — Dinner, served family-style.\n  20:30 — A short toast to the new job, then dessert.\n  After — Keep chatting or bring out a game you already own.\n\nFor a personal touch, ask everyone for one song that belongs on your “new chapter” playlist. Use whatever candles or lighting you already have; skip buying decorations.\n\nBefore shopping, check dietary restrictions and whether people want alcohol. If you’d rather not cook, replace the taco spread with frozen pizzas and a big salad, keeping the same food budget.",
+          "person": "Celebrating the new job. Four close friends, Saturday evening at my place, around 80 euros."
+        }
+      ]
+    },
+    "packet": "P18"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Imposing low-salt cooking or the mother's restriction on tonight's meal.",
+        "Asking or assuming that the mother is joining tonight."
+      ],
+      "must_use": [
+        "The meal is for the user and Sam, who want proper salty fish and chips."
+      ],
+      "no_repeat": [
+        "Who is eating tonight."
+      ],
+      "outcome": "Practical tips for crisp, well-seasoned chips.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "For proper chip-shop-style chips, **fry them twice**: first to cook the middle, then to crisp the outside. That’s the bit worth fussing over. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n\n- **Use floury potatoes**, such as Maris Piper, and cut them evenly so they cook at the same rate. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **First fry: 130°C**, roughly 7–8 minutes, until cooked through but still pale. Drain and leave to cool before the second fry. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Second fry: 180°C**, until golden and crisp. Work in small batches—crowding the fryer drops the oil temperature. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Salt after frying, not before**, and serve straight away. ([breville.com](https://www.breville.com/content/dam/breville/au/assets/miscellaneous/instruction-manual/woks-skillets-deep-fryers/BDF500-instruction-manual.pdf?utm_source=openai))\n\nUse a thermometer or temperature-controlled fryer, and don’t leave the hot oil unattended. Dinner should have drama, but not that much. ([git.macropus.org](https://git.macropus.org/bbc-food/www.bbc.co.uk/food/recipes/thebestchipsyouhavee_93121.html?utm_source=openai))",
+          "person": "Any tips to make the chips really good?"
+        },
+        {
+          "assistant": "**Yes—a deep, heavy-based pan works.** Same frying principle, but you control the oil temperature yourself rather than relying on a thermostat. A frying thermometer is the useful bit of kit here. ([greatbritishchefs.com](https://www.greatbritishchefs.com/how-to-cook/deep-fry-without-deep-fat-fryer?utm_source=openai))\n\n- **Fill it no more than one-third with oil**, leaving room for bubbling and the chips. ([greatbritishchefs.com](https://www.greatbritishchefs.com/how-to-cook/deep-fry-without-deep-fat-fryer?utm_source=openai))\n- **Dry the cut chips thoroughly** before lowering them gently into the oil—water makes hot oil spit. ([sainthelena.gov.sh](https://www.sainthelena.gov.sh/documents/chip-pan-safety-advice-2/?utm_source=openai))\n- **Keep the two-stage fry:** about 130°C until tender and pale, then cool them before frying at 180°C until golden. Small batches keep the temperature from dropping too far. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video?utm_source=openai))\n- **Stay beside the pan throughout.** If the oil starts smoking, turn off the heat and let it cool. If it catches fire, never add water or move the pan; turn off the heat only if safe, get out and call the fire service. ([sainthelena.gov.sh](https://www.sainthelena.gov.sh/documents/chip-pan-safety-advice-2/?utm_source=openai))",
+          "person": "I don't have a fryer, just a deep pan. Does that work the same?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Do you mean fries/chunky chips, thin potato chips, or tortilla chips—and are you frying, baking, or air-frying them?",
+          "person": "Any tips to make the chips really good?"
+        },
+        {
+          "assistant": "The biggest trick is to fry them twice: gently to cook the middle, then hotter to crisp the outside, with a cooling break between. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n\n1. Cut them evenly, and dry them thoroughly before they go anywhere near the oil—wet potatoes make it spit. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n2. First fry at 130°C for roughly 7–8 minutes, until cooked through but still pale. Thick chips may need longer; go by tenderness rather than the clock. Lift out, drain and leave to cool. You can do this stage ahead. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n3. Second fry at 180°C until golden and crisp. Drain and serve straight away. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n4. Work in small batches. Crowding the pan drops the oil temperature and can leave the chips greasy. ([leithsonline.com](https://www.leithsonline.com/post/the-rules-of-deep-fat-frying))\n\nFor your pan: never fill it more than one-third full of oil, stay beside it, and turn the heat off if the oil smokes. Don’t move a pan of hot oil. ([manchesterfire.gov.uk](https://manchesterfire.gov.uk/your-safety/home-fire-safety/cooking-safety/deep-frying-with-oil/))\n\nHave you got a cooking thermometer that can measure frying temperatures?",
+          "person": "Proper chunky chips, frying them. I've got a deep pan but no fryer, and floury potatoes."
+        },
+        {
+          "assistant": "A small cube of white bread gives a rough check: if it browns in about 30 seconds, the oil is roughly 180–190°C—hot enough for the second, crisping fry. Lower it in carefully with a dry utensil, rather than dropping it from a height. It’s a guide, not a reliable temperature measurement. ([origin.ckbk.com](https://origin.ckbk.com/reference/cook52062c03s001ss012e005/deep-frying-fish-in-batter?utm_source=openai))\n\nThat test won’t reliably identify the gentler 130°C first fry. For controlling both stages, a thermometer rated for deep-frying is the better option; don’t treat the bread test as an exact substitute. ([ask.fsis.usda.gov](https://ask.fsis.usda.gov/article/What-are-deep-fry-thermometers?utm_source=openai))\n\nNever wait for smoke: if it starts smoking, switch off the heat and leave the pan to cool without moving it. Keep the pan no more than one-third full, dry your chips thoroughly, and never test oil with water. If it catches fire, don’t move it or pour water on it—get out and call the fire service. ([lafd.org](https://lafd.org/cooking-safety?utm_source=openai))",
+          "person": "Not sure I've got one. How can I tell when the oil's hot enough without it?"
+        }
+      ]
+    },
+    "packet": "P19"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Applying Luis's new date to Ana."
+      ],
+      "must_use": [
+        "Ana arrives on the 2nd of August."
+      ],
+      "no_repeat": [
+        "Ana's arrival date."
+      ],
+      "outcome": "A concrete day to prepare the room, before the 2nd of August.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "Both my cousins visit this summer: Ana arrives on the 2nd of August, Luis on the 9th of August."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "Correction for Luis only: he now arrives on the 16th of August. Ana's date hasn't changed."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Have the spare room ready by August 1, before Ana arrives on August 2. Her date hasn’t changed—only Luis’s moved to August 16. The year is still unconfirmed.",
+          "person": "When should I get the spare room ready for Ana?"
+        },
+        {
+          "assistant": "Get the spare room ready on Sunday, August 1, 2027—the day before Ana arrives on August 2.",
+          "person": "It's next summer. Which day exactly should I do it?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Ana’s date is August 2, but today is October 31, 2026. Which year do you mean for her visit?",
+          "person": "When should I get the spare room ready for Ana?"
+        },
+        {
+          "assistant": "Have the spare room ready by **August 1, 2027**, the day before Ana arrives on August 2. That leaves arrival day free of last-minute chores.",
+          "person": "I mean next summer, so 2027."
+        }
+      ]
+    },
+    "packet": "P20"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Suggesting food between the appointment and about 11:30."
+      ],
+      "must_use": [
+        "The dentist appointment is at 9:30 tomorrow.",
+        "No eating for two hours after it."
+      ],
+      "no_repeat": [
+        "The appointment time.",
+        "The eating restriction."
+      ],
+      "outcome": "A breakfast before the appointment and a lunch after the two hours.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "I've got a dentist appointment tomorrow at 9:30, and I'm not allowed to eat for two hours afterwards."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "What time do you expect your dentist appointment to finish? Your two-hour wait before eating starts from then.",
+          "person": "What could I have for breakfast and lunch tomorrow?"
+        },
+        {
+          "assistant": "No need to pin down a lunch time yet—just count the two hours from when you finish.\n\n- **Breakfast, before your appointment:** porridge with banana and yogurt—a proper breakfast rather than just coffee.\n- **Lunch, once the two-hour wait is over:** scrambled eggs with mashed potato, or a thick lentil soup.\n\nFollow any extra instructions your dentist gives you about food after the treatment.",
+          "person": "Not sure, it starts at 9:30 but I don't know how long it'll take."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Breakfast: Scrambled eggs on whole-grain toast with avocado and a piece of fruit. For a no-cook option, try Greek yogurt with oats, berries, and nuts.\n\nLunch: A chicken or chickpea wrap with hummus, cucumber, and greens, plus carrots on the side. Use any leftover avocado from breakfast in the wrap.",
+          "person": "What could I have for breakfast and lunch tomorrow?"
+        }
+      ]
+    },
+    "packet": "P21"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Addressing the update to Daniel or writing it as an email."
+      ],
+      "must_use": [
+        "The manager is Danielle.",
+        "She prefers a short Teams message."
+      ],
+      "no_repeat": [
+        "The manager's name.",
+        "The preferred format."
+      ],
+      "outcome": "A draft short Teams message for Danielle.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "My new manager is called Daniel and he likes updates by email."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ],
+      [
+        "Correction: it's Danielle, not Daniel, and she prefers a short Teams message, not an email."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Send me rough notes on this week’s wins, work still in progress, any blockers, and next week’s priorities. I’ll turn them into a short Teams update for Danielle.",
+          "person": "Can you help me write my weekly update for my manager?"
+        },
+        {
+          "assistant": "Hi Danielle, quick weekly update:\n\n- Finished the client onboarding guide.\n- Fixed two bugs in the billing export.\n- Next week: starting on the reporting dashboard.\n\nNo blockers.",
+          "person": "This week I finished the client onboarding guide and fixed two bugs in the billing export. Next week I'm starting on the reporting dashboard. No blockers."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "What did you get done this week, what’s next, and is anything blocked or needs Danielle’s input?",
+          "person": "Can you help me write my weekly update for my manager?"
+        },
+        {
+          "assistant": "Hi Danielle — quick weekly update:\n- Finished the client onboarding guide and fixed two bugs in the billing export.\n- Next week: starting work on the reporting dashboard.\n- No blockers.",
+          "person": "This week I finished the client onboarding guide and fixed two bugs in the billing export. Next week I start on the reporting dashboard. No blockers."
+        }
+      ]
+    },
+    "packet": "P22"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Planning around night shifts or sleeping until noon."
+      ],
+      "must_use": [
+        "The user now works day shifts starting at 8."
+      ],
+      "no_repeat": [
+        "The current work schedule."
+      ],
+      "outcome": "A clear recommendation of a time that fits a day shift starting at 8.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "Last month I was on night shifts, so I slept until noon every day."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "That rota is over. I'm back on day shifts now, starting at 8 every morning."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Evening is probably the better fit this week, since your day shifts start at 8 a.m. Aim for a class after work that won’t push bedtime later. Morning makes sense if you can fit it in without cutting sleep or rushing to work.",
+          "person": "What's a better time for a yoga class this week, morning or evening?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "With your 8 a.m. starts, what times are the morning and evening classes?",
+          "person": "What's a better time for a yoga class this week, morning or evening?"
+        },
+        {
+          "assistant": "What time are you usually getting to sleep now that you’re back on day shifts?",
+          "person": "Morning class is at 6:30 and evening is at 7. I finish work at 4:30."
+        },
+        {
+          "assistant": "Roughly how many hours of sleep are you getting before work at the moment?",
+          "person": "Not sure, I don't have a set bedtime yet."
+        }
+      ]
+    },
+    "packet": "P23"
+  },
+  {
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The tablets are new blood pressure tablets from the doctor."
+      ],
+      "no_repeat": [],
+      "outcome": "Saying it does not know the dose and pointing to the prescription, the label or the pharmacist.",
+      "unknown": [
+        "The dose was never given."
+      ]
+    },
+    "earlier_conversations": [
+      [
+        "My doctor has prescribed new tablets for my blood pressure."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "You haven’t told me the dose—only that your doctor prescribed new blood-pressure tablets. What does the prescription label say?",
+          "person": "What dose did the doctor say I should take?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "You mentioned that your doctor prescribed new blood pressure tablets, but you didn’t share the medication name or dose. I can’t tell what dose they prescribed.\n\nCheck the prescription label or confirm with your pharmacist or doctor rather than guessing. If you share the label’s wording, I can help interpret it.",
+          "person": "What dose did the doctor say I should take?"
+        }
+      ]
+    },
+    "packet": "P24"
+  }
+]

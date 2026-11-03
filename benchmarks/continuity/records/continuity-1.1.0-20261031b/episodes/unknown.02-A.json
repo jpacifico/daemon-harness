@@ -1,0 +1,261 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "47c12f50495c5231beaae5c3f5feb639dc2bf434973b27dca50ea3c3a3994431",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "15b36ea390ecb7f53c79dcde4cc1aa093690fc227428a25c3e10e097ca61ffa7",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "unknown.02",
+  "episode_ms": 123842,
+  "family": "unknown",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "unknown.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 59648
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 68591
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1800
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 255
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 130039
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 18,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 13,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2149,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12464,
+      "prompt": "My doctor has prescribed new tablets for my blood pressure.",
+      "response": "What would you like to know about them? If you share the tablet name, dose, and any concerns, I can help explain.",
+      "response_ms": 12464,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 13969,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 47628,
+      "prompt": "How does a sourdough starter actually work, chemically and biologically?",
+      "response": "A sourdough starter is a small, continuously renewed ecosystem: yeasts and bacteria living in wet flour. The yeasts mainly provide the gas that raises bread; the bacteria mainly provide acidity. Both contribute flavor, and flour’s own enzymes help supply their food. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))\n\n1. Water makes the flour’s food accessible\n\nFlour contains plenty of starch, but starch is too large for most starter microbes to consume directly. When flour is hydrated, enzymes called amylases break accessible starch into smaller sugars, including maltose. Other enzymes, called proteases, break proteins into smaller pieces that can supply nutrients and flavor precursors.\n\nSo the first part of the process is roughly:\n\n    Flour starch → smaller sugars → microbial food\n\nThe flour isn’t just food—it also contains machinery that helps prepare that food. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))\n\n2. Yeasts turn sugars into gas and alcohol\n\nYeasts are single-celled fungi. During alcoholic fermentation, they break down sugars, obtaining energy for growth while releasing carbon dioxide and ethanol:\n\n    Glucose → carbon dioxide + ethanol + usable energy\n\nThe carbon dioxide forms bubbles. When the surrounding dough retains those bubbles, it expands. This is biological gas production, rather than the immediate acid–base reaction you get from baking soda. Much of the ethanol evaporates during baking; yeast metabolism also produces compounds that contribute aroma. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC9524358/))\n\n3. Bacteria make it sour—and change who can live there\n\nLactic acid bacteria ferment sugars through several pathways:\n\n    Homofermentative bacteria: mainly lactic acid\n    Heterofermentative bacteria: lactic acid, plus CO₂ and ethanol or acetic acid\n\nLactic acid gives a relatively mild sourness; acetic acid gives a sharper, vinegar-like character. Their accumulation lowers the pH. That makes the starter increasingly selective: organisms that tolerate acidity do better than those that don’t. Eventually, excessive acidity can slow even the starter’s own yeasts. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC9524358/))\n\n4. A new starter develops through ecological succession\n\nFlour and the surrounding environment introduce microbes; you’re not simply “catching yeast from the air.” Initially, the mixture can support a broad assortment of organisms. As they consume nutrients and change the acidity, the conditions change, favoring a different community.\n\nRepeated feeding selects for organisms that can repeatedly grow in wet flour and tolerate its acidic conditions. This is why initial bubbling doesn’t necessarily mean a new starter has become a reliable bread-leavening culture. An established starter is an adapted community, not just anything that happens to produce gas. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC9524358/))\n\n5. Feeding renews both the food and the environment\n\nAdding flour and water does two important things: it supplies fresh nutrients and dilutes accumulated acids. Keeping a portion of the previous starter seeds that fresh mixture with an established population.\n\nAfter feeding, fermentation picks up and the starter rises. Later, nutrients become limiting, acids accumulate, and the structure may collapse. A fallen starter therefore isn’t necessarily dead—it has moved past its peak in that feeding cycle. Removing some before feeding lets you refresh the remaining culture without maintaining an ever-growing quantity. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/34026358/))\n\nThe useful mental model is a tiny managed ecosystem, not a jar of yeast: enzymes release food, microbes convert it into gas and acids, and your feeding routine repeatedly resets the conditions that let the community persist. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))",
+      "response_ms": 47628,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 12235,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22803,
+      "prompt": "Why does it smell sour sometimes and like alcohol other times?",
+      "response": "Your starter makes both acids and alcohol—the smell changes depending on which compounds are most noticeable at that point in its feeding cycle. It isn’t switching between two completely different kinds of fermentation. ([asbe.org](https://asbe.org/article/fermentation/?utm_source=openai))\n\nSour or vinegary: Bacteria produce lactic and acetic acids. Acetic acid provides the familiar vinegar smell; lactic acid contributes more to sour taste than to aroma. A sharper vinegar smell can develop when the starter goes longer between feedings. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2022/02/22/how-to-make-your-sourdough-bread-more-or-less-sour-part-1?utm_source=openai))\n\nBoozy or beer-like: Yeasts produce ethanol alongside the carbon dioxide that makes the starter rise. Alcohol can accumulate between feedings, sometimes in a liquid layer called “hooch.” Yeasts make alcohol while fermenting food—not only after they run out of it. ([asbe.org](https://asbe.org/article/fermentation/?utm_source=openai))\n\nIn practice, a strong alcoholic smell, especially with a fallen starter or hooch, usually means it’s ready for a refresh rather than spoiled. Keep a portion and feed it fresh flour and water as usual. Mild sourness and alcohol smells are normal; visible mold or pink/orange discoloration means discard it. ([shop.kingarthurbaking.com](https://shop.kingarthurbaking.com/content/recipes/SourdoughBooklet_2_2026.pdf?utm_source=openai))",
+      "response_ms": 22803,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 7440,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 17908,
+      "prompt": "How long can a starter survive in the fridge without feeding?",
+      "response": "An established sourdough starter can survive weeks—and sometimes months—in the fridge without feeding. But “still alive” isn’t the same as “ready to raise bread”: a neglected starter may need several days of feedings to recover. There’s no guaranteed expiration date. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\nFor routine care, aim to feed it about once a week. That’s a maintenance recommendation, not a deadline after which it dies. ([extension.colostate.edu](https://extension.colostate.edu/resource/sourdough-basics-caring-for-your-starter-and-making-bread/?utm_source=openai))\n\nIf yours has been sitting a while:\n\n- Alcohol smell or a liquid “hooch” layer alone doesn’t mean it’s spoiled. These are common in underfed starters. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/faq?utm_source=openai))\n- Visible mold, pink/orange coloration, or a rotten smell means discard the whole starter rather than trying to rescue it. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/create?utm_source=openai))\n- If there are no spoilage signs, keep a small portion and resume room-temperature feedings, roughly every 12 hours. Wait until it rises reliably after feeding before relying on it for bread. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\nHow long has yours been in the fridge?",
+      "response_ms": 17908,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 11515,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 16590,
+      "prompt": "What dose did the doctor say I should take?",
+      "response": "You mentioned that your doctor prescribed new blood pressure tablets, but you didn’t share the medication name or dose. I can’t tell what dose they prescribed.\n\nCheck the prescription label or confirm with your pharmacist or doctor rather than guessing. If you share the label’s wording, I can help interpret it.",
+      "response_ms": 16590,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 6368,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

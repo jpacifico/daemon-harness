@@ -1,0 +1,359 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "62054476bd18fe49136c4aee08a34791d28f78385818cd9e5ea5e3532374bce1",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "c128601c11491f1886e5adef676251bd3ad8665a500fffe5cbc6b0a1b8f287c5",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 673,
+  "dry_run": false,
+  "episode": "people.03",
+  "episode_ms": 427878,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "people.03-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 243200
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 20,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 124467
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 9779
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1586
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 377446
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 42368
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 54788
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1115
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 177
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 98271
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 100753,
+      "first_native_text_ms": 6173,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5243,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10847,
+      "prompt": "I'm taking my nephew Teo, who's seven, into the city on Sunday. He gets carsick on long drives and gets tired after about two hours of walking.",
+      "response": "Which city are you taking Teo to?",
+      "response_ms": 10847,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 80412,
+      "first_native_text_ms": 6463,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8747,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10177,
+      "prompt": "He's obsessed with trains and dinosaurs.",
+      "response": "What got him hooked on trains and dinosaurs?",
+      "response_ms": 10177,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 33518,
+      "first_native_text_ms": 8703,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 10497,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 23684,
+      "prompt": "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+      "response": "Basil wants **bright light, warmth, and moist—but airy—roots**. On a windowsill, the tricky part is giving it enough light without keeping its soil permanently wet.\n\n- **Light:** Aim for about six hours of direct sun a day. A bright-looking room isn’t necessarily bright enough; long, thin stems leaning toward the glass suggest it needs more light.\n- **Warmth:** Keep it away from cold drafts and cold window glass. Basil dislikes chilly nights, even when the room feels comfortable during the day.\n- **Water:** Feel the soil rather than watering on a schedule. When the top half-inch to inch feels dry, water thoroughly and let the excess drain. Don’t leave the pot standing in water.\n- **Drainage:** Use a pot with drainage holes and loose potting mix. A decorative outer pot can quietly collect water underneath.\n- **Space:** If you buy supermarket basil, it’s often lots of seedlings packed into one small pot. Dividing it into a few smaller clumps and repotting can help.\n- **Harvesting:** Pinch stems just above a pair of leaves to encourage branching, rather than repeatedly stripping off individual leaves. Remove flower buds as they appear.\n\n**Wilting doesn’t automatically mean thirst:** dry soil can cause it, but so can roots struggling in soggy soil. Check before adding more water.\n\nWhen yours starts dying, what do you notice first—yellow leaves, crispy leaves, or the whole plant drooping?",
+      "response_ms": 23684,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 24565,
+      "first_native_text_ms": 13368,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 12247,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24221,
+      "prompt": "How often should I water it, and how do I tell if I'm overdoing it?",
+      "response": "**Check it daily; don’t automatically water it daily.** Water when the top ½–1 inch of soil feels dry. If it still feels damp, wait. Basil wants evenly moist soil, not soil that stays saturated. ([extension.umd.edu](https://extension.umd.edu/sites/extension.umd.edu/files/2021-11/MG%20Article-12-2021%20Caring%20For%20Indoor%20Plants.pdf?utm_source=openai))\n\nWhen it needs water, water thoroughly until some runs out of the drainage holes, then let it drain completely rather than sit in the runoff. ([schoolgardening.rhs.org.uk](https://schoolgardening.rhs.org.uk/resources/info-sheet/a-guide-to-watering-plants.aspx?utm_source=openai))\n\n**The biggest warning sign is drooping while the soil is still wet.** Overwatered roots can struggle to take up water, so the plant can look thirsty even when adding more water is exactly the wrong move. Persistent wetness alongside leaf drop or worsening wilt is reason to hold off and check drainage—not give it another drink. Those symptoms alone aren’t a certain diagnosis. ([ask.extension.org](https://ask.extension.org/kb/faq.php?id=904518&utm_source=openai))",
+      "response_ms": 24221,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26795,
+      "first_native_text_ms": 8973,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13997,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22961,
+      "prompt": "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?",
+      "response": "**Supermarket pots are worth keeping going—you don’t need to start from seed.** The catch is crowding: that bushy “plant” is usually lots of seedlings packed together. Gently separating them into smaller clumps and repotting gives them room to grow. ([gardenorganic.org.uk](https://www.gardenorganic.org.uk/how-to-grow-basil?utm_source=openai))\n\n- **For basil to cook with now:** I’d try a supermarket pot, split into several pots with fresh potting mix and drainage holes. Keep them indoors in a warm, sunny spot. ([gardenorganic.org.uk](https://www.gardenorganic.org.uk/how-to-grow-basil?utm_source=openai))\n- **For the pleasure of growing it—or trying different varieties:** seed is worth it. Sow sparingly so you don’t recreate the supermarket crowding; you’ll have a much wider choice of basil varieties. ([eco-schoolsni.org](https://www.eco-schoolsni.org/eco-schoolsni/documents/008276.pdf?utm_source=openai))\n\nMy vote for your next attempt: **divide a supermarket pot first.** Starting from seed isn’t a workaround for the light, warmth or watering conditions basil still needs. We haven’t yet pinned down which of those is causing yours trouble. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))",
+      "response_ms": 22961,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 62339,
+      "first_native_text_ms": 2824,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 17499,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7086,
+      "prompt": "Help me sketch a plan for Sunday?",
+      "response": "Which city are you and Teo heading to on Sunday?",
+      "response_ms": 7086,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

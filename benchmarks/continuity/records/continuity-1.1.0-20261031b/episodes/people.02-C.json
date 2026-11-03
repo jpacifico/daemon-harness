@@ -1,0 +1,396 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "8ce24541eb78dc30784e78338a9156ed5e91b5cee7b055bb7b0ffb70c0d1faa5",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "c9cc0997837a4a068d8d4e771151a258e14265a6c0b090d14febce805e72d7a8",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 771,
+  "dry_run": false,
+  "episode": "people.02",
+  "episode_ms": 478247,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "people.02-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 255360
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 21,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 126420
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 9904
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1286
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 391684
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 59136
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 84669
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2891
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 517
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 146696
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 61798,
+      "first_native_text_ms": 6125,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4364,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11226,
+      "prompt": "My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+      "response": "Vegan and sesame-free, then. What are you thinking of cooking?",
+      "response_ms": 11226,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 48255,
+      "first_native_text_ms": 11483,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6991,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19484,
+      "prompt": "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning.",
+      "response": "I’d do **chickpea, tomato and spinach stew with rice**—one pot for everyone, no separate “vegan version.” That combination makes a straightforward vegan main. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/chickpeas-tomatoes-spinach?utm_source=openai))\n\nFor the three of you, my shopping list would be:\n- 2 cans chickpeas and 2 cans chopped tomatoes\n- 1 onion, garlic and a bag of spinach\n- 250 g dry rice\n- Olive oil, paprika and a lemon, if you haven’t got them\n\nSoften the onion in olive oil, add garlic and paprika, then tomatoes and drained chickpeas. Simmer until thick, stir in the spinach and finish with lemon. Serve over rice.\n\n**The sesame check matters beyond the recipe:** read packaged-food labels, avoid sesame oil and tahini, and use thoroughly cleaned cookware, utensils and surfaces to prevent cross-contact. Check with Idris about his usual trusted brands before you shop. ([foodallergy.org](https://www.foodallergy.org/living-food-allergy/food-allergy-essentials/common-allergens/sesame?utm_source=openai))",
+      "response_ms": 19484,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 30447,
+      "first_native_text_ms": 15009,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8743,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 46614,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through **fashion first, then affordability and everyday habit**. Royal taste helped make it desirable; trade, smuggling and falling prices made it accessible. Empire is woven through that story—not just into where the tea came from, but into the sugar people stirred into it. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n### 1. A fashionable foreign luxury: the 1600s\nTea appeared in London coffee houses in the 1650s, initially as an expensive novelty imported from China. Catherine of Braganza, the Portuguese princess who married Charles II in **1662**, helped make tea-drinking fashionable at court. She didn’t introduce Britain to tea, but she gave it aristocratic prestige. Serving it with fine porcelain became a way to display taste and wealth. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection))\n\n### 2. A social pleasure—and a sweet one: the 1700s\nGrowing imports brought tea within reach of more households. It became something people served to guests and drank in pleasure gardens as well as at home. Its appeal was not simply the flavour of the leaf: milk and sugar helped make it palatable to British drinkers. The sugar came heavily from Caribbean plantations worked by enslaved people, connecting a domestic pleasure to Atlantic slavery. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n### 3. Smuggling, then a huge tax cut\nHigh duties kept legal tea expensive, but smugglers supplied a much wider market. This matters: **tea was becoming a popular habit before the government made it cheap to buy legally**.\n\nIn **1784**, the Commutation Act cut tea duties from **119% to 12.5%**, greatly undercutting the smugglers and expanding the legal trade. Falling prices helped turn an aspirational luxury into a routine purchase. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n### 4. Empire expanded the supply: the 1800s\nBritain initially depended on Chinese tea. During the nineteenth century, colonial production in India and Ceylon—now Sri Lanka—provided increasing quantities of cheaper tea. Ending the East India Company’s trading monopoly in 1834 also opened up the trade. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/the-history-of-tea))\n\nThere was a violent side to this commerce. To offset the silver spent buying Chinese goods, including tea, the East India Company supplied Indian-grown opium for smuggling into China. Chinese attempts to suppress that trade contributed to the Opium Wars. The comforting British cup had a decidedly uncomforting supply history. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n### 5. It acquired a place in everyone’s day\nTea became embedded in working life and hospitality. Employers supplied it to servants and mill workers; inexpensive tea rooms spread; temperance campaigners promoted it as an alternative to alcohol. It could be both a modest refreshment and an elaborate social occasion. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/the-history-of-tea))\n\nThe familiar **“afternoon tea” with sandwiches and cakes came later, developing in the 1840s**. It didn’t create Britain’s tea habit—it was a fashionable elaboration of an already established one. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection))\n\nSo the useful distinction is this: **prestige helped people want tea; cheaper supplies helped them buy it; repeated social rituals made it feel indispensable.** That transformation took generations, rather than a single royal endorsement. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))",
+      "response_ms": 46614,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 23334,
+      "first_native_text_ms": 14197,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 10493,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 35387,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was **the commercial machinery behind Britain’s tea habit**—and a major link between that habit and imperial power. It supplied tea, protected its privileged position in the trade, and helped finance purchases through opium. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/what-was-the-east-india-company?utm_source=openai))\n\n**1. It brought Chinese tea into Britain on a large scale.**  \nDespite its name, the Company initially supplied tea from **China**, not Indian plantations. By the early 1700s, it was importing directly from China. Its trading network turned a fashionable foreign luxury into a regularly supplied commodity. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n**2. It controlled the legal trade—but wasn’t simply making tea cheap.**  \nIts monopoly protected it from competing British importers. Meanwhile, heavy government taxes made legal tea expensive, so smugglers supplied much of the wider market. That distinction matters: the Company expanded supply, but tea’s growing accessibility also owed a great deal to trade outside its control and the huge tax reduction of 1784. ([hansard.parliament.uk](https://hansard.parliament.uk/Commons/1829-05-12/debates/c87c84f8-5e6f-4db9-8655-42abd3dee5a6/EastIndiaTrade?utm_source=openai))\n\n**3. It connected tea purchases to the opium economy.**  \nChinese tea required payment in silver, creating a financing problem for British buyers. The Company controlled opium production in Bengal; Indian-grown opium sold into China generated silver that helped pay for tea. This was not an incidental sideline: it linked Britain’s everyday consumption to a destructive drug trade and the conflicts surrounding its suppression. ([lib.cam.ac.uk](https://www.lib.cam.ac.uk/rcs/projects-exhibitions/opium-morally-indefensible-trade-horrible-drug/opium-captions?utm_source=openai))\n\n**4. It was much more than a merchant.**  \nThe Company conquered and governed territory in India and maintained armed forces. So the organisation supplying British tea also exercised political and military power over the territory producing opium. “Company” makes it sound rather more ordinary than it was. ([parliament.uk](https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/east-india-company-and-raj-1785-1858/))\n\nThere’s a final irony: **tea became still more widely available after the Company’s monopoly ended in 1834.** It had helped build the market, but its exclusive control was not necessary for that market to flourish. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))",
+      "response_ms": 35387,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 25062,
+      "first_native_text_ms": 13162,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 12243,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 28803,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "**Tea bags developed in America around the start of the twentieth century—but Britain took decades to embrace them.** They were established in the US by the 1920s; British sales really took off in the 1970s. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\n### When did they appear?\nThere isn’t one clean invention moment. In **1901**, Roberta C. Lawson and Mary Molaren applied for a patent for a mesh “tea-leaf holder”: essentially a bag for brewing one cup without loose leaves floating around in it. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nThe famous story concerns New York merchant **Thomas Sullivan in about 1908**. He supposedly sent tea samples in silk pouches, and customers brewed the bags themselves rather than emptying them. It’s a lovely accidental-invention story, but its details are poorly documented—and the earlier patent means Sullivan shouldn’t get sole credit. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\n### Why did Britain eventually adopt them?\n**Convenience, rather than a sudden discovery of better tea.** Tetley gave tea bags a major British commercial push in **1953**, though they still represented less than 3% of the market in the early 1960s. The change was gradual. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag?oo=0))\n\nThey removed several small chores:\n- No strainer needed.\n- No wet leaves to scrape out of the teapot.\n- One cup could be brewed directly in a mug.\n- The leaves could be removed simply by lifting out the bag.\n\nThat fitted the postwar enthusiasm for labour-saving household products. Tea bags didn’t create the tea habit; they made an existing habit less work. The unglamorous business of cleaning the pot mattered rather a lot. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag?oo=0))",
+      "response_ms": 28803,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 60183,
+      "first_native_text_ms": 8799,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 14874,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 14790,
+      "prompt": "Can you give me a shopping list for tomorrow's dinner?",
+      "response": "For the **chickpea, tomato and spinach stew with rice** I suggested, here’s the list for you, Idris and Lena.\n\n**Buy**\n- 2 × 400 g cans chickpeas\n- 2 × 400 g cans chopped tomatoes\n- 1 large onion\n- 1 bag spinach, roughly 200–250 g\n- 1 lemon\n\n**Check the cupboard**\n- 250 g dry rice\n- Garlic—you’ll need 2–3 cloves\n- Olive oil\n- Paprika\n- Salt and pepper\n\nBefore shopping, check with Idris which packaged ingredients or brands he trusts for avoiding sesame.",
+      "response_ms": 14790,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 4298,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 52077,
+      "first_native_text_ms": 5463,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 18374,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 9769,
+      "prompt": "It's actually four of us including me, so can you adjust the quantities?",
+      "response": "For **four people**, keeping the same stew with rice:\n\n**Buy**\n- 3 × 400 g cans chickpeas\n- 3 × 400 g cans chopped tomatoes\n- 1 large onion or 2 small ones\n- 300 g spinach\n- 1 lemon\n\n**Check the cupboard**\n- 350 g dry rice\n- Garlic—3–4 cloves\n- Olive oil\n- Paprika\n- Salt and pepper\n\nThat should give you four generous portions.",
+      "response_ms": 9769,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 6407,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

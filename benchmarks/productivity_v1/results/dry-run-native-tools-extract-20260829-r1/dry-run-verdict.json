@@ -1,0 +1,53 @@
+{
+  "attestations": {
+    "hermes": {
+      "A": {
+        "canonical_path_observed": true,
+        "context_sha256": "3b64ada94d19bca107d2c44ee009e2f98c6cae55716758884f4dcc2afbf5e108",
+        "external_tool_catalog_sha256": "2c7c358b68bb5e9923b04736a30e7175ba4d5ce720adbfdbc7b2e79e134e00f3",
+        "tool_catalog_sha256": "2c7c358b68bb5e9923b04736a30e7175ba4d5ce720adbfdbc7b2e79e134e00f3"
+      },
+      "C": {
+        "canonical_path_observed": true,
+        "context_sha256": "830f7ca8488e0e05835eca1d4b9ea26070c63de2d581f363c930708e1d48660a",
+        "external_tool_catalog_sha256": "2c7c358b68bb5e9923b04736a30e7175ba4d5ce720adbfdbc7b2e79e134e00f3",
+        "tool_catalog_sha256": "d9849c64ce6a09de1fb643c8e89c7cd8dae4d1bf14b7b297b55531168976901c"
+      }
+    },
+    "openclaw": {
+      "A": {
+        "canonical_path_observed": true,
+        "context_sha256": "a4386f61b9cc04cb5b434234fe1881d96a7c120939e8d6a2ea36ea9de4f43dce",
+        "external_tool_catalog_sha256": "b20060d6f2b071be0e860472e575406effc26d38d073ade6b2d15e4f01de50ab",
+        "tool_catalog_sha256": "b20060d6f2b071be0e860472e575406effc26d38d073ade6b2d15e4f01de50ab"
+      },
+      "C": {
+        "canonical_path_observed": true,
+        "context_sha256": "a4386f61b9cc04cb5b434234fe1881d96a7c120939e8d6a2ea36ea9de4f43dce",
+        "external_tool_catalog_sha256": "b20060d6f2b071be0e860472e575406effc26d38d073ade6b2d15e4f01de50ab",
+        "tool_catalog_sha256": "38e9fe9f682c14af68df747a29f3903e8fd704347f077d7622374eafa8b73000"
+      }
+    }
+  },
+  "campaign_id": "dry-run-native-tools-extract-20260829-r1",
+  "conclusive": false,
+  "gates": {
+    "canonical_daemon_path_observed": true,
+    "context_attestations_observed": true,
+    "daemon_compose_observed": true,
+    "external_tools_at_parity": true,
+    "four_authoritative_successes": false,
+    "four_completed_records": true,
+    "hermes_first_fragment_observed": true,
+    "host_tokens_observed": true,
+    "offline_recalculation_complete": true,
+    "openclaw_first_fragment_explicitly_unavailable": true,
+    "tool_calls_observed": true
+  },
+  "schema_version": "daemon.public-productivity.dry-run-verdict.v1",
+  "source": {
+    "branch": "main",
+    "commit": "536c0fb06ba3611a81d686e6fb14d513fd6533ff",
+    "dirty": false
+  }
+}

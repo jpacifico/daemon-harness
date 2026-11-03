@@ -1,0 +1,39 @@
+{
+  "schema": "daemon.profile-identity.fixture.v1",
+  "language": "fr",
+  "description": "Synthetic French conversation for profile prompt identity. Fictional person and events; no personal data. Each turn is an exact user/assistant pair; assistant text is fixed so that only daemon composition and maintenance prompts vary between arms.",
+  "user_id": "4100000001",
+  "platform": "telegram",
+  "scene_scope": "telegram:4100000001",
+  "timezone": "Europe/Paris",
+  "turns": [
+    [
+      {"timestamp": "2026-10-12T09:05:00", "role": "user", "body": "Salut ! Je reprends le vélo ce matin, première sortie depuis l'été. Ma sœur Léna m'accompagne, elle est bien plus rapide que moi."},
+      {"timestamp": "2026-10-12T09:05:20", "role": "assistant", "body": "Belle reprise ! Avec Léna devant, garde ton propre rythme sur les premiers kilomètres. Vous partez sur quel parcours ?"}
+    ],
+    [
+      {"timestamp": "2026-10-12T12:40:00", "role": "user", "body": "On a fait la boucle des étangs, 32 km. Léna a encore fait un « coup de la châtaigne » : elle s'arrête ramasser des châtaignes au pire moment et je dois l'attendre en côte."},
+      {"timestamp": "2026-10-12T12:40:25", "role": "assistant", "body": "32 km pour une reprise, c'est solide. Et le coup de la châtaigne en pleine côte, c'est presque une tradition familiale à ce stade."}
+    ],
+    [
+      {"timestamp": "2026-10-13T18:15:00", "role": "user", "body": "Au fait, j'ai rendez-vous chez le dentiste jeudi 22 octobre à 14h30, rappelle-moi d'y penser la veille."},
+      {"timestamp": "2026-10-13T18:15:15", "role": "assistant", "body": "C'est noté : dentiste le jeudi 22 octobre à 14h30. Je t'en reparle la veille."}
+    ],
+    [
+      {"timestamp": "2026-10-15T08:30:00", "role": "user", "body": "Mauvaise nouvelle, mon genou gauche tire un peu depuis la sortie. Rien de grave je pense, mais je vais lever le pied ce week-end."},
+      {"timestamp": "2026-10-15T08:30:30", "role": "assistant", "body": "Sage décision. Si la gêne persiste après quelques jours de repos, ça vaudra le coup d'en parler à un professionnel. Tu me diras comment il évolue ?"}
+    ],
+    [
+      {"timestamp": "2026-10-17T19:00:00", "role": "user", "body": "Ce soir au bureau, Marc m'a fait un coup de la châtaigne : il a lancé un sujet énorme à 18h55 juste avant la réunion de fin."},
+      {"timestamp": "2026-10-17T19:00:20", "role": "assistant", "body": "Ah, le coup de la châtaigne version bureau ! Le timing de Marc rivalise avec celui de Léna. Ça s'est fini tard ?"}
+    ],
+    [
+      {"timestamp": "2026-10-19T10:10:00", "role": "user", "body": "Correction : le dentiste a été déplacé au vendredi 23 octobre, même heure. Et mon genou va mieux."},
+      {"timestamp": "2026-10-19T10:10:20", "role": "assistant", "body": "Parfait, je retiens le dentiste vendredi 23 octobre à 14h30. Content que le genou aille mieux."}
+    ],
+    [
+      {"timestamp": "2026-10-21T21:00:00", "role": "user", "body": "Tu te souviens de ce que Léna fait toujours en côte ?"},
+      {"timestamp": "2026-10-21T21:00:15", "role": "assistant", "body": "Le fameux coup de la châtaigne : elle s'arrête ramasser des châtaignes au pire moment, en pleine côte."}
+    ]
+  ]
+}

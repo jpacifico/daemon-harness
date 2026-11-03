@@ -1,0 +1,289 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "9129a2627b29773ba8226bbb11cac56bc67513fa1744f8c4b722c564a7a38671",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "e93322d69a40c5b76eb8d8f77280f04a0d20bb3574b31513f6562129ee0f0637",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "correction.03",
+  "episode_ms": 99005,
+  "family": "correction",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "correction.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 93824
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 10,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 72479
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1449
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 171
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 167752
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 22,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 13,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 20,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 15,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2736,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7896,
+      "prompt": "Book club is at Clara's place on Wednesday, and I'm bringing dessert.",
+      "response": "Want help choosing a dessert to bring?",
+      "response_ms": 7896,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 9699,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21747,
+      "prompt": "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+      "response": "Basil needs a sunny, warm spot and moist—but not waterlogged—roots. A windowsill can work, but light and cold glass can make it trickier than it looks. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil?utm_source=openai))\n\nHere’s what matters most:\n\n1. Plenty of light\n   Aim for about 6–8 hours of strong light daily. A window that looks bright to you may still be too dim for basil, especially in winter. If it gets little direct sun, supplemental grow lighting can help. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil?utm_source=openai))\n\n2. Water plus drainage\n   Keep the potting mix moderately moist, not constantly soggy. Check the soil rather than watering on a fixed schedule: when the surface starts drying, water thoroughly and let the excess drain. The pot needs drainage holes, and it shouldn’t sit in water inside a saucer or decorative outer pot. ([extension.umd.edu](https://extension.umd.edu/resource/growing-herbs-containers-and-indoors?utm_source=openai))\n\n3. Warmth\n   Basil dislikes cold. Keep it away from chilly drafts and cold window glass; a windowsill can get cold at night even when the room feels comfortable. ([uvm.edu](https://www.uvm.edu/d10-files/documents/2024-10/Growing_Herbs_Indoors.pdf?utm_source=openai))\n\n4. Regular, gentle harvesting\n   Pinch back growing tips to encourage branching, and remove flower buds as they appear. You want a leafy, branching plant rather than one putting its effort into flowering. ([extension.illinois.edu](https://extension.illinois.edu/herbs/basil?utm_source=openai))\n\nOne important connection: in low light, plants use less water. So watering more won’t fix a dim windowsill—it can leave the roots too wet instead. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/lighting-for-indoor-plants?utm_source=openai))\n\nWhat happens before yours die: do they turn yellow, go dry and crispy, or wilt while the soil is still wet? And does that window get direct sun?",
+      "response_ms": 21747,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 6765,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19538,
+      "prompt": "How often should I water it, and how do I tell if I'm overdoing it?",
+      "response": "Check it daily, but don’t automatically water daily. Basil likes consistent moisture; how quickly it dries depends on sunlight, pot size, and potting mix—not a fixed schedule. ([extension.umd.edu](https://www.extension.umd.edu/resource/growing-vegetables-containers-and-salad-tables?utm_source=openai))\n\nA practical routine:\n- Feel just below the soil’s surface. If it’s still damp, wait; when the surface starts drying, water. Don’t let the entire root ball dry out. ([extension.umd.edu](https://www.extension.umd.edu/resource/growing-vegetables-containers-and-salad-tables?utm_source=openai))\n- Water thoroughly, letting excess flow through the drainage holes, then empty the saucer or outer pot. Avoid frequent little splashes. ([extension.umaine.edu](https://extension.umaine.edu/publications/2612e/?utm_source=openai))\n\nSigns you may be overdoing it:\n- Soil stays wet for days without noticeably drying.\n- Leaves turn yellow or drop while the soil is wet.\n- The plant wilts even though it has wet soil. That can mean damaged roots, not thirst. Yellowing alone isn’t enough to diagnose overwatering. ([pubs.ext.vt.edu](https://www.pubs.ext.vt.edu/SPES/spes-804.html?utm_source=openai))\n\nIf it’s wilting in wet soil, don’t add more water. Empty any standing water, check that drainage holes aren’t blocked, and let the soil begin drying before watering again. The main problem is roots staying wet too long—not giving a well-drained pot a thorough drink. ([extension.umd.edu](https://www.extension.umd.edu/resource/maintaining-container-grown-vegetables?utm_source=openai))",
+      "response_ms": 19538,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 8064,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18137,
+      "prompt": "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?",
+      "response": "Supermarket pots are worth keeping—you don’t need to start from seed. The catch is that one pot is usually lots of seedlings crowded together, rather than one bushy plant. Dividing and repotting them gives them more room to grow. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n\nFor the quickest option:\n- Gently ease the plant out and separate the root ball into a few smaller clumps.\n- Put each clump into its own pot with fresh potting mix and drainage holes.\n- Water them in, then follow the soil-check routine rather than watering automatically. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n\nSeeds are worth trying if you enjoy growing things from scratch or want different varieties. Sow thinly, keep them warm and bright, and give the seedlings space as they grow. It takes longer before you can harvest, but you control the crowding from the start. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n\nMy recommendation: try dividing a healthy supermarket pot first. But fix the windowsill conditions too—starting from seed won’t solve insufficient light or cold. Both approaches need warmth and plenty of light. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))",
+      "response_ms": 18137,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 14438,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18502,
+      "prompt": "Change of plan: we're meeting at the café on Rose Street instead, and I don't need to bring anything, the café serves food.",
+      "response": "Got it—Wednesday’s book club is at the café on Rose Street instead of Clara’s, and you don’t need to bring dessert or anything else.",
+      "response_ms": 18502,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 8512,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13080,
+      "prompt": "What do I need to prepare for book club?",
+      "response": "You don’t need to bring anything—dessert is off your list. Wednesday’s book club moved to the café on Rose Street instead of Clara’s, and the café serves food.",
+      "response_ms": 13080,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

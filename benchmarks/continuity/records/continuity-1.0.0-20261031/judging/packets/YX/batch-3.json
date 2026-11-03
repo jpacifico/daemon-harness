@@ -1,0 +1,294 @@
+[
+  {
+    "conversations": [
+      [
+        "My daughter's school pickup is at 3:30 and it's always been my job."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "From today, my partner does the weekday pickups. His new job has flexible hours."
+      ],
+      [
+        "I'd like to fit a long run into my weekday afternoons. Any suggestions?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Planning the afternoons around the user doing the 3:30 pickup."
+      ],
+      "must_use": [
+        "The partner now does the weekday pickups, so the user's afternoons are free of it."
+      ],
+      "next_step": "A concrete afternoon slot or weekly pattern for the run.",
+      "no_repeat": [
+        "Who does the school pickup."
+      ],
+      "unknown": []
+    },
+    "packet": "P17",
+    "replies": {
+      "X": "With your partner handling weekday pickups and your new job’s flexible hours, you could protect one afternoon for a long run rather than squeezing it in at the end of the day.\n\nA few ways to make it work:\n- Start work earlier on your chosen day, then block off the run and time to shower and eat.\n- Pick your least meeting-heavy afternoon, with a second day as a backup.\n- Agree on a return time with your partner so the run doesn’t quietly spill into evening responsibilities.\n- Have a shorter version ready for busy weeks, so it isn’t all or nothing.\n\nHow much time do you want to set aside, including getting ready and showering?",
+      "Y": "With weekday pickup now covered by your partner, what afternoon window do you have available for a long run?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Both my cousins visit this summer: Ana arrives on the 2nd of August, Luis on the 9th of August."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "Correction for Luis only: he now arrives on the 16th of August. Ana's date hasn't changed."
+      ],
+      [
+        "When should I get the spare room ready for Ana?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Applying Luis's new date to Ana."
+      ],
+      "must_use": [
+        "Ana arrives on the 2nd of August."
+      ],
+      "next_step": "A concrete day to prepare the room, before the 2nd of August.",
+      "no_repeat": [
+        "Ana's arrival date."
+      ],
+      "unknown": []
+    },
+    "packet": "P18",
+    "replies": {
+      "X": "Have the spare room ready by August 1, ahead of Ana’s August 2 arrival. Only Luis’s date changed to August 16.\n\nWhich year is the visit? August 2, 2026 has already passed.",
+      "Y": "Ana’s recorded arrival date is August 2, but that’s already past this year. Do you mean August 2, 2027?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Last month I was on night shifts, so I slept until noon every day."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "That rota is over. I'm back on day shifts now, starting at 8 every morning."
+      ],
+      [
+        "What's a better time for a yoga class this week, morning or evening?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Planning around night shifts or sleeping until noon."
+      ],
+      "must_use": [
+        "The user now works day shifts starting at 8."
+      ],
+      "next_step": "A clear recommendation of a time that fits a day shift starting at 8.",
+      "no_repeat": [
+        "The current work schedule."
+      ],
+      "unknown": []
+    },
+    "packet": "P19",
+    "replies": {
+      "X": "What time do you finish work this week?",
+      "Y": "Evening is probably the better fit with your 8 a.m. starts—less rushing and no need to cut into sleep. Aim for a class after work; choose morning only if you can comfortably fit it in without waking much earlier."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Bit of a stressful day. My dad has a heart check-up this afternoon and I'm worried about it."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "Could you suggest something quick for dinner tonight?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Making the check-up the whole reply, or giving medical speculation about it."
+      ],
+      "must_use": [
+        "The user's father had a heart check-up this afternoon that the user was worried about."
+      ],
+      "next_step": "A quick dinner idea, with a brief, warm word or question about the father's check-up.",
+      "no_repeat": [],
+      "unknown": [
+        "How the check-up went was never given."
+      ]
+    },
+    "packet": "P20",
+    "replies": {
+      "X": "I’d go with chickpea and spinach curry: canned chickpeas, tomatoes, and spinach, with a short simmer. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/chana-masala-spinach?utm_source=openai))\n\nMy shortcut version: briefly fry garlic and curry powder in oil, add drained chickpeas and canned diced tomatoes, and simmer for 10 minutes. Stir in spinach until wilted, season to taste, and serve with microwave rice or toast.\n\nIf that’s not your thing, tell me what’s in your fridge and I’ll suggest something that uses it.",
+      "Y": "I’d go for **tomato and chickpea pasta—about 25 minutes**. Given the day you’re having, I’d keep dinner uncomplicated. This is a stripped-back version of a quick Waitrose recipe. ([waitrose.com](https://www.waitrose.com/ecom/recipe/tomato-and-chickpea-pasta))\n\n**For two:** 150–200g pasta, a tin of chickpeas (drained), 400g passata, a garlic clove and olive oil.\n\n1. Put the pasta on.\n2. Gently fry the sliced garlic in a little olive oil, then add the chickpeas and passata. Simmer while the pasta cooks.\n3. Toss everything together with a splash of pasta water to loosen the sauce. Season to taste. ([waitrose.com](https://www.waitrose.com/ecom/recipe/tomato-and-chickpea-pasta))\n\nMy optional addition: a few basil leaves, if there are any available. Dinner needn’t depend on the windowsill’s survival rate."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I'm writing a 20-page report for my evening course. Chapters one and two are drafted. Chapter three, the case study, isn't started. It's due in ten days."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "Update: I finished the outline of chapter three last night. What's missing now is the interviews for the case study."
+      ],
+      [
+        "Where should I put my effort this week?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Telling the user to outline chapter three or to draft chapters one and two as if not done."
+      ],
+      "must_use": [
+        "The chapter three interviews are what is missing.",
+        "The chapter three outline is done.",
+        "Chapters one and two are drafted.",
+        "The deadline is about ten days away."
+      ],
+      "next_step": "A plan for the week centred on arranging and doing the interviews.",
+      "no_repeat": [
+        "Which chapters are done.",
+        "When the report is due."
+      ],
+      "unknown": []
+    },
+    "packet": "P21",
+    "replies": {
+      "X": "Put your effort into the case-study interviews, then turning chapter three into a complete draft—not polishing chapters one and two.\n\nYour latest update says the outline is finished and the interviews are the remaining gap. That changes the priority: @session:100000001/20261031_112032_7553bd\n\nFor this week:\n  1. Unblock the interviews first. If they haven’t happened, contact participants now and set the earliest workable times. If they’re already recorded, extract the evidence you need.\n  2. Draft around the finished outline while you wait. Write the background and analytical framework, clearly marking where interview evidence belongs.\n  3. Incorporate the interviews and finish a rough chapter three before revising the whole report.\n\nAim to end the week with a complete report draft, leaving the remaining time before your deadline for revision, citations, and proofreading.\n\nAre the interviews still to be conducted, or just written up?",
+      "Y": "**The interviews first, then a complete draft of chapter three.** Chapters one and two already exist; polishing them now would leave the biggest gap untouched.\n\nWith the **November 10 deadline**, I’d put your effort here:\n\n- **Today and tomorrow:** secure any interview slots still unconfirmed and prepare a short question list tied to your case-study outline.\n- **Early this coming week:** conduct the interviews. After each one, put the useful evidence straight into the relevant section—don’t leave yourself a pile of notes to decode later.\n- **While waiting for interviews:** draft the case background and any sections that don’t depend on their answers. Mark missing evidence clearly rather than guessing.\n- **By Friday, November 6:** aim for a complete, rough chapter three. That leaves a few days to connect the chapters, check references, and edit.\n\nThe target is **a whole report you can revise**, not two immaculate chapters and an unfinished case study."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "For my bike repair project I decided not to buy new wheels. I'll true the old ones myself. That's settled."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ],
+      [
+        "Completely separate thing: I'm buying a new laptop for work, from scratch. Budget around 1,200 euros, mostly spreadsheets and video calls."
+      ],
+      [
+        "How should I choose?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Applying the bike decision (repair rather than buy) to the laptop.",
+        "Bringing up the bike wheels."
+      ],
+      "must_use": [
+        "The laptop budget is about 1,200 euros.",
+        "It is mostly for spreadsheets and video calls."
+      ],
+      "next_step": "Concrete criteria or a shortlist approach for that budget and use.",
+      "no_repeat": [
+        "The budget.",
+        "What the laptop is for."
+      ],
+      "unknown": []
+    },
+    "packet": "P22",
+    "replies": {
+      "X": "What are you choosing between, and what matters most to you in the decision?",
+      "Y": "Start with the software your work depends on; that comes before brands or specifications. What do you use for spreadsheets and video calls?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I was really nervous about my job interview this morning."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "Update: I got the job! Very relieved, it's all sorted."
+      ],
+      [
+        "Help me plan a small celebration this weekend?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Treating the interview as still pending or wishing luck for it."
+      ],
+      "must_use": [
+        "The user got the job."
+      ],
+      "next_step": "A concrete plan for a small weekend celebration.",
+      "no_repeat": [
+        "Whether the user got the job."
+      ],
+      "unknown": []
+    },
+    "packet": "P23",
+    "replies": {
+      "X": "What’s the occasion, about how many people are coming, and would you rather host at home or go out? A rough budget would help too.",
+      "Y": "Who would you like to celebrate with—or would you rather make it a small treat just for you?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I'm moving flats at the end of the month. I've booked the van and given notice to my landlord.",
+        "Still to do: redirect my post and sort out internet at the new place."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "Internet at the new flat is booked for the 28th."
+      ],
+      [
+        "What's left on my moving list?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Listing the van, the notice or the internet as still to do."
+      ],
+      "must_use": [
+        "Redirecting the post is still to do.",
+        "The van, the notice and the internet booking are done."
+      ],
+      "next_step": "Naming the post redirection as what remains, with a way to do it.",
+      "no_repeat": [],
+      "unknown": []
+    },
+    "packet": "P24",
+    "replies": {
+      "X": "**Redirect your post** is the remaining unbooked task.\n\nThe rest:\n- Van: booked.\n- Landlord: notice given.\n- Internet: booked for the 28th—though we haven’t established which month or whether it’s connected yet.",
+      "Y": "Still to do:\n- Redirect your post.\n- Sort out internet at the new flat.\n\nAlready done: van booked and notice given to your landlord."
+    }
+  }
+]

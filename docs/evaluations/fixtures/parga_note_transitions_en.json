@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "language": "en",
+  "cases": [
+    {
+      "id": "finished_project",
+      "prompt": "The Harbor workshop has now been delivered and accepted. That project is finished; keep its history for reference. Before we wrap it up, remind me why we chose reclaimed maple.",
+      "notes": [
+        {"name": "theme/work/harbor-workshop", "path": "Projects/Work/Harbor Workshop.md", "expected_folder": "Archives", "text": "---\nkind: project\nmemory_views: [Projects]\nsubjects: [Harbor workshop, reclaimed maple]\nfacets: [material decision, delivery]\n---\n# Harbor Workshop\n\n## Scope\nBuild the Harbor workshop bench.\n\n## Last confirmed state\n2026-09-01: Delivery remains open.\n\n## History\n2026-08-12: Reclaimed maple was chosen because it withstands repeated clamping.\n", "preserve": ["Reclaimed maple was chosen because it withstands repeated clamping."]},
+        {"name": "theme/work/studio", "path": "Areas/Work/Studio.md", "expected_folder": "Areas", "text": "# Studio\n\n## Links\n- [[Projects/Work/Harbor Workshop|Harbor]]: The workshop is tracked in this note.\n", "preserve": ["The workshop is tracked in "]}
+      ]
+    },
+    {
+      "id": "idea_becomes_project",
+      "prompt": "That Open Bench notebook idea is now a project I have committed to doing: I will produce the first illustrated edition for our workshop. It is the same notebook we discussed, not a separate idea. Remind me of the audience we had in mind.",
+      "notes": [
+        {"name": "theme/ideas/open-bench", "path": "Garden/Work/Open Bench.md", "expected_folder": "Projects", "text": "---\nkind: knowledge\nmemory_views: [Garden]\nsubjects: [Open Bench notebook, illustrated notebook]\nfacets: [notebook idea, audience]\n---\n# Open Bench\n\n## Scope\nAn entrusted idea for an illustrated notebook about the workshop.\n\n## Last confirmed state\n2026-09-01: It remains an idea, with no commitment to produce it yet.\n\n## History\nThe intended audience is beginners who have never used a hand plane.\n", "preserve": ["The intended audience is beginners who have never used a hand plane."]}
+      ]
+    },
+    {
+      "id": "history_and_silence",
+      "prompt": "Looking back at the finished Harbor workshop, why did we choose reclaimed maple? I am just asking about that old decision, not restarting the project. There has been no news about the kiln repair; that problem remains unresolved.",
+      "notes": [
+        {"name": "theme/work/harbor-workshop", "path": "Archives/Work/Harbor Workshop.md", "expected_folder": "Archives", "text": "---\nkind: project\nmemory_views: [Archives]\nsubjects: [Harbor workshop, reclaimed maple]\nfacets: [material decision, finished project]\n---\n# Harbor Workshop\n\n## Scope\nBuild the Harbor workshop bench.\n\n## Last confirmed state\n2026-09-01: The project was delivered, accepted and finished.\n\n## History\n2026-08-12: Reclaimed maple was chosen because it withstands repeated clamping.\n", "preserve": ["Reclaimed maple was chosen because it withstands repeated clamping."]},
+        {"name": "theme/work/kiln-repair", "path": "Areas/Work/Kiln Repair.md", "expected_folder": "Areas", "text": "---\nkind: situation\nmemory_views: [Areas]\nsubjects: [kiln repair]\nfacets: [unresolved repair]\n---\n# Kiln Repair\n\n## Scope\nThe workshop kiln needs repair.\n\n## Last confirmed state\n2026-06-01: Repair is unresolved.\n\n## History\nThe replacement switch did not restore power.\n", "preserve": ["The replacement switch did not restore power."]}
+      ]
+    },
+    {
+      "id": "idea_inspires_separate_project",
+      "prompt": "I want to keep our Small Batches principle as a reusable lesson for other work. It has inspired a distinct project I am committing to now: building the Cedar catalog for the studio. Remind me what the principle says, and keep the Cedar work as its own project.",
+      "notes": [
+        {"name": "theme/knowledge/small-batches", "path": "Garden/Work/Small Batches.md", "expected_folder": "Garden", "text": "---\nkind: knowledge\nmemory_views: [Garden]\nsubjects: [Small Batches principle]\nfacets: [reusable lesson, batch size]\n---\n# Small Batches\n\n## Scope\nA reusable lesson adopted for workshop projects.\n\n## Last confirmed state\n2026-09-01: Keep this principle for future work.\n\n## History\nTest a small batch before committing the entire stock of material.\n", "preserve": ["Test a small batch before committing the entire stock of material."]}
+      ],
+      "new_project_term": "Cedar"
+    }
+  ]
+}

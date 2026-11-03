@@ -1,0 +1,806 @@
+{
+  "codex_binary_sha256": "16593cc2f422d5f398a8e40f550ebbaf1245392528957be342c295920a300704",
+  "codex_version": "codex-cli 0.159.2",
+  "corpus_sha256": "91bd0e025f373649a07a2301f96c9b1f40a9601a7bb021040f2a3f49feacd342",
+  "created": "2026-10-31T13:31:38.913464+00:00",
+  "daemon_identity": {
+    "gender": "feminine",
+    "name": "Aster"
+  },
+  "hermes_binary_sha256": "b82e2bae604c0109f0dcfd642ff828d9d5cb4d9e183a50d9a34791f1c50df1d5",
+  "hermes_source": {
+    "installation_id": "1570b38f32594216becb5eff30d6d705",
+    "revision": "f97608f178d1ffeca59860195ab7da295f7c8e5f",
+    "schema": "daemon.companion-host-install.v1",
+    "version": "0.21.5"
+  },
+  "hermes_version": "Hermes Agent v0.21.5 (2026.9.24)",
+  "language": "en",
+  "lives": [
+    {
+      "asking": "Saturday's coming up. What should I plan?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 0,
+      "family": "people",
+      "id": "people.01",
+      "must_not": [
+        "Proposing an outing or activity that needs walking, standing for long, or stairs."
+      ],
+      "must_use": [
+        "Noor cannot manage stairs and needs to sit most of the time after her knee surgery.",
+        "The afternoon is meant to be cosy and at home, and both enjoy board games."
+      ],
+      "no_repeat": [
+        "Who is coming.",
+        "Whether Noor has any mobility limits.",
+        "Whether they prefer going out."
+      ],
+      "outcome": "A concrete plan for a seated, at-home afternoon (for example games, snacks, timing).",
+      "person": "You want a plan for Saturday afternoon with Noor. If asked: she arrives around 2 and leaves around 6, you have Ticket to Ride and Codenames, and she likes tea and something sweet.",
+      "telling": [
+        "My friend Noor is coming over on Saturday afternoon. She just had knee surgery, so she can't manage stairs and needs to sit most of the time.",
+        "My flat is on the ground floor, which helps. We both love board games, and I'd like a cosy afternoon in rather than going out."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Can you give me a shopping list for tomorrow's dinner?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 1,
+      "family": "people",
+      "id": "people.02",
+      "must_not": [
+        "Including any animal product or any sesame ingredient (sesame oil, tahini, sesame seeds) in the meal."
+      ],
+      "must_use": [
+        "Lena is vegan.",
+        "Idris is allergic to sesame.",
+        "One shared meal for everyone."
+      ],
+      "no_repeat": [
+        "The guests' dietary needs.",
+        "How many people are eating."
+      ],
+      "outcome": "A shopping list for one specific vegan, sesame-free meal.",
+      "person": "You want a shopping list for tomorrow's dinner. If asked: four people including you, you like Italian or Indian food, and the budget is about 40 euros.",
+      "telling": [
+        "My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+        "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Help me sketch a plan for Sunday?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 2,
+      "family": "people",
+      "id": "people.03",
+      "must_not": [
+        "Planning a long drive or more than about two hours of continuous walking."
+      ],
+      "must_use": [
+        "Teo gets carsick on long drives.",
+        "Teo tires after about two hours of walking.",
+        "Teo loves trains and dinosaurs."
+      ],
+      "no_repeat": [
+        "Teo's age or interests.",
+        "Whether he has any travel issues."
+      ],
+      "outcome": "An outline of the day built around his interests and limits.",
+      "person": "You want a plan for Sunday with Teo. If asked: you'll take the train into the city, about 40 minutes, you'd like to be home by 6, and the budget is about 50 euros.",
+      "telling": [
+        "I'm taking my nephew Teo, who's seven, into the city on Sunday. He gets carsick on long drives and gets tired after about two hours of walking.",
+        "He's obsessed with trains and dinosaurs."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Any tips to make the chips really good?",
+      "change": [
+        "She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home."
+      ],
+      "counter": true,
+      "elsewhere": 3,
+      "family": "people",
+      "id": "people.04",
+      "must_not": [
+        "Imposing low-salt cooking or the mother's restriction on tonight's meal.",
+        "Asking or assuming that the mother is joining tonight."
+      ],
+      "must_use": [
+        "The meal is for the user and Sam, who want proper salty fish and chips."
+      ],
+      "no_repeat": [
+        "Who is eating tonight."
+      ],
+      "outcome": "Practical tips for crisp, well-seasoned chips.",
+      "person": "You want tips for really good chips tonight. If asked: you have a deep pan but no fryer, and floury potatoes.",
+      "telling": [
+        "When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "I've got half an hour now. What should I do for the clean-up?",
+      "change": [
+        "Good news: the community centre is lending us twenty litter pickers."
+      ],
+      "counter": false,
+      "elsewhere": 4,
+      "family": "work",
+      "id": "work.01",
+      "must_not": [
+        "Recommending work on flyers, the date approval, or borrowing litter pickers as still to do."
+      ],
+      "must_use": [
+        "The first-aid kit is still missing.",
+        "The litter pickers are now sorted."
+      ],
+      "no_repeat": [
+        "What is left to organise."
+      ],
+      "outcome": "A concrete half-hour action toward finding a first-aid kit.",
+      "person": "You want to know what to do with your half hour. If asked: the clean-up is in two weeks and there's a neighbours' group chat with about thirty people.",
+      "telling": [
+        "I'm organising our street's spring clean-up. The flyers are printed and the council has approved the date.",
+        "What's left: borrowing litter pickers, and finding someone to bring a first-aid kit."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Where should I put my effort this week?",
+      "change": [
+        "Update: I finished the outline of chapter three last night. What's missing now is the interviews for the case study."
+      ],
+      "counter": false,
+      "elsewhere": 5,
+      "family": "work",
+      "id": "work.02",
+      "must_not": [
+        "Telling the user to outline chapter three or to draft chapters one and two as if not done."
+      ],
+      "must_use": [
+        "The chapter three interviews are what is missing.",
+        "The chapter three outline is done.",
+        "Chapters one and two are drafted.",
+        "The deadline is about ten days away."
+      ],
+      "no_repeat": [
+        "Which chapters are done.",
+        "When the report is due."
+      ],
+      "outcome": "A plan for the week centred on arranging and doing the interviews.",
+      "person": "You want a plan for this week. If asked: you need three interviews of about thirty minutes, two colleagues have said they might agree, and your evenings are free.",
+      "telling": [
+        "I'm writing a 20-page report for my evening course. Chapters one and two are drafted. Chapter three, the case study, isn't started. It's due in ten days."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "What's left on my moving list?",
+      "change": [
+        "Internet at the new flat is booked for the 28th."
+      ],
+      "counter": false,
+      "elsewhere": 0,
+      "family": "work",
+      "id": "work.03",
+      "must_not": [
+        "Listing the van, the notice or the internet as still to do."
+      ],
+      "must_use": [
+        "Redirecting the post is still to do.",
+        "The van, the notice and the internet booking are done."
+      ],
+      "no_repeat": [],
+      "outcome": "Naming the post redirection as what remains, with a way to do it.",
+      "person": "You want to know what's left and how to do it. If asked: you'd like your post redirected for six months.",
+      "telling": [
+        "I'm moving flats at the end of the month. I've booked the van and given notice to my landlord.",
+        "Still to do: redirect my post and sort out internet at the new place."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "How should I choose?",
+      "change": [
+        "Completely separate thing: I'm buying a new laptop for work, from scratch. Budget around 1,200 euros, mostly spreadsheets and video calls."
+      ],
+      "counter": true,
+      "elsewhere": 1,
+      "family": "work",
+      "id": "work.04",
+      "must_not": [
+        "Applying the bike decision (repair rather than buy) to the laptop.",
+        "Bringing up the bike wheels."
+      ],
+      "must_use": [
+        "The laptop budget is about 1,200 euros.",
+        "It is mostly for spreadsheets and video calls."
+      ],
+      "no_repeat": [
+        "The budget.",
+        "What the laptop is for."
+      ],
+      "outcome": "Concrete criteria or a shortlist approach for that budget and use.",
+      "person": "You want help choosing a laptop. If asked: you prefer Windows, you carry it to the office twice a week, and you need it within two weeks.",
+      "telling": [
+        "For my bike repair project I decided not to buy new wheels. I'll true the old ones myself. That's settled."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Can you help me plan my Thursday morning?",
+      "change": [
+        "This Thursday the pool is closed for maintenance, so there's no swim that morning."
+      ],
+      "counter": false,
+      "elsewhere": 2,
+      "family": "time",
+      "id": "time.01",
+      "must_not": [
+        "Scheduling the 7 am swim on Thursday."
+      ],
+      "must_use": [
+        "There is no swim this Thursday because the pool is closed."
+      ],
+      "no_repeat": [
+        "Whether there is a swim on Thursday.",
+        "The usual swim routine."
+      ],
+      "outcome": "A plan for a Thursday morning without the swim.",
+      "person": "You want a plan for Thursday morning. If asked: work starts at 9, you usually leave home at 8:15, and you'd like to stay active.",
+      "telling": [
+        "Every Tuesday and Thursday I swim at 7 in the morning before work."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "What could I have for breakfast and lunch tomorrow?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 3,
+      "family": "time",
+      "id": "time.02",
+      "must_not": [
+        "Suggesting food between the appointment and about 11:30."
+      ],
+      "must_use": [
+        "The dentist appointment is at 9:30 tomorrow.",
+        "No eating for two hours after it."
+      ],
+      "no_repeat": [
+        "The appointment time.",
+        "The eating restriction."
+      ],
+      "outcome": "A breakfast before the appointment and a lunch after the two hours.",
+      "person": "You want breakfast and lunch ideas for tomorrow. If asked: you'll be home after the appointment and you have no particular diet.",
+      "telling": [
+        "I've got a dentist appointment tomorrow at 9:30, and I'm not allowed to eat for two hours afterwards."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "I'd like to fit a long run into my weekday afternoons. Any suggestions?",
+      "change": [
+        "From today, my partner does the weekday pickups. His new job has flexible hours."
+      ],
+      "counter": false,
+      "elsewhere": 4,
+      "family": "time",
+      "id": "time.03",
+      "must_not": [
+        "Planning the afternoons around the user doing the 3:30 pickup."
+      ],
+      "must_use": [
+        "The partner now does the weekday pickups, so the user's afternoons are free of it."
+      ],
+      "no_repeat": [
+        "Who does the school pickup."
+      ],
+      "outcome": "A concrete afternoon slot or weekly pattern for the run.",
+      "person": "You want ideas for fitting a long run into weekday afternoons. If asked: you work from home and finish at 4 most days, and you'd like about ninety minutes, twice a week.",
+      "telling": [
+        "My daughter's school pickup is at 3:30 and it's always been my job."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "What's a better time for a yoga class this week, morning or evening?",
+      "change": [
+        "That rota is over. I'm back on day shifts now, starting at 8 every morning."
+      ],
+      "counter": true,
+      "elsewhere": 5,
+      "family": "time",
+      "id": "time.04",
+      "must_not": [
+        "Planning around night shifts or sleeping until noon."
+      ],
+      "must_use": [
+        "The user now works day shifts starting at 8."
+      ],
+      "no_repeat": [
+        "The current work schedule."
+      ],
+      "outcome": "A clear recommendation of a time that fits a day shift starting at 8.",
+      "person": "You want to know whether morning or evening is better for yoga this week. If asked: you finish work at 4:30, and the studio has classes at 6:30 in the morning and 7 in the evening.",
+      "telling": [
+        "Last month I was on night shifts, so I slept until noon every day."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Can you help me plan the trip for the wedding?",
+      "change": [
+        "Sorry, I got that wrong: it's on the 21st of June, and it's in Braga, not Porto."
+      ],
+      "counter": false,
+      "elsewhere": 0,
+      "family": "correction",
+      "id": "correction.01",
+      "must_not": [
+        "Using the 14th of June or Porto as the wedding date or place."
+      ],
+      "must_use": [
+        "The wedding is on the 21st of June.",
+        "It is in Braga."
+      ],
+      "no_repeat": [
+        "The date.",
+        "The city."
+      ],
+      "outcome": "Trip planning steps for Braga around the 21st of June.",
+      "person": "You want help planning the trip. If asked: you'd like to arrive two days before and stay until the 23rd, you're travelling alone, and you have a mid-range budget.",
+      "telling": [
+        "My sister's wedding is on the 14th of June, in Porto."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Can you help me write my weekly update for my manager?",
+      "change": [
+        "Correction: it's Danielle, not Daniel, and she prefers a short Teams message, not an email."
+      ],
+      "counter": false,
+      "elsewhere": 1,
+      "family": "correction",
+      "id": "correction.02",
+      "must_not": [
+        "Addressing the update to Daniel or writing it as an email."
+      ],
+      "must_use": [
+        "The manager is Danielle.",
+        "She prefers a short Teams message."
+      ],
+      "no_repeat": [
+        "The manager's name.",
+        "The preferred format."
+      ],
+      "outcome": "A draft short Teams message for Danielle.",
+      "person": "You want a draft of your weekly update. If asked: this week you finished the client onboarding guide and fixed two bugs in the billing export, next week you start the reporting dashboard, and there are no blockers.",
+      "telling": [
+        "My new manager is called Daniel and he likes updates by email."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "What do I need to prepare for book club?",
+      "change": [
+        "Change of plan: we're meeting at the café on Rose Street instead, and I don't need to bring anything, the café serves food."
+      ],
+      "counter": false,
+      "elsewhere": 2,
+      "family": "correction",
+      "id": "correction.03",
+      "must_not": [
+        "Telling the user to bring dessert or that it is at Clara's."
+      ],
+      "must_use": [
+        "Book club is at the café on Rose Street.",
+        "The user does not need to bring anything."
+      ],
+      "no_repeat": [
+        "Where book club is.",
+        "Whether to bring food."
+      ],
+      "outcome": "What is actually left to prepare (for example the book), or that nothing else is needed.",
+      "person": "You want to know what to prepare for book club. If asked: this month's book is The Remains of the Day and you're halfway through it.",
+      "telling": [
+        "Book club is at Clara's place on Wednesday, and I'm bringing dessert."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "When should I get the spare room ready for Ana?",
+      "change": [
+        "Correction for Luis only: he now arrives on the 16th of August. Ana's date hasn't changed."
+      ],
+      "counter": true,
+      "elsewhere": 3,
+      "family": "correction",
+      "id": "correction.04",
+      "must_not": [
+        "Applying Luis's new date to Ana."
+      ],
+      "must_use": [
+        "Ana arrives on the 2nd of August."
+      ],
+      "no_repeat": [
+        "Ana's arrival date."
+      ],
+      "outcome": "A concrete day to prepare the room, before the 2nd of August.",
+      "person": "You want a day to get the spare room ready for Ana. If asked: you mean next summer, you work on weekdays, and the room needs fresh sheets and a cleared desk.",
+      "telling": [
+        "Both my cousins visit this summer: Ana arrives on the 2nd of August, Luis on the 9th of August."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "What time is my flight again?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 4,
+      "family": "unknown",
+      "id": "unknown.01",
+      "must_not": [],
+      "must_use": [
+        "The trip is a flight to Lisbon next month for a conference."
+      ],
+      "no_repeat": [],
+      "outcome": "Saying it does not know the time and offering a way to find it (for example the booking confirmation).",
+      "person": "You want your flight time. You don't know it: it's in your booking confirmation email.",
+      "telling": [
+        "I'm flying to Lisbon next month for a conference."
+      ],
+      "unknown": [
+        "The flight's date and time were never given."
+      ]
+    },
+    {
+      "asking": "What dose did the doctor say I should take?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 5,
+      "family": "unknown",
+      "id": "unknown.02",
+      "must_not": [],
+      "must_use": [
+        "The tablets are new blood pressure tablets from the doctor."
+      ],
+      "no_repeat": [],
+      "outcome": "Saying it does not know the dose and pointing to the prescription, the label or the pharmacist.",
+      "person": "You want the dose. You don't remember it: the box and the prescription are at home.",
+      "telling": [
+        "My doctor has prescribed new tablets for my blood pressure."
+      ],
+      "unknown": [
+        "The dose was never given."
+      ]
+    },
+    {
+      "asking": "What's the name of Priya's bakery? I want to tell my colleagues.",
+      "change": [],
+      "counter": false,
+      "elsewhere": 0,
+      "family": "unknown",
+      "id": "unknown.03",
+      "must_not": [],
+      "must_use": [
+        "Priya is opening a bakery in town."
+      ],
+      "no_repeat": [],
+      "outcome": "Saying it does not know the name and suggesting how to tell colleagues anyway or how to find out.",
+      "person": "You want the bakery's name. You don't know it either: Priya posted about it on Instagram.",
+      "telling": [
+        "My friend Priya is opening a bakery in town soon."
+      ],
+      "unknown": [
+        "The bakery's name was never given."
+      ]
+    },
+    {
+      "asking": "I'm on hold with the council. What's my permit number?",
+      "change": [],
+      "counter": true,
+      "elsewhere": 1,
+      "family": "unknown",
+      "id": "unknown.04",
+      "must_not": [
+        "Claiming not to know the permit number."
+      ],
+      "must_use": [
+        "The permit number is K-4471."
+      ],
+      "no_repeat": [
+        "The permit number."
+      ],
+      "outcome": "Giving the number K-4471.",
+      "person": "You want your permit number, quickly: you're on hold.",
+      "telling": [
+        "My parking permit number is K-4471. I'll need it when I call the council."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "Could you suggest something quick for dinner tonight?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 2,
+      "family": "relationship",
+      "id": "relationship.01",
+      "must_not": [
+        "Making the check-up the whole reply, or giving medical speculation about it."
+      ],
+      "must_use": [
+        "The user's father had a heart check-up this afternoon that the user was worried about."
+      ],
+      "no_repeat": [],
+      "outcome": "A quick dinner idea, with a brief, warm word or question about the father's check-up.",
+      "person": "You want a quick dinner idea. If asked: you have pasta, eggs, a tin of tomatoes and some spinach. If asked about your dad: you haven't heard yet, he's calling later.",
+      "telling": [
+        "Bit of a stressful day. My dad has a heart check-up this afternoon and I'm worried about it."
+      ],
+      "unknown": [
+        "How the check-up went was never given."
+      ]
+    },
+    {
+      "asking": "Can you recommend a film for tonight?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 3,
+      "family": "relationship",
+      "id": "relationship.02",
+      "must_not": [
+        "Ignoring the request for a film."
+      ],
+      "must_use": [
+        "The user's driving test is tomorrow morning."
+      ],
+      "no_repeat": [],
+      "outcome": "A film suggestion that suits the evening before the test (for example light, not too late), with a brief good-luck word.",
+      "person": "You want a film for tonight. If asked: you like comedies, nothing longer than two hours.",
+      "telling": [
+        "I've got my driving test tomorrow morning. Third attempt, fingers crossed."
+      ],
+      "unknown": []
+    },
+    {
+      "asking": "What should I have with soup tonight?",
+      "change": [],
+      "counter": false,
+      "elsewhere": 4,
+      "family": "relationship",
+      "id": "relationship.03",
+      "must_not": [],
+      "must_use": [
+        "The user is baking a second sourdough loaf today, with a longer proof, after a flat first one."
+      ],
+      "no_repeat": [],
+      "outcome": "A suggestion for tonight that connects to the loaf being baked today, or asks how it turned out.",
+      "person": "You want something to have with soup tonight. If asked: it's tomato soup. If asked about the loaf: it's still in the oven.",
+      "telling": [
+        "I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof."
+      ],
+      "unknown": [
+        "How the second loaf turned out was never given."
+      ]
+    },
+    {
+      "asking": "Help me plan a small celebration this weekend?",
+      "change": [
+        "Update: I got the job! Very relieved, it's all sorted."
+      ],
+      "counter": true,
+      "elsewhere": 5,
+      "family": "relationship",
+      "id": "relationship.04",
+      "must_not": [
+        "Treating the interview as still pending or wishing luck for it."
+      ],
+      "must_use": [
+        "The user got the job."
+      ],
+      "no_repeat": [
+        "Whether the user got the job."
+      ],
+      "outcome": "A concrete plan for a small weekend celebration.",
+      "person": "You want a plan for a small celebration this weekend. If asked: four close friends, Saturday evening, at home, and a budget of about 80 euros.",
+      "telling": [
+        "I was really nervous about my job interview this morning."
+      ],
+      "unknown": []
+    }
+  ],
+  "model": "gpt-6-astra",
+  "order": [
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "relationship.02"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "unknown.04"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "work.02"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "correction.03"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "unknown.02"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "time.01"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "time.04"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "work.01"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "people.01"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "correction.02"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "relationship.04"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "unknown.03"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "relationship.01"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "time.03"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "people.04"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "correction.04"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "relationship.03"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "work.03"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "people.02"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "unknown.01"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "people.03"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "correction.01"
+    },
+    {
+      "arms": [
+        "C",
+        "A"
+      ],
+      "id": "work.04"
+    },
+    {
+      "arms": [
+        "A",
+        "C"
+      ],
+      "id": "time.02"
+    }
+  ],
+  "revision": {
+    "branch": "codex/continuum",
+    "commit": "50459ad29edab91c608cc2f4aa89efc967083dad",
+    "dirty": false
+  },
+  "seed": 20261031,
+  "simulator": {
+    "claude_code_version": "2.1.309 (Claude Code)",
+    "effort": "medium",
+    "final_messages": 3,
+    "instructions_sha256": "764ed97a41390fb75f1e3b7c69c8531b898c11c8ab76cf1dc1fb146d6722b196",
+    "model": "claude-opus-5-5"
+  },
+  "version": "1.1.0",
+  "voice_effort": "medium"
+}

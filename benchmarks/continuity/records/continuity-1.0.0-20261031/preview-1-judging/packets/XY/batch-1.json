@@ -1,0 +1,278 @@
+[
+  {
+    "conversations": [
+      [
+        "I've got my driving test tomorrow morning. Third attempt, fingers crossed."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "Can you recommend a film for tonight?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Ignoring the request for a film."
+      ],
+      "must_use": [
+        "The user's driving test is tomorrow morning."
+      ],
+      "next_step": "A film suggestion that suits the evening before the test (for example light, not too late), with a brief good-luck word.",
+      "no_repeat": [],
+      "unknown": []
+    },
+    "packet": "P01",
+    "replies": {
+      "X": "I’d go with **School of Rock (2003)** tonight. Jack Black plays a broke musician who impersonates a substitute teacher and turns his class into a rock band. A spectacularly irresponsible teaching plan; a promising evening. ([paramount.com](https://www.paramount.com/movies/school-of-rock?utm_source=openai))\n\nIt’s a good-natured comedy with plenty of musical energy, and **1 hour 49 minutes** rather than an all-night commitment. ([web.library.yale.edu](https://web.library.yale.edu/sites/default/files/files/School%20of%20Rock%20Notes.pdf?utm_source=openai)) With your test tomorrow morning, my vote is for something fun—not two hours of mounting dread.",
+      "Y": "My pick: The Holdovers (2023). A cranky boarding-school teacher, a stranded student, and the school’s cook spend Christmas break together—a setup for a funny, bittersweet story about unlikely companionship. ([miramax.com](https://www.miramax.com/movie/The-Holdovers/?utm_source=openai))\n\nI’d choose it for a quiet night when you want something warm but not sugary. If tonight calls for scares or something faster-paced, tell me and I’ll switch gears."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My doctor has prescribed new tablets for my blood pressure."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "What dose did the doctor say I should take?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The tablets are new blood pressure tablets from the doctor."
+      ],
+      "next_step": "Saying it does not know the dose and pointing to the prescription, the label or the pharmacist.",
+      "no_repeat": [],
+      "unknown": [
+        "The dose was never given."
+      ]
+    },
+    "packet": "P02",
+    "replies": {
+      "X": "You mentioned that your doctor prescribed new blood pressure tablets, but you didn’t share the medication name or dose. I can’t tell what dose they advised.\n\nWhat does the prescription label say? If it’s unclear, confirm with your pharmacist or doctor before taking it—don’t guess.",
+      "Y": "You haven’t told me the dose—or the name of the tablets—so I can’t say what your doctor instructed. What does the prescription label say?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My daughter's school pickup is at 3:30 and it's always been my job."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "From today, my partner does the weekday pickups. His new job has flexible hours."
+      ],
+      [
+        "I'd like to fit a long run into my weekday afternoons. Any suggestions?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Planning the afternoons around the user doing the 3:30 pickup."
+      ],
+      "must_use": [
+        "The partner now does the weekday pickups, so the user's afternoons are free of it."
+      ],
+      "next_step": "A concrete afternoon slot or weekly pattern for the run.",
+      "no_repeat": [
+        "Who does the school pickup."
+      ],
+      "unknown": []
+    },
+    "packet": "P03",
+    "replies": {
+      "X": "With your partner handling weekday pickups and your new job’s flexible hours, you could protect one afternoon for a long run rather than squeezing it in at the end of the day.\n\nA few ways to make it work:\n- Start work earlier on your chosen day, then block off the run and time to shower and eat.\n- Pick your least meeting-heavy afternoon, with a second day as a backup.\n- Agree on a return time with your partner so the run doesn’t quietly spill into evening responsibilities.\n- Have a shorter version ready for busy weeks, so it isn’t all or nothing.\n\nHow much time do you want to set aside, including getting ready and showering?",
+      "Y": "With weekday pickup now covered by your partner, what afternoon window do you have available for a long run?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Book club is at Clara's place on Wednesday, and I'm bringing dessert."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "Change of plan: we're meeting at the café on Rose Street instead, and I don't need to bring anything, the café serves food."
+      ],
+      [
+        "What do I need to prepare for book club?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Telling the user to bring dessert or that it is at Clara's."
+      ],
+      "must_use": [
+        "Book club is at the café on Rose Street.",
+        "The user does not need to bring anything."
+      ],
+      "next_step": "What is actually left to prepare (for example the book), or that nothing else is needed.",
+      "no_repeat": [
+        "Where book club is.",
+        "Whether to bring food."
+      ],
+      "unknown": []
+    },
+    "packet": "P04",
+    "replies": {
+      "X": "For book club on **Wednesday, November 4**, you’re meeting at **the café on Rose Street**, not Clara’s. **No dessert or other food to prepare**—the café serves food, and you said you don’t need to bring anything.\n\nReading-wise, finish what you can of the book and pick a passage or a question you’d like to discuss. You haven’t mentioned the title or meeting time here.",
+      "Y": "You don’t need to bring anything—dessert is off your list. Wednesday’s book club moved to the café on Rose Street instead of Clara’s, and the café serves food."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "What should I have with soup tonight?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The user is baking a second sourdough loaf today, with a longer proof, after a flat first one."
+      ],
+      "next_step": "A suggestion for tonight that connects to the loaf being baked today, or asks how it turned out.",
+      "no_repeat": [],
+      "unknown": [
+        "How the second loaf turned out was never given."
+      ]
+    },
+    "packet": "P05",
+    "replies": {
+      "X": "Crusty bread or a grilled cheese would be my pick. Add a lemony green salad if you want something fresh alongside it. What kind of soup?",
+      "Y": "You were trying another sourdough loaf today—how’s it coming along?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My friend Noor is coming over on Saturday afternoon. She just had knee surgery, so she can't manage stairs and needs to sit most of the time.",
+        "My flat is on the ground floor, which helps. We both love board games, and I'd like a cosy afternoon in rather than going out."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "Saturday's coming up. What should I plan?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Proposing an outing or activity that needs walking, standing for long, or stairs."
+      ],
+      "must_use": [
+        "Noor cannot manage stairs and needs to sit most of the time after her knee surgery.",
+        "The afternoon is meant to be cosy and at home, and both enjoy board games."
+      ],
+      "next_step": "A concrete plan for a seated, at-home afternoon (for example games, snacks, timing).",
+      "no_repeat": [
+        "Who is coming.",
+        "Whether Noor has any mobility limits.",
+        "Whether they prefer going out."
+      ],
+      "unknown": []
+    },
+    "packet": "P06",
+    "replies": {
+      "X": "I’d keep it simple: one thing to look forward to, one useful task, and some unplanned time.\n\nMorning: slow breakfast, then a walk or something outdoors.\nMidday: tackle one errand or chore—give it a firm cutoff.\nAfternoon/evening: make one social plan, like cooking with friends or a casual dinner.\nLeave the rest open so Saturday doesn’t feel like another workday.\n\nAre you leaning toward a restful day, an adventure, or time with people?",
+      "Y": "For Noor’s visit this afternoon, can she get from outside to a comfortable seat in your flat without any steps, including at the entrance?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Every Tuesday and Thursday I swim at 7 in the morning before work."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "This Thursday the pool is closed for maintenance, so there's no swim that morning."
+      ],
+      [
+        "Can you help me plan my Thursday morning?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Scheduling the 7 am swim on Thursday."
+      ],
+      "must_use": [
+        "There is no swim this Thursday because the pool is closed."
+      ],
+      "next_step": "A plan for a Thursday morning without the swim.",
+      "no_repeat": [
+        "Whether there is a swim on Thursday.",
+        "The usual swim routine."
+      ],
+      "unknown": []
+    },
+    "packet": "P07",
+    "replies": {
+      "X": "You usually swim on Thursdays at 7:00 a.m. before work. What time do you need to start work, and is there anything else you want to fit in that morning?",
+      "Y": "With the pool closed on Thursday, November 5, your usual 7 a.m. swim is off. What time do you need to leave for work—or start, if you’re working from home?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I've got a dentist appointment tomorrow at 9:30, and I'm not allowed to eat for two hours afterwards."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "What could I have for breakfast and lunch tomorrow?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Suggesting food between the appointment and about 11:30."
+      ],
+      "must_use": [
+        "The dentist appointment is at 9:30 tomorrow.",
+        "No eating for two hours after it."
+      ],
+      "next_step": "A breakfast before the appointment and a lunch after the two hours.",
+      "no_repeat": [
+        "The appointment time.",
+        "The eating restriction."
+      ],
+      "unknown": []
+    },
+    "packet": "P08",
+    "replies": {
+      "X": "With your 9:30 appointment and the two-hour no-eating window afterwards, what dental treatment are you having?",
+      "Y": "Breakfast: Scrambled eggs on whole-grain toast with a side of fruit. For a no-cook option, try Greek yogurt with oats, berries, and peanut butter.\n\nLunch: A chicken or chickpea wrap with hummus, cucumber, and greens, plus carrots on the side.\n\nWhat ingredients do you already have, and any dietary restrictions?"
+    }
+  }
+]

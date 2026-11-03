@@ -1,0 +1,672 @@
+{
+  "campaign_id": "dry-run-native-files-aggregate-20260829-r2",
+  "campaign_kind": "dry-run",
+  "completed_count": 4,
+  "excluded_count": 0,
+  "exclusions": {},
+  "groups": [
+    {
+      "arm_id": "A",
+      "checks": {
+        "category_keys_alphabetical": {
+          "failed": 0,
+          "passed": 1
+        },
+        "input_sources_unchanged": {
+          "failed": 0,
+          "passed": 1
+        },
+        "only_expected_output_changed": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_exists": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_is_valid_json": {
+          "failed": 0,
+          "passed": 1
+        },
+        "summary_is_exact": {
+          "failed": 0,
+          "passed": 1
+        }
+      },
+      "completed_count": 1,
+      "excluded_count": 0,
+      "host_id": "hermes",
+      "run_count": 1,
+      "scenario_id": "native.files.aggregate",
+      "success_first_attempt": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "success_within_episode": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "timing_ms": {
+        "correct_result_ms": {
+          "median": 47943,
+          "observed_count": 1,
+          "p90": 47943
+        },
+        "daemon_compose_ms": {
+          "median": null,
+          "observed_count": 0,
+          "p90": null
+        },
+        "first_visible_ms": {
+          "median": 42504,
+          "observed_count": 1,
+          "p90": 42504
+        },
+        "host_ms": {
+          "median": null,
+          "observed_count": 0,
+          "p90": null
+        },
+        "startup_ms": {
+          "median": 9,
+          "observed_count": 1,
+          "p90": 9
+        },
+        "tool_ms": {
+          "median": 3042,
+          "observed_count": 1,
+          "p90": 3042
+        },
+        "wall_ms": {
+          "median": 47943,
+          "observed_count": 1,
+          "p90": 47943
+        }
+      },
+      "tokens": {
+        "daemon.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "daemon.critical": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.visible": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 68469,
+            "observed_count": 1,
+            "p90": 68469
+          },
+          "per_success": {
+            "median": 68469,
+            "observed_count": 1,
+            "p90": 68469
+          },
+          "quality_counts": {
+            "provider_reported": 1
+          },
+          "total": 68469
+        }
+      }
+    },
+    {
+      "arm_id": "C",
+      "checks": {
+        "category_keys_alphabetical": {
+          "failed": 0,
+          "passed": 1
+        },
+        "input_sources_unchanged": {
+          "failed": 0,
+          "passed": 1
+        },
+        "only_expected_output_changed": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_exists": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_is_valid_json": {
+          "failed": 0,
+          "passed": 1
+        },
+        "summary_is_exact": {
+          "failed": 0,
+          "passed": 1
+        }
+      },
+      "completed_count": 1,
+      "excluded_count": 0,
+      "host_id": "hermes",
+      "run_count": 1,
+      "scenario_id": "native.files.aggregate",
+      "success_first_attempt": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "success_within_episode": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "timing_ms": {
+        "correct_result_ms": {
+          "median": 22099,
+          "observed_count": 1,
+          "p90": 22099
+        },
+        "daemon_compose_ms": {
+          "median": 54,
+          "observed_count": 1,
+          "p90": 54
+        },
+        "first_visible_ms": {
+          "median": 2569,
+          "observed_count": 1,
+          "p90": 2569
+        },
+        "host_ms": {
+          "median": null,
+          "observed_count": 0,
+          "p90": null
+        },
+        "startup_ms": {
+          "median": 8,
+          "observed_count": 1,
+          "p90": 8
+        },
+        "tool_ms": {
+          "median": 2366,
+          "observed_count": 1,
+          "p90": 2366
+        },
+        "wall_ms": {
+          "median": 22099,
+          "observed_count": 1,
+          "p90": 22099
+        }
+      },
+      "tokens": {
+        "daemon.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "daemon.critical": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.visible": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 27993,
+            "observed_count": 1,
+            "p90": 27993
+          },
+          "per_success": {
+            "median": 27993,
+            "observed_count": 1,
+            "p90": 27993
+          },
+          "quality_counts": {
+            "provider_reported": 1
+          },
+          "total": 27993
+        }
+      }
+    },
+    {
+      "arm_id": "A",
+      "checks": {
+        "category_keys_alphabetical": {
+          "failed": 0,
+          "passed": 1
+        },
+        "input_sources_unchanged": {
+          "failed": 0,
+          "passed": 1
+        },
+        "only_expected_output_changed": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_exists": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_is_valid_json": {
+          "failed": 0,
+          "passed": 1
+        },
+        "summary_is_exact": {
+          "failed": 0,
+          "passed": 1
+        }
+      },
+      "completed_count": 1,
+      "excluded_count": 0,
+      "host_id": "openclaw",
+      "run_count": 1,
+      "scenario_id": "native.files.aggregate",
+      "success_first_attempt": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "success_within_episode": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "timing_ms": {
+        "correct_result_ms": {
+          "median": 47152,
+          "observed_count": 1,
+          "p90": 47152
+        },
+        "daemon_compose_ms": {
+          "median": null,
+          "observed_count": 0,
+          "p90": null
+        },
+        "first_visible_ms": {
+          "median": null,
+          "observed_count": 0,
+          "p90": null
+        },
+        "host_ms": {
+          "median": 37733,
+          "observed_count": 1,
+          "p90": 37733
+        },
+        "startup_ms": {
+          "median": 1580,
+          "observed_count": 1,
+          "p90": 1580
+        },
+        "tool_ms": {
+          "median": 0,
+          "observed_count": 1,
+          "p90": 0
+        },
+        "wall_ms": {
+          "median": 47152,
+          "observed_count": 1,
+          "p90": 47152
+        }
+      },
+      "tokens": {
+        "daemon.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "daemon.critical": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.visible": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 26108,
+            "observed_count": 1,
+            "p90": 26108
+          },
+          "per_success": {
+            "median": 26108,
+            "observed_count": 1,
+            "p90": 26108
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 26108
+        }
+      }
+    },
+    {
+      "arm_id": "C",
+      "checks": {
+        "category_keys_alphabetical": {
+          "failed": 0,
+          "passed": 1
+        },
+        "input_sources_unchanged": {
+          "failed": 0,
+          "passed": 1
+        },
+        "only_expected_output_changed": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_exists": {
+          "failed": 0,
+          "passed": 1
+        },
+        "output_is_valid_json": {
+          "failed": 0,
+          "passed": 1
+        },
+        "summary_is_exact": {
+          "failed": 0,
+          "passed": 1
+        }
+      },
+      "completed_count": 1,
+      "excluded_count": 0,
+      "host_id": "openclaw",
+      "run_count": 1,
+      "scenario_id": "native.files.aggregate",
+      "success_first_attempt": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "success_within_episode": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "timing_ms": {
+        "correct_result_ms": {
+          "median": 55309,
+          "observed_count": 1,
+          "p90": 55309
+        },
+        "daemon_compose_ms": {
+          "median": 373,
+          "observed_count": 1,
+          "p90": 373
+        },
+        "first_visible_ms": {
+          "median": null,
+          "observed_count": 0,
+          "p90": null
+        },
+        "host_ms": {
+          "median": 45816,
+          "observed_count": 1,
+          "p90": 45816
+        },
+        "startup_ms": {
+          "median": 1949,
+          "observed_count": 1,
+          "p90": 1949
+        },
+        "tool_ms": {
+          "median": 0,
+          "observed_count": 1,
+          "p90": 0
+        },
+        "wall_ms": {
+          "median": 55309,
+          "observed_count": 1,
+          "p90": 55309
+        }
+      },
+      "tokens": {
+        "daemon.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "daemon.critical": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.background": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "per_success": {
+            "median": 0,
+            "observed_count": 1,
+            "p90": 0
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 0
+        },
+        "host.visible": {
+          "coverage": 1.0,
+          "observed_count": 1,
+          "per_completed": {
+            "median": 29415,
+            "observed_count": 1,
+            "p90": 29415
+          },
+          "per_success": {
+            "median": 29415,
+            "observed_count": 1,
+            "p90": 29415
+          },
+          "quality_counts": {
+            "host_reported": 1
+          },
+          "total": 29415
+        }
+      }
+    }
+  ],
+  "language": "en",
+  "paired_comparisons": [
+    {
+      "host_id": "hermes",
+      "host_visible_tokens_c_minus_a": {
+        "median": -40476,
+        "observed_count": 1,
+        "p90": -40476
+      },
+      "matched_pair_count": 1,
+      "scenario_id": "native.files.aggregate",
+      "success_first_attempt_delta_count": 0,
+      "success_within_episode_delta_count": 0,
+      "wall_ms_c_minus_a": {
+        "median": -25844,
+        "observed_count": 1,
+        "p90": -25844
+      }
+    },
+    {
+      "host_id": "openclaw",
+      "host_visible_tokens_c_minus_a": {
+        "median": 3307,
+        "observed_count": 1,
+        "p90": 3307
+      },
+      "matched_pair_count": 1,
+      "scenario_id": "native.files.aggregate",
+      "success_first_attempt_delta_count": 0,
+      "success_within_episode_delta_count": 0,
+      "wall_ms_c_minus_a": {
+        "median": 8157,
+        "observed_count": 1,
+        "p90": 8157
+      }
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "recalculation": {
+    "implementation": "stdlib-python",
+    "llm_call_count": 0,
+    "network_call_count": 0,
+    "percentile_method": "nearest-rank"
+  },
+  "report_eligible": false,
+  "run_count": 4,
+  "schema_version": "daemon.public-productivity.summary.v1",
+  "source": {
+    "manifest_sha256": "e8bc46198ec702db09921d7be06945e7831e50c3b44bf6e49f1e72d18980401e",
+    "runs_sha256": "3595710f4c2b7a347668a488f15ab69ee358c57187ee2306c186935fae8bf6ef"
+  }
+}

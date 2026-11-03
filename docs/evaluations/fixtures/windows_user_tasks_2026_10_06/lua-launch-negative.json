@@ -1,0 +1,212 @@
+{
+  "tokens": {
+    "original": {
+      "elevation": 1,
+      "elevation_type": 1,
+      "session": 2,
+      "integrity": "S-1-16-12288",
+      "admin_group": [
+        15
+      ]
+    },
+    "limited-high": {
+      "elevation": 1,
+      "elevation_type": 1,
+      "session": 2,
+      "integrity": "S-1-16-12288",
+      "admin_group": [
+        16
+      ]
+    },
+    "limited-medium": {
+      "elevation": 1,
+      "elevation_type": 1,
+      "session": 2,
+      "integrity": "S-1-16-8192",
+      "admin_group": [
+        16
+      ]
+    },
+    "lua": {
+      "elevation": 0,
+      "elevation_type": 1,
+      "session": 2,
+      "integrity": "S-1-16-12288",
+      "admin_group": [
+        16
+      ]
+    },
+    "lua-medium": {
+      "elevation": 0,
+      "elevation_type": 1,
+      "session": 2,
+      "integrity": "S-1-16-8192",
+      "admin_group": [
+        16
+      ]
+    }
+  },
+  "cases": [
+    {
+      "token": "original",
+      "isolated_desktop": false,
+      "explicit_process_security": false,
+      "exit": 0,
+      "output": "ready 1\n",
+      "seconds": 0.047
+    },
+    {
+      "token": "original",
+      "isolated_desktop": false,
+      "explicit_process_security": true,
+      "exit": 0,
+      "output": "ready 1\n",
+      "seconds": 0.047
+    },
+    {
+      "token": "original",
+      "isolated_desktop": true,
+      "explicit_process_security": false,
+      "exit": 0,
+      "output": "ready 1\n",
+      "seconds": 0.062
+    },
+    {
+      "token": "original",
+      "isolated_desktop": true,
+      "explicit_process_security": true,
+      "exit": 0,
+      "output": "ready 1\n",
+      "seconds": 0.063
+    },
+    {
+      "token": "limited-high",
+      "isolated_desktop": false,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "limited-high",
+      "isolated_desktop": false,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "limited-high",
+      "isolated_desktop": true,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.016
+    },
+    {
+      "token": "limited-high",
+      "isolated_desktop": true,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "limited-medium",
+      "isolated_desktop": false,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "limited-medium",
+      "isolated_desktop": false,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.015
+    },
+    {
+      "token": "limited-medium",
+      "isolated_desktop": true,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "limited-medium",
+      "isolated_desktop": true,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "lua",
+      "isolated_desktop": false,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "lua",
+      "isolated_desktop": false,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.016
+    },
+    {
+      "token": "lua",
+      "isolated_desktop": true,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "lua",
+      "isolated_desktop": true,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "lua-medium",
+      "isolated_desktop": false,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "lua-medium",
+      "isolated_desktop": false,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.015
+    },
+    {
+      "token": "lua-medium",
+      "isolated_desktop": true,
+      "explicit_process_security": false,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    },
+    {
+      "token": "lua-medium",
+      "isolated_desktop": true,
+      "explicit_process_security": true,
+      "exit": -1073741502,
+      "output": "",
+      "seconds": 0.0
+    }
+  ],
+  "linked_unavailable": 1312
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "daemon.companion.channel.v1",
+  "channel": "main",
+  "release": "companion-v0.11.10",
+  "source_revision": "7ff040a4558a9aba99a2b7429357d35ad1430d61",
+  "platforms": {
+    "macos-arm64": {
+      "package": {
+        "name": "Daemons-Companion-macOS-arm64.dmg",
+        "sha256": "12e400b4e1f00d64be46843034ce54d060a4b1bb7959bf3ccd62f9aaba92be37",
+        "size": 147655462
+      },
+      "installer": {
+        "name": "install-macos.sh",
+        "sha256": "2553ada8ce0f57a36a73097f41fe74c2abb90654ef91d42c1da368df69b34b52",
+        "size": 6849
+      }
+    },
+    "windows-x64": {
+      "package": {
+        "name": "Daemons-Companion-Windows-x64.exe",
+        "sha256": "634a12f1b6ca89150b91d881efcf5bca2fbbb57a3a6dfac68a7ca0d69e058450",
+        "size": 126575864
+      },
+      "installer": {
+        "name": "install-windows.ps1",
+        "sha256": "4770f7a4c154d4ffb1c041344c034111f88f6a2a5684ea7b63c53413b293ed0f",
+        "size": 8165
+      }
+    }
+  }
+}

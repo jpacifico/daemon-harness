@@ -1,0 +1,235 @@
+{
+  "$id": "https://github.com/jpacifico/daemon-harness-canonical/benchmarks/productivity_v1/manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "analysis": {
+      "additionalProperties": false,
+      "properties": {
+        "percentile_method": {
+          "const": "nearest-rank"
+        }
+      },
+      "required": [
+        "percentile_method"
+      ],
+      "type": "object"
+    },
+    "arms": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "A",
+              "C"
+            ]
+          },
+          "label": {
+            "enum": [
+              "native_host",
+              "host_with_daemon"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "campaign_id": {
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$",
+      "type": "string"
+    },
+    "campaign_kind": {
+      "enum": [
+        "schema-example",
+        "dry-run",
+        "scored"
+      ]
+    },
+    "environment": {
+      "additionalProperties": false,
+      "properties": {
+        "architecture": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "operating_system": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "python_version": {
+          "pattern": "^3\\.11(?:\\.[0-9]+)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "operating_system",
+        "architecture",
+        "python_version"
+      ],
+      "type": "object"
+    },
+    "hosts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "arm_attestations": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "arm_id": {
+                  "enum": [
+                    "A",
+                    "C"
+                  ]
+                },
+                "context_sha256": {
+                  "$ref": "#/$defs/sha256"
+                },
+                "tool_catalog_sha256": {
+                  "$ref": "#/$defs/sha256"
+                }
+              },
+              "required": [
+                "arm_id",
+                "tool_catalog_sha256",
+                "context_sha256"
+              ],
+              "type": "object"
+            },
+            "minItems": 2,
+            "type": "array"
+          },
+          "binary_sha256": {
+            "$ref": "#/$defs/sha256"
+          },
+          "id": {
+            "enum": [
+              "hermes",
+              "openclaw"
+            ]
+          },
+          "model": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "provider": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "reasoning_effort": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "provider",
+              "name",
+              "reasoning_effort"
+            ],
+            "type": "object"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "binary_sha256",
+          "model",
+          "arm_attestations"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "language": {
+      "const": "en"
+    },
+    "ordering_seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "protocol_version": {
+      "const": "1.0.0"
+    },
+    "report_eligible": {
+      "type": "boolean"
+    },
+    "scenarios": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "max_turns": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "seeds": {
+            "items": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "timeout_ms": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "seeds",
+          "max_turns",
+          "timeout_ms"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "daemon.public-productivity.manifest.v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "campaign_id",
+    "campaign_kind",
+    "language",
+    "report_eligible",
+    "ordering_seed",
+    "analysis",
+    "environment",
+    "hosts",
+    "arms",
+    "scenarios"
+  ],
+  "title": "Public Productivity Benchmark V1 campaign manifest",
+  "type": "object",
+  "$defs": {
+    "sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    }
+  }
+}

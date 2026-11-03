@@ -1,0 +1,50 @@
+{
+  "schema": "daemon.memory-organization-baseline.v1",
+  "language": "fr-FR",
+  "runtime_reference": "322db9b13c801bf246eaaef140f11528c124c37d",
+  "model": "gpt-6-astra",
+  "bounds": {
+    "voice_iterations": 5,
+    "voice_seconds": 180,
+    "background_calls": 12,
+    "after_turn_seconds": 360,
+    "observation_seconds": 650,
+    "campaign_seconds": 5400,
+    "reported_tokens_stop_between_turns": 2000000
+  },
+  "cases": [
+    {
+      "id": "ongoing_story",
+      "sources": [
+        {"date": "2026-02-03", "text": "La roue arrière de mon vélo frotte. Je ne peux plus aller travailler avec ; je prends le bus."},
+        {"date": "2026-02-12", "text": "Le réglage des freins n’a rien changé. Le premier réparateur n’avait pas le matériel pour remettre la roue droite."},
+        {"date": "2026-05-06", "text": "Je cherche toujours un atelier équipé, sans créneau pour le moment. Le problème du vélo n’est pas réglé."}
+      ],
+      "probes": [
+        {"date": "2026-06-01", "text": "J’ai enfin un créneau à l’atelier."}
+      ]
+    },
+    {
+      "id": "project_resume",
+      "sources": [
+        {"date": "2026-01-20", "text": "Harbor est le projet de portail client de Cobalt Studio. Notre première livraison couvre le suivi des demandes, sans paiement en ligne. Nora valide le périmètre ; Idris prépare les données."},
+        {"date": "2026-02-11", "text": "Nora a validé la maquette Harbor. Le prototype tourne avec des données fictives. Pour tester avec le client, il manque l’export qu’Idris doit préparer."},
+        {"date": "2026-03-03", "text": "Harbor est en pause jusqu’au retour du client. Nous n’avons reçu ni l’export ni une nouvelle échéance."}
+      ],
+      "probes": [
+        {"date": "2026-06-02", "text": "Je reprends Harbor : où en étions-nous et qu’est-ce qui manque pour avancer ?"}
+      ]
+    },
+    {
+      "id": "project_boundaries",
+      "sources": [
+        {"date": "2026-04-06", "text": "Alex Martin, chez Cobalt Studio, a validé le budget de Harbor : 18 000 euros. Il ne travaille pas sur Beacon."},
+        {"date": "2026-04-07", "text": "Alex Renard, chez Meridian Lab, suit Beacon. Il attend encore l’accord de sa direction pour le budget de 27 000 euros."}
+      ],
+      "probes": [
+        {"date": "2026-05-01", "text": "Alex a-t-il validé le budget ?"},
+        {"date": "2026-05-01", "text": "Quel budget a été validé pour Harbor ?"}
+      ]
+    }
+  ]
+}

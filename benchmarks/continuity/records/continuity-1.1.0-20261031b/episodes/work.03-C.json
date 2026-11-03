@@ -1,0 +1,464 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "8551a7613d99fb06a2d4ed716c78eb5c6de75d0e784c9b3cd2feb34ba9b6803a",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "8d44b29c7e2d4bb7f95b07859d33d550c6225095516360556930df43ac22cc4d",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 1054,
+  "dry_run": false,
+  "episode": "work.03",
+  "episode_ms": 626623,
+  "family": "work",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 9,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 9,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "work.03-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 340480
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 28,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 177627
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 13722
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 2156
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 531829
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 67072
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 9,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 82911
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2694
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 480
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 152677
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 67613,
+      "first_native_text_ms": 8339,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4371,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13345,
+      "prompt": "I'm moving flats at the end of the month. I've booked the van and given notice to my landlord.",
+      "response": "Van booked, notice given—you’ve got two big pieces sorted. What made you decide to move?",
+      "response_ms": 13345,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 46053,
+      "first_native_text_ms": 14673,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6995,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19412,
+      "prompt": "Still to do: redirect my post and sort out internet at the new place.",
+      "response": "Right—van and notice sorted; post redirection and internet still outstanding. The less visible half of moving: getting everything else to follow you.",
+      "response_ms": 19412,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 42900,
+      "first_native_text_ms": 6955,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8747,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 40711,
+      "prompt": "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+      "response": "Ocean tides are driven mainly by **differences in the Moon’s gravitational pull across Earth**, with the Sun adding its own influence. The reason most coasts get roughly two high tides a day is that this tidal effect has two sides—not just the side facing the Moon.\n\n### 1. What matters is the difference in gravity\n\nThe Moon pulls on the whole Earth, but not equally:\n\n- The side nearest the Moon feels a slightly stronger pull.\n- Earth’s centre feels a little less.\n- The far side feels less still.\n\nTo understand tides, compare each place’s acceleration with that of Earth’s centre. On the near side, the extra pull draws water toward the Moon relative to the centre. On the far side, Earth’s centre accelerates toward the Moon more strongly than the water does, so that water tends to be left behind—away from the Moon **relative to Earth’s centre**.\n\nThe Moon still pulls the far-side water toward itself. It just pulls the rest of Earth more strongly.\n\nThis difference stretches the Earth–ocean system along the Earth–Moon direction. In a simplified picture of an entirely ocean-covered Earth, it produces **two broad high-water regions**: one facing the Moon and one facing away. Between them are lower-water regions.\n\n### 2. Why that produces two high tides\n\nAs Earth rotates, a place on its surface passes through both high-water regions and both low-water regions. That gives the basic pattern:\n\n**high tide → low tide → high tide → low tide**\n\nBut the Moon also moves along its orbit in the same direction Earth rotates. After one 24-hour rotation, Earth has to turn a little farther for a location to face the Moon again.\n\nThat takes about **24 hours and 50 minutes**, called a *lunar day*. Divide that by two and you get an average interval of about:\n\n- **12 hours 25 minutes between high tides**\n- **6 hours 12 minutes between a high tide and the next low tide**\n\nThese are approximate timings for a predominantly twice-daily tide, not a timetable that every coast follows.\n\n### 3. The Sun strengthens or weakens the pattern\n\nThe Sun also produces tides. Although its total gravitational pull on Earth is much stronger than the Moon’s, its pull varies less across Earth because it is so much farther away. Its tide-producing effect is roughly half the Moon’s.\n\nThe two influences combine:\n\n- **At new and full moon**, the Sun, Earth and Moon are approximately aligned. Their tidal effects reinforce each other, producing **spring tides**: a larger difference between high and low water. “Spring” here has nothing to do with the season.\n- **Near first and last quarter**, the Sun and Moon lie in roughly perpendicular directions as seen from Earth. Their effects partly counteract each other, producing **neap tides**, with a smaller tidal range.\n\n### 4. Why real tides are messier than two neat bulges\n\nThe two-bulge picture explains the basic forcing, but real oceans cannot simply arrange themselves into smooth bulges. Continents interrupt them; water takes time to move; Earth’s rotation deflects that motion; and ocean depth, coastline shape and basin resonance alter the response.\n\nActual tides behave like enormous, long waves moving through ocean basins.\n\nThe tilt of the Moon’s orbit relative to Earth’s equator also helps make successive high tides unequal. Combined with how individual basins respond, this produces places with:\n\n- Two similar high tides each lunar day.\n- Two noticeably unequal high tides.\n- One dominant high tide and one low tide each lunar day.\n\n**So the Moon’s uneven pull explains the twice-daily tendency; the shape and dynamics of the oceans determine what actually happens at your beach.**",
+      "response_ms": 40711,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26869,
+      "first_native_text_ms": 5203,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 10496,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18368,
+      "prompt": "Interesting. And why are spring tides bigger than neap tides?",
+      "response": "Because **the Moon’s and Sun’s tidal effects reinforce each other at spring tides, but partly oppose each other at neap tides**.\n\nThink of each as trying to stretch the oceans into a two-ended shape:\n\n- **At new and full moon**, the Sun, Earth and Moon are roughly in a line. Both tidal effects stretch the oceans along the same axis, making high tides generally higher and low tides lower. That produces a larger **tidal range**—the difference between high and low water.\n- **At first and last quarter**, the Sun and Moon are roughly at right angles as seen from Earth. The Sun’s tidal effect tends to raise water in the regions where the Moon’s tends to lower it, and vice versa. They partly cancel, so the tidal range is smaller.\n\nThe slightly surprising part is **full moon**: the Sun and Moon are on opposite sides of Earth, yet their tides still reinforce. That’s because each produces a *two-sided stretch*, not a single mound of water beneath it. Opposite directions still mean the same stretching axis.\n\nSo “bigger” means a greater swing between high and low water—not simply more water pushed toward shore.",
+      "response_ms": 18368,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26797,
+      "first_native_text_ms": 8926,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 12247,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 30582,
+      "prompt": "One more: how do tide tables get predicted so far in advance?",
+      "response": "Because **the astronomical cycles driving tides are predictable far ahead—and measurements tell us how a particular coast responds to them**. Tide tables combine those two things. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\n### 1. Measure the local tide\nA tide gauge records water levels over time—preferably for a year or longer. That gives us the actual pattern at a harbour, rather than the idealised two-bulge picture we were discussing. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\n### 2. Separate that pattern into repeating rhythms\nUsing a method called **harmonic analysis**, scientists break the measured tide into components called *tidal constituents*. Each is a smooth, repeating rise and fall, with its own:\n- **Period:** how long one cycle takes.\n- **Amplitude:** how large its contribution is.\n- **Phase:** when its peaks occur at that location.\n\nThe astronomical cycles supply the timing; the observations establish the local size and timing offset of each component. Together, these capture much of the local ocean’s response. ([livnocweb2.nerc-liv.ac.uk](https://livnocweb2.nerc-liv.ac.uk/ntslf/tides/about-tides/tides-faq?utm_source=openai))\n\nThink of several clock hands turning at different speeds. Their arrangement changes constantly, but it isn’t random: you can calculate where each hand will be on a future date.\n\n### 3. Add the rhythms back together—for a future date\nOnce those components are known, a computer calculates each one’s contribution at the desired time and adds them together. The result is a predicted water-level curve; its peaks and troughs give the table’s high and low tides. The spring–neap cycle emerges from that addition rather than needing a separate forecast. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\n### The catch: tide tables don’t predict all of the sea\n**An astronomical tide prediction is not a complete water-level forecast.** Wind, atmospheric pressure and storm surges can shift the actual water level away from the table—sometimes substantially. Those effects require weather information much closer to the date. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/faq.html?utm_source=openai))\n\nSo there’s no contradiction in knowing next year’s astronomical tide while not knowing next month’s storm surge: they’re different parts of the water level, with very different predictability. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))",
+      "response_ms": 30582,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 84152,
+      "first_native_text_ms": 5840,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 16626,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 9661,
+      "prompt": "Internet at the new flat is booked for the 28th.",
+      "response": "Do you mean October 28, just gone, or November 28?",
+      "response_ms": 9661,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 30061,
+      "first_native_text_ms": 7064,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 18378,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 11186,
+      "prompt": "What's left on my moving list?",
+      "response": "**Redirecting your post** is the only thing still to arrange on the list you’ve given me.\n\n- Van — booked\n- Landlord — notice given\n- Internet — booked for the 28th; installation not confirmed\n- Post redirection — still to do",
+      "response_ms": 11186,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 6595,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 50839,
+      "first_native_text_ms": 6055,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 8
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 21008,
+        "terminal_turn_count": 8,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 9750,
+      "prompt": "How do I set up the post redirection?",
+      "response": "Which country are you redirecting your post in?",
+      "response_ms": 9750,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 10081,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 52217,
+      "first_native_text_ms": 13200,
+      "index": 8,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 9
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 24506,
+        "terminal_turn_count": 9,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29083,
+      "prompt": "Not something I've mentioned. Can you give me the general steps? I want it redirected for six months.",
+      "response": "Yes—you hadn’t mentioned it. The general steps are:\n\n1. **Go to your postal operator’s official website** and look for “mail redirection,” “mail forwarding” or “change of address.” Depending on the operator, you can apply online or at a post office. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n2. **Enter your old and new addresses**, including flat numbers and postcodes, and the full names of everyone whose post should move with you. Include any other names you receive mail under where the form allows. ([anpost.com](https://www.anpost.com/AnPost/media/PDFs/Residential-Redirection.pdf?utm_source=openai))\n3. **Choose your start date and six months of redirection.** Six-month packages are available from several operators, but durations vary. If asked whether the *move* is permanent or temporary, answer that separately—wanting six months of forwarding doesn’t necessarily mean your move is temporary. ([royalmail.com](https://www.royalmail.com/personal/receiving-mail/redirection?utm_source=openai))\n4. **Complete identity checks and pay any applicable fee.** Have identification and address details ready; the exact checks depend on the service. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n5. **Save the confirmation and check the actual start and end dates.** Don’t assume it starts immediately: some operators require at least five working days to arrange it. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n\n**Use those six months to update senders directly**, rather than treating forwarding as a permanent address change. Check exclusions too—not every kind of mail is necessarily covered. ([usa.gov](https://www.usa.gov/change-address?utm_source=openai))",
+      "response_ms": 29083,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

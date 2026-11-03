@@ -1,0 +1,430 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "8551a7613d99fb06a2d4ed716c78eb5c6de75d0e784c9b3cd2feb34ba9b6803a",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "840f60570b22541fea3a53215924a4ad4b1ebbdf04d914369cd676899c102185",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 901,
+  "dry_run": false,
+  "episode": "time.03",
+  "episode_ms": 592409,
+  "family": "time",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 8,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 8,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "time.03-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 316160
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 26,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 155627
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 11518
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 2304
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 483305
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 56320
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 74078
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2001
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 521
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 132399
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 76050,
+      "first_native_text_ms": 16435,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4371,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22867,
+      "prompt": "My daughter's school pickup is at 3:30 and it's always been my job.",
+      "response": "How is that arrangement working for you?",
+      "response_ms": 22867,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 28429,
+      "first_native_text_ms": 2502,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6122,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 30704,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good opening isn’t mainly about memorizing moves. It’s about reaching a position where **your pieces can work, your king is safe, and you’re ready for the middlegame.**\n\nFive ideas guide most openings:\n\n### 1. Fight for the center\nThe central squares—**e4, d4, e5, and d5**—give your pieces access to the rest of the board. You can occupy them with pawns or put pressure on them with pieces.\n\nAs White, **1. e4** or **1. d4** is a straightforward start: each claims central space and opens a line for a bishop.\n\n### 2. Develop your pieces\nBring your knights and bishops off their starting squares onto useful squares. Knights often belong on **f3 and c3** for White, or **f6 and c6** for Black.\n\nTry to give each move a job. Moving the same piece repeatedly while the others sit at home usually loses time—unless there’s a concrete reason, such as escaping a threat or winning material.\n\n### 3. Keep your king safe\n**Castle fairly early**, when it’s safe to do so. Castling usually shelters your king and brings a rook closer to the action.\n\nBe cautious about moving the pawns in front of your castled king: they’re its cover, and they can’t move backward.\n\n### 4. Don’t expose your queen too soon\nAn early queen move can look threatening, but your opponent may attack it while developing their own pieces. You end up spending moves retreating while they improve their position.\n\nThe queen is powerful; that doesn’t make it a good advance scout.\n\n### 5. Check threats before following principles\nThese are guidelines, not commandments. If your opponent threatens checkmate or leaves a piece undefended, that matters more than developing another bishop.\n\nBefore each move, ask:\n- **What did their last move threaten or leave undefended?**\n- **Can I improve a piece while helping my center or king?**\n- **After my intended move, can they win anything?**\n\nFor example:\n**1. e4 e5 2. Nf3 Nc6 3. Bc4**\n\nWhite occupies the center, develops a knight while attacking Black’s e-pawn, then develops a bishop and prepares to castle. Black answers by claiming central space and developing a knight that defends the pawn. Nothing flashy—each move does useful work.\n\n**Your opening goal: get your pieces into play without giving your opponent something easy to attack.** Memorized moves are much easier to understand once you can see which of these jobs they’re doing.",
+      "response_ms": 30704,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 21560,
+      "first_native_text_ms": 11243,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7872,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29205,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The difference is mainly **whether the central pawns leave routes open for your pieces—or block them.** It’s not simply how many pieces remain on the board. ([uschess.org](https://www.uschess.org/index.php?id=7327&option=com_content&task=view&utm_source=openai))\n\n### Open position\nCentral pawns have been exchanged, leaving clear files and diagonals.\n- **Bishops and rooks have room to work**, attacking over long distances.\n- Play often becomes tactical: open lines give pieces direct access to targets.\n- Think: **clear roads.** ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))\n\n### Closed position\nCentral pawns are locked against each other, restricting movement.\n- **Knights often do well** because they can jump over the pawn barriers; bishops may struggle behind them.\n- Play usually involves maneuvering and preparing a **pawn break**—a pawn push that challenges the opposing pawns and can open lines.\n- Think: **blocked roads; find a route around or prepare to break through.** ([chess.com](https://www.chess.com/terms/closed-game-chess?utm_source=openai))\n\n**A useful question at the board:** “Can my bishop actually reach anything along its diagonals?” That makes the distinction concrete: bishops tend to prefer open positions, knights closed ones—but those are tendencies, not guarantees. ([chesskid.com](https://www.chesskid.com/learn/articles/bishops-vs-knights?utm_source=openai))",
+      "response_ms": 29205,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 25567,
+      "first_native_text_ms": 10799,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9623,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 36790,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "**Treat them as mini-games, not chapters to memorize.** I’d aim for one position you can actually play, rather than ten solutions you’ve read.\n\nTry this **10-minute routine**:\n- **Play first, study second.** Take an endgame position and try to win—or hold the draw—without looking at the solution.\n- **Find one thing you missed.** Not the whole perfect variation. Just: “Where did my plan go wrong?”\n- **Reset and try again.** Then switch sides and see whether you can stop the winning plan.\n\nFor a starting topic, I’d choose **king and pawn versus king**. Pawn endings are a foundation worth learning because other endings can simplify into them. ([chess.com](https://www.chess.com/article/view/study-plan-for-beginners-the-endgame2?utm_source=openai))\n\nTo keep it interesting, I’d add two rules:\n- **Use your own games when possible.** Start with an ending you actually wanted to win, rather than an arbitrary textbook assignment.\n- **Keep a small score:** “Can I win this twice without help?” Once you can, change the position or move on. No compulsory forty-minute penance.\n\nFor interactive practice later, **Lichess’s Basic Rook Endgames** lets you play against the computer, including exercises on the Lucena and Philidor positions. No need to tackle those names immediately. ([lichess.org](https://lichess.org/practice/rook-endgames/basic-rook-endgames/pqUSUw8Y?utm_source=openai))\n\nMy suggested target: **leave each session with one position you’d be pleased to see in a real game.**",
+      "response_ms": 36790,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 108029,
+      "first_native_text_ms": 2244,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 14877,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7381,
+      "prompt": "From today, my partner does the weekday pickups. His new job has flexible hours.",
+      "response": "So weekday pickups are his job now, rather than yours. What’s his new job?",
+      "response_ms": 7381,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 35059,
+      "first_native_text_ms": 7373,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 16629,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 11179,
+      "prompt": "I'd like to fit a long run into my weekday afternoons. Any suggestions?",
+      "response": "With your partner handling weekday pickups now, 3:30 no longer has to be your cutoff. How much time would you like to set aside for the run, including changing and showering?",
+      "response_ms": 11179,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 7493,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 46847,
+      "first_native_text_ms": 10993,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 19255,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 14983,
+      "prompt": "About ninety minutes, twice a week. I work from home and usually finish at 4.",
+      "response": "Ninety minutes twice a week. How much flexibility do you have over your 4 p.m. finish?",
+      "response_ms": 14983,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9551,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 66234,
+      "first_native_text_ms": 10495,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 8
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 22759,
+        "terminal_turn_count": 8,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14141,
+      "prompt": "Not sure really, I usually just finish at 4.",
+      "response": "Let’s keep your 4 p.m. finish as it is. What time do you need to be back and showered?",
+      "response_ms": 14141,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

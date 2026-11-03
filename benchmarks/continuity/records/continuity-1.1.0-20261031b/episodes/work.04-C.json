@@ -1,0 +1,430 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "8551a7613d99fb06a2d4ed716c78eb5c6de75d0e784c9b3cd2feb34ba9b6803a",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "99b4135f89f145632e9bc7a2eec015d7609e0b9d0bf8a7bc7d97db2c4b2023a2",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 866,
+  "dry_run": false,
+  "episode": "work.04",
+  "episode_ms": 569626,
+  "family": "work",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 8,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 8,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "work.04-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 304000
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 25,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 164013
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 10938
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1388
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 478951
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 56832
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 123815
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 3712
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 973
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 184359
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 25262,
+      "first_native_text_ms": 9136,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 2614,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 16441,
+      "prompt": "For my bike repair project I decided not to buy new wheels. I'll true the old ones myself. That's settled.",
+      "response": "The old wheels stay, then. I won’t reopen the replacement question.",
+      "response_ms": 16441,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 28401,
+      "first_native_text_ms": 10712,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4364,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 38261,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through a combination of **fashion, falling prices, sugar, and imperial trade**. It wasn’t an ancient national habit: it was an imported luxury that gradually became an everyday necessity. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n### 1. First it was fashionable—and expensive\nTea appeared in London coffee houses in the **1650s**. Catherine of Braganza, the Portuguese princess who married Charles II in **1662**, helped make it fashionable at court. She didn’t introduce tea to Britain, but her example gave it aristocratic prestige. Tea services, delicate cups, and elaborate ways of serving it became part of the attraction: you were displaying taste as well as drinking something. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection))\n\n### 2. Sugar helped turn a novelty into a habit\nDuring the eighteenth century, growing imports brought tea within reach of more households. Sweetening it with sugar helped its appeal, while serving tea at home became a social ritual. There is a brutal economic history beneath that pleasant domestic scene: much of the sugar came from Caribbean plantations worked by enslaved Africans. Britain’s tea habit and its sugar economy grew together. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cup-char?utm_source=openai))\n\n### 3. Smugglers made it accessible before the government did\nHigh taxes kept legal tea expensive, but demand reached well beyond wealthy households. Smugglers supplied cheaper tea through networks extending into rural communities. By the later eighteenth century, estimates suggest that more tea entered Britain illegally than legally. Smuggling wasn’t a marginal curiosity—it helped create a mass market. ([tea.co.uk](https://www.tea.co.uk/a-social-history/1000))\n\nThen came a decisive change: the **Commutation Act of 1784 cut tea duties from 119% to 12.5%**. Legal tea became much more affordable, severely undermining the smugglers’ business. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n### 4. Nineteenth-century trade expanded the supply\nThe East India Company’s tea-trading monopoly ended in **1834**, helping widen availability. Later, tea grown in British-controlled India became an increasingly important source; by the end of the century, Indian supplies had overtaken Chinese tea in Britain. Tea was already popular—these changes helped supply that appetite on a larger scale. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\nEmpire also shaped the trade violently. British purchases of Chinese tea were connected to the sale of Indian opium into China to offset the silver flowing out of Britain; disputes over that trade led to the Opium Wars. The history isn’t just one of merchants finding cheaper leaves. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n### 5. It became embedded in ordinary routines\nTea fitted into domestic hospitality and working life: some employers supplied it, and household servants received tea allowances. The nineteenth-century temperance movement also promoted it as an alternative to alcohol. It acquired repeated occasions for consumption, not merely customers. ([tea.co.uk](https://www.tea.co.uk/a-social-history/1000))\n\nAnd the famous **afternoon tea with sandwiches and cakes?** That developed in the **1840s**, well after tea drinking had spread. It was a particular ritual built around an existing habit—not the origin of Britain’s attachment to tea. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection))\n\nThe useful distinction is this: **prestige helped make people want tea; cheaper supplies made regular drinking possible; social routines made it stick.** ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection))",
+      "response_ms": 38261,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 21142,
+      "first_native_text_ms": 11147,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6114,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 31811,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was **the main commercial link between Britain’s appetite for tea and its supply in Asia**—but also a monopolist, and eventually a colonial ruler. Those roles became tightly entangled. ([qdl.qa](https://www.qdl.qa/en/brief-history-english-east-india-company-1600%E2%80%931858?utm_source=openai))\n\n**1. It supplied the growing habit.**  \nThe Company imported Chinese tea, initially through other Asian markets and, by the early eighteenth century, directly from China. Its trading network made possible a much larger, regular supply. Despite the name “East India Company,” this stage of Britain’s tea story was chiefly about **Chinese tea**, not Indian plantations. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n**2. It controlled access—and helped keep prices high.**  \nIts monopoly protected it from competing British importers. So there’s a tension: the Company expanded the tea trade, but wasn’t simply trying to make tea cheap for everyone. Its monopoly, alongside government taxes, kept prices elevated and encouraged smuggling. Parliament abolished its remaining China-trade monopoly in **1833**, with the change taking effect in **1834**, opening the business to competitors. ([tea.co.uk](https://www.tea.co.uk/east-india-company))\n\n**3. It connected tea to the opium economy.**  \nBuying Chinese goods required large amounts of silver. The Company and other British merchants used Indian opium sold illegally into China to generate silver that could finance purchases of tea and other goods. That was the grim connection: British tea consumption became tied to an addictive drug trade that Chinese authorities tried to suppress. The confrontation helped bring about the **First Opium War, 1839–1842**. ([nam.ac.uk](https://www.nam.ac.uk/explore/first-china-war-1839-1842?trk=article-ssr-frontend-pulse_little-text-block))\n\n**4. It helped establish an alternative source in India.**  \nIn its governing capacity, the Company supported experimental tea cultivation in Assam during the 1830s, drawing on indigenous tea plants as well as Chinese plants and expertise. Private enterprises subsequently developed the plantation business. That helped lay the groundwork for Britain’s later dependence on Indian-grown tea. ([pure.ulster.ac.uk](https://pure.ulster.ac.uk/en/publications/opium-and-migration-jardine-mathesons-imperial-connections-and-th/?utm_source=openai))\n\nSo it wasn’t merely the company delivering the leaves. **It helped build the market, controlled its legal supply, and connected it to colonial power.** And, rather neatly exposing the contradiction, tea became more widely available after its monopoly ended. ([tea.co.uk](https://www.tea.co.uk/east-india-company))",
+      "response_ms": 31811,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 19921,
+      "first_native_text_ms": 12720,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7863,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 28383,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "**Tea bags emerged around the start of the twentieth century—but Britain took decades to embrace them.** Their appeal was chiefly less fuss, not a new flavour. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/?utm_source=openai))\n\n### When did they appear?\nThere isn’t a single tidy invention date. In **1901**, two Milwaukee women, **Roberta Lawson and Mary McLaren**, applied for a patent for a mesh “tea-leaf holder”; it was granted in **1903**. Their explicit aim was to make one fresh cup without wasting a potful, while keeping loose leaves out of the drink. ([patents.google.com](https://patents.google.com/patent/US723287A/en))\n\nThe more famous story concerns New York merchant **Thomas Sullivan**, who supposedly sent tea samples in silk bags around **1908**. Customers brewed the bags rather than emptying them. It’s a good origin story, but not proof that he invented the tea bag—the earlier patent rather spoils that version. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/?utm_source=openai))\n\n### When did Britain adopt them?\n**Tetley’s 1953 launch** was an important commercial milestone, not an overnight conversion. Tea bags still accounted for **less than 3% of the British market in the early 1960s**; by **2007**, that figure was **96%**, according to the UK Tea & Infusions Association. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\n### Why did they catch on?\nThey removed several small chores at once: no strainer, no loose leaves to scrape from the teapot, and an easy way to brew directly in a mug. That fitted the postwar enthusiasm for labour-saving household products. In Britain, convenience mattered more than the ability to time the infusion precisely. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\nSo the shift was less “a better drink” than **“the familiar drink, with less clearing up.”** A modest advantage, repeated several times a day. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))",
+      "response_ms": 28383,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 48597,
+      "first_native_text_ms": 7031,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 10494,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11144,
+      "prompt": "Completely separate thing: I'm buying a new laptop for work, from scratch. Budget around 1,200 euros, mostly spreadsheets and video calls.",
+      "response": "Does your work require Windows, or is a Mac an option too?",
+      "response_ms": 11144,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 39598,
+      "first_native_text_ms": 14195,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13120,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 20291,
+      "prompt": "How should I choose?",
+      "response": "I’d start with what your work needs to run, rather than the brand. What spreadsheet software do you use, including any required macros or add-ins?",
+      "response_ms": 20291,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 6845,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 69424,
+      "first_native_text_ms": 19763,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 17498,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 32307,
+      "prompt": "I don't really know, just regular spreadsheets as far as I know. Nothing special that I'm aware of.",
+      "response": "That’s enough to start—we don’t need to invent specialist requirements.\n\n**I’d choose for everyday comfort before extra power.** Here’s the order I’d use:\n\n1. **Set a sensible baseline: 16GB RAM and a 512GB SSD.** A current mid-range processor is sufficient for ordinary office work; I wouldn’t spend your budget chasing the fastest chip. ([hp.com](https://www.hp.com/us-en/tech-takes/laptops/glossary.html?utm_source=openai))\n2. **Choose the size around where you work.** My preference would be 14 inches if you carry it regularly, or 15–16 inches if you mainly use it at a desk without a separate monitor.\n3. **Try the keyboard and screen in person.** Open a spreadsheet, type a few rows, and check whether you’re comfortable reading it at normal zoom. That would carry more weight with me than a flashy feature list.\n4. **Check the webcam and microphone—not just the processor.** For your use, I’d actively look for a sample video call or recording before buying.\n5. **Before committing, ask work whether they require a particular operating system or security setup.** You don’t need to know the technical details yourself.\n\nMy buying brief would be: **“Around €1,200 maximum, ordinary office work, 16GB/512GB, comfortable keyboard, readable screen, good calls.”** Treat the budget as a ceiling, not a target.",
+      "response_ms": 32307,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 8530,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 83539,
+      "first_native_text_ms": 27203,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 8
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 21882,
+        "terminal_turn_count": 8,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 39407,
+      "prompt": "I take it to the office twice a week, so 14 inch sounds right. Any specific models you'd suggest?",
+      "response": "**Yes—two I’d put on your shortlist, assuming work allows a standard Windows laptop.** I checked French listings as a euro-price reference, not because you’ve confirmed where you’re buying.\n\n### ASUS Zenbook 14 OLED — UX3405\nMy first one to investigate for carrying to the office. The configuration I checked has **16GB RAM, a 512GB SSD, a 14-inch OLED screen and a listed weight of 1.22kg**. That’s the combination I’d look for, rather than paying for a higher-end processor. I couldn’t confirm a checkout price, so this is a candidate **only if you find that configuration within €1,200**, not a verified deal. ([estore.asus.com](https://estore.asus.com/fr/22516-fr-cnf-asus-zenbook-14-oled-ux3405.html))\n\n### Dell 14 — DC14250\nA straightforward alternative. Dell France lists the **Core 5 120U / 16GB / 512GB / 1920×1200 screen** configuration at **€1,052.78 including VAT**. Watch the small print: that configuration lists **no power adapter included**, so budget for one rather than assuming it comes in the box. ([dell.com](https://www.dell.com/fr-fr/shop/ordinateurs-portables-dell/ordinateur-portable-dell-14/spd/dell-dc14250-laptop?msockid=383e17ed4f3b68b2140101284e8969aa))\n\n**I’d try the ASUS first and keep the Dell as the comparison.** Before paying, I’d want a keyboard test and a webcam demonstration—not just the specification sheet.\n\nWhich country will you be buying in? That will let me narrow this to actual local offers and the right keyboard layout.",
+      "response_ms": 39407,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

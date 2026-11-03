@@ -1,0 +1,27 @@
+{
+  "schema": "daemon.windows-setup-probe.v1",
+  "source": "d149f4ce9fffa46a7180a9705550f2d570cee353",
+  "root": "D:\\a\\_temp\\dr-gxnza9bw",
+  "telegram": false,
+  "real_model": false,
+  "oauth": false,
+  "passed": false,
+  "phases": [
+    "Downloading and verifying Hermes 0.21.5...",
+    "Extracting and verifying Hermes files...",
+    "Installing private Python 3.12...",
+    "Installing Hermes dependencies. This may take a few minutes...",
+    "Checking the installed host...",
+    "Preparing the private setup library..."
+  ],
+  "cleanup": true,
+  "host_ready_s": 113.343,
+  "causes": [
+    {
+      "type": "ZoneInfoNotFoundError",
+      "message": "'No time zone found with key Europe/Paris'"
+    }
+  ],
+  "logs": {},
+  "elapsed_s": 337.828
+}

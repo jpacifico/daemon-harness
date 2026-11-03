@@ -1,0 +1,103 @@
+name: Desktop companion candidate
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      qualify-runtime:
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            target: macos
+            uv: uv
+          - os: windows-2022
+            target: windows
+            uv: uv.exe
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare verified installer payload
+        shell: pwsh
+        run: |
+          $binary = Join-Path $env:RUNNER_TEMP '${{ matrix.uv }}'
+          $digest = python scripts/fetch_companion_uv.py --target '${{ matrix.target }}' --output $binary
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $output = Join-Path $PWD 'apps/companion/desktop/runtime'
+          python scripts/build_companion_desktop_payload.py --target '${{ matrix.target }}' --uv $binary --uv-sha256 $digest --output $output --channel main
+          exit $LASTEXITCODE
+      - name: Install test dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Private installer and transport tests
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = Join-Path $PWD 'src'
+          $base = Join-Path $env:RUNNER_TEMP 'dc-tests'
+          python -m pytest -q tests/test_companion_desktop.py tests/test_companion_private_setup.py tests/test_companion_subscription.py tests/test_installation_profile.py --basetemp $base --tb=short
+          exit $LASTEXITCODE
+      - name: Install desktop dependencies
+        working-directory: apps/companion/desktop
+        run: npm ci
+      - name: Check desktop sources
+        working-directory: apps/companion/desktop
+        run: npm run check
+      - name: Test package integrity and IPC boundaries
+        working-directory: apps/companion/desktop
+        run: npm test
+      - name: Build native package
+        working-directory: apps/companion/desktop
+        shell: pwsh
+        run: |
+          if ('${{ matrix.target }}' -eq 'windows') { npm run package:windows }
+          else { npx electron-builder --mac dmg dir }
+          exit $LASTEXITCODE
+      - name: Launch the packaged window and real Python transport
+        working-directory: apps/companion/desktop
+        shell: pwsh
+        run: |
+          if ('${{ matrix.target }}' -eq 'windows') { $exe = Join-Path $PWD 'dist/win-unpacked/Daemons Companion.exe' }
+          else { $exe = Join-Path $PWD 'dist/mac-arm64/Daemons Companion.app/Contents/MacOS/Daemons Companion' }
+          $p = Start-Process -FilePath $exe -ArgumentList '--smoke-test' -PassThru -Wait -RedirectStandardOutput smoke.json -RedirectStandardError smoke-error.txt
+          if ($p.ExitCode -ne 0) { Get-Content smoke-error.txt; exit 1 }
+          $lines = @(Get-Content smoke.json | Where-Object { $_.StartsWith('{') })
+          $result = $lines[-1] | ConvertFrom-Json
+          if ($result.status -ne 'passed') { throw 'No packaged smoke success receipt' }
+          Copy-Item -Recurse $result.screenshots screenshots
+          # Only UI evidence, never the bootstrap or any private installation.
+          Get-ChildItem screenshots | Where-Object { $_.Extension -ne '.png' } | Remove-Item -Recurse -Force
+      - name: Fresh canonical installation, native Telegram adapter, restart and night
+        if: ${{ inputs.qualify-runtime }}
+        shell: pwsh
+        run: |
+          python -u scripts/qualification/companion_alpha_probe.py --package apps/companion/desktop/runtime --output qualification/alpha-native.json
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: companion-${{ matrix.target }}-candidate
+          path: |
+            apps/companion/desktop/dist/*.dmg
+            apps/companion/desktop/dist/*.exe
+            apps/companion/desktop/smoke.json
+            apps/companion/desktop/smoke-error.txt
+            apps/companion/desktop/screenshots/*.png
+            qualification/alpha-native.json
+          retention-days: 7

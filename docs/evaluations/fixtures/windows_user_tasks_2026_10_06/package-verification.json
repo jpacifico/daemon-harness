@@ -1,0 +1,59 @@
+{
+  "source": "67c0a28c50e88c0ea79a142623ef37cd5358b6a9",
+  "runtime_equals_native_tested_sources": true,
+  "packages": {
+    "DAEMONS-Mac.zip": {
+      "sha256": "cc87c49ae9f2877546af6717aa8f2ebc7162acfea582c2af5b0f11465079c6a8",
+      "bytes": 19393556,
+      "payload_files": 851,
+      "manifest_verified": true,
+      "payload_equals_git_archive": true,
+      "zip_integrity_verified": true
+    },
+    "DAEMONS-Windows.zip": {
+      "sha256": "370d7f11a67d64e23da6dcfd8677a2729ba5999d05d01e7742671dabca5dcdb5",
+      "bytes": 51861259,
+      "payload_files": 851,
+      "manifest_verified": true,
+      "payload_equals_git_archive": true,
+      "zip_integrity_verified": true
+    }
+  },
+  "limits": [
+    "Full Windows native path tested in administrator CI session.",
+    "Standard account: registration, identity, restoration and removal only; no interactive task execution.",
+    "OAuth, model and Bot API simulated; no real user accounts."
+  ],
+  "mac_terminal": [
+    {
+      "path": "wizard",
+      "exit": 130,
+      "seconds": 8.418,
+      "quarantine": "retained"
+    },
+    {
+      "path": "repeat-logo",
+      "exit": 0,
+      "seconds": 0.791,
+      "quarantine": "retained"
+    },
+    {
+      "tampered_payload": "rejected_before_bootstrap"
+    }
+  ],
+  "native_windows_runs": {
+    "registration_standard": 37512571020,
+    "complete_administrator": 37512104911
+  },
+  "local_tests": {
+    "python_passed": 1918,
+    "python_skipped": 5,
+    "python_seconds": 77.8,
+    "openclaw_passed": 71,
+    "openclaw_seconds": 0.122009667,
+    "ruff": "passed"
+  },
+  "github_download_verified": true,
+  "github_tag_source": "67c0a28c50e88c0ea79a142623ef37cd5358b6a9",
+  "release": "https://github.com/jpacifico/daemon-harness-canonical/releases/tag/assistant-windows-user-tasks-2026-10-06"
+}

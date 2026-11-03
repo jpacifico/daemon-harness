@@ -1,0 +1,320 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "a3d188a2e6351fce957e4f192b03add887d712b1ebe9018028f5f2986c08fe5c",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "1c78141516a6dacfba74c481be783c64772f1f95e08add06997903ba90752039",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "correction.03",
+  "episode_ms": 116346,
+  "family": "correction",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 8,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 8,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "correction.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 128512
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 10,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 28835
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1102
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 34
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 158449
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 19,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 13,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 2653,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7633,
+      "prompt": "Book club is at Clara's place on Wednesday, and I'm bringing dessert.",
+      "response": "Got it—book club at Clara’s on Wednesday, and you’re bringing dessert.",
+      "response_ms": 7633,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 3432,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 23628,
+      "prompt": "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+      "response": "Basil needs strong light, warmth, and soil that stays lightly moist without becoming waterlogged. A windowsill can work, but it may be dimmer—or colder—than it looks.\n\nLight\nAim for about 6–8 hours of direct sun daily. In the Northern Hemisphere, a south-facing window is usually the best starting point. Long, thin stems leaning toward the glass suggest too little light.\n\nWater\nCheck the soil rather than watering on a schedule. When the top ½–1 inch feels dry, water thoroughly until water runs out of the bottom, then empty the saucer. Don’t let the pot sit in water. Both dry roots and waterlogged roots can cause wilting, so feel the soil before adding more.\n\nDrainage\nUse a pot with drainage holes and a loose potting mix—not dense garden soil. If the nursery pot sits inside a decorative outer pot, check that water isn’t collecting inside it.\n\nWarmth\nBasil likes roughly 70–85°F and struggles with cold, especially below about 50°F. Keep leaves off cold window glass and avoid drafts or air-conditioning vents. A sunny window during the day can still be chilly at night.\n\nRoom to grow\nSupermarket basil often contains many seedlings crowded into one small pot. That crowding can make it difficult to keep alive long-term. Gently dividing it into a few smaller clumps and repotting them can help.\n\nHarvesting and feeding\nOnce it’s established, pinch stem tips just above a pair of leaves to encourage bushier growth. Avoid stripping off most of the foliage at once, and pinch off flower buds if you want continued leaf production. Feed lightly during active growth; extra fertilizer won’t compensate for poor light.\n\nThe most useful first check: when yours starts dying, is the soil wet or dry—and do the leaves turn yellow, get crispy, or simply droop?",
+      "response_ms": 23628,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 3462,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14943,
+      "prompt": "How often should I water it, and how do I tell if I'm overdoing it?",
+      "response": "Check the soil daily, but don’t automatically water daily. Water when the top ½–1 inch feels dry. That might be every day or two on a hot, sunny windowsill, or several days apart in cooler, dimmer conditions.\n\nWhen you water:\n- Water slowly until some drains out the bottom.\n- Empty the saucer or decorative outer pot afterward.\n- Wait until the surface starts drying again before watering.\n\nSigns you may be overdoing it:\n- The soil stays soggy for days and the pot always feels heavy.\n- Lower leaves turn yellow and drop.\n- The plant wilts even though the soil is wet.\n- The stem base becomes soft or dark, or the soil smells sour—more concerning signs of rot.\n\nThe key distinction: dry soil plus wilting usually means it needs water; wet soil plus wilting means don’t add more. Check drainage instead.\n\nOverwatering is usually about watering too frequently or leaving roots sitting in water—not giving a thorough drink when the plant actually needs it.",
+      "response_ms": 14943,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 9361,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21170,
+      "prompt": "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?",
+      "response": "Supermarket pots are worth keeping going—I’d try repotting one before starting from seed.\n\nThe catch is crowding: that bushy supermarket “plant” is usually lots of seedlings packed together. Gently divide the root ball into a few smaller clumps and put each in its own pot with fresh potting mix and drainage holes. You don’t need to untangle every individual seedling. ([gardenorganic.org.uk](https://www.gardenorganic.org.uk/how-to-grow-basil?utm_source=openai))\n\nGrowing from seed is worthwhile if you enjoy the process or want different varieties. Basil is fairly easy to sow indoors in warm conditions, and you can control the spacing from the start—but you’ll wait longer for usable leaves than with an established pot. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n\nFor your situation, the windowsill conditions matter more than where the plant came from: seed-grown basil still needs plenty of light, warmth, and good drainage. Starting over from seed won’t fix a cold or dim spot. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))",
+      "response_ms": 21170,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 2784,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7055,
+      "prompt": "Change of plan: we're meeting at the café on Rose Street instead, and I don't need to bring anything, the café serves food.",
+      "response": "Got it—the meeting is at the café on Rose Street, and you don’t need to bring anything since they serve food.",
+      "response_ms": 7055,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 8201,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 15418,
+      "prompt": "What do I need to prepare for book club?",
+      "response": "You’re bringing dessert to book club at Clara’s place on Wednesday.\n\nPrepare or pick up a dessert, and check the headcount and any dietary restrictions so you bring enough for everyone. I don’t have the book title or assigned reading noted.",
+      "response_ms": 15418,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 6434,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 4038,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 7859,
+      "prompt": "Actually that changed, we're meeting at the café on Rose Street now and I don't need to bring anything since they serve food.",
+      "response": "Got it—book club is now at the café on Rose Street on Wednesday, and you don’t need to bring anything since they serve food.",
+      "response_ms": 7859,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 4749,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 2,
+      "first_native_text_ms": 2419,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7351,
+      "prompt": "So is there anything I should actually prepare then?",
+      "response": "No food or supplies to prepare—the café serves food. Just finish any assigned reading and, if you like, jot down a couple of discussion points or questions.",
+      "response_ms": 7351,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

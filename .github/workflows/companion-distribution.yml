@@ -1,0 +1,59 @@
+name: Companion command installation
+on:
+  workflow_call:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  command-install:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            artifact: companion-macos-candidate
+            package: Daemons Companion-0.1.0-arm64.dmg
+            asset: Daemons-Companion-macOS-arm64.dmg
+          - os: windows-2022
+            artifact: companion-windows-candidate
+            package: Daemons Companion Setup 0.1.0.exe
+            asset: Daemons-Companion-Windows-x64.exe
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch the unchanged verified application
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $draft = gh release view companion-app-2026-10-15 --repo '${{ github.repository }}' --json isDraft --jq '.isDraft' 2>$null
+          if ($LASTEXITCODE -eq 0 -and $draft -eq 'false') {
+            New-Item -ItemType Directory -Force downloaded/dist | Out-Null
+            gh release download companion-app-2026-10-15 --repo '${{ github.repository }}' --pattern '${{ matrix.asset }}' --output 'downloaded/dist/${{ matrix.package }}'
+            if ($LASTEXITCODE) { exit $LASTEXITCODE }
+            'DAEMONS_RELEASE_DOWNLOAD=1' | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          } else {
+            gh run download 38732890258 --repo '${{ github.repository }}' --name '${{ matrix.artifact }}' --dir downloaded
+          }
+          exit $LASTEXITCODE
+      - name: Install the real package, retry, reject invalid inputs and launch
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $download = @()
+          if ($env:DAEMONS_RELEASE_DOWNLOAD -eq '1') { $download = @('--download') }
+          python -u scripts/qualify_companion_command_install.py --package 'downloaded/dist/${{ matrix.package }}' --output qualification/command-install.json @download
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: companion-command-${{ matrix.os }}
+          path: qualification/
+          retention-days: 7

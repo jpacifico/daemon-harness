@@ -1,0 +1,359 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "4f64a99723aed1bddb6cd34612671e8581d439831a75145d77b6a45cb3411f1c",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "684769b54e5149cb0d9631acfa1e748b7bd8754d0a597bef6550c07b7899fa97",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 744,
+  "dry_run": true,
+  "episode": "engineering-3",
+  "episode_ms": 335725,
+  "family": "engineering",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "engineering-3-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 182400
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 15,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 101358
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 5814
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 641
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 289572
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 36096
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 58903
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1860
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 139
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 96859
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 30760,
+      "first_native_text_ms": 4279,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 2616,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 9843,
+      "prompt": "I'm making a small scrapbook for my cousin's birthday. The photos are printed already.",
+      "response": "Printed photos make it feel properly underway. What sort of moments have you picked for it?",
+      "response_ms": 9843,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26612,
+      "first_native_text_ms": 6898,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4365,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 37157,
+      "prompt": "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+      "response": "Ocean tides are the rise and fall of sea level caused mainly by the Moon’s gravity, with a substantial contribution from the Sun. The key is that **the Moon does not pull equally on every part of Earth**.\n\n## 1. Uneven gravity stretches the ocean\n\nGravity weakens with distance. So the Moon pulls:\n\n- Most strongly on the side of Earth nearest to it.\n- A little less strongly on Earth’s center.\n- Least strongly on the far side.\n\nEarth itself is falling toward the Moon as part of their shared orbital motion. To understand tides, compare the water’s motion with the motion of Earth’s center:\n\n**On the near side**, the Moon pulls the water toward itself more strongly than it pulls Earth’s center. The water tends to move outward relative to the center, toward the Moon.\n\n**On the far side**, the Moon pulls Earth’s center toward itself more strongly than it pulls the water. Earth’s center effectively moves away from that water, which therefore also tends to move outward relative to the center—but away from the Moon.\n\nThat produces a stretching effect along the Earth–Moon line. In a simplified picture of an Earth completely covered by ocean, it creates **two broad bulges of water**, one facing the Moon and one facing away, with lower water levels between them.\n\nThe far-side bulge is not caused by the Moon repelling water. The Moon attracts everything; what matters is the *difference* in attraction.\n\n## 2. Why there are usually two high tides a day\n\nAs Earth rotates, a coastal location passes through those two high-water regions and the two low-water regions between them.\n\nIn this simplified picture, it experiences:\n\n**High tide → low tide → high tide → low tide.**\n\nBut the timing is not exactly two high tides per 24 hours. The Moon is also moving along its orbit in the same direction Earth rotates. After one rotation, Earth has to turn a little farther for your location to face the Moon again.\n\nThat takes about **24 hours and 50 minutes**, a *lunar day*. Where the twice-daily pattern dominates:\n\n- High tides are roughly **12 hours and 25 minutes apart**.\n- A high tide and the following low tide are roughly **6 hours and 12 minutes apart**.\n\nThese are useful averages, not a timetable for a particular beach.\n\n## 3. What the Sun adds\n\nThe Sun also creates tides. Although its overall gravitational pull on Earth is much stronger than the Moon’s, its tide-producing effect is weaker: tides depend on the difference in gravity across Earth, and that difference decreases very rapidly with distance.\n\nThe Sun’s and Moon’s effects combine:\n\n- **At new and full moons**, the Sun, Earth, and Moon are approximately aligned. Their tidal effects reinforce each other, producing **spring tides**: a larger difference between high and low water. The name has nothing to do with the season.\n- **At first and third quarter moons**, their tidal effects partly counteract each other, producing **neap tides**: a smaller difference between high and low water.\n\n## 4. Why real coastlines don’t follow the simple picture\n\nThe two-bulge model explains the basic forcing, but the actual ocean is not a smooth blanket of water. Continents block its movement; ocean depth, coastline shape, friction, and Earth’s rotation alter how tidal waves travel. Ocean basins can also resonate, amplifying certain tidal rhythms.\n\nConsequently, some places have two similar high tides each lunar day, some have two very unequal ones, and some have predominantly **one**. Local high tide also need not occur when the Moon is directly overhead.\n\n**The central idea: the Moon’s uneven gravitational pull creates a twice-per-lunar-day rhythm, while the shape and dynamics of the oceans determine how that rhythm reaches each shore.**",
+      "response_ms": 37157,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 25618,
+      "first_native_text_ms": 5543,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6116,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 17630,
+      "prompt": "Interesting. And why are spring tides bigger than neap tides?",
+      "response": "Because **the Sun’s and Moon’s tidal effects reinforce each other at spring tides, but partly oppose each other at neap tides**. “Bigger” means a larger *tidal range*—the difference between high and low water.\n\nThink of each body’s gravity as stretching the ocean along its own direction:\n\n- **At new and full moons**, the Sun, Earth, and Moon lie roughly along one line. Both tidal effects stretch the ocean along the same axis, making high tides higher and low tides lower. Those are **spring tides**. At full moon, the Sun and Moon are on opposite sides of Earth, but their stretches still line up: each produces a two-sided tidal pattern, not just a bulge facing itself.\n\n- **At quarter moons**, the Sun’s direction is roughly at right angles to the Moon’s. The Sun’s tidal effect tends to raise water where the Moon’s tends to lower it, and vice versa. The resulting rise and fall is smaller: **neap tides**.\n\nThey don’t cancel completely, so neap tides still occur. And real coastlines complicate the pattern—but that alignment versus crosswise stretching is the underlying reason.",
+      "response_ms": 17630,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 29986,
+      "first_native_text_ms": 10486,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7867,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29874,
+      "prompt": "One more: how do tide tables get predicted so far in advance?",
+      "response": "Because **tide tables predict an astronomical rhythm, not the weather**. The trick is to combine the predictable motions of Earth, the Moon and the Sun with measurements of how a particular coast responds. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\n### 1. Measure the local pattern\nA tide gauge records water levels over time—preferably for a year or longer. Those observations capture the local tidal response, so the prediction isn’t just based on where the Moon is: it uses how the water actually behaves at that location. ([noaa.gov](https://www.noaa.gov/education/resource-collections/ocean-coasts/tides?utm_source=openai))\n\n### 2. Separate it into overlapping rhythms\nUsing **harmonic analysis**, scientists break the record into regular wave-like components called *tidal constituents*. Each has:\n- A **period**: how long one cycle takes.\n- An **amplitude**: how large its contribution is.\n- A **phase**: when its peaks occur locally.\n\nThink of several clock hands turning at different speeds: their individual motions are simple, but their combined pattern is complicated. NOAA’s standard prediction method adds together 37 such components. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/about_harmonic_constituents?utm_source=openai))\n\n### 3. Run those rhythms forward\nThe astronomical cycles tell us how the components progress through time. Once their local amplitudes and phases are established, a computer can add them together for a future date, producing a predicted water-level curve. Its peaks and troughs give the times and heights of high and low tides. The spring–neap pattern emerges from that addition, too—it isn’t a separate guess. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/publications/Noaa_Technical_Memorandum_NOS_OES_008.pdf?utm_source=openai))\n\n### The catch: predicted tide isn’t guaranteed water level\nWind, air pressure and storm surges can move the actual water level away from the table’s prediction. And far into the future, changes to the local tidal environment can make the old measurements less representative. So **calculating tides years ahead is possible; predicting the exact water level during a storm years ahead is not**. ([tidesandcurrents.noaa.gov](https://tidesandcurrents.noaa.gov/faq.html?utm_source=openai))",
+      "response_ms": 29874,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 56864,
+      "first_native_text_ms": 6326,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 10496,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14568,
+      "prompt": "The photos are sorted into three envelopes. I still need a cover and a short opening note.",
+      "response": "I’d keep the cover simple: one photo, their name, and **“A few moments worth keeping.”** Let the photos inside do most of the talking.\n\nFor the opening note:\n\n> Happy birthday, [name]. A little collection of moments that deserved better than staying on a phone. I hope these make you smile. Here’s to plenty more together.\n> Love, [your name]\n\nYou can keep the three envelope groups as sections—no need to invent a whole new order now.",
+      "response_ms": 14568,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 43279,
+      "first_native_text_ms": 7021,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13124,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13240,
+      "prompt": "What would you start with?",
+      "response": "I’d start with the cover: pick one photo that makes you smile straight away, add your cousin’s name, and keep the rest uncluttered.\n\nLeave the opening note until the photos are in place—it’ll be easier to write something personal when you can see the whole collection.",
+      "response_ms": 13240,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

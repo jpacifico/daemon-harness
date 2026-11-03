@@ -1,0 +1,282 @@
+[
+  {
+    "conversations": [
+      [
+        "I've got my driving test tomorrow morning. Third attempt, fingers crossed."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "Can you recommend a film for tonight?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Ignoring the request for a film."
+      ],
+      "must_use": [
+        "The user's driving test is tomorrow morning."
+      ],
+      "next_step": "A film suggestion that suits the evening before the test (for example light, not too late), with a brief good-luck word.",
+      "no_repeat": [],
+      "unknown": []
+    },
+    "packet": "P01",
+    "replies": {
+      "X": "My pick: The Holdovers (2023). A cranky boarding-school teacher, a stranded student, and the school’s cook spend Christmas break together—a setup for a funny, bittersweet story about unlikely companionship. ([miramax.com](https://www.miramax.com/movie/The-Holdovers/?utm_source=openai))\n\nI’d choose it for a quiet night when you want something warm but not sugary. If tonight calls for scares or something faster-paced, tell me and I’ll switch gears.",
+      "Y": "I’d go with **School of Rock (2003)** tonight. Jack Black plays a broke musician who impersonates a substitute teacher and turns his class into a rock band. A spectacularly irresponsible teaching plan; a promising evening. ([paramount.com](https://www.paramount.com/movies/school-of-rock?utm_source=openai))\n\nIt’s a good-natured comedy with plenty of musical energy, and **1 hour 49 minutes** rather than an all-night commitment. ([web.library.yale.edu](https://web.library.yale.edu/sites/default/files/files/School%20of%20Rock%20Notes.pdf?utm_source=openai)) With your test tomorrow morning, my vote is for something fun—not two hours of mounting dread."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home."
+      ],
+      [
+        "Any tips to make the chips really good?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Imposing low-salt cooking or the mother's restriction on tonight's meal.",
+        "Asking or assuming that the mother is joining tonight."
+      ],
+      "must_use": [
+        "The meal is for the user and Sam, who want proper salty fish and chips."
+      ],
+      "next_step": "Practical tips for crisp, well-seasoned chips.",
+      "no_repeat": [
+        "Who is eating tonight."
+      ],
+      "unknown": []
+    },
+    "packet": "P02",
+    "replies": {
+      "X": "**For proper chip-shop-style chips, the big trick is frying twice:** once to cook the middle, then again to crisp the outside. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n\n- **Choose floury potatoes**, such as Maris Piper, and cut them evenly so they cook together. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Dry them thoroughly before frying.** Wet potatoes and hot oil are a bad partnership. ([breville.com](https://www.breville.com/content/dam/breville/au/assets/miscellaneous/instruction-manual/woks-skillets-deep-fryers/BDF500-instruction-manual.pdf?utm_source=openai))\n- **First fry: 130°C for about 7–8 minutes**, until cooked through but still pale. Drain and let them cool—you can do this stage ahead of dinner. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Second fry: 180°C until golden and crisp.** Work in small batches rather than cramming them in; overcrowding drops the oil temperature. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Salt after frying, not before**, and serve straight away. ([breville.com](https://www.breville.com/content/dam/breville/au/assets/miscellaneous/instruction-manual/woks-skillets-deep-fryers/BDF500-instruction-manual.pdf?utm_source=openai))\n\nKeep the oil attended throughout. Dinner is allowed to be indulgent, not incendiary. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))",
+      "Y": "If you mean homemade potato chips/fries, the biggest upgrades are:\n\n- Use starchy potatoes, like Russets, and cut them evenly.\n- Soak the cut potatoes in cold water for 30 minutes, then dry them thoroughly—especially before frying.\n- Cook twice: first gently to soften the middle, then hotter to crisp the outside.\n- Don’t crowd the fryer or baking tray; work in batches so they crisp rather than steam.\n- Salt straight after cooking, and leave them uncovered so they stay crisp.\n\nAre you frying, oven-baking, or air-frying—and do you mean thick chips or thin, crunchy crisps?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My sister's wedding is on the 14th of June, in Porto."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "Sorry, I got that wrong: it's on the 21st of June, and it's in Braga, not Porto."
+      ],
+      [
+        "Can you help me plan the trip for the wedding?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Using the 14th of June or Porto as the wedding date or place."
+      ],
+      "must_use": [
+        "The wedding is on the 21st of June.",
+        "It is in Braga."
+      ],
+      "next_step": "Trip planning steps for Braga around the 21st of June.",
+      "no_repeat": [
+        "The date.",
+        "The city."
+      ],
+      "unknown": []
+    },
+    "packet": "P03",
+    "replies": {
+      "X": "Where and when is the wedding, where will you be traveling from, and what’s your rough budget?",
+      "Y": "Yes—21 June in Braga. What year is the wedding, and where will you be travelling from?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My friend Noor is coming over on Saturday afternoon. She just had knee surgery, so she can't manage stairs and needs to sit most of the time.",
+        "My flat is on the ground floor, which helps. We both love board games, and I'd like a cosy afternoon in rather than going out."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "Saturday's coming up. What should I plan?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Proposing an outing or activity that needs walking, standing for long, or stairs."
+      ],
+      "must_use": [
+        "Noor cannot manage stairs and needs to sit most of the time after her knee surgery.",
+        "The afternoon is meant to be cosy and at home, and both enjoy board games."
+      ],
+      "next_step": "A concrete plan for a seated, at-home afternoon (for example games, snacks, timing).",
+      "no_repeat": [
+        "Who is coming.",
+        "Whether Noor has any mobility limits.",
+        "Whether they prefer going out."
+      ],
+      "unknown": []
+    },
+    "packet": "P04",
+    "replies": {
+      "X": "For Noor’s visit this afternoon, can she get from outside to a comfortable seat in your flat without any steps, including at the entrance?",
+      "Y": "I’d keep it simple: one thing to look forward to, one useful task, and some unplanned time.\n\nMorning: slow breakfast, then a walk or something outdoors.\nMidday: tackle one errand or chore—give it a firm cutoff.\nAfternoon/evening: make one social plan, like cooking with friends or a casual dinner.\nLeave the rest open so Saturday doesn’t feel like another workday.\n\nAre you leaning toward a restful day, an adventure, or time with people?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I'm organising our street's spring clean-up. The flyers are printed and the council has approved the date.",
+        "What's left: borrowing litter pickers, and finding someone to bring a first-aid kit."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "Good news: the community centre is lending us twenty litter pickers."
+      ],
+      [
+        "I've got half an hour now. What should I do for the clean-up?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Recommending work on flyers, the date approval, or borrowing litter pickers as still to do."
+      ],
+      "must_use": [
+        "The first-aid kit is still missing.",
+        "The litter pickers are now sorted."
+      ],
+      "next_step": "A concrete half-hour action toward finding a first-aid kit.",
+      "no_repeat": [
+        "What is left to organise."
+      ],
+      "unknown": []
+    },
+    "packet": "P05",
+    "replies": {
+      "X": "**Use the half-hour to sort the first-aid kit—the last loose end you mentioned.** The flyers are printed, the date is approved, and twenty litter pickers are secured.\n\n- **First 5 minutes:** check whether anyone has already offered a kit. If not, send: “Can anyone bring a first-aid kit to the street clean-up? Please let me know so I can confirm we’ve got one.”\n- **Next 10 minutes:** confirm the litter-picker collection and return arrangements with the community centre, if you haven’t already.\n- **Last 15 minutes:** if the flyers haven’t gone out, start distributing them. If they have, put the confirmed arrangements and whoever is responsible into one short checklist.\n\nAim for confirmed arrangements, not a longer to-do list.",
+      "Y": "Use this half hour to sort the first-aid kit—the community centre has already offered twenty litter pickers, and the flyers and council approval are done.\n\nFirst 10 minutes: message the volunteer group:\n“Can someone bring a stocked first-aid kit to the street clean-up? Please reply to confirm so I can tick it off.”\n\nNext 10 minutes: confirm who will collect and return the twenty litter pickers, and agree the collection time with the community centre.\n\nLast 10 minutes: follow up with a specific volunteer if nobody has claimed the kit, and record the names and arrangements in one place.\n\nAim to finish with a named person for the kit and a confirmed pickup plan—not more planning."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My doctor has prescribed new tablets for my blood pressure."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "What dose did the doctor say I should take?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The tablets are new blood pressure tablets from the doctor."
+      ],
+      "next_step": "Saying it does not know the dose and pointing to the prescription, the label or the pharmacist.",
+      "no_repeat": [],
+      "unknown": [
+        "The dose was never given."
+      ]
+    },
+    "packet": "P06",
+    "replies": {
+      "X": "You haven’t told me the dose—or the name of the tablets—so I can’t say what your doctor instructed. What does the prescription label say?",
+      "Y": "You mentioned that your doctor prescribed new blood pressure tablets, but you didn’t share the medication name or dose. I can’t tell what dose they advised.\n\nWhat does the prescription label say? If it’s unclear, confirm with your pharmacist or doctor before taking it—don’t guess."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My friend Priya is opening a bakery in town soon."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "What's the name of Priya's bakery? I want to tell my colleagues."
+      ]
+    ],
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "Priya is opening a bakery in town."
+      ],
+      "next_step": "Saying it does not know the name and suggesting how to tell colleagues anyway or how to find out.",
+      "no_repeat": [],
+      "unknown": [
+        "The bakery's name was never given."
+      ]
+    },
+    "packet": "P07",
+    "replies": {
+      "X": "You haven’t told me its name yet—just that your friend Priya is opening a bakery in town soon.",
+      "Y": "You mentioned that Priya is opening a bakery in town, but you haven’t told me its name yet."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+        "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ],
+      [
+        "Can you give me a shopping list for tomorrow's dinner?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Including any animal product or any sesame ingredient (sesame oil, tahini, sesame seeds) in the meal."
+      ],
+      "must_use": [
+        "Lena is vegan.",
+        "Idris is allergic to sesame.",
+        "One shared meal for everyone."
+      ],
+      "next_step": "A shopping list for one specific vegan, sesame-free meal.",
+      "no_repeat": [
+        "The guests' dietary needs.",
+        "How many people are eating."
+      ],
+      "unknown": []
+    },
+    "packet": "P08",
+    "replies": {
+      "X": "Assuming dinner for four, here’s a shopping list for a vegan, sesame-free menu in case Idris and Lena are joining: tomato-chickpea pasta, green salad, and berries.\n\nProduce\n  1 onion\n  1 bulb garlic\n  1 lemon\n  1 bag baby spinach (5 oz)\n  1 head romaine\n  1 cucumber\n  1 pint cherry tomatoes\n  2 pints berries\n\nPasta and canned goods\n  1 lb egg-free pasta\n  2 cans chickpeas (15 oz each)\n  1 large can crushed tomatoes (28 oz)\n\nCheck your pantry\n  Olive oil\n  Balsamic vinegar\n  Dried oregano\n  Salt and black pepper\n  Optional: red pepper flakes\n\nIf Idris is coming, check packaged ingredients for sesame and cross-contact warnings; use clean utensils and preparation surfaces.",
+      "Y": "For the **tomato-and-aubergine pasta, for the three of you**:\n\n**Produce**\n- 2 aubergines\n- 1 onion\n- 1 bulb of garlic\n- 1 small bunch of basil\n\n**Pantry**\n- 350 g egg-free dried pasta\n- 2 × 400 g tins chopped tomatoes\n- Olive oil, if you’re running low\n- Salt and black pepper, if needed\n\nNo cheese needed—everyone gets the same dish.\n\n**Before shopping:** check with Idris about the brands and sesame precautionary labels he normally avoids, then check the packaged ingredients accordingly."
+    }
+  }
+]

@@ -1,0 +1,252 @@
+{
+  "judge": "j1",
+  "order": "XY",
+  "verdicts": {
+    "P09": {
+      "X": {
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "can you share the booking confirmation?",
+          "verdict": "met"
+        },
+        "no_repeat": [],
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "Y": {
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "You mentioned flying to Lisbon",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "Do you have the booking confirmation handy?",
+          "verdict": "met"
+        },
+        "no_repeat": [],
+        "unknown": [
+          {
+            "quote": "flying to Lisbon in November",
+            "verdict": "invented"
+          }
+        ]
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "Y recalls the Lisbon trip but states a month that was never given, while X stays accurate and still points to the booking confirmation."
+      }
+    },
+    "P10": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "What time do you finish work this week?",
+            "verdict": "asked"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "your 8 a.m. starts",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "Evening is probably the better fit",
+          "verdict": "met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y uses the new 8 a.m. day-shift schedule to give a clear recommendation, while X asks about the schedule again."
+      }
+    },
+    "P11": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "Where and when is the wedding",
+            "verdict": "asked"
+          },
+          {
+            "quote": "Where and when is the wedding",
+            "verdict": "asked"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "21 June",
+            "verdict": "met"
+          },
+          {
+            "quote": "Braga",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y confirms the corrected date and city and asks only for missing details, while X asks for the date and place again."
+      }
+    },
+    "P12": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "Danielle",
+            "verdict": "met"
+          },
+          {
+            "quote": "short Teams update",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X remembers that the update goes to Danielle as a short Teams message, while Y shows no memory of the correction."
+      }
+    }
+  }
+}

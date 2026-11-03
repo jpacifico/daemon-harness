@@ -1,0 +1,359 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "62054476bd18fe49136c4aee08a34791d28f78385818cd9e5ea5e3532374bce1",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "dc541dd7ca126b8e18821de2e8c9d469b50c69129acb9ddc435e92403f13a481",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 726,
+  "dry_run": false,
+  "episode": "people.02",
+  "episode_ms": 379247,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "people.02-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 194560
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 16,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 100573
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 7202
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 850
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 302335
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 42624
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 80207
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2606
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 529
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 125437
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 43717,
+      "first_native_text_ms": 6380,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3491,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13368,
+      "prompt": "My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+      "response": "Lena is vegan, and Idris is allergic to sesame—both noted. What are you thinking of cooking for them?",
+      "response_ms": 13368,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 48527,
+      "first_native_text_ms": 14597,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6116,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 31202,
+      "prompt": "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning.",
+      "response": "I’d do **tomato-and-aubergine pasta**—one big bowl for everyone, no separate “vegan version.” It’s a straightforward vegan option. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/tomato-aubergine-pasta?utm_source=openai))\n\n**Tomorrow’s shopping list, for three:**\n- 300–350 g egg-free dried pasta\n- 2 aubergines\n- 2 tins chopped tomatoes\n- 1 onion, garlic and basil\n- Olive oil, if you’re running low\n\nMy version: roast the cubed aubergines with olive oil while you simmer the tomatoes with softened onion and garlic. Combine, toss with the pasta, and finish with basil.\n\n**For Idris, check every packaged ingredient for sesame, and use thoroughly cleaned utensils, pans and surfaces to prevent cross-contact.** Check with him beforehand about the brands and precautionary labels he normally avoids. ([foodallergy.org](https://www.foodallergy.org/living-food-allergy/food-allergy-essentials/common-allergens/sesame?utm_source=openai))",
+      "response_ms": 31202,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 27166,
+      "first_native_text_ms": 12239,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7866,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 37410,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through a combination of **fashion, expanding trade, falling prices and everyday social habits**. It wasn’t an ancient national tradition: it was an imported luxury that gradually became an ordinary necessity. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n### 1. First it was expensive—and fashionable\nTea reached Britain in the **1650s**, initially in small quantities from China through Dutch trade. It was sold in London coffeehouses, but its price put it beyond most people’s reach. Some wealthy households kept their supply locked away. Catherine of Braganza, Charles II’s Portuguese wife, helped make tea fashionable at court; she popularised it rather than introducing it to Britain. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n### 2. It became a social occasion, not just a drink\nDuring the eighteenth century, expanding imports brought tea within reach of more middle-class households. Serving it at home became a way to entertain and display refinement: the china, teapot and act of pouring all mattered. Unlike the predominantly male world of coffeehouses, domestic tea gatherings gave women a central role as hosts. That helped tea develop a life well beyond the places where it was first sold. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n### 3. Sugar helped—and connects the story to slavery\nSweetening tea helped broaden its appeal. Britain’s growing consumption of tea went alongside growing consumption of sugar produced by enslaved people on Caribbean plantations. The comforting domestic ritual depended on a much harsher overseas economy. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cup-char))\n\n### 4. Smuggling and a tax cut made it more affordable\nHigh taxes kept legal tea expensive, so smugglers supplied a substantial cheaper market, spreading tea through rural communities as well as towns. Then the **Commutation Act of 1784** reduced the tea duty from **119% to 12.5%**. Legal sales rose sharply. This wasn’t the moment Britain discovered tea—it was a major removal of the price barrier to an already desirable drink. ([tea.co.uk](https://www.tea.co.uk/a-social-history/1000))\n\n### 5. The nineteenth century made it an everyday staple\nFalling prices helped tea become the most popular working-class drink by the mid-nineteenth century. Expanding plantation production in British-controlled India subsequently changed the supply: Indian tea eventually overtook Chinese tea in the British market. Tea fitted into meals and working routines, not merely elegant drawing-room visits. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cup-char))\n\nOne useful distinction: **“afternoon tea” didn’t create Britain’s tea habit.** The elaborate nineteenth-century custom of tea with little sandwiches and cakes developed after tea-drinking was already widespread. It’s the picturesque part of the history, not the main explanation for its popularity. ([tea.co.uk](https://www.tea.co.uk/a-social-history/1000))",
+      "response_ms": 37410,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 20978,
+      "first_native_text_ms": 11843,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9615,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29099,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was **the commercial machinery behind Britain’s tea habit**—but also a monopolist, so its role wasn’t simply to make tea cheaper. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n**It brought tea into Britain on a large scale.** By the early 1700s, the Company was importing directly from China rather than buying through intermediary markets. Despite its name, the tea in this phase was principally Chinese, not Indian. Its trade supplied the growing British market. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n**It controlled legal imports—and protected its profits.** Its monopoly restricted competition; high British taxes added another cost, leaving room for smugglers to undercut legal tea. The distinction matters: the government’s **1784 tax cut** made legal tea cheaper, but did not end the Company’s monopoly. Critics in Parliament later explicitly attacked that monopoly as a burden on British tea drinkers. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n**It connected tea to the opium economy.** Chinese tea purchases required silver, and Britain worried about the outflow. The Company developed opium production in Bengal, supplying a trade that smuggled the drug into China and brought silver back into British hands. So tea was not merely another profitable cargo: demand for it helped drive a destructive trading system involving India, China and Britain. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))\n\n**Its loss of control helped tea spread further.** Parliament abolished its remaining China-trade monopoly in **1833**, with the opening of the trade taking effect in **1834**. Competition then helped make tea more widely available over the following decades. ([parliament.uk](https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/east-india-company-and-raj-1785-1858/?utm_source=openai))\n\nIn short: **the Company helped build the market, but Britain’s everyday cup of tea also became more accessible when its grip was broken.** ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade))",
+      "response_ms": 29099,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 27738,
+      "first_native_text_ms": 12349,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 11364,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29430,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "**Tea bags emerged around the turn of the twentieth century—but Britain took decades to embrace them.** There are two separate stories here: inventing the bag, and persuading people to abandon loose leaves. ([time.com](https://time.com/3996712/a-brief-history-of-the-tea-bag/?utm_source=openai))\n\n### When did they appear?\nA recognisably modern design—a mesh “tea leaf holder”—was submitted for a US patent in **1901**. The better-known story concerns New York tea merchant **Thomas Sullivan**, who supposedly sent silk sample bags to customers around **1908**. Some customers put the whole bag into hot water rather than emptying it. It’s a lovely origin story, but not a secure claim to invention: earlier designs already existed. ([irishtimes.com](https://www.irishtimes.com/life-and-style/homes-and-property/fine-art-antiques/design-moment-tea-bag-1901-1.3720851?utm_source=openai))\n\nCommercial production developed in America during the **1920s**, with gauze and then paper bags. In Britain, **Tetley’s 1953 launch** was an important milestone—not an overnight conquest. Tea bags still accounted for **less than 3% of the British market in the early 1960s**. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\n### Why did they catch on?\nMostly, **less bother**:\n- No strainer needed.\n- No wet leaves to scrape out of the pot.\n- Easy to make one mug rather than a whole pot.\n- Easy to remove the leaves when brewing was finished. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\nThat fitted the postwar enthusiasm for labour-saving household products. In Britain, convenience mattered more than precise control of brewing time—helping explain the popularity of bags without strings, intended simply to be lifted out with a spoon. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\nSo, unlike the East India Company’s role in expanding supply, the tea bag’s contribution was rather more domestic: **it made an already established habit easier to keep.** ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))",
+      "response_ms": 29430,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 56756,
+      "first_native_text_ms": 8572,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13996,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13565,
+      "prompt": "Can you give me a shopping list for tomorrow's dinner?",
+      "response": "For the **tomato-and-aubergine pasta, for the three of you**:\n\n**Produce**\n- 2 aubergines\n- 1 onion\n- 1 bulb of garlic\n- 1 small bunch of basil\n\n**Pantry**\n- 350 g egg-free dried pasta\n- 2 × 400 g tins chopped tomatoes\n- Olive oil, if you’re running low\n- Salt and black pepper, if needed\n\nNo cheese needed—everyone gets the same dish.\n\n**Before shopping:** check with Idris about the brands and sesame precautionary labels he normally avoids, then check the packaged ingredients accordingly.",
+      "response_ms": 13565,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

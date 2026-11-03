@@ -1,0 +1,396 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "8ce24541eb78dc30784e78338a9156ed5e91b5cee7b055bb7b0ffb70c0d1faa5",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "eb40112f71aafbe5adca7c2391591c319081bec329e7ab9a15f74aaac7ca8f89",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 853,
+  "dry_run": false,
+  "episode": "people.04",
+  "episode_ms": 497805,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "people.04-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 243200
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 20,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 120153
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 9308
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1829
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 372661
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 52608
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 75186
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1795
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 352
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 129589
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 78327,
+      "first_native_text_ms": 5874,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4373,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12282,
+      "prompt": "When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week.",
+      "response": "How was it having her stay last week?",
+      "response_ms": 12282,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 29490,
+      "first_native_text_ms": 10114,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6124,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 26191,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "The key is **steering underneath a fall**, rather than somehow preventing the bike from tipping at all. A moving bike can keep shifting its wheels back under you. ([engineering.mit.edu](https://engineering.mit.edu/ask-an-engineer/why-is-a-bicycle-easier-to-control-when-its-moving?utm_source=openai))\n\nImagine balancing a broom upright on your palm. If it tips to the right, you move your hand right to catch it. That’s a useful picture for what a bicycle does:\n\n1. You and the bike start leaning right.\n2. You steer slightly right.\n3. As the bike rolls forward, its wheels curve right—back underneath you—correcting the lean. You make these small steering adjustments as you ride, often without noticing. ([me.engin.umich.edu](https://me.engin.umich.edu/news-events/news/mysterious-biomechanics-riding-and-balancing-bicycle/?utm_source=openai))\n\n**Moving matters because it lets steering change where the wheels are.** When you’re stationary, turning the handlebars doesn’t carry the bike underneath your falling body. When you’re rolling, it does. That’s why balancing is much easier on the move. ([engineering.mit.edu](https://engineering.mit.edu/ask-an-engineer/why-is-a-bicycle-easier-to-control-when-its-moving?utm_source=openai))\n\nThe clever part is that **the bike itself can help with the steering**. Its geometry and the distribution of its weight can make the front wheel turn toward a lean automatically. That helps explain why a riderless bicycle can stay upright for a while at a suitable speed. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))\n\nYou may have heard that spinning wheels act like gyroscopes. They do, and that can contribute—but it isn’t the whole explanation. Researchers have built a self-balancing moving bicycle with the wheels’ gyroscopic effects cancelled out. The essential picture is still: **tip a little, steer into the tip, catch the fall.** ([arendschwab.com](https://arendschwab.com/assets/pdf/StableBicyclev34Revised.pdf?utm_source=openai))",
+      "response_ms": 26191,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 28881,
+      "first_native_text_ms": 8279,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7875,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 16836,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "**Something else: the key is steering into the lean, not the wheels acting like gyroscopes that hold you upright.** If you begin tipping right, steering right brings the wheels back underneath you—like moving your hand under a leaning broom. ([gwern.net](https://gwern.net/doc/technology/2011-koojiman.pdf?utm_source=openai))\n\nThe gyroscopic effect **helps that steering response**, alongside the bike’s geometry and weight distribution. But it isn’t essential: researchers built a bicycle that could balance itself while rolling even with its gyroscopic effects cancelled out. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))\n\nSo the useful picture is **“continually catching a fall,” rather than “spinning wheels resisting a fall.”** ([gwern.net](https://gwern.net/doc/technology/2011-koojiman.pdf?utm_source=openai))",
+      "response_ms": 16836,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 27287,
+      "first_native_text_ms": 8845,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9626,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19940,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because **steering has less effect when you’re barely moving**: you can point the front wheel toward your fall, but the bike still has to roll that way to catch you. At low speed, it doesn’t get underneath you as quickly. ([engineering.mit.edu](https://engineering.mit.edu/ask-an-engineer/why-is-a-bicycle-easier-to-control-when-its-moving?utm_source=openai))\n\nSo the same small lean needs a **much sharper steering correction** at a crawl than at normal riding speed. That’s why slow riding involves those big left-right handlebar movements, whereas at a comfortable pace the corrections can be almost invisible. ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))\n\nThink of the broom balanced on your palm again—but now imagine you’re only allowed to move your hand very slowly. You can see which way it’s falling; catching it is the problem.",
+      "response_ms": 19940,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 94744,
+      "first_native_text_ms": 8371,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 14005,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12262,
+      "prompt": "She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home.",
+      "response": "Salt back on the menu, then. Are you and Sam making the fish and chips from scratch, or getting a takeaway to eat at home?",
+      "response_ms": 12262,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 34207,
+      "first_native_text_ms": 15602,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 15757,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 36917,
+      "prompt": "Any tips to make the chips really good?",
+      "response": "For proper chip-shop-style chips, **fry them twice**: first to cook the middle, then to crisp the outside. That’s the bit worth fussing over. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n\n- **Use floury potatoes**, such as Maris Piper, and cut them evenly so they cook at the same rate. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **First fry: 130°C**, roughly 7–8 minutes, until cooked through but still pale. Drain and leave to cool before the second fry. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Second fry: 180°C**, until golden and crisp. Work in small batches—crowding the fryer drops the oil temperature. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Salt after frying, not before**, and serve straight away. ([breville.com](https://www.breville.com/content/dam/breville/au/assets/miscellaneous/instruction-manual/woks-skillets-deep-fryers/BDF500-instruction-manual.pdf?utm_source=openai))\n\nUse a thermometer or temperature-controlled fryer, and don’t leave the hot oil unattended. Dinner should have drama, but not that much. ([git.macropus.org](https://git.macropus.org/bbc-food/www.bbc.co.uk/food/recipes/thebestchipsyouhavee_93121.html?utm_source=openai))",
+      "response_ms": 36917,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 7305,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 42156,
+      "first_native_text_ms": 11500,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 17510,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 23917,
+      "prompt": "I don't have a fryer, just a deep pan. Does that work the same?",
+      "response": "**Yes—a deep, heavy-based pan works.** Same frying principle, but you control the oil temperature yourself rather than relying on a thermostat. A frying thermometer is the useful bit of kit here. ([greatbritishchefs.com](https://www.greatbritishchefs.com/how-to-cook/deep-fry-without-deep-fat-fryer?utm_source=openai))\n\n- **Fill it no more than one-third with oil**, leaving room for bubbling and the chips. ([greatbritishchefs.com](https://www.greatbritishchefs.com/how-to-cook/deep-fry-without-deep-fat-fryer?utm_source=openai))\n- **Dry the cut chips thoroughly** before lowering them gently into the oil—water makes hot oil spit. ([sainthelena.gov.sh](https://www.sainthelena.gov.sh/documents/chip-pan-safety-advice-2/?utm_source=openai))\n- **Keep the two-stage fry:** about 130°C until tender and pale, then cool them before frying at 180°C until golden. Small batches keep the temperature from dropping too far. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video?utm_source=openai))\n- **Stay beside the pan throughout.** If the oil starts smoking, turn off the heat and let it cool. If it catches fire, never add water or move the pan; turn off the heat only if safe, get out and call the fire service. ([sainthelena.gov.sh](https://www.sainthelena.gov.sh/documents/chip-pan-safety-advice-2/?utm_source=openai))",
+      "response_ms": 23917,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 6092,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "daemon.windows-setup-probe.v1",
+  "source": "c70a3dbbe7e651e336c48085692c7c9afbf3db0b",
+  "root": "D:\\a\\_temp\\dr-juqh2gpp",
+  "telegram": false,
+  "real_model": false,
+  "oauth": false,
+  "passed": false,
+  "phases": [],
+  "cleanup": false,
+  "scheduler_commands": [
+    {
+      "seconds": 28.953,
+      "exit": 1,
+      "stderr": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    },
+    {
+      "seconds": 18.281,
+      "exit": 1,
+      "stderr": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    },
+    {
+      "seconds": 18.391,
+      "exit": 1,
+      "stderr": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    },
+    {
+      "seconds": 18.109,
+      "exit": 1,
+      "stderr": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    }
+  ],
+  "causes": [
+    {
+      "type": "RuntimeError",
+      "message": "Task Scheduler capture failed."
+    },
+    {
+      "type": "HostCommandError",
+      "message": "Host setup command failed (exit 1).",
+      "command_detail": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    }
+  ],
+  "traceback": "daemon_core.companion_host_bootstrap.HostCommandError: Host setup command failed (exit 1).\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\scripts\\qualification\\companion_windows_setup_probe.py\", line 111, in main\n    assert all(scheduler.capture(code) is None for code in jobs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\scripts\\qualification\\companion_windows_setup_probe.py\", line 111, in <genexpr>\n    assert all(scheduler.capture(code) is None for code in jobs)\n               ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_background_services.py\", line 294, in capture\n    raise RuntimeError(\"Task Scheduler capture failed.\") from HostCommandError(result.returncode, result.stderr)\nRuntimeError: Task Scheduler capture failed.\n",
+  "cleanup_errors": [
+    {
+      "type": "RuntimeError",
+      "message": "Task Scheduler could not stop the companion worker."
+    },
+    {
+      "type": "HostCommandError",
+      "message": "Host setup command failed (exit 1).",
+      "command_detail": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    },
+    {
+      "type": "RuntimeError",
+      "message": "Task Scheduler could not stop the companion worker."
+    },
+    {
+      "type": "HostCommandError",
+      "message": "Host setup command failed (exit 1).",
+      "command_detail": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    },
+    {
+      "type": "RuntimeError",
+      "message": "Task Scheduler could not stop the companion worker."
+    },
+    {
+      "type": "HostCommandError",
+      "message": "Host setup command failed (exit 1).",
+      "command_detail": "The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)\nAt line:1 char:122\n+ ... nect();$task=$null;try{$folder=$scheduler.GetFolder($args[0]);$task=$ ...\n+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], FileNotFoundException\n    + FullyQualifiedErrorId : System.IO.FileNotFoundException\n \n"
+    }
+  ],
+  "elapsed_s": 83.766
+}

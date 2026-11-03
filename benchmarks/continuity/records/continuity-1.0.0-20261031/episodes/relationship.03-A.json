@@ -1,0 +1,249 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "2ec397a5d42c4eada8438ef0b408d0f01adb23e1eae14da332c6a95ace0067a0",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "3c39a339c7a475305403899547b38f1615395e6a28b95860413156330b5e54cb",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "relationship.03",
+  "episode_ms": 84260,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "relationship.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 41344
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 33204
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1208
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 75756
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 3749,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13340,
+      "prompt": "I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof.",
+      "response": "A flat first loaf is a common sourdough initiation. A longer proof may help if it was underproofed—but overproofing can also make a loaf spread, so longer isn’t always better.\n\nWatch the dough more than the clock: during bulk fermentation, look for some rise, bubbles along the sides, and a slightly jiggly feel—not necessarily a full doubling.\n\nDid your first loaf spread out when you turned it out, or hold its shape but barely rise in the oven?",
+      "response_ms": 13340,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2575,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24095,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good opening isn’t mainly about memorizing moves. It’s about reaching a position where your pieces work together and your king is safe.\n\nFive ideas guide most good openings:\n\n1. Fight for the center.\n   The central squares—e4, d4, e5, and d5—give your pieces access to the rest of the board. Occupy them with pawns or attack them with pieces. As White, moving your king’s pawn two squares (1. e4) or your queen’s pawn two squares (1. d4) is a straightforward start.\n\n2. Develop your pieces.\n   Bring your knights and bishops off their starting squares so they can influence the game. Aim for useful squares, not merely legal ones. Knights often belong near the center rather than on the edge.\n\n3. Get your king safe.\n   Castling usually shelters your king and brings a rook closer to the action. Prepare to castle early, especially when central pawns are being exchanged and lines are opening.\n\n4. Use your turns efficiently.\n   Moving the same piece repeatedly can leave the rest of your army asleep. Bringing your queen out early can let your opponent develop pieces while attacking it. Prefer developing another piece unless there’s a concrete reason to do otherwise.\n\n5. Make purposeful pawn moves.\n   Pawns claim space and open paths for pieces, but they can’t move backward. Avoid pushing lots of pawns while your knights and bishops remain stuck at home.\n\nFor example, after:\n   1. e4 e5\n   2. Nf3 Nc6\n   3. Bc4\n\nWhite has claimed central space, developed a knight that attacks Black’s e5 pawn, and developed a bishop. White is now ready to castle. Black has also claimed the center and developed a knight that defends e5. That’s the logic behind the moves—not just a sequence to memorize.\n\nBefore each move, ask:\n   • What did my opponent’s last move threaten?\n   • Is any piece or pawn undefended?\n   • Can I develop a piece, improve my center, or make my king safer?\n\nThese are guidelines, not laws. If a piece is under attack, saving it matters more than following a development rule. Your first goal is simple: reach the middlegame with an active army, a safe king, and no pieces lost for free.",
+      "response_ms": 24095,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 3250,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18595,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The main difference is how much the pawns—especially the central pawns—restrict movement.\n\nAn open position has few central pawns, often because they’ve been exchanged. That creates clear lines for pieces.\n   • Bishops and rooks can become very active.\n   • Fast development and king safety are especially important.\n   • Direct attacks and tactics often appear quickly.\n\nA closed position has central pawns locked against each other, blocking lines.\n   • Knights can be especially useful because they jump over pawns.\n   • Players often spend time maneuvering pieces toward better squares.\n   • Progress usually requires a pawn break: a pawn move that challenges an enemy pawn and aims to open lines.\n\nFor example, a white pawn on d5 facing a black pawn on d6 blocks both pawns from advancing. If several central pawns are locked this way, the position is likely closed. If the central pawns are exchanged away, it becomes more open.\n\nThink of it this way: an open position gives pieces roads to travel; a closed position makes you work out where to build a road.\n\nNeither type is inherently better. And “bishops like open positions, knights like closed ones” is a useful guideline—not a guarantee. A closed position can also open suddenly, so watch for pawn breaks on both sides.",
+      "response_ms": 18595,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 3666,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21665,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "Treat endgames as small challenges to play, not chapters to finish.\n\n• Start with a puzzle-sized goal. “Can I promote this pawn?” is more engaging than “Today I’ll study pawn endings.” Try to solve the position before reading the explanation.\n\n• Play both sides. Set up a position against a friend or computer, then switch colors. Can you win the stronger side—and make the win difficult when defending?\n\n• Use your own games. When you’re unsure about an endgame you played, revisit that exact position. Finding a better plan gives the lesson a purpose.\n\n• Keep sessions short. Try ten minutes: learn one idea, play it out, then explain it in a sentence. Revisit it another day rather than grinding through dozens of similar positions.\n\n• Make the challenge gradually harder. Once you can win a position, move your king farther away or give the defender a better starting square. See when the result changes.\n\nA manageable starting order:\n   1. King and queen versus king; king and rook versus king.\n   2. King and pawn versus king: when the pawn can promote.\n   3. Basic rook endings: activating your rook and supporting passed pawns.\n\nYour first challenge: set up king and pawn versus king, play it out, then keep the pieces in the same places but change whose turn it is. Can you find a position where that changes the result?\n\nThe aim isn’t to memorize every ending. It’s to collect a few ideas you can recognize and use in your next game.",
+      "response_ms": 21665,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2228,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 6475,
+      "prompt": "What should I have with soup tonight?",
+      "response": "Crusty bread or a grilled cheese would be my pick. Add a lemony green salad if you want something fresh alongside it. What kind of soup?",
+      "response_ms": 6475,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

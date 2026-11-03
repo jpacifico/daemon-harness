@@ -1,0 +1,249 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "2ec397a5d42c4eada8438ef0b408d0f01adb23e1eae14da332c6a95ace0067a0",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "1a5d07553ca3789b13663357335b71081e02d8bdceb1ca79a101df87a356de38",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "relationship.02",
+  "episode_ms": 72505,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "relationship.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 30336
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 52191
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 773
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 84
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 83300
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2787,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10303,
+      "prompt": "I've got my driving test tomorrow morning. Third attempt, fingers crossed.",
+      "response": "Fingers crossed for you. A third attempt comes with extra nerves, but you’ve got experience of what to expect. Tomorrow, take it one junction at a time—if something feels imperfect, don’t let it distract you from what’s next.\n\nHow are you feeling about it?",
+      "response_ms": 10303,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2423,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20493,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "A moving bicycle stays upright mainly because it can steer its wheels back underneath you when it starts to lean.\n\nThink about balancing a broom upright on your palm. If it tips left, you move your hand left to get underneath it again. On a bicycle, if you start leaning left, steering slightly left moves the wheels under your falling weight. That can catch the lean rather than letting it become a fall.\n\nThis happens through a mix of two things:\n\n• Your corrections. You make tiny steering adjustments, often without noticing. Riding “straight” actually involves small changes in direction to keep your balance.\n\n• The bike’s own response. The arrangement of the front wheel, fork, and steering axis helps a rolling bicycle steer toward a lean. So you aren’t doing all the correcting yourself.\n\nMoving makes those steering corrections effective: turning the handlebars changes where the wheels go. At a standstill, turning them barely moves your support beneath you, so balancing is much harder.\n\nYou may have heard that the spinning wheels act like gyroscopes. They do contribute, but that isn’t the main explanation, and a bicycle can be designed to balance while rolling even when those gyroscopic effects are canceled out.\n\nThe key idea: a bicycle isn’t simply resisting every wobble—it’s continually catching a lean by steering underneath it.",
+      "response_ms": 20493,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 9135,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13851,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "Something else: steering into a lean is the key balancing mechanism—not spinning wheels simply holding the bike upright. If the bike tips left, steering left brings the wheels back underneath it, like moving your hand under a tipping broom. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))\n\nThe gyroscopic effect can help produce that steering response, but so can the bike’s geometry and weight distribution. Researchers have built a bicycle that balances while rolling even with its gyroscopic effects canceled out. So gyroscopic effects contribute, but they aren’t essential. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))",
+      "response_ms": 13851,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2283,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12341,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because steering only helps you balance if it moves the wheels back underneath you—and at low speed, that happens slowly.\n\nIf you start tipping left while riding at a comfortable speed, a small left turn quickly shifts your path left and catches the lean. Crawling along, that same steering adjustment doesn’t move the wheels sideways fast enough. You need bigger handlebar movements and more deliberate shifts of your body to recover.\n\nMeanwhile, gravity hasn’t slowed down: you can still tip over while the bike is barely moving.\n\nSo it’s mainly that you have less effective steering corrections, not that the wheels have lost their gyroscopic “stability.”",
+      "response_ms": 12341,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 7975,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15431,
+      "prompt": "Can you recommend a film for tonight?",
+      "response": "My pick: The Holdovers (2023). A cranky boarding-school teacher, a stranded student, and the school’s cook spend Christmas break together—a setup for a funny, bittersweet story about unlikely companionship. ([miramax.com](https://www.miramax.com/movie/The-Holdovers/?utm_source=openai))\n\nI’d choose it for a quiet night when you want something warm but not sugary. If tonight calls for scares or something faster-paced, tell me and I’ll switch gears.",
+      "response_ms": 15431,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

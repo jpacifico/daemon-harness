@@ -1,0 +1,194 @@
+{
+  "source": "0a1551c49615229b3fd6e928d6a7e89108e4c811",
+  "expected_xml": "<?xml version='1.0' encoding='utf-16'?>\n<Task xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\" version=\"1.4\"><Triggers><LogonTrigger><Enabled>true</Enabled></LogonTrigger></Triggers><Principals><Principal id=\"Author\"><LogonType>InteractiveToken</LogonType><RunLevel>LeastPrivilege</RunLevel></Principal></Principals><Settings><MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy><DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries><StopIfGoingOnBatteries>false</StopIfGoingOnBatteries><StartWhenAvailable>true</StartWhenAvailable><ExecutionTimeLimit>PT0S</ExecutionTimeLimit><Enabled>true</Enabled><RestartOnFailure><Interval>PT1M</Interval><Count>3</Count></RestartOnFailure></Settings><Actions Context=\"Author\"><Exec><Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command><Arguments>-B -c \"import time;time.sleep(120)\"</Arguments><WorkingDirectory>C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm</WorkingDirectory></Exec></Actions></Task>",
+  "expected_signature": [
+    [
+      "LogonTrigger",
+      ""
+    ],
+    [
+      "LogonType",
+      "InteractiveToken"
+    ],
+    [
+      "RunLevel",
+      "LeastPrivilege"
+    ],
+    [
+      "MultipleInstancesPolicy",
+      "IgnoreNew"
+    ],
+    [
+      "StartWhenAvailable",
+      "true"
+    ],
+    [
+      "ExecutionTimeLimit",
+      "PT0S"
+    ],
+    [
+      "Interval",
+      "PT1M"
+    ],
+    [
+      "Count",
+      "3"
+    ],
+    [
+      "Command",
+      "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"
+    ],
+    [
+      "Arguments",
+      "-B -c \"import time;time.sleep(120)\""
+    ],
+    [
+      "WorkingDirectory",
+      "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm"
+    ]
+  ],
+  "captures": [
+    {
+      "running": true,
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\DaemonHarness\\com.daemonharness.test.bd4fe12903374556a774e48f5c6e5fa2.after-turn-worker</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-3827877701-3061038111-106515639-500</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <RestartOnFailure>\r\n      <Count>3</Count>\r\n      <Interval>PT1M</Interval>\r\n    </RestartOnFailure>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <LogonTrigger />\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command>\r\n      <Arguments>-B -c \"import time;time.sleep(120)\"</Arguments>\r\n      <WorkingDirectory>C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>",
+      "signature": [
+        [
+          "LogonType",
+          "InteractiveToken"
+        ],
+        [
+          "ExecutionTimeLimit",
+          "PT0S"
+        ],
+        [
+          "MultipleInstancesPolicy",
+          "IgnoreNew"
+        ],
+        [
+          "Count",
+          "3"
+        ],
+        [
+          "Interval",
+          "PT1M"
+        ],
+        [
+          "StartWhenAvailable",
+          "true"
+        ],
+        [
+          "LogonTrigger",
+          ""
+        ],
+        [
+          "Command",
+          "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"
+        ],
+        [
+          "Arguments",
+          "-B -c \"import time;time.sleep(120)\""
+        ],
+        [
+          "WorkingDirectory",
+          "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm"
+        ]
+      ],
+      "matches": false
+    },
+    {
+      "running": true,
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\DaemonHarness\\com.daemonharness.test.bd4fe12903374556a774e48f5c6e5fa2.after-turn-worker</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-3827877701-3061038111-106515639-500</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <RestartOnFailure>\r\n      <Count>3</Count>\r\n      <Interval>PT1M</Interval>\r\n    </RestartOnFailure>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <LogonTrigger />\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command>\r\n      <Arguments>-B -c \"import time;time.sleep(120)\"</Arguments>\r\n      <WorkingDirectory>C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>",
+      "signature": [
+        [
+          "LogonType",
+          "InteractiveToken"
+        ],
+        [
+          "ExecutionTimeLimit",
+          "PT0S"
+        ],
+        [
+          "MultipleInstancesPolicy",
+          "IgnoreNew"
+        ],
+        [
+          "Count",
+          "3"
+        ],
+        [
+          "Interval",
+          "PT1M"
+        ],
+        [
+          "StartWhenAvailable",
+          "true"
+        ],
+        [
+          "LogonTrigger",
+          ""
+        ],
+        [
+          "Command",
+          "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"
+        ],
+        [
+          "Arguments",
+          "-B -c \"import time;time.sleep(120)\""
+        ],
+        [
+          "WorkingDirectory",
+          "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm"
+        ]
+      ],
+      "matches": false
+    },
+    {
+      "running": true,
+      "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\DaemonHarness\\com.daemonharness.test.bd4fe12903374556a774e48f5c6e5fa2.after-turn-worker</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-3827877701-3061038111-106515639-500</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <RestartOnFailure>\r\n      <Count>3</Count>\r\n      <Interval>PT1M</Interval>\r\n    </RestartOnFailure>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <LogonTrigger />\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command>\r\n      <Arguments>-B -c \"import time;time.sleep(120)\"</Arguments>\r\n      <WorkingDirectory>C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>",
+      "signature": [
+        [
+          "LogonType",
+          "InteractiveToken"
+        ],
+        [
+          "ExecutionTimeLimit",
+          "PT0S"
+        ],
+        [
+          "MultipleInstancesPolicy",
+          "IgnoreNew"
+        ],
+        [
+          "Count",
+          "3"
+        ],
+        [
+          "Interval",
+          "PT1M"
+        ],
+        [
+          "StartWhenAvailable",
+          "true"
+        ],
+        [
+          "LogonTrigger",
+          ""
+        ],
+        [
+          "Command",
+          "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe"
+        ],
+        [
+          "Arguments",
+          "-B -c \"import time;time.sleep(120)\""
+        ],
+        [
+          "WorkingDirectory",
+          "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\scheduler-probe-qeipclgm"
+        ]
+      ],
+      "matches": false
+    }
+  ],
+  "cleanup": true
+}

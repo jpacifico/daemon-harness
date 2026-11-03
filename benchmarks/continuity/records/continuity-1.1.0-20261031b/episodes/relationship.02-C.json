@@ -1,0 +1,326 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "47935af513af5ce9832072d8b022f68b402682e5b6a646e3373104600c80144b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "459db89f2792bcf55195408d434486431b360e601c624d9a65aae2bdab5ae56e",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 582,
+  "dry_run": false,
+  "episode": "relationship.02",
+  "episode_ms": 296275,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "relationship.02-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 158080
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 13,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 75187
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 4730
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 701
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 237997
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 32128
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 61866
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1243
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 307
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 95237
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 53409,
+      "first_native_text_ms": 8313,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3489,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14553,
+      "prompt": "I've got my driving test tomorrow morning. Third attempt, fingers crossed.",
+      "response": "Fingers crossed for you. I hope tomorrow’s the one. How are you feeling about this attempt?",
+      "response_ms": 14553,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 27414,
+      "first_native_text_ms": 15021,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5240,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29405,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "The key is **steering underneath the fall**, rather than somehow preventing the bike from leaning. ([engineering.mit.edu](https://engineering.mit.edu/ask-an-engineer/why-is-a-bicycle-easier-to-control-when-its-moving))\n\nImagine balancing a broom upright on your palm. If it tips left, you move your hand left to catch it. A moving bicycle does much the same thing: if you start leaning left, a small steer left brings the wheels back underneath you. You make these corrections without having to consciously think through each one. ([engineering.mit.edu](https://engineering.mit.edu/ask-an-engineer/why-is-a-bicycle-easier-to-control-when-its-moving))\n\n**Moving makes that correction possible.** Turning the handlebars while rolling changes where the wheels go; standing still, it can’t move them underneath you in the same way. That’s the central reason balancing is easier once you’re moving. ([engineering.mit.edu](https://engineering.mit.edu/ask-an-engineer/why-is-a-bicycle-easier-to-control-when-its-moving))\n\nAnd you’re not doing all the work. A bicycle’s steering geometry and weight distribution can make its front wheel turn toward a lean by itself. That’s why some bikes can roll upright without a rider, at suitable speeds. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves))\n\nYou may have heard that the spinning wheels act like gyroscopes. They do contribute—but that isn’t the whole explanation, or even a necessary ingredient: researchers built a self-balancing bicycle with the gyroscopic effects cancelled out. The useful picture is **a bike continually catching itself**, not spinning wheels locking it upright. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves))",
+      "response_ms": 29405,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 25765,
+      "first_native_text_ms": 9844,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6990,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14997,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "**Something else: steering into the lean is the key mechanism.** If the bike tips left, steering slightly left brings its wheels back underneath it—like moving your palm under a falling broom. ([gwern.net](https://gwern.net/doc/technology/2011-koojiman.pdf?utm_source=openai))\n\nThe gyroscopic effect can **help produce that steering**, but it isn’t a spinning-wheel force that simply holds the bike upright. Steering geometry and weight distribution also contribute; researchers have even built a bicycle that balances itself with its gyroscopic effects cancelled out. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))\n\nSo the useful distinction is: **steering corrects the fall; gyroscopic effects are one contributor to that correction, not the whole explanation.** ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))",
+      "response_ms": 14997,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 36223,
+      "first_native_text_ms": 10605,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8739,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19346,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because **steering has much less effect when you’re barely moving**. You can turn the front wheel, but the bike has to roll for that to bring the wheels back underneath your lean. At low speed, that correction happens too slowly unless you steer much more sharply. ([engineering.mit.edu](https://engineering.mit.edu/ask-an-engineer/why-is-a-bicycle-easier-to-control-when-its-moving?utm_source=openai))\n\nThat’s why you make those exaggerated left-right handlebar movements when crawling along, whereas at a comfortable riding speed small corrections are enough. **You haven’t become worse at balancing; your steering corrections have become less effective.** ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))\n\nThink of the broom-on-your-palm example again—but now imagine you’re only allowed to move your hand very slowly. You can see which way it’s falling; catching it is the difficult part.",
+      "response_ms": 19346,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 47465,
+      "first_native_text_ms": 11729,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 11368,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 16613,
+      "prompt": "Can you recommend a film for tonight?",
+      "response": "I’d pick **Fantastic Mr. Fox**—Wes Anderson’s stop-motion adaptation of Roald Dahl, about a fox whose raids on three farmers get his whole community into trouble. ([cinema.cornell.edu](https://cinema.cornell.edu/fantastic-mr-fox?utm_source=openai))\n\nAutumn colours, eccentric characters, and mischievous humour rather than sugary sweetness. It’s also about **87 minutes**—a point in its favour with your driving test tomorrow morning. ([iffr.com](https://iffr.com/en/iffr/2010/films/fantastic-mr-fox?utm_source=openai)) My vote tonight: a little beautifully organised chaos, then bed.",
+      "response_ms": 16613,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 10696,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

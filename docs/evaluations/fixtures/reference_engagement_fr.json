@@ -1,0 +1,39 @@
+{
+  "schema": "daemon.reference-engagement.fr.v1",
+  "language": "fr-FR",
+  "identity": "synthetic-reference-engagement",
+  "cases": [
+    {
+      "id": "new_documentary",
+      "message": "Je me garde le documentaire Oasis qui vient d’arriver sur Disney+ pour ce soir. Ça m’intrigue.",
+      "expected": "Identify the documentary with native public research before the first substantive answer; make one concrete, supported conversational contribution. No invented experience or generic scheduling question."
+    },
+    {
+      "id": "central_work",
+      "message": "La bande-annonce de Perfect Days m’a donné envie de découvrir ce film. Cette attention aux toutes petites choses me parle.",
+      "expected": "Establish the film's relevant substance through public evidence, then engage briefly with the stated interest. Do not claim to have watched its trailer or to know the user's unstated tastes."
+    },
+    {
+      "id": "peripheral_mention",
+      "message": "Vaisselle terminée, avec Oasis en fond sonore. Je vais enfin pouvoir dormir, bonne nuit !",
+      "expected": "Respect the closure briefly; no external search, memory lookup, music fact sheet or new question."
+    },
+    {
+      "id": "already_grounded",
+      "message": "Dans le court-métrage que j’écris, une horlogère cesse de réparer les pendules de tout le monde et garde enfin une soirée pour elle. Ce qui me plaît, c’est cette petite permission qu’elle se donne.",
+      "expected": "Engage with the exact supplied story and feeling without external research, invented plot details or a generic approval."
+    },
+    {
+      "id": "personal_feeling",
+      "message": "J’avais prévu de regarder un film, mais je suis vraiment épuisé. Ce soir, je veux juste qu’on me laisse tranquille.",
+      "expected": "A short attentive response respecting the boundary; no research, diagnostic, interrogation or advice programme."
+    }
+  ],
+  "order": [
+    ["new_documentary", "A"], ["new_documentary", "B"],
+    ["central_work", "B"], ["central_work", "A"],
+    ["peripheral_mention", "A"], ["peripheral_mention", "B"],
+    ["already_grounded", "B"], ["already_grounded", "A"],
+    ["personal_feeling", "A"], ["personal_feeling", "B"]
+  ]
+}

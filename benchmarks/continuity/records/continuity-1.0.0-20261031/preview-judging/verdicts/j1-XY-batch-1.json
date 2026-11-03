@@ -1,0 +1,504 @@
+{
+  "judge": "j1",
+  "order": "XY",
+  "verdicts": {
+    "P01": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "the café on Rose Street",
+            "verdict": "met"
+          },
+          {
+            "quote": "you said you don’t need to bring anything",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "finish what you can of the book",
+          "verdict": "met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "the café on Rose Street",
+            "verdict": "met"
+          },
+          {
+            "quote": "You don’t need to bring anything",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "You don’t need to bring anything—dessert is off your list",
+          "verdict": "met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X confirms the updated plan and also names what is still worth preparing, the book and discussion points."
+      }
+    },
+    "P02": {
+      "X": {
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "can you share the booking confirmation?",
+          "verdict": "met"
+        },
+        "no_repeat": [],
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "Y": {
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "You mentioned flying to Lisbon in November for a conference",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "Do you have the booking confirmation handy?",
+          "verdict": "met"
+        },
+        "no_repeat": [],
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y remembers the Lisbon conference trip while honestly saying it lacks the flight time."
+      }
+    },
+    "P03": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "21 June in Braga",
+            "verdict": "met"
+          },
+          {
+            "quote": "21 June in Braga",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "where will you be travelling from?",
+          "verdict": "met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "Where and when is the wedding",
+            "verdict": "asked"
+          },
+          {
+            "quote": "Where and when is the wedding",
+            "verdict": "asked"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X uses the corrected date and city, while Y asks for both again."
+      }
+    },
+    "P04": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "350 g egg-free dried pasta",
+            "verdict": "met"
+          },
+          {
+            "quote": "sesame precautionary labels",
+            "verdict": "met"
+          },
+          {
+            "quote": "everyone gets the same dish",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "tomato-and-aubergine pasta, for the three of you",
+          "verdict": "met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "vegan, sesame-free menu",
+            "verdict": "met"
+          },
+          {
+            "quote": "vegan, sesame-free menu",
+            "verdict": "met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "tomato-chickpea pasta, green salad, and berries",
+          "verdict": "met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X confidently plans one shared meal for the three of them, while Y wrongly assumes four people and hedges on whether the guests are coming."
+      }
+    },
+    "P05": {
+      "X": {
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "What does the prescription label say?",
+          "verdict": "met"
+        },
+        "no_repeat": [],
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "Y": {
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "your doctor prescribed new blood pressure tablets",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "confirm with your pharmacist or doctor before taking it",
+          "verdict": "met"
+        },
+        "no_repeat": [],
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y recalls the blood pressure prescription and safely points to both the label and the pharmacist."
+      }
+    },
+    "P06": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "then a walk or something outdoors",
+            "verdict": "violated"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "Are you leaning toward a restful day, an adventure, or time with people?",
+            "verdict": "asked"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "without any steps",
+            "verdict": "met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y at least remembers Noor's visit and her mobility needs, while X gives a generic plan that includes a walk."
+      }
+    },
+    "P07": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "With your test tomorrow morning",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "**1 hour 49 minutes** rather than an all-night commitment",
+          "verdict": "met"
+        },
+        "no_repeat": [],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y picks a light, not-too-long film with the next morning's driving test in mind."
+      }
+    },
+    "P08": {
+      "X": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "weekday pickup now covered by your partner",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "Y": {
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "your partner handling weekday pickups",
+            "verdict": "met"
+          }
+        ],
+        "next_step": {
+          "quote": "Pick your least meeting-heavy afternoon, with a second day as a backup.",
+          "verdict": "met"
+        },
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "unknown": []
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y gives an actionable weekly pattern for the run, though it wrongly says the flexible new job is the user's when it is the partner's."
+      }
+    }
+  }
+}

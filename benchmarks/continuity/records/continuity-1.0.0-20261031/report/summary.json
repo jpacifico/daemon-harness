@@ -1,0 +1,113 @@
+{
+  "arms": {
+    "A": {
+      "after_turn_ms_median": 6.0,
+      "asks_again": 4,
+      "disagreements": 0,
+      "full_turn_ms_median": 16193.5,
+      "full_turn_ms_p90": 32163,
+      "invents": 0,
+      "lives_passed": 8,
+      "native_passed": 12,
+      "native_reply_ms_median": 49390.5,
+      "native_tasks": 12,
+      "next_step": 14,
+      "outdated": 2,
+      "preferred": 6,
+      "remembers": 9,
+      "reply_ms_median": 12967.0,
+      "reply_ms_p90": 19888,
+      "tokens_after_turn_median": 0.0,
+      "tokens_before_reply_median": 0.0,
+      "tokens_reply_median": 109474.0,
+      "tokens_total_median": 109474.0,
+      "tokens_total_sum": 2839831,
+      "tokens_unavailable_lives": 0,
+      "tool_errors": 25
+    },
+    "C": {
+      "after_turn_ms_median": 35175.0,
+      "asks_again": 0,
+      "disagreements": 3,
+      "full_turn_ms_median": 57863.5,
+      "full_turn_ms_p90": 80937,
+      "invents": 0,
+      "lives_passed": 10,
+      "native_passed": 12,
+      "native_reply_ms_median": 45932.0,
+      "native_tasks": 12,
+      "next_step": 14,
+      "outdated": 1,
+      "preferred": 15,
+      "remembers": 16,
+      "reply_ms_median": 11831.0,
+      "reply_ms_p90": 20318,
+      "tokens_after_turn_median": 297602.5,
+      "tokens_before_reply_median": 0.0,
+      "tokens_reply_median": 102302.0,
+      "tokens_total_median": 416143.5,
+      "tokens_total_sum": 9821388,
+      "tokens_unavailable_lives": 0,
+      "tool_errors": 24
+    }
+  },
+  "efficiency_words_allowed": false,
+  "families": {
+    "correction": {
+      "A": 3,
+      "C": 2,
+      "lives": 4
+    },
+    "people": {
+      "A": 0,
+      "C": 2,
+      "lives": 4
+    },
+    "relationship": {
+      "A": 0,
+      "C": 2,
+      "lives": 4
+    },
+    "time": {
+      "A": 2,
+      "C": 1,
+      "lives": 4
+    },
+    "unknown": {
+      "A": 2,
+      "C": 2,
+      "lives": 4
+    },
+    "work": {
+      "A": 1,
+      "C": 1,
+      "lives": 4
+    }
+  },
+  "gates": {
+    "improves": {
+      "claim_allowed": false,
+      "difference_at_least_6": false,
+      "difference_interval_95": [
+        -5,
+        9
+      ],
+      "interval_excludes_zero": false,
+      "invents_not_higher": true,
+      "lives_passed_difference": 2,
+      "outdated_not_higher": true,
+      "preferred_more": true
+    },
+    "keeps_capabilities": {
+      "claim_allowed": true,
+      "native_loss": 0,
+      "native_loss_at_most_1": true,
+      "native_reply_time_ratio": 0.9299764124679847,
+      "native_reply_time_ratio_at_most_1_15": true,
+      "no_task_lost_in_all_seeds": true
+    }
+  },
+  "lives": 24,
+  "ties": 3,
+  "tokens_total_ratio_c_over_a": 3.4584410128630894
+}

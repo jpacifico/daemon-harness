@@ -1,0 +1,77 @@
+{
+  "schema": "daemon.memory-relation-retraction-cases.v1",
+  "cases": [
+    {
+      "id": "development-explicit-membership-removal",
+      "split": "development",
+      "name": "theme/creation/affiche_prototype",
+      "user_message": "Correction : ce prototype venait d'une ancienne edition, il ne faisait pas partie de l'exposition actuelle.",
+      "current": "# Capsule: theme/creation/affiche_prototype\n\n## Faits\n- Un prototype d'affiche a ete conserve.\n\n## Relations\n- member_of [[theme/creation/exposition_actuelle]] : piece de l'exposition\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "proposed": "# Capsule: theme/creation/affiche_prototype\n\n## Faits\n- Un prototype d'affiche a ete conserve.",
+      "relation_line": "- member_of [[theme/creation/exposition_actuelle]] : piece de l'exposition",
+      "expected_action": "remove",
+      "required_fragments": ["prototype d'affiche"],
+      "forbidden_fragments": []
+    },
+    {
+      "id": "development-partial-fact-correction",
+      "split": "development",
+      "name": "theme/loisirs/ordinateur_retro",
+      "user_message": "Ce n'etaient pas des manuels : je precise le clavier, qui inclut la carte mere, les composants et le lecteur. Les disquettes physiques restent bien chez moi.",
+      "current": "# Capsule: theme/loisirs/ordinateur_retro\n\n## Faits\n- Alex a ramene le clavier de son ordinateur rétro et les disquettes physiques.\n\n## Relations\n- member_of [[theme/famille/objets_sauves]] : objet conserve\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "proposed": "# Capsule: theme/loisirs/ordinateur_retro\n\n## Faits\n- Le clavier de l'ordinateur rétro inclut la carte mere, les composants et le lecteur de disquettes.\n- Les disquettes physiques sont chez Alex.\n\n## Relations\n- member_of [[theme/famille/objets_sauves]] : objet conserve\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "relation_line": "- member_of [[theme/famille/objets_sauves]] : objet conserve",
+      "expected_action": "preserve",
+      "required_fragments": ["clavier de son ordinateur rétro", "disquettes physiques", "carte mere", "composants", "lecteur de disquettes"],
+      "forbidden_fragments": []
+    },
+    {
+      "id": "development-uncertain-membership",
+      "split": "development",
+      "name": "theme/famille/photo_jardin",
+      "user_message": "Je ne sais pas encore si cette photo doit rester dans l'album du mariage.",
+      "current": "# Capsule: theme/famille/photo_jardin\n\n## Faits\n- Une photo prise dans le jardin est conservee.\n\n## Relations\n- member_of [[theme/famille/album_mariage]] : photo de l'album\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "proposed": "# Capsule: theme/famille/photo_jardin\n\n## Faits\n- Une photo prise dans le jardin est conservee.",
+      "relation_line": "- member_of [[theme/famille/album_mariage]] : photo de l'album",
+      "expected_action": "preserve",
+      "required_fragments": ["photo prise dans le jardin"],
+      "forbidden_fragments": []
+    },
+    {
+      "id": "holdout-explicit-membership-removal",
+      "split": "holdout",
+      "name": "theme/voyages/carnet_adresses",
+      "user_message": "Le carnet d'adresses appartenait au voyage en Italie, pas au sejour en Grece : retire-le de ce dernier ensemble.",
+      "current": "# Capsule: theme/voyages/carnet_adresses\n\n## Faits\n- Un carnet d'adresses annote est conserve.\n\n## Relations\n- member_of [[theme/voyages/sejour_grece]] : souvenir du sejour\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "proposed": "# Capsule: theme/voyages/carnet_adresses\n\n## Faits\n- Un carnet d'adresses annote est conserve.",
+      "relation_line": "- member_of [[theme/voyages/sejour_grece]] : souvenir du sejour",
+      "expected_action": "remove",
+      "required_fragments": ["carnet d'adresses annote"],
+      "forbidden_fragments": []
+    },
+    {
+      "id": "holdout-fact-correction-keeps-membership",
+      "split": "holdout",
+      "name": "theme/creation/repetition_generale",
+      "user_message": "La repetition aura lieu dimanche et non samedi, mais elle reste bien dans le programme du spectacle.",
+      "current": "# Capsule: theme/creation/repetition_generale\n\n## Faits\n- La repetition generale est prevue samedi.\n\n## Relations\n- member_of [[theme/creation/spectacle_automne]] : etape de preparation\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "proposed": "# Capsule: theme/creation/repetition_generale\n\n## Faits\n- La repetition generale est prevue dimanche.\n\n## Relations\n- member_of [[theme/creation/spectacle_automne]] : etape de preparation\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "relation_line": "- member_of [[theme/creation/spectacle_automne]] : etape de preparation",
+      "expected_action": "preserve",
+      "required_fragments": ["prevue dimanche"],
+      "forbidden_fragments": ["prevue samedi"]
+    },
+    {
+      "id": "holdout-reported-opinion",
+      "split": "holdout",
+      "name": "theme/projet/maquette",
+      "user_message": "Paul pense que la maquette ne devrait plus faire partie du dossier final, mais je n'ai encore rien decide.",
+      "current": "# Capsule: theme/projet/maquette\n\n## Faits\n- Une maquette fonctionnelle existe.\n\n## Relations\n- member_of [[theme/projet/dossier_final]] : livrable du dossier\n  - source: [[levels/L0_ground_zero/conversations/eval#turn-previous]]",
+      "proposed": "# Capsule: theme/projet/maquette\n\n## Faits\n- Une maquette fonctionnelle existe.",
+      "relation_line": "- member_of [[theme/projet/dossier_final]] : livrable du dossier",
+      "expected_action": "preserve",
+      "required_fragments": ["maquette fonctionnelle"],
+      "forbidden_fragments": []
+    }
+  ]
+}

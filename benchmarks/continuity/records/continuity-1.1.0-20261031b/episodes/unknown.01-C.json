@@ -1,0 +1,368 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "dafc00c71f7583db1064d6e6437c7da9f94bbb6176cc277a04619082cecdf64a",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "f7eecb746b0943c30ca637476660daddf47ce128ca0ef3e8dd582463e98c069b",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 723,
+  "dry_run": false,
+  "episode": "unknown.01",
+  "episode_ms": 334275,
+  "family": "unknown",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "unknown.01-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 182400
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 15,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 86731
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 5833
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 608
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 274964
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 57984
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 56113
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1593
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 255
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 115690
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 21,
+      "name": "tool_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 38903,
+      "first_native_text_ms": 5990,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3488,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10817,
+      "prompt": "I'm flying to Lisbon next month for a conference.",
+      "response": "What’s the conference about?",
+      "response_ms": 10817,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 24889,
+      "first_native_text_ms": 7439,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5238,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 42116,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good opening isn’t mainly about memorizing moves. It’s about getting your pieces into useful positions while keeping your king safe.\n\nHere are the main ideas:\n\n### 1. Fight for the center\nThe central squares—**e4, d4, e5, and d5**—give your pieces access to more of the board.\n\nMoving a central pawn with **1. e4** or **1. d4** is a straightforward start: it claims space and opens paths for your bishops. You don’t have to occupy the entire center; controlling it with pieces also counts.\n\n### 2. Develop your pieces\n*Development* means bringing your knights and bishops off their starting squares and into play.\n\n- Aim for squares where they influence the center.\n- Usually bring out knights and bishops before your queen.\n- Avoid moving the same piece repeatedly unless there’s a concrete reason.\n\nThink: **“Which of my pieces still isn’t helping?”**\n\n### 3. Get your king safe\nCastling usually does two useful things: it moves your king away from the center and brings a rook closer to the action. Try to prepare it early, rather than launching an attack with your king still exposed.\n\n### 4. Don’t spend every move pushing pawns\nPawn moves can claim space, but they don’t develop pieces—and pawns can’t move backward. Move enough to let your pieces out; be cautious about moving the pawns protecting your king.\n\n### 5. Watch your opponent—not just your plan\nOpening principles never outrank an immediate threat. Before each move, ask:\n\n- **What did their last move threaten?**\n- **Is anything undefended?**\n- **Can they punish the move I’m considering?**\n\n### A simple example\nAfter **1. e4 e5 2. Nf3 Nc6 3. Bc4**:\n\n- Your e-pawn contests the center.\n- Your knight develops and attacks Black’s e-pawn.\n- Your bishop develops onto an active diagonal.\n- You’re ready to castle.\n\nThat’s the logic to learn—not merely the sequence.\n\n**Your opening goal:** a reasonably safe king, active pieces, and a foothold in the center. Don’t force an early attack; get your pieces ready so that an attack can actually work.",
+      "response_ms": 42116,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 23081,
+      "first_native_text_ms": 10021,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6988,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24084,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The main difference is **whether the central pawns leave pathways open or block them.** It’s about the pawn structure, not simply how many pieces remain. ([thechessmastermd.com](https://www.thechessmastermd.com/basic-strategies/pawn-structure?utm_source=openai))\n\n### Open position: clear pathways\nCentral pawns have been exchanged, leaving room for pieces to move.\n- **Bishops** can work along long diagonals.\n- **Rooks** can use open files—the board’s vertical columns.\n- Play often becomes more tactical, with direct threats and attacks. ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))\n\n### Closed position: a blocked center\nCentral pawns are locked against one another, restricting movement.\n- **Knights** often do well because they can jump over the blockage.\n- **Bishops** may struggle behind pawn chains.\n- Play often involves maneuvering: improving your pieces before trying to force a way through. ([chesspivot.com](https://www.chesspivot.com/en/glossary/closed-structure?utm_source=openai))\n\n**Closed doesn’t mean permanently closed.** A key plan is preparing a *pawn break*: a pawn push that challenges the opponent’s pawns and can open lines. Choosing when to do that is part of the strategy. ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))\n\nA useful question at the board is: **“Can my pieces use the existing paths, or do I need to create one?”**",
+      "response_ms": 24084,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 38837,
+      "first_native_text_ms": 11132,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9616,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 27785,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "**Treat them as little games to win, not chapters to finish.** I’d try this:\n\n- **Attempt the position before reading the explanation.** Give yourself two minutes to decide: win, draw, or loss—and what would you play? Then check.\n- **Play it out, then switch sides.** Your challenge is to win with the stronger side *and* frustrate the stronger side when defending.\n- **Use an ending from your own games.** Pick one where you thought, “How did I not win that?” Make that your next study topic.\n- **Keep sessions to ten minutes.** One position, a few attempts, one sentence about what you missed. Stop before it becomes a chore.\n\nFor a starting topic, I’d choose **king and pawn against king**, rather than diving straight into complicated rook endings. Chess.com’s beginner study plan includes king-and-pawn practice; Lichess also has interactive rook-ending exercises to play against the computer when you’re ready. ([chess.com](https://www.chess.com/article/view/study-plan-for-beginners-the-endgame2?utm_source=openai))\n\nMy suggested scoring system: **a position only counts as learned when you can explain your plan and execute it—not when the solution looks obvious after you’ve read it.** Aim for three positions you can actually handle, not thirty you vaguely recognize.",
+      "response_ms": 27785,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 30841,
+      "first_native_text_ms": 8299,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 11368,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 12721,
+      "prompt": "What time is my flight again?",
+      "response": "You told me you’re flying to Lisbon in November for a conference, but you haven’t shared the flight time. Can you send me your booking confirmation?",
+      "response_ms": 12721,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 6873,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 27772,
+      "first_native_text_ms": 10318,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13117,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 14005,
+      "prompt": "It's in my booking confirmation email. Can you find it there?",
+      "response": "I don’t have access to your inbox here. Can you paste the flight details from the confirmation email, leaving out your booking reference and personal details?",
+      "response_ms": 14005,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 11249,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

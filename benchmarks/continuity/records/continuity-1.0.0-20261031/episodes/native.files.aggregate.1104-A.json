@@ -1,0 +1,278 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "c8d9654a47f41e0f92372fa093c24707e5b4ab91aa7ea4542971b525f68225b3",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "74bd221b57df5a9a6695735b2fddedb2975aa157b19669adf6e83deab6638e1c",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "native.files.aggregate.1104",
+  "episode_ms": 48831,
+  "family": "native.files.aggregate",
+  "kind": "native",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 1,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 1,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": {
+    "actual": {
+      "categories": {
+        "books": {
+          "units": 12,
+          "value_cents": 44434
+        },
+        "games": {
+          "units": 5,
+          "value_cents": 13706
+        },
+        "plants": {
+          "units": 11,
+          "value_cents": 38728
+        },
+        "tools": {
+          "units": 12,
+          "value_cents": 13196
+        }
+      },
+      "line_count": 8,
+      "total_units": 40,
+      "total_value_cents": 110064
+    },
+    "assessment_type": "deterministic",
+    "authoritative": true,
+    "checks": {
+      "category_keys_alphabetical": true,
+      "input_sources_unchanged": true,
+      "only_expected_output_changed": true,
+      "output_exists": true,
+      "output_is_valid_json": true,
+      "summary_is_exact": true
+    },
+    "expected": {
+      "categories": {
+        "books": {
+          "units": 12,
+          "value_cents": 44434
+        },
+        "games": {
+          "units": 5,
+          "value_cents": 13706
+        },
+        "plants": {
+          "units": 11,
+          "value_cents": 38728
+        },
+        "tools": {
+          "units": 12,
+          "value_cents": 13196
+        }
+      },
+      "line_count": 8,
+      "total_units": 40,
+      "total_value_cents": 110064
+    },
+    "passed": true,
+    "scenario_id": "native.files.aggregate",
+    "workspace_files": [
+      "input/warehouse_north.csv",
+      "input/warehouse_south.csv",
+      "out/stock_summary.json"
+    ]
+  },
+  "run_id": "native.files.aggregate.1104-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 100992
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 25694
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1532
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 29
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 128218
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 126,
+      "name": "search_files",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 11,
+      "name": "read_file",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 12,
+      "name": "read_file",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 48,
+      "name": "terminal",
+      "status": "error"
+    },
+    {
+      "duration_ms": 9,
+      "name": "execute_code",
+      "status": "error"
+    },
+    {
+      "duration_ms": 584,
+      "name": "terminal",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 166,
+      "name": "write_file",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 132,
+      "name": "terminal",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 41136,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 48810,
+      "prompt": "Read both CSV files in input/. Aggregate every row by category and write out/stock_summary.json. The JSON object must contain exactly these top-level keys: categories, line_count, total_units, and total_value_cents. Each category value must contain integer units and value_cents, where value_cents is units multiplied by unit_price_cents for every row. Keep category keys alphabetical. Do not modify the input files and do not create any other file. Validate the JSON and the totals before answering.",
+      "response": "Created out/stock_summary.json and validated its JSON structure, alphabetical categories, and totals: 8 rows, 40 units, 110064 value_cents.\n\nInput files were not modified; no other files were created.",
+      "response_ms": 48810,
+      "returncode": 0,
+      "scored": true,
+      "session": 0,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

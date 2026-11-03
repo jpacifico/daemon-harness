@@ -1,0 +1,320 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "57d746426f91678c758098d6b2f7de3ff835b83238872a66810139100ca97b67",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "484424403a6b609f27eaa0ab3390d0cfd365a6a978c6cff928213c636c56938c",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "work.01",
+  "episode_ms": 155339,
+  "family": "work",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 8,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 8,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "work.01-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 117120
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 10,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 35229
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1611
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 153960
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 24,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 12,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 2484,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7786,
+      "prompt": "I'm organising our street's spring clean-up. The flyers are printed and the council has approved the date.",
+      "response": "What would you like help with next—recruiting volunteers, organising supplies, or planning jobs for the day?",
+      "response_ms": 7786,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2524,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 6618,
+      "prompt": "What's left: borrowing litter pickers, and finding someone to bring a first-aid kit.",
+      "response": "Two things left:\n- Arrange to borrow litter pickers.\n- Find a volunteer to bring a first-aid kit.",
+      "response_ms": 6618,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 2488,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 33972,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good chess opening prepares your pieces for the middlegame. You don’t need to memorize long sequences at first—focus on making moves that accomplish something.\n\n1. Fight for the center\n\nThe central squares—e4, d4, e5, and d5—give your pieces access to more of the board. Controlling them also makes it harder for your opponent to move freely.\n\nAs White, moving your king’s pawn or queen’s pawn two squares (1. e4 or 1. d4) is a straightforward start. You don’t have to occupy every central square; controlling them with pieces counts too.\n\n2. Develop your pieces\n\nBring your knights and bishops off their starting squares to useful, active positions. Knights often belong nearer the center, while bishops need open diagonals.\n\nTry to develop a new piece rather than moving the same piece repeatedly without a concrete reason. Every move you spend rearranging one piece is a move your opponent can spend bringing another into play.\n\n3. Get your king safe\n\nCastling usually shelters your king and brings a rook closer to the action. Prepare to castle fairly early, especially if the center is opening up.\n\nAvoid casually pushing the pawns that protect your castled king: they provide shelter, and they can’t move backward.\n\n4. Don’t bring your queen out too early\n\nAn early queen can become a target. Your opponent may attack it while developing pieces, forcing you to retreat instead of improving your position.\n\nThat doesn’t mean “never move the queen early”—just make sure the move has a purpose worth the time.\n\n5. Make pawn moves count\n\nPawn moves can claim space and open lines for your pieces, but too many leave your army undeveloped. Each pawn move also changes which squares you can defend.\n\nEarly on, favor pawn moves that help control the center, free a bishop, or meet a specific threat.\n\nA simple example\n\nAfter 1. e4 e5 2. Nf3 Nc6 3. Bc4:\n\n  White’s e-pawn claims central space.\n  White’s knight develops and attacks Black’s e5 pawn.\n  Black’s knight develops and defends that pawn.\n  White’s bishop develops, and White is ready to castle kingside.\n\nThese moves work together rather than pursuing separate little plans.\n\nBefore each move, ask:\n\n  What is my opponent threatening?\n  Is anything undefended or available to capture?\n  Can I improve a piece, influence the center, or make my king safer?\n  After my move, can my opponent win something?\n\nThe most important distinction: opening principles are guidelines, not rules. If a piece is under attack, saving it usually matters more than developing another one. Aim to leave the opening with a safe king, active pieces, and no material given away—not with a memorized position.",
+      "response_ms": 33972,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 3523,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21067,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The difference is mainly about the central pawns and how much they restrict the pieces—not simply how many pieces remain on the board.\n\nAn open position\n  Central pawns have been exchanged, leaving clear lines for pieces to move and attack.\n\n  Bishops can work along long diagonals, and rooks benefit from open files—columns with no pawns on them. Fast development and king safety become especially important because attacks can arrive quickly.\n\n  Your usual aim: activate your pieces and use the open lines before your opponent does.\n\nA closed position\n  Central pawns are locked against each other, blocking lines and restricting movement.\n\n  Knights often do well because they can jump over pawns. Bishops may struggle if their own pawns block their diagonals. There is usually more time to maneuver, improve your pieces, and prepare a pawn advance that challenges the blockade—a “pawn break.”\n\n  Your usual aim: improve your pieces and decide where and when to open the position.\n\nFor example, White pawns on d5 and e4 facing Black pawns on d6 and e5 form a locked center: neither side’s central pawns can advance directly.\n\nMany positions are somewhere in between, and a closed position can become open after a pawn break and exchanges.\n\nA useful rule of thumb: open positions reward activity and speed; closed positions reward maneuvering and well-prepared pawn breaks. Neither means “always attack” or “always play slowly”—concrete threats still come first.",
+      "response_ms": 21067,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 2760,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 26793,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "Treat endgames as small games to win, not chapters to finish.\n\nA few ways to keep them interesting:\n\n  Play a position instead of just reading about it.\n  Start from a simple endgame against a friend or an engine. Try it before looking up the solution, then replay it after learning the idea. Switch sides and see how stubbornly you can defend.\n\n  Give yourself one clear challenge.\n  “Can I stop this pawn from promoting?” is more engaging than “Today I’m studying pawn endings.” Other goals: win a pawn, activate your king, or hold a draw when you’re a pawn down.\n\n  Use positions from your own games.\n  Pick the moment when you weren’t sure what to do. Work out a better plan, then practice from that position. It gives the lesson a purpose: you’re fixing something you actually encountered.\n\n  Keep sessions short.\n  Try a 10-minute session: attempt one position, check the key idea, then play it again without help. Stop before it feels like homework.\n\n  Repeat with a twist.\n  Move a pawn one square or change whose turn it is. Ask whether the result changes. That turns memorization into a puzzle.\n\nFor a starting sequence, I’d use:\n  1. King and queen versus king: practice finishing the game.\n  2. King and pawn versus king: explore when the pawn can promote.\n  3. Simple pawn races: decide when to push and when to use your king.\n  4. Rook endings from your own games: practice finding an active role for the rook.\n\nKeep a tiny scorecard of positions you can solve and win—or defend—without hints. The goal isn’t “I read twenty pages.” It’s “I can handle a position that used to confuse me.”",
+      "response_ms": 26793,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 2993,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7131,
+      "prompt": "Good news: the community centre is lending us twenty litter pickers.",
+      "response": "That’s a big help—twenty litter pickers secured on loan from the community centre.",
+      "response_ms": 7131,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 10046,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 18311,
+      "prompt": "I've got half an hour now. What should I do for the clean-up?",
+      "response": "Use the half hour to tackle the two remaining jobs—litter pickers and a first-aid kit. The flyers and council approval are already sorted.\n\nFirst 15 minutes: contact your council contact or a local community group about borrowing litter pickers. Ask how many are available and arrange collection and return.\n\nNext 10 minutes: message the volunteer group:\n“Can someone bring a first-aid kit to our street clean-up? Please reply to confirm so I can tick it off.”\n\nLast 5 minutes: note who’s confirmed, any collection arrangements, and who needs a follow-up. If neither is settled, leave each with a clear next contact rather than starting another task.",
+      "response_ms": 18311,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9635,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 3067,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 16668,
+      "prompt": "Litter pickers are already sorted, I mentioned the community centre is lending us twenty. So it's really just the first-aid kit left.",
+      "response": "You’re right—I missed that the community centre is lending you twenty litter pickers.\n\nJust send the volunteers this:\n“Can someone bring a first-aid kit to our street clean-up? Please reply to confirm you’ll bring it.”\n\nOnce someone confirms, note their name and you’re done—no need to fill the half hour.",
+      "response_ms": 16668,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 7223,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

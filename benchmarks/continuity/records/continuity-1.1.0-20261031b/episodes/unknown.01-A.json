@@ -1,0 +1,302 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "47c12f50495c5231beaae5c3f5feb639dc2bf434973b27dca50ea3c3a3994431",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "6a57925286a6820e521f9b2524399aa0d7d7fc0e816aa8ad655b069eb0099983",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "unknown.01",
+  "episode_ms": 139875,
+  "family": "unknown",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "unknown.01-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 160000
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 12,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 41309
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1656
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 31
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 202965
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 12,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 12,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 109,
+      "name": "skill_view",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 1066,
+      "name": "terminal",
+      "status": "error"
+    },
+    {
+      "duration_ms": 85,
+      "name": "skill_view",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 376,
+      "name": "terminal",
+      "status": "error"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 6472,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11269,
+      "prompt": "I'm flying to Lisbon next month for a conference.",
+      "response": "Do you want help planning the trip, preparing for the conference, or finding things to do in Lisbon?",
+      "response_ms": 11269,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 3,
+      "first_native_text_ms": 3065,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29589,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good chess opening prepares your pieces to work together while keeping your king safe. You’ll improve more by understanding these goals than by memorizing long sequences of moves.\n\n1. Fight for the center\n\nThe central squares—e4, d4, e5, and d5—give your pieces access to more of the board. Putting a pawn in the center and supporting it with pieces is a simple way to claim space.\n\nAs White, 1. e4 or 1. d4 is a straightforward starting point. You don’t have to occupy every central square; controlling them matters too.\n\n2. Develop your pieces\n\nBring your knights and bishops off their starting squares and onto useful squares. Knights usually belong toward the center, rather than on the edge.\n\nTry to give each move a job. Moving the same piece several times without a concrete reason wastes time while your opponent gets more pieces into play.\n\n3. Make your king safe\n\nCastling early is usually a good idea: it moves your king away from the center and brings a rook closer to the action. Be cautious about moving the pawns in front of your castled king—they provide shelter.\n\n4. Don’t bring your queen out too early\n\nAn early queen attack can look threatening, but your opponent may develop pieces while attacking your queen. You then spend moves retreating instead of bringing out your other pieces.\n\nThis isn’t an absolute rule; it’s a warning against attacking with your queen alone.\n\n5. Use pawn moves purposefully\n\nPawns claim space and open paths for your bishops, but every pawn move leaves squares behind it that the pawn can no longer defend. A common beginner mistake is making lots of pawn moves while the knights and bishops remain at home.\n\nAim to establish a central foothold, then get your pieces involved.\n\nA simple example\n\nAfter 1. e4 e5 2. Nf3 Nc6 3. Bc4:\n\n  White’s e-pawn claims central space.\n  White’s knight develops and attacks Black’s e5 pawn.\n  Black’s knight develops and defends that pawn.\n  White’s bishop develops, and White is ready to castle.\n\nHere, N means knight and B means bishop. You don’t need to memorize the sequence—notice how each move contributes to the position.\n\nBefore each move, ask:\n\n  What did my opponent’s last move threaten?\n  Is anything undefended, or could I lose a piece?\n  Can I develop a piece, improve my central control, or make my king safer?\n\nThe key principle: opening guidelines serve the position, not the other way around. If a piece is under attack, saving it usually matters more than following a rule such as “don’t move the same piece twice.” Aim for a safe king and active pieces—not a perfect memorized opening.",
+      "response_ms": 29589,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 3453,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20958,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The main difference is the pawn structure—especially in the center—and how freely the pieces can move.\n\nAn open position has few central pawns, usually because they’ve been exchanged. This leaves clear lines for pieces.\n\n  Bishops can operate along long diagonals.\n  Rooks become effective on open files—columns with no pawns.\n  Fast development and king safety are especially important because attacks can arrive quickly.\n  Tactics and direct threats often play a large role.\n\nA closed position has interlocking pawn chains that block movement, especially through the center.\n\n  Knights often do well because they can jump over pawns.\n  Bishops can struggle if their own pawns block their diagonals.\n  There’s often more time to maneuver pieces into better positions.\n  Plans frequently revolve around a pawn break: a pawn advance that challenges an enemy pawn and may open lines.\n\nFor example, White pawns on d5 and e4 facing Black pawns on d6 and e5 form a locked center: neither side’s central pawns can simply advance.\n\nHow this changes your plan\n\n  In an open position, ask: “How can I use the open lines and get my pieces active?”\n  In a closed position, ask: “Where can I prepare a pawn break, and where should my pieces go before I play it?”\n\nMany positions are somewhere in between—or closed in the center but open on one side. And “bishops like open positions, knights like closed ones” is a useful guideline, not a guarantee.\n\nThe connection to openings: pawn exchanges can open the game, making a lead in development more valuable. If you’re behind in development, opening the center may help your opponent more than you.",
+      "response_ms": 20958,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2325,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20259,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "Treat endgames as small challenges to play, not chapters to finish.\n\n1. Start with a position, not an explanation.\n   Try to win or draw it first. Once you get stuck, study the idea and replay it. The explanation is more interesting when it answers a problem you’ve just encountered.\n\n2. Study endings from your own games.\n   Find a moment near the end where you weren’t sure what to do. Work out one improvement—not every mistake. That gives the lesson a clear purpose: “Next time, I’ll know how to handle this.”\n\n3. Play the same position from both sides.\n   With a friend or against an engine, try converting the stronger side, then defending the weaker side. Against an engine, judge yourself by whether you carry out the idea, not just whether you win.\n\n4. Keep the starting material manageable.\n   A useful learning order is:\n   - King and queen versus king; king and rook versus king.\n   - King and pawn versus king: promotion, king activity, and opposition.\n   - Simple rook endings: active rooks and passed pawns.\n\n   Mix these rather than grinding through one category until you’re sick of it.\n\n5. Give each session a tiny finish line.\n   For example: “I’ll solve this position, read the explanation, then play it correctly without looking.” Stop there rather than turning a useful exercise into a chore.\n\nA simple 15-minute routine:\n   3 minutes: attempt one position.\n   4 minutes: study the key idea.\n   6 minutes: play it from both sides.\n   2 minutes: write one sentence about what you learned.\n\nThe goal isn’t to memorize lots of positions. It’s to recognize a few useful ideas well enough to use them when the clock is running.",
+      "response_ms": 20259,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 8001,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 12375,
+      "prompt": "What time is my flight again?",
+      "response": "I don’t have your flight details in the available history. What’s the flight number and travel date, or can you share your booking confirmation?",
+      "response_ms": 12375,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 7702,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 2,
+      "first_native_text_ms": 22557,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 28555,
+      "prompt": "I don't have the flight number or exact date handy, it's all in my booking confirmation email. Can you find it there?",
+      "response": "Your email isn’t connected in this session, so I couldn’t search your booking confirmation. Paste the email text here, or save it as a file and share its path—I’ll pull out the flight date, departure time, and time zone. You can omit your booking reference and payment details.",
+      "response_ms": 28555,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 9080,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

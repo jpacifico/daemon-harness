@@ -1,0 +1,325 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "3e966ba52373f23f98d9dcc61a4dc83a49a45766414dfd224868bb4c71fb6bfb",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "4eae4b687738bd0bb62a74ecaeb7d57f2f2f9ab20357db0c745b7a13b4e0ea7a",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 560,
+  "dry_run": false,
+  "episode": "relationship.03",
+  "episode_ms": 339544,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "relationship.03-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 170240
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 14,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 86746
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 5544
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1143
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 262530
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 32128
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 50625
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1693
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 461
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 84446
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 58339,
+      "first_native_text_ms": 15447,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3490,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21282,
+      "prompt": "I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof.",
+      "response": "How was the first loaf inside? I’m curious whether the disappointment was just the shape, or the eating too.",
+      "response_ms": 21282,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26587,
+      "first_native_text_ms": 6805,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5240,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29847,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good opening isn’t about finding a clever trap. It’s about reaching a position where **your pieces are active, your king is safe, and you’re ready for the middlegame.**\n\nHere are the main ideas:\n\n### 1. Fight for the center\nThe central squares—**e4, d4, e5, and d5**—give your pieces access to more of the board. Central pawns also help stop your opponent from taking all the space.\n\nAs White, **1. e4** or **1. d4** is a straightforward starting point. You don’t have to occupy the whole center; controlling it with pieces matters too.\n\n### 2. Develop your pieces\nBring your knights and bishops off their starting squares to useful squares.\n- Knights usually work well toward the center rather than on the edges.\n- Put bishops where they have useful diagonals.\n- Avoid moving the same piece repeatedly without a concrete reason.\n\nThink: *Can I bring another piece into the game?*\n\n### 3. Make your king safe\nCastling early is usually a good idea: it shelters your king and brings a rook closer to the action. Avoid casually pushing the pawns that protect your castled king.\n\n### 4. Don’t give your opponent free developing moves\nAn early queen excursion can let your opponent develop pieces **while attacking your queen**, forcing you to spend moves retreating.\n\nLikewise, grabbing a pawn isn’t necessarily a bargain if your opponent gets several active pieces while yours stay at home.\n\n### 5. Check threats before following principles\nThese are guidelines, not orders. If a piece is hanging or your opponent threatens checkmate, that matters more than completing development.\n\nBefore every move, ask:\n- **What did their last move threaten?**\n- **Is my intended move safe?**\n- **Which of my pieces most needs improving?**\n\nFor example, after **1. e4 e5 2. Nf3 Nc6 3. Bc4**, White has claimed central space, developed a knight that attacks Black’s e-pawn, developed a bishop, and cleared the way to castle. Nothing flashy—each move does useful work.\n\n**Learn the purpose of the moves before memorizing long sequences.** Knowing why a move helps is what lets you cope when your opponent plays something unexpected.",
+      "response_ms": 29847,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 28916,
+      "first_native_text_ms": 10123,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6991,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 25120,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The main difference is **whether the central pawns leave paths open for the pieces—or block them.** It’s about the pawn structure, not simply how many pieces remain. ([chesskid.com](https://www.chesskid.com/learn/articles/the-glossary-for-chess-kids-and-parents?utm_source=openai))\n\n### Open position\nCentral pawns have been exchanged, leaving clear files and diagonals.\n- **Bishops and rooks** have room to work.\n- **Quick development and king safety** are especially important: attacks can arrive quickly through those open lines. ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))\n\nThink: *“Can I use the open paths before my opponent does?”*\n\n### Closed position\nCentral pawns are locked against one another, restricting movement.\n- **Knights often do well** because they can jump over the blockage; bishops may struggle.\n- You usually have more time to reposition pieces and prepare a **pawn break**—a pawn push that challenges the opponent’s pawns and opens a route through. Play can also shift to the sides of the board. ([chesslab.academy](https://www.chesslab.academy/learn/open-vs-closed-positions/?utm_source=openai))\n\nThink: *“Where can I create a way in, and which pieces should be ready?”*\n\n**Closed doesn’t mean closed forever.** A pawn exchange can open the position, so part of the strategy is choosing *when* to let that happen. ([chesskid.com](https://www.chesskid.com/learn/articles/ask-coach-jessica-what-to-do-in-a-closed-position?utm_source=openai))",
+      "response_ms": 25120,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 41127,
+      "first_native_text_ms": 10106,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9619,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 31400,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "**Treat them as little games to win, not chapters to finish.** I’d make the studying mostly playing, with just enough explanation to fix what went wrong.\n\nTry this **10-minute routine**:\n\n- **Pick one position and give yourself a mission:** promote the pawn, deliver mate, or hold a draw. Start with king-and-pawn endings rather than a board full of pieces.\n- **Try before reading the solution.** Spend a couple of minutes choosing a plan—not just guessing the first move.\n- **Check, reset, replay.** If you missed it, read the explanation and try again from the starting position without looking.\n- **Switch sides.** Make yourself defend the position you just tried to win.\n- **Stop after one useful discovery.** Write something concrete: “Pushing my pawn immediately was the mistake,” rather than “Study pawn endings.”\n\nFor interactive exercises, Chess.com’s endgame trainer has checkmates, pawn endings, and other categories; Lichess has playable rook-ending exercises for when you want to move on. ([support.chess.com](https://support.chess.com/en/articles/8708978-how-do-i-practice-endgames?utm_source=openai))\n\nI’d also save positions from **your own games**, especially a win you let slip. Give your next session a specific job: *“Can I win this one now?”* That sounds considerably less like homework than *“Today I shall improve my endgame technique.”*",
+      "response_ms": 31400,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 56946,
+      "first_native_text_ms": 15634,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 12249,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19687,
+      "prompt": "What should I have with soup tonight?",
+      "response": "You were trying another sourdough loaf today—how’s it coming along?",
+      "response_ms": 19687,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

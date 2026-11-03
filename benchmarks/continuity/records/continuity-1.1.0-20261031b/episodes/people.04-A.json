@@ -1,0 +1,309 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "f9696d3e9affef60c6c2f98c1421b2b398b0f8387b98f9d883b774dec521c49b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "7903be27b1084eda759981491e3986468bc36098f968b2f9cb9c23110a6814b0",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "people.04",
+  "episode_ms": 148345,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 8,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 8,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "people.04-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 84736
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 44846
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1647
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 284
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 131229
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2847,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8988,
+      "prompt": "When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week.",
+      "response": "Got it—you cook low-salt when your mum visits because of her blood pressure, including during her stay last week.",
+      "response_ms": 8988,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 7002,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 26375,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "A moving bicycle stays upright mainly because it can steer its wheels back underneath you when you start to tip.\n\nThink of balancing a broom upright on your palm. If the broom leans left, you move your hand left to get underneath it again. A bicycle does something similar:\n\n  1. You and the bike start leaning left.\n  2. The front wheel steers a little left.\n  3. That redirects the bike’s path underneath your combined weight, helping stop the fall.\n\nWhile riding, you make these small steering corrections almost without noticing. The bike’s steering geometry also helps: in a typical bicycle, a lean tends to make the front wheel turn toward that lean. That’s part of why a riderless bicycle can sometimes roll upright for a while.\n\nWhy does moving help?\nTurning the handlebars only moves the wheels underneath you if the bike is rolling. At very low speed, even a large steering movement changes your path slowly, so balancing takes more effort. At a comfortable riding speed, tiny corrections can do the job. At a standstill, that balancing mechanism mostly disappears.\n\nWhat about the spinning wheels?\nThey do have a gyroscopic effect, which influences how the bike leans and steers. But “the wheels spin, so the bike can’t fall over” isn’t the main explanation. Steering and the way the bike’s mass and geometry interact are more important to understanding its balance.\n\nAnd when you deliberately turn, you stay leaned over rather than bringing the bike fully upright—the lean is what lets you balance through the curved path.\n\nThe key idea: riding a bike is less like standing on a stable platform and more like continually catching a small fall.",
+      "response_ms": 26375,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 3544,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12889,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "Mostly something else: steering corrections that keep the wheels underneath your weight.\n\nIf the bike starts tipping left, steering left shifts its path back underneath you, helping restore balance. You make some of those corrections yourself; the bike’s geometry and weight distribution also help it steer in response to a lean.\n\nThe spinning wheels’ gyroscopic effect contributes to how the bike responds, but it isn’t the main thing holding you up. Think “balancing a broom by moving your hand underneath it,” not “a spinning top resisting a fall.”",
+      "response_ms": 12889,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 3203,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14743,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because steering only helps you balance if the bike moves far enough to get its wheels back underneath you.\n\nAt normal speed, a tiny turn of the handlebars quickly changes where the bike is going. If you start leaning left, a small leftward steering correction can catch that lean before it grows.\n\nAt walking speed, the same correction barely changes your position before you tip farther. You need bigger handlebar movements and more deliberate shifts of your body. Standing still, steering alone can’t bring the wheels back under you.\n\nIt’s like balancing a broom on your palm with a restriction on how fast you can move your hand: you can see it starting to fall, but getting underneath it in time is much harder.\n\nSo the main issue isn’t losing the wheels’ gyroscopic effect—it’s losing the ability to make quick, effective balancing corrections through steering.",
+      "response_ms": 14743,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 9075,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15136,
+      "prompt": "She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home.",
+      "response": "Proper chippy-style dinner for two: battered fish, chunky chips, plenty of salt and malt vinegar, with mushy peas and tartare sauce on the side.\n\nFor an easy version at home, use frozen battered fish and oven chips. Follow the packet timings, give the chips plenty of room on their tray, and salt them as soon as they come out. Add vinegar at the table so everything stays crisp until you eat.\n\nAre you and Sam cooking, or ordering in?",
+      "response_ms": 15136,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 4995,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 8275,
+      "prompt": "Any tips to make the chips really good?",
+      "response": "Do you mean fries/chunky chips, thin potato chips, or tortilla chips—and are you frying, baking, or air-frying them?",
+      "response_ms": 8275,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 8627,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 13585,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 24766,
+      "prompt": "Proper chunky chips, frying them. I've got a deep pan but no fryer, and floury potatoes.",
+      "response": "The biggest trick is to fry them twice: gently to cook the middle, then hotter to crisp the outside, with a cooling break between. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n\n1. Cut them evenly, and dry them thoroughly before they go anywhere near the oil—wet potatoes make it spit. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n2. First fry at 130°C for roughly 7–8 minutes, until cooked through but still pale. Thick chips may need longer; go by tenderness rather than the clock. Lift out, drain and leave to cool. You can do this stage ahead. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n3. Second fry at 180°C until golden and crisp. Drain and serve straight away. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n4. Work in small batches. Crowding the pan drops the oil temperature and can leave the chips greasy. ([leithsonline.com](https://www.leithsonline.com/post/the-rules-of-deep-fat-frying))\n\nFor your pan: never fill it more than one-third full of oil, stay beside it, and turn the heat off if the oil smokes. Don’t move a pan of hot oil. ([manchesterfire.gov.uk](https://manchesterfire.gov.uk/your-safety/home-fire-safety/cooking-safety/deep-frying-with-oil/))\n\nHave you got a cooking thermometer that can measure frying temperatures?",
+      "response_ms": 24766,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 3833,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 14627,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24587,
+      "prompt": "Not sure I've got one. How can I tell when the oil's hot enough without it?",
+      "response": "A small cube of white bread gives a rough check: if it browns in about 30 seconds, the oil is roughly 180–190°C—hot enough for the second, crisping fry. Lower it in carefully with a dry utensil, rather than dropping it from a height. It’s a guide, not a reliable temperature measurement. ([origin.ckbk.com](https://origin.ckbk.com/reference/cook52062c03s001ss012e005/deep-frying-fish-in-batter?utm_source=openai))\n\nThat test won’t reliably identify the gentler 130°C first fry. For controlling both stages, a thermometer rated for deep-frying is the better option; don’t treat the bread test as an exact substitute. ([ask.fsis.usda.gov](https://ask.fsis.usda.gov/article/What-are-deep-fry-thermometers?utm_source=openai))\n\nNever wait for smoke: if it starts smoking, switch off the heat and leave the pan to cool without moving it. Keep the pan no more than one-third full, dry your chips thoroughly, and never test oil with water. If it catches fire, don’t move it or pour water on it—get out and call the fire service. ([lafd.org](https://lafd.org/cooking-safety?utm_source=openai))",
+      "response_ms": 24587,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

@@ -1,0 +1,421 @@
+[
+  {
+    "criteria": {
+      "must_not": [
+        "Recommending work on flyers, the date approval, or borrowing litter pickers as still to do."
+      ],
+      "must_use": [
+        "The first-aid kit is still missing.",
+        "The litter pickers are now sorted."
+      ],
+      "no_repeat": [
+        "What is left to organise."
+      ],
+      "outcome": "A concrete half-hour action toward finding a first-aid kit.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "I'm organising our street's spring clean-up. The flyers are printed and the council has approved the date.",
+        "What's left: borrowing litter pickers, and finding someone to bring a first-aid kit."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "Good news: the community centre is lending us twenty litter pickers."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Use the half hour to tackle the two remaining jobs—litter pickers and a first-aid kit. The flyers and council approval are already sorted.\n\nFirst 15 minutes: contact your council contact or a local community group about borrowing litter pickers. Ask how many are available and arrange collection and return.\n\nNext 10 minutes: message the volunteer group:\n“Can someone bring a first-aid kit to our street clean-up? Please reply to confirm so I can tick it off.”\n\nLast 5 minutes: note who’s confirmed, any collection arrangements, and who needs a follow-up. If neither is settled, leave each with a clear next contact rather than starting another task.",
+          "person": "I've got half an hour now. What should I do for the clean-up?"
+        },
+        {
+          "assistant": "You’re right—I missed that the community centre is lending you twenty litter pickers.\n\nJust send the volunteers this:\n“Can someone bring a first-aid kit to our street clean-up? Please reply to confirm you’ll bring it.”\n\nOnce someone confirms, note their name and you’re done—no need to fill the half hour.",
+          "person": "Litter pickers are already sorted, I mentioned the community centre is lending us twenty. So it's really just the first-aid kit left."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "**Use the half-hour to sort the first-aid kit—the last loose end you mentioned.**\n\n- **First 5 minutes:** If nobody’s confirmed yet, send a specific ask to the neighbours: “Could someone bring a first-aid kit to the street clean-up? Please let me know so I can mark it as covered.”\n- **Next 10 minutes:** Check the collection and return arrangements for the community centre’s twenty litter pickers, unless those are already agreed.\n- **Remaining 15 minutes:** Check the flyer distribution: where they still need to go, and deliver a small batch if there’s time.\n\nAim for a **named person bringing the kit**, not just a message sent. If you’re waiting for replies, move on rather than spending the half-hour watching your phone.",
+          "person": "I've got half an hour now. What should I do for the clean-up?"
+        }
+      ]
+    },
+    "packet": "P09"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Telling the user to bring dessert or that it is at Clara's."
+      ],
+      "must_use": [
+        "Book club is at the café on Rose Street.",
+        "The user does not need to bring anything."
+      ],
+      "no_repeat": [
+        "Where book club is.",
+        "Whether to bring food."
+      ],
+      "outcome": "What is actually left to prepare (for example the book), or that nothing else is needed.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "Book club is at Clara's place on Wednesday, and I'm bringing dessert."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "Change of plan: we're meeting at the café on Rose Street instead, and I don't need to bring anything, the café serves food."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "No dessert or food to prepare—the café serves food, and you don’t need to bring anything.\n\nFor **Wednesday, November 4**, just finish or refresh your memory of the book and perhaps note a passage or a couple of points you’d like to discuss. You’re meeting at **the café on Rose Street**, not Clara’s.",
+          "person": "What do I need to prepare for book club?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "You’re bringing dessert to book club at Clara’s place on Wednesday.\n\nPrepare or pick up a dessert, and check the headcount and any dietary restrictions so you bring enough for everyone. I don’t have the book title or assigned reading noted.",
+          "person": "What do I need to prepare for book club?"
+        },
+        {
+          "assistant": "Got it—book club is now at the café on Rose Street on Wednesday, and you don’t need to bring anything since they serve food.",
+          "person": "Actually that changed, we're meeting at the café on Rose Street now and I don't need to bring anything since they serve food."
+        },
+        {
+          "assistant": "No food or supplies to prepare—the café serves food. Just finish any assigned reading and, if you like, jot down a couple of discussion points or questions.",
+          "person": "So is there anything I should actually prepare then?"
+        }
+      ]
+    },
+    "packet": "P10"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Including any animal product or any sesame ingredient (sesame oil, tahini, sesame seeds) in the meal."
+      ],
+      "must_use": [
+        "Lena is vegan.",
+        "Idris is allergic to sesame.",
+        "One shared meal for everyone."
+      ],
+      "no_repeat": [
+        "The guests' dietary needs.",
+        "How many people are eating."
+      ],
+      "outcome": "A shopping list for one specific vegan, sesame-free meal.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+        "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "For the **chickpea, tomato and spinach stew with rice** I suggested, here’s the list for you, Idris and Lena.\n\n**Buy**\n- 2 × 400 g cans chickpeas\n- 2 × 400 g cans chopped tomatoes\n- 1 large onion\n- 1 bag spinach, roughly 200–250 g\n- 1 lemon\n\n**Check the cupboard**\n- 250 g dry rice\n- Garlic—you’ll need 2–3 cloves\n- Olive oil\n- Paprika\n- Salt and pepper\n\nBefore shopping, check with Idris which packaged ingredients or brands he trusts for avoiding sesame.",
+          "person": "Can you give me a shopping list for tomorrow's dinner?"
+        },
+        {
+          "assistant": "For **four people**, keeping the same stew with rice:\n\n**Buy**\n- 3 × 400 g cans chickpeas\n- 3 × 400 g cans chopped tomatoes\n- 1 large onion or 2 small ones\n- 300 g spinach\n- 1 lemon\n\n**Check the cupboard**\n- 350 g dry rice\n- Garlic—3–4 cloves\n- Olive oil\n- Paprika\n- Salt and pepper\n\nThat should give you four generous portions.",
+          "person": "It's actually four of us including me, so can you adjust the quantities?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "What are you making, and how many people are coming? Will Idris and Lena be joining, so I can account for sesame-free and vegan options?",
+          "person": "Can you give me a shopping list for tomorrow's dinner?"
+        },
+        {
+          "assistant": "Sorry for making you repeat that. I’d go Indian-inspired: chickpea, spinach and coconut curry with basmati rice, cucumber–tomato salad, and fruit for dessert. One vegan meal for everyone, with no sesame ingredients. The curry is adapted from this four-serving recipe. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/coconut-chickpea-spinach-curry?utm_source=openai))\n\nShopping list for four\n\nProduce\n  2 onions\n  1 bulb garlic\n  1 small piece fresh ginger\n  300–400 g frozen spinach\n  1 cucumber\n  4 tomatoes\n  2 limes\n  1 bunch coriander, optional\n  4 oranges for dessert\n\nTins and rice\n  3 × 400 g tins chickpeas — for generous portions\n  2 × 400 ml tins coconut milk\n  1 × 500 g bag basmati rice — use about 300 g\n\nCheck your cupboard first\n  Sunflower or olive oil\n  Ground cumin\n  Turmeric\n  Garam masala\n  Chilli powder, optional\n  Salt\n\nBudget: aim for €25–35, leaving some room within your €40 limit. That’s a planning estimate, not checked local pricing; buying every spice and oil from scratch could push it higher. Skip the coriander first if needed.\n\nFor Idris: check packaged ingredients, particularly spice blends, for sesame and “may contain sesame” warnings. Use clean utensils and surfaces to prevent cross-contact; no sesame oil or tahini. ([foodallergycanada.org](https://foodallergycanada.org/allergies/sesame/?utm_source=openai))\n\nCooking outline: soften the onions, garlic and ginger in oil; add the spices, then coconut milk and drained chickpeas. Simmer, stir in spinach, and finish with lime. Serve with rice and the chopped cucumber–tomato salad.",
+          "person": "Yes, they're coming, I mentioned that before. Four of us including me. Not sure what to make, something Italian or Indian would be good. Budget is about 40 euros."
+        }
+      ]
+    },
+    "packet": "P11"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Scheduling the 7 am swim on Thursday."
+      ],
+      "must_use": [
+        "There is no swim this Thursday because the pool is closed."
+      ],
+      "no_repeat": [
+        "Whether there is a swim on Thursday.",
+        "The usual swim routine."
+      ],
+      "outcome": "A plan for a Thursday morning without the swim.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "Every Tuesday and Thursday I swim at 7 in the morning before work."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "This Thursday the pool is closed for maintenance, so there's no swim that morning."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "With no swim on Thursday, November 5, what time do you need to be ready for work or leave home?",
+          "person": "Can you help me plan my Thursday morning?"
+        },
+        {
+          "assistant": "Let’s keep your usual **7 a.m. activity slot**, without making Thursday a whole new routine.\n\n- **7:00–7:35 — A brisk walk.** No trip to the pool, no equipment.\n- **7:35–7:55 — Shower and get dressed.**\n- **7:55–8:10 — Breakfast.**\n- **8:10–8:15 — Grab your things and leave**, with a little breathing room before your 9 a.m. start.\n\nIf the weather’s miserable, swap the walk for 20–25 minutes of indoor movement—marching in place, a few easy bodyweight exercises, or dancing to a handful of songs. The point is to keep an active morning, not recreate the swim on dry land.",
+          "person": "I usually leave home at 8:15, work starts at 9. I'd like to stay active that morning if possible."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Since you swim at 7:00 AM on Thursdays before work, I’d plan around that:\n\n  6:00 AM — Wake up, hydrate, and have a light snack if you’re hungry.\n  Before 7:00 — Leave enough time to travel, change, and get poolside.\n  7:00 AM — Swim.\n  Afterward — Shower, get dressed, and have breakfast before work.\n\nPack your swim bag and work clothes Wednesday night to keep the morning simple.\n\nWhat time do you start work, and how long do you usually swim and commute?",
+          "person": "Can you help me plan my Thursday morning?"
+        },
+        {
+          "assistant": "You’re right—I missed the pool closure. With work at 9:00 and departure at 8:15, here’s a relaxed alternative:\n\n  6:45 — Wake up and get dressed.\n  7:00–7:35 — Brisk walk outside, or an easy indoor workout if the weather’s poor.\n  7:35–7:45 — Gentle stretching and cool down.\n  7:45–8:05 — Shower, dress, and have breakfast.\n  8:05–8:15 — Grab your things and leave.\n\nKeep it easy enough to feel refreshed rather than rushed. Set out your clothes and prep breakfast Wednesday night to make that last half hour easier.",
+          "person": "Actually the pool's closed this Thursday for maintenance, I mentioned that before. Work starts at 9 and I usually leave at 8:15. I'd still like to do something active though."
+        }
+      ]
+    },
+    "packet": "P12"
+  },
+  {
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "Priya is opening a bakery in town."
+      ],
+      "no_repeat": [],
+      "outcome": "Saying it does not know the name and suggesting how to tell colleagues anyway or how to find out.",
+      "unknown": [
+        "The bakery's name was never given."
+      ]
+    },
+    "earlier_conversations": [
+      [
+        "My friend Priya is opening a bakery in town soon."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "You haven’t told me its name yet—what’s Priya calling it?",
+          "person": "What's the name of Priya's bakery? I want to tell my colleagues."
+        },
+        {
+          "assistant": "What’s Priya’s Instagram handle, or can you share the post?",
+          "person": "I don't know it either, she posted about it on Instagram."
+        },
+        {
+          "assistant": "No worries—what town is she opening it in?",
+          "person": "I don't know her handle offhand, sorry."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "You mentioned Priya is opening a bakery in town soon, but you haven’t told me its name yet.",
+          "person": "What's the name of Priya's bakery? I want to tell my colleagues."
+        },
+        {
+          "assistant": "What’s Priya’s Instagram handle, or can you share a link to her post?",
+          "person": "Yeah, I don't know it either. She posted about it on Instagram, can you find it there?"
+        },
+        {
+          "assistant": "What town is the bakery in, and what’s Priya’s last name? That would help me narrow down the search.",
+          "person": "I don't know her handle offhand, and I don't have the link either."
+        }
+      ]
+    },
+    "packet": "P13"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Proposing an outing or activity that needs walking, standing for long, or stairs."
+      ],
+      "must_use": [
+        "Noor cannot manage stairs and needs to sit most of the time after her knee surgery.",
+        "The afternoon is meant to be cosy and at home, and both enjoy board games."
+      ],
+      "no_repeat": [
+        "Who is coming.",
+        "Whether Noor has any mobility limits.",
+        "Whether they prefer going out."
+      ],
+      "outcome": "A concrete plan for a seated, at-home afternoon (for example games, snacks, timing).",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "My friend Noor is coming over on Saturday afternoon. She just had knee surgery, so she can't manage stairs and needs to sit most of the time.",
+        "My flat is on the ground floor, which helps. We both love board games, and I'd like a cosy afternoon in rather than going out."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "For Noor’s visit, I’d stick with the cosy board-game afternoon you mentioned:\n\n- Set up a comfortable chair with space for her leg; ask beforehand whether she wants pillows or a footrest.\n- Keep the route from the entrance to the table and bathroom clear and step-free.\n- Choose a couple of familiar, two-player games you can pause easily.\n- Put snacks and drinks within reach, and leave the finish time flexible so she can head home when she’s tired.\n\nYou could text: “Looking forward to games and a catch-up! Anything I can have ready to make you more comfortable?”\n\nOne date check: today is Saturday, October 31. Do you mean today’s visit or next Saturday, November 7?",
+          "person": "Saturday's coming up. What should I plan?"
+        },
+        {
+          "assistant": "Saturday, November 7 — a cosy afternoon with Noor, 2–6 p.m.\n\nBefore she arrives\n  Set up your games at a table with a comfortable chair and room for her leg. Keep the entrance and route to the bathroom clear, and put drinks and snacks within reach. Ask her beforehand what would make sitting comfortable and whether she has any food preferences.\n\n2:00–2:30 — Settle in and catch up\n  Offer tea or another drink and a small snack. Let her get comfortable before starting a game.\n\n2:30–3:15 — First game\n  Start with a familiar two-player favourite that needs little explanation. You can handle fetching pieces or anything that falls.\n\n3:15–3:45 — Tea and snack break\n  Have something easy to eat at the table—sandwiches, cake, or whatever you both enjoy. Leave this as proper chatting time rather than rushing into another round.\n\n3:45–4:45 — Main game\n  Play something a little longer if you’re both keen, or do a few shorter rounds. Keep it easy to pause.\n\n4:45–5:15 — Light early supper\n  Serve something you’ve prepared ahead, such as soup and bread or a simple quiche, so you’re not spending the visit cooking.\n\n5:15–5:45 — Choose-your-energy finish\n  One last short game if she feels like it; otherwise, music and a catch-up. No need to fill every minute.\n\n5:45–6:00 — Unhurried departure\n  Gather her belongings and help with anything she wants carried so leaving doesn’t feel rushed.\n\nTreat the times as a loose guide, not a timetable she needs to keep. The games are optional; being comfortable and spending time together are the point.",
+          "person": "Next Saturday, the 7th. Can you make it more of an actual plan for the afternoon? She's coming around 2 and leaving around 6."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "For Noor’s visit—Saturday is today, October 31—your flat is on the ground floor, but can she get from the entrance to where you’ll sit and to the bathroom without any steps?",
+          "person": "Saturday's coming up. What should I plan?"
+        },
+        {
+          "assistant": "Do you mean Noor is visiting today, October 31, or next Saturday, November 7?",
+          "person": "Not sure about steps inside, I haven't really checked. She arrives around 2 and leaves around 6, if that helps."
+        },
+        {
+          "assistant": "November 7, roughly 2–6—got it. Could you check whether the route from your entrance to the seating area and bathroom is completely step-free?",
+          "person": "Next Saturday, the 7th."
+        }
+      ]
+    },
+    "packet": "P14"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Planning the afternoons around the user doing the 3:30 pickup."
+      ],
+      "must_use": [
+        "The partner now does the weekday pickups, so the user's afternoons are free of it."
+      ],
+      "no_repeat": [
+        "Who does the school pickup."
+      ],
+      "outcome": "A concrete afternoon slot or weekly pattern for the run.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "My daughter's school pickup is at 3:30 and it's always been my job."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "From today, my partner does the weekday pickups. His new job has flexible hours."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "With your partner handling weekday pickups now, 3:30 no longer has to be your cutoff. How much time would you like to set aside for the run, including changing and showering?",
+          "person": "I'd like to fit a long run into my weekday afternoons. Any suggestions?"
+        },
+        {
+          "assistant": "Ninety minutes twice a week. How much flexibility do you have over your 4 p.m. finish?",
+          "person": "About ninety minutes, twice a week. I work from home and usually finish at 4."
+        },
+        {
+          "assistant": "Let’s keep your 4 p.m. finish as it is. What time do you need to be back and showered?",
+          "person": "Not sure really, I usually just finish at 4."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "With your partner handling weekday pickups and your new job’s flexible hours, try reserving one afternoon a week as a recurring long-run block.\n\nPick the day with the fewest meetings, finish work earlier rather than squeezing the run between calls, and leave time afterward to shower, eat, and transition into the evening. Keep another afternoon as a backup so one busy day doesn’t derail it.\n\nHow long do you need for the run, and when do you usually need to be home for the evening?",
+          "person": "I'd like to fit a long run into my weekday afternoons. Any suggestions?"
+        },
+        {
+          "assistant": "Got it—your partner’s job has flexible hours; you work from home and usually finish at 4.\n\nI’d try Tuesday and Thursday afternoons:\n  Finish work at 4, change, and head out shortly afterward.\n  Block off ninety minutes for the run, with some extra room afterward to shower and eat.\n  Keep Friday as a backup if work runs late on either day.\n\nLay out your gear before work so leaving is easy, and treat closing the laptop as the start of your running routine. With no fixed evening deadline, there’s no need to squeeze the transition.",
+          "person": "Small correction, it's my partner's new job that has flexible hours, not mine. I work from home and finish at 4 most days. I'd like about ninety minutes, twice a week. No set time I need to be back for the evening."
+        }
+      ]
+    },
+    "packet": "P15"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Making the check-up the whole reply, or giving medical speculation about it."
+      ],
+      "must_use": [
+        "The user's father had a heart check-up this afternoon that the user was worried about."
+      ],
+      "no_repeat": [],
+      "outcome": "A quick dinner idea, with a brief, warm word or question about the father's check-up.",
+      "unknown": [
+        "How the check-up went was never given."
+      ]
+    },
+    "earlier_conversations": [
+      [
+        "Bit of a stressful day. My dad has a heart check-up this afternoon and I'm worried about it."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "I’d go for **tomato, chickpea and pasta soup**—one pot, about 30 minutes, not much to keep track of tonight. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/orzo-tomato-soup))\n\nFor **two generous bowls**, my simplified version:\n- Soften a chopped onion in olive oil, then add a chopped garlic clove.\n- Add a tin each of chopped tomatoes and drained chickpeas, **100g small pasta** and **600ml vegetable stock**.\n- Simmer until the pasta is tender, stirring occasionally; add water if it gets too thick.\n- Season, then finish with a spoonful of pesto if you have it. Bread alongside. Adapted from Good Food’s recipe. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/orzo-tomato-soup))\n\nHave you heard how your dad’s check-up went?",
+          "person": "Could you suggest something quick for dinner tonight?"
+        },
+        {
+          "assistant": "Then let’s make it **tomato pasta instead**—no chickpeas or stock needed.\n\nIf you’ve got pasta and tinned tomatoes:\n- Cook the pasta in salted water.\n- Meanwhile, soften garlic or onion in a little oil, if you have either. Add the tomatoes and simmer while the pasta cooks.\n- Toss together with a splash of the pasta water to loosen the sauce. Taste for salt and pepper; add cheese or pesto if available.\n\nOne less thing to sort out while you wait for his call.",
+          "person": "Not yet, he's calling later. I don't think I have chickpeas or stock though."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Try chickpea quesadillas—about 15 minutes.\n\nMash drained canned chickpeas with cumin, smoked paprika, and a pinch of salt. Spread onto half a tortilla, add shredded cheese, and fold. Cook in a lightly oiled skillet over medium heat until golden on both sides and the cheese melts.\n\nServe with salsa or yogurt, plus whatever salad greens you have. Filling, little cleanup, and no oven.",
+          "person": "Could you suggest something quick for dinner tonight?"
+        },
+        {
+          "assistant": "Make tomato-spinach pasta with an egg on top—about 20 minutes.\n\n1. Put the pasta on to boil in salted water.\n2. Meanwhile, tip the tomatoes into a frying pan with a little oil or butter if you have it. Season with salt and pepper; simmer for 8–10 minutes.\n3. Stir in the spinach until wilted, then make a little hollow in the sauce for each egg. Crack them in, cover, and cook until the whites and yolks are set.\n4. Save a mug of pasta water, then drain. Lift the eggs onto a plate, toss the pasta through the sauce, and add a splash of pasta water if needed. Put the eggs on top.\n\nGarlic, chilli flakes, or cheese would be good extras, but none is necessary.",
+          "person": "I don't have chickpeas or tortillas. I've got pasta, eggs, a tin of tomatoes and some spinach."
+        }
+      ]
+    },
+    "packet": "P16"
+  }
+]

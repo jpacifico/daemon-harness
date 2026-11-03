@@ -1,0 +1,362 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "47935af513af5ce9832072d8b022f68b402682e5b6a646e3373104600c80144b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "4fb816f365d94c36bd3b3a5f6be7695a22ef6a9d5e0a2453d47adc6852a316e7",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 654,
+  "dry_run": false,
+  "episode": "relationship.01",
+  "episode_ms": 399098,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "relationship.01-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 206720
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 17,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 99624
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 7603
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1063
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 313947
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 42624
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 66230
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1689
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 318
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 110543
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 69777,
+      "first_native_text_ms": 5679,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4363,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14546,
+      "prompt": "Bit of a stressful day. My dad has a heart check-up this afternoon and I'm worried about it.",
+      "response": "I’m sorry. Waiting for news about your dad’s heart is a hard place to sit—especially when you don’t yet know whether there’s anything to worry about.\n\nIs this a routine check-up, or has something prompted it?",
+      "response_ms": 14546,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 28860,
+      "first_native_text_ms": 11403,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6114,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 23643,
+      "prompt": "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+      "response": "Basil needs **sun, warmth, and moist soil that drains well**. A windowsill can offer the sunlight but still be too cold—especially overnight. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n\nThe essentials:\n\n- **Proper sunlight.** Aim for roughly six hours of direct sun, rather than just a bright-looking room. A sunny, south-facing window is a good starting point in the Northern Hemisphere. ([eauclaire.extension.wisc.edu](https://eauclaire.extension.wisc.edu/files/2011/03/MiniHerbWorkshop2015.pdf?utm_source=openai))\n- **Warmth without cold drafts.** Keep it away from cold window glass and chilly air coming through gaps. Basil is less tolerant of a cool windowsill than many other herbs. ([chicagobotanic.org](https://www.chicagobotanic.org/plantinfo/tips/growing_herbs_your_windowsill?utm_source=openai))\n- **Moisture, not a swamp.** Check the soil rather than watering on a fixed schedule: let the surface begin to dry, then water thoroughly and let the excess drain. The pot needs drainage holes; don’t leave it standing in water. Roots need air as well as water. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n- **Regular tip harvesting.** Pinch out growing tips rather than repeatedly stripping individual leaves; this encourages branching. Remove flower buds to keep it producing leaves. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n- **A little feeding.** For indoor plants, a liquid fertilizer at half the label strength every four to six weeks is enough. More isn’t automatically better. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil?utm_source=openai))\n\nWhat happens first with yours—do they wilt, turn yellow, or develop dark leaves?",
+      "response_ms": 23643,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 29554,
+      "first_native_text_ms": 13765,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7863,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22751,
+      "prompt": "How often should I water it, and how do I tell if I'm overdoing it?",
+      "response": "**Check it daily, but don’t automatically water daily.** Push a finger about an inch (2–3 cm) into the soil: if it’s still damp, wait; if that top layer feels dry, water. That’s more reliable than a fixed schedule. ([rhs.org.uk](https://www.rhs.org.uk/shows-events/rhs-urban-show/houseplant-profiles/houseplants-for-sunlight?utm_source=openai))\n\nWhen you water, wet the soil thoroughly, let the excess drain out, and empty the saucer or outer pot. Avoid little daily top-ups that keep the roots constantly wet. ([soiltest.vt.edu](https://www.soiltest.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-804.html?utm_source=openai))\n\n**Signs you may be overdoing it:**\n- Leaves turn yellow or brown.\n- The plant wilts **even though the soil is wet**—don’t assume every droop means thirst. These signs suggest overwatering but aren’t a diagnosis on their own. ([soiltest.vt.edu](https://www.soiltest.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-804.html?utm_source=openai))\n\nIf it’s damp and drooping, hold off on more water and check that the pot drains freely. Roots need air as well as moisture. ([ask.extension.org](https://ask.extension.org/kb/faq.php?id=904518&utm_source=openai))",
+      "response_ms": 22751,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 33282,
+      "first_native_text_ms": 9559,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9614,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22566,
+      "prompt": "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?",
+      "response": "**Supermarket pots are fine to keep going—I’d try that before starting from seed.** The catch is that one pot often contains lots of seedlings crammed together, rather than one plant. Splitting them gives them room to grow. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n\n- **For the quicker route:** gently divide a supermarket pot into several smaller clumps and repot them in fresh potting mix, using pots with drainage holes. You don’t need to untangle every individual seedling. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n- **For growing from seed:** it’s worth trying if you enjoy the process or want different varieties. Sow indoors in warmth, then move seedlings into their own pots once they have several leaves. Spring is a good starting point. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n\nEither way, the same light and warmth requirements apply—starting from seed won’t solve a cold or poorly lit windowsill. So my vote is **split a bought pot first; seeds as a separate experiment**, rather than a rescue strategy. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))",
+      "response_ms": 22566,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 46332,
+      "first_native_text_ms": 14046,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 12241,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 23300,
+      "prompt": "Could you suggest something quick for dinner tonight?",
+      "response": "I’d go for **tomato, chickpea and pasta soup**—one pot, about 30 minutes, not much to keep track of tonight. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/orzo-tomato-soup))\n\nFor **two generous bowls**, my simplified version:\n- Soften a chopped onion in olive oil, then add a chopped garlic clove.\n- Add a tin each of chopped tomatoes and drained chickpeas, **100g small pasta** and **600ml vegetable stock**.\n- Simmer until the pasta is tender, stirring occasionally; add water if it gets too thick.\n- Season, then finish with a spoonful of pesto if you have it. Bread alongside. Adapted from Good Food’s recipe. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/orzo-tomato-soup))\n\nHave you heard how your dad’s check-up went?",
+      "response_ms": 23300,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 11837,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 50358,
+      "first_native_text_ms": 5646,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 14870,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 16055,
+      "prompt": "Not yet, he's calling later. I don't think I have chickpeas or stock though.",
+      "response": "Then let’s make it **tomato pasta instead**—no chickpeas or stock needed.\n\nIf you’ve got pasta and tinned tomatoes:\n- Cook the pasta in salted water.\n- Meanwhile, soften garlic or onion in a little oil, if you have either. Add the tomatoes and simmer while the pasta cooks.\n- Toss together with a splash of the pasta water to loosen the sauce. Taste for salt and pepper; add cheese or pesto if available.\n\nOne less thing to sort out while you wait for his call.",
+      "response_ms": 16055,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 5944,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

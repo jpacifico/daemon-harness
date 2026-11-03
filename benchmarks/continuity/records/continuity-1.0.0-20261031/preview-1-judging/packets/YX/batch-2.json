@@ -1,0 +1,145 @@
+[
+  {
+    "conversations": [
+      [
+        "I'm flying to Lisbon next month for a conference."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "What time is my flight again?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The trip is a flight to Lisbon next month for a conference."
+      ],
+      "next_step": "Saying it does not know the time and offering a way to find it (for example the booking confirmation).",
+      "no_repeat": [],
+      "unknown": [
+        "The flight's date and time were never given."
+      ]
+    },
+    "packet": "P09",
+    "replies": {
+      "X": "I don’t have your flight details in the available history. What’s the airline and flight number, or can you share the booking confirmation?",
+      "Y": "You mentioned flying to Lisbon in November for a conference, but you haven’t given me the flight time. Do you have the booking confirmation handy?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Last month I was on night shifts, so I slept until noon every day."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "That rota is over. I'm back on day shifts now, starting at 8 every morning."
+      ],
+      [
+        "What's a better time for a yoga class this week, morning or evening?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Planning around night shifts or sleeping until noon."
+      ],
+      "must_use": [
+        "The user now works day shifts starting at 8."
+      ],
+      "next_step": "A clear recommendation of a time that fits a day shift starting at 8.",
+      "no_repeat": [
+        "The current work schedule."
+      ],
+      "unknown": []
+    },
+    "packet": "P10",
+    "replies": {
+      "X": "What time do you finish work this week?",
+      "Y": "Evening is probably the better fit with your 8 a.m. starts—less rushing and no need to cut into sleep. Aim for a class after work; choose morning only if you can comfortably fit it in without waking much earlier."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My sister's wedding is on the 14th of June, in Porto."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "Sorry, I got that wrong: it's on the 21st of June, and it's in Braga, not Porto."
+      ],
+      [
+        "Can you help me plan the trip for the wedding?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Using the 14th of June or Porto as the wedding date or place."
+      ],
+      "must_use": [
+        "The wedding is on the 21st of June.",
+        "It is in Braga."
+      ],
+      "next_step": "Trip planning steps for Braga around the 21st of June.",
+      "no_repeat": [
+        "The date.",
+        "The city."
+      ],
+      "unknown": []
+    },
+    "packet": "P11",
+    "replies": {
+      "X": "Where and when is the wedding, where will you be traveling from, and what’s your rough budget?",
+      "Y": "Yes—21 June in Braga. What year is the wedding, and where will you be travelling from?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My new manager is called Daniel and he likes updates by email."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ],
+      [
+        "Correction: it's Danielle, not Daniel, and she prefers a short Teams message, not an email."
+      ],
+      [
+        "Can you help me write my weekly update for my manager?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Addressing the update to Daniel or writing it as an email."
+      ],
+      "must_use": [
+        "The manager is Danielle.",
+        "She prefers a short Teams message."
+      ],
+      "next_step": "A draft short Teams message for Danielle.",
+      "no_repeat": [
+        "The manager's name.",
+        "The preferred format."
+      ],
+      "unknown": []
+    },
+    "packet": "P12",
+    "replies": {
+      "X": "Send me your wins, work in progress, blockers, and next week’s priorities—rough bullets are fine. I’ll turn them into a short Teams update for Danielle.",
+      "Y": "What did you work on this week, were there any blockers, and what’s planned for next week?"
+    }
+  }
+]

@@ -1,0 +1,268 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "1c6d044acf257617272619648ff5b42a779314369eef125167bb902104ac0999",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "86a8ff692a23e351237a87ce0c36ec2b50ac2f72d4b81ab86d85b91c7d415d72",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "people.04",
+  "episode_ms": 78068,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "people.04-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 44928
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 43659
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1063
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 57
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 89650
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2621,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8398,
+      "prompt": "When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week.",
+      "response": "Got it—you cook low-salt when your mum visits because of her blood pressure. I won’t assume that’s your usual diet when she’s not staying.",
+      "response_ms": 8398,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2556,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15493,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "A moving bicycle stays upright mainly because it can steer its wheels back underneath you when you start to fall.\n\nImagine balancing a broom upright on your palm. If the broom tips left, you move your hand left to get underneath it again. A bicycle does something similar: if it leans left, steering left makes the wheels follow a curved path that helps catch the lean.\n\nWhen you ride, you make these small steering corrections almost without noticing. A bike’s design can help, too: the geometry of the steering assembly and the distribution of its weight can cause the front wheel to steer into a lean on its own.\n\nMoving forward makes those corrections effective—a small turn of the handlebars can quickly change where the wheels go. At very low speed, you need bigger, more deliberate corrections. At a standstill, steering alone barely moves the support beneath you, which is why balancing becomes much harder.\n\nYou may have heard that the spinning wheels act like gyroscopes. They do contribute, but they aren’t the main explanation, and their gyroscopic effect isn’t necessary for a bicycle to balance.\n\nThe key idea: riding a bike isn’t avoiding every little fall—it’s continually catching those falls by steering.",
+      "response_ms": 15493,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2397,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10930,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "Mostly something else: steering to keep the wheels underneath your center of mass.\n\nWhen the bike starts leaning, you—and partly the bike’s own steering response—turn into the lean. That changes the bike’s path and helps restore balance. It’s like moving your hand underneath a tipping broom.\n\nThe spinning wheels’ gyroscopic effect influences how the bike leans and steers, but it isn’t the main thing holding you up. My earlier wording made the contributions sound more cleanly separable than they are: steering geometry, weight distribution, and wheel spin work together, while your steering corrections keep the whole system balanced.",
+      "response_ms": 10930,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 2208,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12576,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because at low speed, steering doesn’t move the wheels sideways underneath you quickly enough.\n\nIf you start tipping left, you turn left to catch yourself. At a normal riding speed, a small steering adjustment redirects the bike enough to recover. Crawling along, the same adjustment barely changes where the wheels are before you’ve leaned farther—so you need a much sharper turn, plus more deliberate body movements.\n\nThink of balancing a broom on your palm again, but with a restriction: you can only move your hand very slowly. You’d struggle to catch even small tips.\n\nSo the main difficulty isn’t that the wheels have lost their gyroscopic effect; it’s that you’ve lost much of your ability to correct a lean quickly through steering.",
+      "response_ms": 12576,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 5808,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18814,
+      "prompt": "She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home.",
+      "response": "Proper fish and chips for two, then—crisp, salty, and plenty of vinegar.\n\nYou’ll need:\n  2 large cod or haddock fillets\n  600–750 g floury potatoes\n  100 g plain flour, plus a little for dusting\n  ½ tsp baking powder\n  About 150 ml fridge-cold lager or sparkling water\n  Neutral frying oil, salt, malt vinegar\n  Mushy peas or tartare sauce, if you fancy them\n\nGet the chips going first: cut the potatoes into chunky chips, simmer in salted water for 7–8 minutes, then drain and let them steam dry. Toss with oil and roast at 220°C / 200°C fan for 35–45 minutes, turning halfway, until deeply golden.\n\nFor the fish, mix the flour and baking powder with enough cold lager or sparkling water to make a thick, pourable batter. Pat the fillets dry, season, dust lightly with flour, then dip in the batter.\n\nHeat oil to 180°C in a deep, heavy pan, no more than a third full. Carefully lower in the fish and fry for roughly 6–8 minutes, depending on thickness, until golden and the flesh is opaque and flakes easily. Cook separately if the pan’s crowded; keep water away from the hot oil.\n\nSalt everything as soon as it comes out. Vinegar at the table so it stays crisp. Sam can take charge of the chips while you do the fish.",
+      "response_ms": 18814,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 5736,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11758,
+      "prompt": "Any tips to make the chips really good?",
+      "response": "If you mean homemade potato chips/fries, the biggest upgrades are:\n\n- Use starchy potatoes, like Russets, and cut them evenly.\n- Soak the cut potatoes in cold water for 30 minutes, then dry them thoroughly—especially before frying.\n- Cook twice: first gently to soften the middle, then hotter to crisp the outside.\n- Don’t crowd the fryer or baking tray; work in batches so they crisp rather than steam.\n- Salt straight after cooking, and leave them uncovered so they stay crisp.\n\nAre you frying, oven-baking, or air-frying—and do you mean thick chips or thin, crunchy crisps?",
+      "response_ms": 11758,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

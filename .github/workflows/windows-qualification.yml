@@ -1,0 +1,412 @@
+name: Windows portability qualification (not production)
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Test scope (no account or personal service; embeddings uses a local public model)
+        type: choice
+        default: portability
+        options:
+          - portability
+          - installer-python
+          - installer-host-paths
+          - installer-host-recovery
+          - installer-recovery
+          - installer-user-services
+          - installer-user-registration
+          - scheduler-environment
+          - scheduler-job
+          - scheduler-extended
+          - limited-launch
+          - provider-text
+          - installer-embeddings
+          - desktop-companion
+          - companion-distribution
+          - alpha-consolidation
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  alpha-regression:
+    if: ${{ inputs.scenario == 'alpha-consolidation' }}
+    uses: ./.github/workflows/regression.yml
+
+  alpha-desktop:
+    if: ${{ inputs.scenario == 'alpha-consolidation' }}
+    uses: ./.github/workflows/desktop-companion.yml
+    with:
+      qualify-runtime: true
+
+  companion-distribution:
+    if: ${{ inputs.scenario == 'companion-distribution' }}
+    uses: ./.github/workflows/companion-distribution.yml
+
+  desktop-companion:
+    if: ${{ inputs.scenario == 'desktop-companion' }}
+    uses: ./.github/workflows/desktop-companion.yml
+
+  installer-embeddings:
+    if: ${{ inputs.scenario == 'installer-embeddings' }}
+    runs-on: windows-2022
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real pinned local model, user task, restart and rollback
+        run: |
+          python -u scripts/qualification/companion_embeddings_probe.py --output qualification/embeddings.json
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: installer-embeddings-windows
+          path: qualification/
+          retention-days: 7
+          if-no-files-found: error
+
+  portability:
+    if: ${{ inputs.scenario == 'portability' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONUTF8: '1'
+      LLM_PROVIDER: echo
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record environment
+        run: |
+          New-Item -ItemType Directory -Force qualification | Out-Null
+          git rev-parse HEAD
+          python -c "import platform, sys; print(platform.platform()); print(sys.version)"
+          node --version
+          $env:PYTHONPATH = @($PWD.Path, (Join-Path $PWD.Path 'src')) -join [IO.Path]::PathSeparator
+          "PYTHONPATH=$env:PYTHONPATH" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Install pinned dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
+      - name: Check dependencies
+        run: python -m pip check
+      - name: Lint unchanged runtime
+        run: python -m ruff check src server integrations benchmarks tests
+      - name: Python baseline tests
+        run: |
+          python -m pytest -q --continue-on-collection-errors --maxfail=20 --junitxml=qualification/python.xml
+          $testExit = $LASTEXITCODE
+          if (-not (Test-Path qualification/python.xml)) { throw 'Python terminated without a JUnit report; qualification failed.' }
+          exit $testExit
+      - name: OpenClaw plugin baseline tests
+        if: ${{ always() && !cancelled() }}
+        run: |
+          node --test integrations/openclaw_plugin/index.test.js 2>&1 | Tee-Object -FilePath qualification/node.txt
+          exit $LASTEXITCODE
+      - name: Diagnostic overlay only - timezone database
+        id: timezone
+        if: ${{ always() && !cancelled() }}
+        run: python -m pip install tzdata==2025.2
+      - name: Diagnostic process liveness with owned disposable children
+        if: ${{ always() && !cancelled() && steps.timezone.outcome == 'success' }}
+        run: |
+          python -u scripts/qualification/windows_portability_probe.py 2>&1 | Tee-Object -FilePath qualification/process-probe.txt
+          exit $LASTEXITCODE
+      - name: Diagnostic subset after timezone overlay
+        if: ${{ always() && !cancelled() && steps.timezone.outcome == 'success' }}
+        run: |
+          python -m pytest -q tests/test_canonical_voice.py tests/test_openclaw_bridge.py tests/test_onboarding.py tests/test_onboarding_manner.py tests/test_voice_request_capture.py --maxfail=20 --junitxml=qualification/diagnostic.xml
+          $testExit = $LASTEXITCODE
+          if (-not (Test-Path qualification/diagnostic.xml)) { throw 'Diagnostic tests terminated without a JUnit report.' }
+          exit $testExit
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: portability-${{ matrix.os }}
+          path: qualification/
+          retention-days: 7
+          if-no-files-found: error
+
+  installer-python:
+    if: ${{ inputs.scenario == 'installer-python' }}
+    runs-on: windows-2022
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: candidate
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: 90083b15f8deec148188fc5cf3900e4aba912ea6
+          path: baseline
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download the same pinned uv as the installer
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'uv.zip'
+          $destination = Join-Path $env:RUNNER_TEMP 'probe-uv'
+          Invoke-WebRequest 'https://github.com/astral-sh/uv/releases/download/0.12.16/uv-x86_64-pc-windows-msvc.zip' -OutFile $archive
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'f730454bf09019754e5e5abd71a8aa18683cb739cba0d9c720bac2e7c901160f') { throw 'uv archive digest mismatch' }
+          Expand-Archive $archive $destination
+          $binaries = @(Get-ChildItem $destination -Recurse -Filter uv.exe)
+          if ($binaries.Count -ne 1) { throw 'Expected exactly one uv.exe' }
+          if ((Get-FileHash $binaries[0].FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne '76de4c65c174ec178119a58ed63bf350bd5d0e20d25b3130502d58dbb13fa8ea') { throw 'uv binary digest mismatch' }
+          "DAEMON_PROBE_UV=$($binaries[0].FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Observe the previous installer (failures retained as evidence)
+        run: |
+          python -S candidate/scripts/qualification/companion_python_probe.py --source baseline --uv "$env:DAEMON_PROBE_UV" --uv-sha256 76de4c65c174ec178119a58ed63bf350bd5d0e20d25b3130502d58dbb13fa8ea --output qualification/python-baseline.json --baseline
+          exit $LASTEXITCODE
+      - name: Check candidate installation, final imports and two real rollbacks
+        if: ${{ !cancelled() && env.DAEMON_PROBE_UV != '' }}
+        run: |
+          python -S candidate/scripts/qualification/companion_python_probe.py --source candidate --uv "$env:DAEMON_PROBE_UV" --uv-sha256 76de4c65c174ec178119a58ed63bf350bd5d0e20d25b3130502d58dbb13fa8ea --output qualification/python-candidate.json
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: installer-python-windows
+          path: qualification/*.json
+          retention-days: 7
+          if-no-files-found: error
+
+  installer-recovery:
+    if: ${{ inputs.scenario == 'installer-host-recovery' || inputs.scenario == 'installer-recovery' || inputs.scenario == 'installer-user-services' || inputs.scenario == 'installer-user-registration' }}
+    runs-on: windows-2022
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: candidate
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.scenario == 'installer-host-recovery' && '67c0a28c50e88c0ea79a142623ef37cd5358b6a9' || '6d10178b9130dc4a0adf842bda0359faedd2e052' }}
+          path: baseline
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download the same pinned uv as the installer
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'uv.zip'
+          $destination = Join-Path $env:RUNNER_TEMP 'probe-uv'
+          Invoke-WebRequest 'https://github.com/astral-sh/uv/releases/download/0.12.16/uv-x86_64-pc-windows-msvc.zip' -OutFile $archive
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'f730454bf09019754e5e5abd71a8aa18683cb739cba0d9c720bac2e7c901160f') { throw 'uv archive digest mismatch' }
+          Expand-Archive $archive $destination
+          $binaries = @(Get-ChildItem $destination -Recurse -Filter uv.exe)
+          if ($binaries.Count -ne 1) { throw 'Expected exactly one uv.exe' }
+          if ((Get-FileHash $binaries[0].FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne '76de4c65c174ec178119a58ed63bf350bd5d0e20d25b3130502d58dbb13fa8ea') { throw 'uv binary digest mismatch' }
+          "DAEMON_PROBE_UV=$($binaries[0].FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Install test dependencies for independent Windows ACL checks
+        run: |
+          python -m pip install --require-hashes -r candidate/requirements-runtime.lock
+          python -m pip install pytest==8.4.2 pywin32==312
+      - name: Check real Windows files, locks and child process liveness
+        run: |
+          $env:PYTHONPATH = @((Join-Path $PWD.Path 'candidate'), (Join-Path $PWD.Path 'candidate/src')) -join [IO.Path]::PathSeparator
+          python -m pytest candidate/tests/test_platform_support.py candidate/tests/test_windows_persistence.py candidate/tests/test_codex_cli_provider.py -q --tb=short --junitxml=qualification/windows-primitives.xml
+          exit $LASTEXITCODE
+      - name: Check native task definitions, running state and removal
+        if: ${{ inputs.scenario == 'installer-recovery' }}
+        run: |
+          python candidate/scripts/qualification/windows_scheduler_job_probe.py
+          exit $LASTEXITCODE
+      - name: Reproduce legacy failure and run complete native private recovery
+        if: ${{ inputs.scenario == 'installer-recovery' }}
+        run: |
+          python -S candidate/scripts/qualification/companion_windows_setup_probe.py --baseline baseline --uv "$env:DAEMON_PROBE_UV" --output qualification/windows-recovery.json
+          exit $LASTEXITCODE
+      - name: Realistic long paths, first exchange and existing gateway repair
+        if: ${{ inputs.scenario == 'installer-host-recovery' }}
+        run: |
+          python candidate/scripts/qualification/windows_host_paths_setup.py --baseline baseline --uv "$env:DAEMON_PROBE_UV"
+          exit $LASTEXITCODE
+      - name: Counter-test registration, identity, restoration and removal as a standard account
+        if: ${{ inputs.scenario == 'installer-user-registration' }}
+        run: |
+          python candidate/scripts/qualification/windows_unprivileged_probe.py --mode registration
+          exit $LASTEXITCODE
+      - name: Counter-test access denied and complete installation as a standard Windows user
+        if: ${{ inputs.scenario == 'installer-user-services' }}
+        run: |
+          python candidate/scripts/qualification/windows_unprivileged_probe.py --mode setup --baseline baseline --uv "$env:DAEMON_PROBE_UV"
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: installer-recovery-windows
+          path: qualification/
+          retention-days: 7
+          if-no-files-found: error
+
+  scheduler-environment:
+    if: ${{ inputs.scenario == 'scheduler-environment' }}
+    runs-on: windows-2022
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -S scripts/qualification/windows_scheduler_environment_probe.py
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: scheduler-environment
+          path: qualification/*.json
+          retention-days: 7
+
+  scheduler-job:
+    if: ${{ inputs.scenario == 'scheduler-job' || inputs.scenario == 'scheduler-extended' }}
+    runs-on: windows-2022
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/qualification/windows_scheduler_job_probe.py ${{ inputs.scenario == 'scheduler-extended' && '--extended' || '' }}
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: scheduler-job
+          path: qualification/*.json
+          retention-days: 7
+          if-no-files-found: error
+
+  provider-text:
+    if: ${{ inputs.scenario == 'provider-text' }}
+    runs-on: windows-2022
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONUTF8: '0'
+      PYTHONIOENCODING: 'utf-8'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install isolated test dependencies
+        run: |
+          python -m pip install --require-hashes -r requirements-runtime.lock
+          python -m pip install pytest==8.4.2
+      - name: Check provider commands, UTF-8 pipes and native locale
+        run: |
+          $env:PYTHONPATH = @($PWD.Path, (Join-Path $PWD.Path 'src')) -join [IO.Path]::PathSeparator
+          python -c "import locale,sys; print(sys.version); print(locale.getencoding()); print(sys.flags.utf8_mode)"
+          python -m pytest tests/test_codex_cli_provider.py tests/test_companion_telegram_fixture.py -q --junitxml=qualification/provider-text.xml
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: provider-text-windows
+          path: qualification/
+          retention-days: 7
+          if-no-files-found: error
+
+  limited-launch:
+    if: ${{ inputs.scenario == 'limited-launch' }}
+    runs-on: windows-2022
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pywin32==312
+      - run: python -B scripts/qualification/windows_limited_launch_probe.py
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: limited-launch
+          path: qualification/
+          retention-days: 7
+          if-no-files-found: error
+
+  installer-host-paths:
+    if: ${{ inputs.scenario == 'installer-host-paths' }}
+    runs-on: windows-2022
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download the same pinned uv as the installer
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'uv.zip'
+          $destination = Join-Path $env:RUNNER_TEMP 'probe-uv'
+          Invoke-WebRequest 'https://github.com/astral-sh/uv/releases/download/0.12.16/uv-x86_64-pc-windows-msvc.zip' -OutFile $archive
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'f730454bf09019754e5e5abd71a8aa18683cb739cba0d9c720bac2e7c901160f') { throw 'uv archive digest mismatch' }
+          Expand-Archive $archive $destination
+          $binaries = @(Get-ChildItem $destination -Recurse -Filter uv.exe)
+          if ($binaries.Count -ne 1) { throw 'Expected exactly one uv.exe' }
+          if ((Get-FileHash $binaries[0].FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne '76de4c65c174ec178119a58ed63bf350bd5d0e20d25b3130502d58dbb13fa8ea') { throw 'uv binary digest mismatch' }
+          "DAEMON_PROBE_UV=$($binaries[0].FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Real host import probes with long paths disabled in this disposable VM
+        run: python -B -S scripts/qualification/windows_host_paths_probe.py --uv "$env:DAEMON_PROBE_UV"
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && !cancelled() }}
+        with:
+          name: windows-host-paths
+          path: qualification/
+          retention-days: 7
+          if-no-files-found: error

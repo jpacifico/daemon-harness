@@ -1,0 +1,359 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "d162a4fb18869da5ff0f245d203454321f5b720f2f27b89e0027a982b9022a33",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "dfcc005b59404721df43f442a194ba432306c04489f89f42702d05590f1a40cd",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 692,
+  "dry_run": false,
+  "episode": "time.04",
+  "episode_ms": 347974,
+  "family": "time",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "time.04-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 206720
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 17,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 103370
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 6365
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1330
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 316455
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 36096
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 79651
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1770
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 349
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 117517
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 48366,
+      "first_native_text_ms": 9698,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3492,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14377,
+      "prompt": "Last month I was on night shifts, so I slept until noon every day.",
+      "response": "Noon means something quite different when you’ve worked through the night. How did that schedule suit you?",
+      "response_ms": 14377,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 23288,
+      "first_native_text_ms": 12447,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5242,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 39354,
+      "prompt": "How does a sourdough starter actually work, chemically and biologically?",
+      "response": "A sourdough starter is **a living microbial community in flour and water**: chiefly yeasts and lactic acid bacteria. They turn flour’s carbohydrates into gas, acids, alcohol and aroma compounds. The gas lifts the dough; the other products change its taste and texture. ([elifesciences.org](https://elifesciences.org/articles/61644))\n\n### 1. Flour supplies the food—and enzymes that make it accessible\nMuch of flour’s carbohydrate is starch: long chains of glucose that ordinary sourdough yeasts cannot simply swallow whole. Once flour is hydrated, cereal enzymes, including **amylases**, release smaller sugars, notably maltose. Other enzymes and microbial activities break down proteins into smaller peptides and amino acids. That makes the flour a usable growth medium, not just something the microbes sit in. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))\n\n### 2. Yeasts make the bubbles\nYeasts ferment available sugars, producing **carbon dioxide and ethanol**. The simplified reaction for glucose is:\n\n**glucose → 2 ethanol + 2 CO₂ + energy**\n\nThe microbes capture some of that energy to sustain themselves and grow. CO₂ accumulating in the dough produces bubbles and expansion—the visible rise. So the bubbles are a product of metabolism, not air that the starter has somehow absorbed. ([elifesciences.org](https://elifesciences.org/articles/61644))\n\n### 3. Bacteria make the acidity\nLactic acid bacteria ferment sugars through different pathways:\n\n- **Homofermentative pathways** produce mainly lactic acid.\n- **Heterofermentative pathways** produce lactic acid alongside CO₂ and ethanol or acetic acid, depending on the organism and conditions.\n\nThose acids give sourdough its tang and lower its pH. Acidification also changes how flour’s enzymes work, so bacteria alter the dough both directly, through their products, and indirectly, by changing its chemistry. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))\n\n### 4. The community selects itself\nStarting from flour and water is not creating life from scratch. Microbes arrive with the ingredients and from the surrounding environment. Repeated fermentation and feeding select a community able to grow under those conditions; the organisms present at the beginning need not be the ones that dominate later. Different starters can therefore develop different microbial populations—and different aromas and rising behavior. ([elifesciences.org](https://elifesciences.org/articles/61644))\n\n### 5. Feeding keeps that community going\nKeeping some starter and adding fresh flour and water transfers an established population into fresh food. This repeated transfer lets the culture persist rather than exhausting one batch of nutrients. A starter is therefore less like a single ancient organism and more like **a continuously renewed population**. When you add it to bread dough, you seed a much larger meal with that population, and the fermentation continues there. ([elifesciences.org](https://elifesciences.org/articles/61644))\n\nThe important connection is that **the biology changes the chemistry, and the chemistry changes which biology thrives**. The microbes acidify their surroundings; those surroundings influence both enzyme activity and the microbial community. That feedback is what makes a starter more interesting than simply “wild yeast in a jar.” ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))",
+      "response_ms": 39354,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 19959,
+      "first_native_text_ms": 11899,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6991,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 23236,
+      "prompt": "Why does it smell sour sometimes and like alcohol other times?",
+      "response": "Because it’s making **acids and alcohol together**, and the balance of what you smell changes as it ferments—not because it switches between two separate processes. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2022/02/22/how-to-make-your-sourdough-bread-more-or-less-sour-part-2?utm_source=openai))\n\n- **The sharp, vinegar-like smell** comes from acetic acid produced by bacteria. They also make lactic acid, which contributes much of the sour *taste*; sour taste and sour smell aren’t quite the same thing. ([scotlandthebread.org](https://scotlandthebread.org/flourandgrain/sourdough-baking-recipes/sourdough-faqs/?utm_source=openai))\n- **The boozy smell** comes from ethanol produced during fermentation. An alcohol-containing liquid layer, often called *hooch*, can also develop on top. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter?utm_source=openai))\n- **A stronger alcoholic or vinegary smell between feedings** commonly means the starter is ready for more food. Time, temperature and feeding conditions affect how those fermentation products accumulate. ([shop.kingarthurbaking.com](https://shop.kingarthurbaking.com/content/recipes/SourdoughBooklet_2_2026.pdf?utm_source=openai))\n\nSo an alcoholic smell alone isn’t a sign you’ve ruined it—it’s a normal fermentation smell, often a cue to feed it. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/faq?utm_source=openai))",
+      "response_ms": 23236,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 24131,
+      "first_native_text_ms": 10073,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8740,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20237,
+      "prompt": "How long can a starter survive in the fridge without feeding?",
+      "response": "**An established starter can often survive weeks—and sometimes months—in the fridge without feeding.** But surviving and being ready to raise bread are different things. There’s no guaranteed expiration date. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\n- **For routine care:** feed it about once a week. That’s maintenance, not a deadline beyond which it dies. ([foodsmartcolorado.colostate.edu](https://foodsmartcolorado.colostate.edu/wp-content/uploads/2022/09/Sourdough-Basics-Caring-for-your-Starter-and-Making-Bread-1.pdf))\n- **After a month or two:** it may still be recoverable, though sluggish and topped with dark alcoholic liquid. Even starters neglected for six months have been revived; that’s a possibility, not a guarantee. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter))\n- **Before using it:** give it fresh flour and water at room temperature, repeating feedings roughly every 12 hours. Recovery may take several days; wait until it reliably doubles within about 6–8 hours after feeding before relying on it to lift bread. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter))\n\n**Discard it if you see mold, pink or orange discoloration, or notice a rotten smell.** A boozy or vinegary smell and dark liquid alone don’t mean it’s spoiled. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter))",
+      "response_ms": 20237,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 61445,
+      "first_native_text_ms": 2843,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 12245,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7489,
+      "prompt": "That rota is over. I'm back on day shifts now, starting at 8 every morning.",
+      "response": "Back on days, with an 8 a.m. start. How has the switch been for you?",
+      "response_ms": 7489,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 51100,
+      "first_native_text_ms": 10673,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 14876,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14692,
+      "prompt": "What's a better time for a yoga class this week, morning or evening?",
+      "response": "What time do you finish work this week?",
+      "response_ms": 14692,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

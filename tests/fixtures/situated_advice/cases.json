@@ -1,0 +1,35 @@
+{
+  "language": "fr",
+  "user_id": "situated-advice-synthetic",
+  "clock": "2026-09-26T12:00:00+02:00",
+  "cases": {
+    "2": {
+      "history": [
+        {"role": "user", "content": "On avait prévu une soirée cinéma avec Léon ce samedi."},
+        {"role": "assistant", "content": "Vous aviez déjà un film en tête ?"},
+        {"role": "user", "content": "Finalement Léon passe le week-end chez ses parents. Je suis seul ce soir."},
+        {"role": "assistant", "content": "Tu gardes la soirée cinéma ?"}
+      ],
+      "message": "Oui, tu me proposes quoi comme film ?",
+      "criteria": [
+        "Use the user's exact film preferences if offering a personalized title.",
+        "Respect the explicit exclusion; do not optimize the choice for Leon or ask whether he is present.",
+        "Do not claim current streaming availability or invent a preference."
+      ]
+    },
+    "3": {
+      "history": [
+        {"role": "user", "content": "Mina et Léon auront tous les deux 30 ans la semaine prochaine."},
+        {"role": "assistant", "content": "Tu pensais leur offrir quelque chose ?"},
+        {"role": "user", "content": "Aujourd'hui je vais prendre un roman pour un seul des deux ; l'autre cadeau attendra."},
+        {"role": "assistant", "content": "D'accord."}
+      ],
+      "message": "Je suis à la librairie, tu me conseilles lequel ?",
+      "criteria": [
+        "Ask which recipient the user is buying for before selecting the dependent book.",
+        "Do not guess a recipient, merge their incompatible preferences or assert a purchase.",
+        "A brief natural clarification is sufficient; do not interview the user about known tastes."
+      ]
+    }
+  }
+}

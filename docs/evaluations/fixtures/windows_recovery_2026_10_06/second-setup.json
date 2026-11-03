@@ -1,0 +1,95 @@
+{
+  "schema": "daemon.windows-setup-probe.v1",
+  "source": "6a9a8c8b6e78edabd7c4715c2315d0628d7e941f",
+  "root": "D:\\a\\_temp\\dr-kj3wuron",
+  "telegram": false,
+  "real_model": false,
+  "oauth": false,
+  "passed": false,
+  "phases": [
+    "Downloading and verifying Hermes 0.21.5...",
+    "Extracting and verifying Hermes files...",
+    "Installing private Python 3.12...",
+    "Installing Hermes dependencies. This may take a few minutes...",
+    "Checking the installed host...",
+    "Preparing the private setup library...",
+    "Reproducing the published legacy Python rollback failure..."
+  ],
+  "cleanup": true,
+  "scheduler_commands": [
+    {
+      "seconds": 36.094,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 22.812,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 22.844,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 22.891,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.187,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.734,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.704,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.921,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.422,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.203,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.235,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 23.062,
+      "exit": 3,
+      "stderr": ""
+    }
+  ],
+  "host_ready_s": 121.062,
+  "legacy": {
+    "exit": 0,
+    "stdout": "{\"status\": \"rollback_failed\", \"completed\": [\"runtime-layout\"], \"rolled_back\": [\"runtime-layout\"], \"failed\": [\"runtime-environment\"]}\n",
+    "stderr": ""
+  },
+  "causes": [
+    {
+      "type": "StopIteration",
+      "message": ""
+    }
+  ],
+  "logs": {},
+  "elapsed_s": 420.703
+}

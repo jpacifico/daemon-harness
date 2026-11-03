@@ -1,0 +1,260 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "f9696d3e9affef60c6c2f98c1421b2b398b0f8387b98f9d883b774dec521c49b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "e377aa4b7437ed7f2da8be98684d6be9c70469cf677c7f0904851b1b1fcb175c",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "unknown.03",
+  "episode_ms": 113083,
+  "family": "unknown",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "unknown.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 50944
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 56137
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1770
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 78
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 108851
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 29,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 16,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 3336,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8282,
+      "prompt": "My friend Priya is opening a bakery in town soon.",
+      "response": "What kind of bakery is Priya opening?",
+      "response_ms": 8282,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 2,
+      "first_native_text_ms": 8589,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 45072,
+      "prompt": "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+      "response": "Ocean tides are long-period rises and falls in sea level, driven mainly by the Moon’s gravity and, to a lesser extent, the Sun’s. Most coastlines experience two high tides and two low tides each lunar day—but the shape and depth of the oceans can change that pattern considerably.\n\nThe key is a difference in gravity\n\nThe Moon pulls on the whole Earth, not just the oceans. If it pulled every part of Earth equally, Earth and its oceans would simply move together, and there would be no lunar tide.\n\nBut gravity weakens with distance. So the Moon pulls:\n\n  • More strongly on the side of Earth nearest the Moon.\n  • A little less strongly on Earth’s center.\n  • Still less strongly on the side farthest from the Moon.\n\nThose differences create the tide-producing force. Relative to Earth’s center, the near side is pulled toward the Moon, while the far side is left behind. The result is a stretching effect along the Earth–Moon direction, accompanied by a squeezing effect in the perpendicular directions.\n\nWhy that gives two high tides\n\nImagine an idealized Earth completely covered by an ocean of uniform depth. In a simple equilibrium picture, its water would form two broad bulges: one facing the Moon and one facing away from it. Between them would be regions of lower water level.\n\nThe far-side bulge is the counterintuitive part. The Moon isn’t pushing that water away. It is pulling Earth’s center toward itself more strongly than it pulls the far-side water. Relative to the center, that water therefore tends outward.\n\nAs Earth rotates, a location passes through both high-water regions and both low-water regions. This is the basic reason for the familiar pattern of two high tides and two low tides.\n\nThat picture is a useful starting point, not a literal description of two stationary piles of water that the continents move through. Real tides are moving waves in ocean basins.\n\nWhy the timing shifts each day\n\nThe relevant cycle is the lunar day, rather than our ordinary solar day.\n\nWhile Earth rotates, the Moon also moves forward in its orbit. Earth therefore needs a little extra rotation before the same location faces the Moon again. A lunar day lasts about 24 hours and 50 minutes.\n\nFor a tide dominated by the main twice-daily lunar component:\n\n  • Consecutive high tides are about 12 hours and 25 minutes apart.\n  • Corresponding high tides occur roughly 50 minutes later each day.\n\nActual coastal tide times can depart substantially from this simple schedule.\n\nWhat the Sun does\n\nThe Sun also produces tides. Although its total gravitational pull on Earth is much greater than the Moon’s, the difference in its pull across Earth is smaller. For tides, that difference is what matters.\n\nThe solar and lunar effects combine:\n\n  • At new moon and full moon, the Sun, Earth, and Moon are approximately aligned. Their main tidal effects reinforce one another, producing spring tides: a larger difference between high and low water. “Spring” here has nothing to do with the season.\n\n  • At first and third quarter moon, the directions toward the Sun and Moon are approximately at right angles. Their effects partly counteract one another, producing neap tides: a smaller difference between high and low water.\n\nWhy not every coast gets two equal tides\n\nContinents interrupt the movement of tidal waves. Ocean depth affects their speed; Earth’s rotation deflects their motion; and bays and channels can amplify or weaken them. Some basins also resonate, much like water sloshing in a bathtub.\n\nThe Moon’s and Sun’s positions north or south of the equator also contribute to unequal successive tides. Together, these factors produce three broad patterns:\n\n  • Semidiurnal: two fairly similar high tides and low tides per lunar day.\n  • Mixed: two of each, but with noticeably different heights.\n  • Diurnal: predominantly one high tide and one low tide per lunar day.\n\nIn short: the Moon’s unequal gravitational pull creates a two-sided tidal forcing. Earth’s rotation gives that forcing its roughly twice-daily rhythm, while the oceans’ geography determines how it actually appears at a particular shore.",
+      "response_ms": 45072,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 2399,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13858,
+      "prompt": "Interesting. And why are spring tides bigger than neap tides?",
+      "response": "Spring tides are bigger because the Sun’s and Moon’s tide-producing effects reinforce one another; at neap tides, they partly oppose one another.\n\nThe important thing is that each produces a two-sided tidal pattern—not just a bulge pointing toward it.\n\nAt new moon, the Sun and Moon are in roughly the same direction from Earth, so their tidal patterns line up. At full moon, they are in opposite directions, but their patterns still line up: each stretches the ocean along the same axis. In both cases, the combined effect makes high tides generally higher and low tides lower. That larger tidal range is a spring tide.\n\nAt quarter moon, the Sun and Moon lie roughly at right angles as seen from Earth. Where the Moon’s tidal effect tends to raise the water, the Sun’s tends to lower it, and vice versa. They partly cancel, giving a smaller tidal range—a neap tide.\n\nThey don’t cancel completely because the Moon’s tide-producing influence is stronger than the Sun’s.\n\nSo “bigger” means a greater difference between high and low tide, not an increase in the ocean’s average water level.",
+      "response_ms": 13858,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2826,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 32512,
+      "prompt": "One more: how do tide tables get predicted so far in advance?",
+      "response": "Tide tables can be predicted years ahead because the main drivers—the motions of Earth, the Moon, and the Sun—are highly regular. The harder part is figuring out how a particular stretch of coast responds to those forces.\n\nMost predictions combine astronomy with measurements of past tides.\n\n1. Measure the local response\n\nA tide gauge records water level over time. Those observations capture the local effects of coastline shape, water depth, nearby bays, and the way tidal waves travel through the ocean.\n\nA longer record helps distinguish tidal cycles that have similar periods, as well as variations that unfold over months or years.\n\n2. Separate the tide into repeating components\n\nIn a method called harmonic analysis, scientists describe the tide as a sum of overlapping, regular oscillations called tidal constituents. Each has:\n\n  • A period: how long one cycle takes.\n  • An amplitude: how much it raises and lowers the water.\n  • A phase: where it sits in its cycle at a particular time.\n\nAstronomy provides the constituent frequencies. Local observations reveal their amplitudes and phases.\n\nOne important constituent is the main twice-daily lunar tide; another is the main twice-daily solar tide. Their slightly different periods make them alternately reinforce and partly cancel each other—the spring–neap cycle we just discussed. Other constituents account for once-daily effects and further variations.\n\nThink of several clock hands turning at different, known speeds: once you know their positions and speeds, you can work out how they will line up in the future.\n\n3. Run those cycles forward\n\nThe prediction adds the constituents together for future dates, including corrections for longer astronomical cycles. The resulting curve gives predicted water levels; its peaks and troughs give the times and heights of high and low tides.\n\nComputer models of ocean circulation can also help, particularly in places with limited observations or complicated coastal geography.\n\nWhat tide tables don’t predict\n\nA tide table usually predicts the astronomical tide, not the exact water level you will experience. Actual levels can be affected by:\n\n  • Winds that pile water against a coast or push it away.\n  • Atmospheric pressure.\n  • Storm surges.\n  • River flow and changes in coastal conditions.\n\nChanges to harbors, channels, or average sea level can also make older local predictions less accurate.\n\nThat’s why there’s no contradiction between predicting tides years ahead and struggling to predict weather weeks ahead: tide tables project regular astronomical cycles, while weather forecasts must track an atmosphere whose small uncertainties grow rapidly. The tidal rhythm is predictable far in advance; the weather-driven departures from it are not.",
+      "response_ms": 32512,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 9122,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13299,
+      "prompt": "What's the name of Priya's bakery? I want to tell my colleagues.",
+      "response": "You mentioned that Priya is opening a bakery in town, but you haven’t told me its name yet.",
+      "response_ms": 13299,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

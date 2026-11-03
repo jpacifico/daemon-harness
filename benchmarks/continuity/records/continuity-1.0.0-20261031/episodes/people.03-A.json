@@ -1,0 +1,274 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "1c6d044acf257617272619648ff5b42a779314369eef125167bb902104ac0999",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "12fb8b3a4a09a9d0e9d9e1bf6d25167aac9bef337b55efb63eabbd7b63071b41",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "people.03",
+  "episode_ms": 114863,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "people.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 70656
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 37650
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1281
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 81
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 109587
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 13,
+      "name": "clarify",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 13449,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22354,
+      "prompt": "I'm taking my nephew Teo, who's seven, into the city on Sunday. He gets carsick on long drives and gets tired after about two hours of walking.",
+      "response": "I’d keep it to one main attraction, a sit-down lunch, and an optional nearby stop—not a full day of sightseeing. Plan a seated break well before Teo reaches his two-hour walking limit, and leave enough energy for the trip home.\n\nWhich city are you heading to, and from where? That’ll help me suggest a manageable route and an alternative to a long drive, if there is one.",
+      "response_ms": 22354,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 3000,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 9526,
+      "prompt": "He's obsessed with trains and dinosaurs.",
+      "response": "Then I’d build the day around a dinosaur museum visit, with a train ride there if the route works—so getting there is part of the fun.\n\nKeep the museum focused on the dinosaurs rather than trying to see everything, then have a sit-down lunch. Anything afterward can be a bonus if Teo still has energy.\n\nWhich city are you visiting, and where are you starting from?",
+      "response_ms": 9526,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 2951,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22792,
+      "prompt": "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+      "response": "Basil needs bright light, warmth, and evenly moist soil—but its roots also need air. On a windowsill, too little light and soil that stays wet are common problems.\n\nHere’s what to aim for:\n\n- Plenty of sun. About 6–8 hours of direct sunlight is ideal. A window that looks bright to you may still be too dim for basil, especially in winter. If it grows tall and thin with small, pale leaves, it likely needs more light.\n\n- Warmth without drafts. Normal warm room temperatures suit it. Keep leaves away from cold glass and avoid chilly overnight drafts or hot, drying air from a radiator.\n\n- Moist soil, not soggy soil. Check with a finger rather than watering on a schedule. When the top inch feels dry, water thoroughly until water drains out, then empty the saucer. Don’t let the pot sit in water.\n\n- A pot with drainage holes. Use loose potting mix, not dense garden soil. A decorative outer pot can hide standing water, so check inside it.\n\n- Enough room. Supermarket basil often consists of many seedlings crammed into one small pot. Those plants compete for light, water, and root space; splitting them into a few smaller clumps and repotting can help.\n\n- Regular, gentle harvesting. Pinch stem tips just above a pair of leaves to encourage branching. Leave plenty of foliage, and pinch off flower buds if your goal is continued leaf production.\n\nThe confusing part is that both dry roots and waterlogged roots can cause wilting. Check the soil before adding more water: a wilted plant in wet soil needs a different response from one in dry soil.\n\nWhen yours starts dying, does it go limp and dry, turn yellow, or develop dark stems—and does the pot have drainage holes?",
+      "response_ms": 22792,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2829,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 16372,
+      "prompt": "How often should I water it, and how do I tell if I'm overdoing it?",
+      "response": "Check the soil daily, but don’t automatically water daily. Water when the top inch feels dry. On a sunny, warm windowsill that might be every couple of days; in cooler or dimmer conditions, it can take longer.\n\nWhen watering:\n- Add water slowly until it runs out of the drainage holes.\n- Let it drain, then empty the saucer or outer pot.\n- Wait until the surface dries again before watering.\n\nSigns you may be overdoing it:\n- Soil stays wet for days and the pot stays heavy.\n- Lower leaves turn yellow and drop.\n- The plant wilts even though the soil is moist.\n- The stem base becomes dark and soft, or the soil smells sour—more serious signs of root trouble.\n\nUnderwatered basil usually has dry soil and a noticeably light pot; its limp leaves often perk up after watering. Overwatered basil can also look limp, so check the soil rather than treating every wilt with more water.\n\nIf the soil is already wet, skip watering and check that the drainage holes aren’t blocked. If your pot has no drainage holes, move the basil into one that does.",
+      "response_ms": 16372,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 9,
+      "first_native_text_ms": 11026,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 31431,
+      "prompt": "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?",
+      "response": "Both are worth trying. For your next attempt, I’d start with a supermarket pot and split it up rather than switch to seeds immediately.\n\nSupermarket pots can keep growing—the catch is that they’re usually lots of seedlings crowded together, not one bushy plant. Gently divide the root ball into a few smaller clumps and repot them in fresh potting mix, using pots with drainage holes. You don’t need to untangle every individual seedling. ([gardenorganic.org.uk](https://www.gardenorganic.org.uk/how-to-grow-basil?utm_source=openai))\n\nSeeds are worth it if you enjoy growing plants from scratch or want different basil varieties. Sow them thinly, keep them warm and moist while they germinate, and give the seedlings plenty of light. Starting in spring makes use of increasing daylight; you’ll have a longer wait for harvest than with an established pot. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n\nThe key for your situation: seeds won’t solve an unsuitable windowsill. Both seed-grown and shop-bought basil need warmth, good light, and drainage. I’d get one divided supermarket pot growing well first, then try seeds if you enjoy it. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))",
+      "response_ms": 31431,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 3775,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12277,
+      "prompt": "Help me sketch a plan for Sunday?",
+      "response": "I’d keep Sunday lightly structured:\n\n  Morning: Slow breakfast, then a walk or something else that gets you out.\n  Midday: One useful task—groceries, laundry, or a small bit of tidying.\n  Afternoon: A proper block for something you enjoy, with no productivity goal.\n  Evening: Easy dinner, a quick look at the week ahead, and time to unwind.\n\nAnything already booked, and are you leaning toward restful, social, or productive?",
+      "response_ms": 12277,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

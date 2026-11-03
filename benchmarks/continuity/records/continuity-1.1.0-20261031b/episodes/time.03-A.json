@@ -1,0 +1,301 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "57d746426f91678c758098d6b2f7de3ff835b83238872a66810139100ca97b67",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "d28955a05263b2392823698504172fa3e2c3034f236f7f190baea23ae3df7175",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "time.03",
+  "episode_ms": 125685,
+  "family": "time",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "time.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 89600
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 9,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 44289
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1442
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 135331
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 12,
+      "name": "memory",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 15,
+      "name": "memory",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2799,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8648,
+      "prompt": "My daughter's school pickup is at 3:30 and it's always been my job.",
+      "response": "Are you looking for help planning around the 3:30 pickup, or is something changing about who handles it?",
+      "response_ms": 8648,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2310,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 23636,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good chess opening isn’t mainly about memorizing moves. It’s about getting your pieces ready to work together while keeping your king safe.\n\nHere are the main ideas:\n\n1. Fight for the center.\n   The central squares—e4, d4, e5, and d5—give your pieces access to more of the board. You can occupy them with pawns or control them with pieces. Starting with 1.e4 or 1.d4 is a straightforward way to do this.\n\n2. Develop your pieces.\n   Bring your knights and bishops off their starting squares onto useful squares. Knights often belong nearer the center, rather than on the edge. Try to make each early move bring another piece into the game.\n\n3. Get your king safe.\n   Castling usually moves your king away from the center and brings a rook closer to the action. Prepare to castle early, especially if central pawns might be exchanged and lines opened.\n\n4. Don’t waste moves.\n   Moving the same piece repeatedly or bringing your queen out too early can let your opponent develop while attacking it. Make extra pawn moves only when they have a clear purpose, such as controlling a square or opening a path for a bishop.\n\n5. Respond to your opponent.\n   These principles are guidelines, not a script. Before every move, ask: “What did their last move threaten?” Saving a piece or taking a free one matters more than following a development rule.\n\nFor example:\n   1. e4 e5\n   2. Nf3 Nc6\n   3. Bc4 Bc5\n   4. O-O\n\nWhite occupies the center, develops a knight and bishop, then castles. Each move contributes to getting ready for the middlegame. In this notation, N means knight, B means bishop, and O-O means kingside castling.\n\nA useful checklist before you move:\n   • Is anything threatened or undefended?\n   • Can I develop a piece to a useful square?\n   • Am I influencing the center?\n   • Is my king safe?\n\nAim to finish the opening with your minor pieces active, your king safe, and no pieces given away—not with a memorized position you don’t understand.",
+      "response_ms": 23636,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 3063,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 17998,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The difference is mostly about the pawn structure—especially in the center—and how freely pieces can move.\n\nAn open position has few central pawns, often because they’ve been exchanged. That creates clear lines for bishops, rooks, and queens.\n  • Bishops can be strong because they attack along long diagonals.\n  • Fast development and king safety become especially important: attacks can arrive quickly.\n  • Tactics—such as forks, pins, and discovered attacks—often play a big role.\n\nA closed position has interlocking pawn chains that block paths through the center.\n  • Knights can be strong because they jump over pawns.\n  • Players often spend more time maneuvering pieces toward useful squares.\n  • A key plan is preparing a “pawn break”: a pawn advance that challenges an enemy pawn and can open lines.\n\nFor example, white pawns on d4 and e5 facing black pawns on d5 and e6 form a locked center. Neither side’s central pawns can simply advance, so play may develop on the flanks.\n\nMany positions are somewhere in between, and a closed position can become open after a pawn break and exchanges.\n\nRule of thumb: in open positions, look for active lines; in closed positions, look for good squares and pawn breaks. “Bishops like open positions, knights like closed ones” is a useful guide—not an absolute rule.",
+      "response_ms": 17998,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2611,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21022,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "Make endgame study a series of small challenges rather than a reading assignment.\n\n• Play first, study second. Set up a position and try to win or draw it before looking at the explanation. A failed attempt gives you a concrete question to answer.\n\n• Use your own games. Find an endgame where you weren’t sure what to do. Study that one problem, then replay the position. It’s more engaging when you can see where the lesson would have helped you.\n\n• Keep sessions short. Try ten minutes: learn one idea, practice it, and stop. You don’t need to master rook endgames in an afternoon.\n\n• Start with achievable challenges. Good starting tasks are checkmating with king and queen, then king and rook; promoting a pawn with your king’s help; and stopping a passed pawn.\n\n• Play both sides. Can you win the stronger side—and then hold the weaker side? Defending can turn a seemingly dull position into a survival puzzle.\n\n• Change one detail. Move a pawn one square or switch whose turn it is. Ask whether the result changes. This makes you investigate the position instead of memorizing moves.\n\nA challenge to try: set up White’s king on e6 and pawn on e5, and Black’s king on e8, with White to move. Try to promote against a friend or computer. Then move White’s king back to e4 and try again.\n\nThe goal isn’t “study endgames.” It’s “figure out how to win—or save—this position.”",
+      "response_ms": 21022,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 6771,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10376,
+      "prompt": "From today, my partner does the weekday pickups. His new job has flexible hours.",
+      "response": "Got it—your partner handles weekday pickups from today, thanks to his new job’s flexible hours.",
+      "response_ms": 10376,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 3533,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 10924,
+      "prompt": "I'd like to fit a long run into my weekday afternoons. Any suggestions?",
+      "response": "With your partner handling weekday pickups and your new job’s flexible hours, try reserving one afternoon a week as a recurring long-run block.\n\nPick the day with the fewest meetings, finish work earlier rather than squeezing the run between calls, and leave time afterward to shower, eat, and transition into the evening. Keep another afternoon as a backup so one busy day doesn’t derail it.\n\nHow long do you need for the run, and when do you usually need to be home for the evening?",
+      "response_ms": 10924,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9276,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 6483,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 14180,
+      "prompt": "Small correction, it's my partner's new job that has flexible hours, not mine. I work from home and finish at 4 most days. I'd like about ninety minutes, twice a week. No set time I need to be back for the evening.",
+      "response": "Got it—your partner’s job has flexible hours; you work from home and usually finish at 4.\n\nI’d try Tuesday and Thursday afternoons:\n  Finish work at 4, change, and head out shortly afterward.\n  Block off ninety minutes for the run, with some extra room afterward to shower and eat.\n  Keep Friday as a backup if work runs late on either day.\n\nLay out your gear before work so leaving is easy, and treat closing the laptop as the start of your running routine. With no fixed evening deadline, there’s no need to squeeze the transition.",
+      "response_ms": 14180,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 9513,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

@@ -1,0 +1,359 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "62054476bd18fe49136c4aee08a34791d28f78385818cd9e5ea5e3532374bce1",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "0106e33d5a0feed0ec4b6e532176684ac6f341c181e4fb5f9e6369b5190ede09",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 720,
+  "dry_run": false,
+  "episode": "people.04",
+  "episode_ms": 364233,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "people.04-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 194560
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 16,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 91524
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 6786
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1391
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 292870
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 36096
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 65769
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1445
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 302
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 103310
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 77525,
+      "first_native_text_ms": 6294,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 4372,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11336,
+      "prompt": "When my mum visits, we always cook low-salt because of her blood pressure. She stayed with me last week.",
+      "response": "Low-salt cooking is part of the routine when she’s with you, then. How was having her there last week?",
+      "response_ms": 11336,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 29930,
+      "first_native_text_ms": 7537,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6122,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22689,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "The key is that **a moving bicycle can steer its wheels back underneath you when you start to fall.**\n\nImagine balancing a broom upright on your palm. If it tips left, you move your hand left—back under the broom. Riding a bike works in much the same way:\n\n- You and the bike start leaning left.\n- You steer a little to the left.\n- The wheels’ path curves left, bringing your support back underneath you.\n\nWhile riding, you make these tiny corrections almost without noticing. Moving forward lets a small steering adjustment change where the wheels go. When you’re stationary, turning the handlebars can’t move your support underneath you in the same way—which is why balancing becomes much harder.\n\n**The bike’s design helps, too.** On a typical bicycle, the steering geometry and the distribution of its weight help the front wheel turn toward a lean. That’s part of why a riderless bike can sometimes roll along upright for a while: some of the correction happens without a rider.\n\nYou may have heard that spinning wheels hold it upright like gyroscopes. Their gyroscopic effects do influence how a bicycle behaves, but **they aren’t the whole explanation, and aren’t essential for a bicycle to balance itself.**\n\nSo the useful picture isn’t “spinning wheels lock the bike upright.” It’s **“the bike keeps correcting a fall by steering underneath it.”**",
+      "response_ms": 22689,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 25811,
+      "first_native_text_ms": 12350,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 7872,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22422,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "**Something else: the key is steering into a lean, bringing the wheels back underneath you.** That’s how the rider—and, under suitable conditions, the bike itself—corrects a developing fall. ([gwern.net](https://gwern.net/doc/technology/2011-koojiman.pdf?utm_source=openai))\n\nThe gyroscopic effect **can help produce that steering response**, but it isn’t a separate force simply holding the bike upright. Steering geometry and weight distribution also contribute; their relative importance depends on the bike and its speed. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))\n\nThe telling experiment: researchers built a bicycle with extra, counter-rotating wheels that cancelled its gyroscopic effects. It could still balance itself while rolling. So **“steering corrects the fall” is the central explanation; “spinning wheels keep it upright” isn’t.** ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/21493856/?utm_source=openai))",
+      "response_ms": 22422,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26235,
+      "first_native_text_ms": 9159,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 9621,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19711,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because **going slowly makes your steering corrections less effective**. The wheels need to travel to get back underneath a lean; turning the handlebars alone isn’t enough. ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))\n\nImagine you start tipping left:\n- **At a normal riding speed**, a small turn left quickly brings the wheels back underneath you.\n- **At a crawl**, that same small turn barely shifts them sideways before you’ve leaned further. You need a much larger steering correction—which is why slow riding involves those exaggerated handlebar wobbles. ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))\n\nIt’s like balancing that broom on your palm, but restricting how quickly you can move your hand to catch it. **The difficulty isn’t mainly losing the gyroscopic effect; it’s losing the ability to correct a fall with a tiny turn.** ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))",
+      "response_ms": 19711,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 51101,
+      "first_native_text_ms": 10896,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 12249,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15352,
+      "prompt": "She's gone home now. Tonight it's just me and my flatmate Sam, and we both want proper, salty fish and chips at home.",
+      "response": "Properly salted chips it is, then. Your mum’s home; her menu doesn’t have to stay behind. Are you and Sam making them from scratch?",
+      "response_ms": 15352,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 37195,
+      "first_native_text_ms": 14511,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13999,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24516,
+      "prompt": "Any tips to make the chips really good?",
+      "response": "**For proper chip-shop-style chips, the big trick is frying twice:** once to cook the middle, then again to crisp the outside. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n\n- **Choose floury potatoes**, such as Maris Piper, and cut them evenly so they cook together. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Dry them thoroughly before frying.** Wet potatoes and hot oil are a bad partnership. ([breville.com](https://www.breville.com/content/dam/breville/au/assets/miscellaneous/instruction-manual/woks-skillets-deep-fryers/BDF500-instruction-manual.pdf?utm_source=openai))\n- **First fry: 130°C for about 7–8 minutes**, until cooked through but still pale. Drain and let them cool—you can do this stage ahead of dinner. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Second fry: 180°C until golden and crisp.** Work in small batches rather than cramming them in; overcrowding drops the oil temperature. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))\n- **Salt after frying, not before**, and serve straight away. ([breville.com](https://www.breville.com/content/dam/breville/au/assets/miscellaneous/instruction-manual/woks-skillets-deep-fryers/BDF500-instruction-manual.pdf?utm_source=openai))\n\nKeep the oil attended throughout. Dinner is allowed to be indulgent, not incendiary. ([bbcgoodfood.com](https://www.bbcgoodfood.com/videos/techniques/how-make-chips-video))",
+      "response_ms": 24516,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

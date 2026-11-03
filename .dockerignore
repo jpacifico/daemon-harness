@@ -1,0 +1,46 @@
+.git
+.gitignore
+.git*
+.env
+.env.*
+!.env.example
+.venv
+__pycache__
+*.py[cod]
+**/__pycache__
+**/*.py[cod]
+.pytest_cache
+.cache
+.DS_Store
+AGENTS.md
+CLAUDE.md
+error.log
+*.log
+exports
+notes
+docs
+tests
+evals
+results
+benchmarks
+integrations
+README.md
+
+# The API image carries only the runtime script invoked by sovereign_library.
+scripts/*
+!scripts/memory_library.py
+
+# Never place conversation state or private memory in an image layer. Keep only
+# the versioned examples, templates and empty index scaffold needed to onboard.
+memory/*
+!memory/souvenirs
+memory/capsules/*
+!memory/capsules/examples
+!memory/capsules/examples/*.md
+!memory/capsules/templates
+!memory/capsules/templates/*.md
+!memory/index
+memory/index/*
+!memory/index/README.md
+!memory/templates
+!memory/templates/**

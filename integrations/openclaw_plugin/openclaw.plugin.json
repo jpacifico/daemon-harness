@@ -1,0 +1,33 @@
+{
+  "id": "daemon-harness",
+  "name": "Daemon Harness",
+  "description": "Organic memory, scene context and sovereign voice from Daemon Harness through a local HTTP bridge.",
+  "kind": "context-engine",
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "daemonUrl": {
+        "type": "string",
+        "description": "URL of the daemon FastAPI server (default http://127.0.0.1:8000)."
+      },
+      "userId": {
+        "type": "string",
+        "description": "Daemon user identifier linked to this OpenClaw agent."
+      },
+      "runtimeHealthPath": {
+        "type": "string",
+        "description": "Private local path used to attest the active OpenClaw runtime."
+      }
+    }
+  }
+}

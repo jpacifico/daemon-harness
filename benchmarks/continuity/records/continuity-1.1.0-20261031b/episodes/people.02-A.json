@@ -1,0 +1,296 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "f9696d3e9affef60c6c2f98c1421b2b398b0f8387b98f9d883b774dec521c49b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "326ccfeaeec73ae9f2bfad388ab00667c775d0419ab6886672f421c9ec6d8ed7",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "people.02",
+  "episode_ms": 184134,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "people.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 85888
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 72532
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 3030
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 444
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 161450
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 20,
+      "name": "memory",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 9,
+      "first_native_text_ms": 12311,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18193,
+      "prompt": "My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+      "response": "Got it—Lena is vegan, and Idris has a sesame allergy. I’ll keep both in mind for dinner ideas. Want help putting together a menu for tomorrow?",
+      "response_ms": 18193,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 8546,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19996,
+      "prompt": "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning.",
+      "response": "I’d make tomato-and-white-bean pasta with spinach—one pot of sauce for everyone, no separate versions.\n\nShopping list for the three of you:\n  • 12 oz dried egg-free pasta\n  • 2 cans white beans, such as cannellini\n  • 1 large can crushed tomatoes (28 oz)\n  • 1 bag spinach (5 oz)\n  • 1 onion and 1 head of garlic\n  • Olive oil, dried oregano, salt and pepper if you’re out\n\nCook:\n  1. Soften the chopped onion in olive oil. Add a few chopped garlic cloves and oregano.\n  2. Add tomatoes and drained beans; simmer until the sauce thickens.\n  3. Cook the pasta. Stir spinach into the sauce until wilted, then toss with pasta, adding a splash of pasta water as needed. Serve without cheese.\n\nBefore shopping, ask Idris which brands he trusts. Check every packaged ingredient for sesame, including sesame oil and tahini; don’t assume a vegan label means sesame-free. Use thoroughly cleaned cookware, utensils and surfaces to prevent cross-contact. ([foodallergy.org](https://www.foodallergy.org/living-food-allergy/food-allergy-essentials/common-allergens/sesame?utm_source=openai))",
+      "response_ms": 19996,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 14101,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 37353,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through a combination of fashion, falling prices, imperial trade, and social habit. It began as an imported luxury and gradually became an everyday necessity—not an ancient British tradition. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n1. A fashionable luxury: the 1650s–1700s\n\nTea arrived from China through European trading networks and was being sold in London’s coffeehouses in the 1650s. It was expensive, and sellers promoted its supposed medicinal benefits as well as its novelty. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\nA significant boost came in 1662, when Charles II married Catherine of Braganza, a Portuguese princess who already drank tea. She didn’t introduce tea to Britain, as is sometimes claimed, but helped make it fashionable at court. Drinking it became a way to display wealth and sophistication. ([rct.uk](https://www.rct.uk/collection/stories/tea-in-the-royal-collection?utm_source=openai))\n\n2. A social ritual—and a sweetened drink: the 1700s\n\nAs imports increased, tea spread among the middle classes. Serving it at home, with attractive teapots and Chinese porcelain, became a social occasion. Tea gardens also offered spaces where men and women could socialise together, unlike the predominantly masculine world of coffeehouses. Tea was becoming something people did together, not merely something they drank. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\nSugar was important to its appeal. The growing taste for sweetened tea linked British households to Caribbean sugar plantations worked by enslaved Africans. Tea’s comforting domestic history is therefore inseparable from the history of slavery and empire. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cup-char))\n\n3. Lower taxes made an existing taste more affordable: 1784\n\nHigh taxes kept legal tea expensive and encouraged enormous amounts of smuggling. Crucially, demand already extended well beyond the wealthy: smugglers were supplying a taste that legitimate trade could not cheaply satisfy. In 1784, William Pitt the Younger’s government sharply reduced the tea tax, making legal tea more affordable and undermining the smuggling trade. That helped turn a desirable luxury into an ordinary household purchase. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))\n\n4. Mass supply and everyday routines: the 1800s\n\nBritain initially depended on Chinese tea. During the nineteenth century, British-controlled plantation production expanded in India and Ceylon, now Sri Lanka. Mechanised processing helped increase production, while plantation expansion brought environmental destruction and harsh working conditions. By the mid-nineteenth century, falling prices had helped make tea the most popular working-class drink in Britain. ([merl.reading.ac.uk](https://merl.reading.ac.uk/explore/online-exhibitions/tea-culture-in-our-collections/))\n\nTea also became embedded in routines: hospitality, meals, and breaks from work. The elegant “afternoon tea” associated with the Duchess of Bedford around 1840 was only one version of this much broader habit—not the origin of British tea drinking. ([merl.reading.ac.uk](https://merl.reading.ac.uk/explore/online-exhibitions/tea-culture-in-our-collections/))\n\nThe key distinction is between why people first wanted tea and why they could drink it every day. Fashion and sociability created demand; cheaper supply and lower taxes widened access; repeated household and workplace rituals made it feel quintessentially British. ([londonmuseum.org.uk](https://www.londonmuseum.org.uk/blog/steeped-in-history-tea-drinking-in-britain/))",
+      "response_ms": 37353,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 8578,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29890,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was the commercial machinery behind Britain’s tea habit. It didn’t create the fashion single-handedly, but it supplied the tea on a large scale—and tied that trade to British imperial power. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/what-was-the-east-india-company?utm_source=openai))\n\n1. It controlled the main legal supply\n\nThe Company held a state-granted monopoly over British trade with China, including tea. Its merchants bought Chinese tea and its ships carried it to Britain. Despite its name, the tea it supplied initially came from China, not India. This made it the central intermediary between Chinese producers and British consumers, though smuggling operated outside its monopoly. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade?utm_source=openai))\n\n2. It helped turn fashion into a mass market\n\nThe Company began importing tea in the 1660s and expanded its business as British demand grew. Its trading network and shipping capacity allowed tea to become much more widely available. But supplying more tea wasn’t the same as promoting free competition: the Company also defended its exclusive right to profit from the trade. Parliament abolished its remaining China-trade monopoly in 1833, with the change taking effect in 1834. ([tea.co.uk](https://www.tea.co.uk/east-india-company?utm_source=openai))\n\n3. It connected tea to the opium trade\n\nBuying Chinese tea required substantial payments in silver. To help finance those purchases, the Company developed a system of opium production in British-controlled India. It sold the opium to private merchants, who smuggled it into China; the resulting trade helped provide the funds for tea purchases. So this was not simply a direct exchange of tea for opium, but an interconnected commercial system. ([lib.cam.ac.uk](https://www.lib.cam.ac.uk/rcs/projects-exhibitions/opium-morally-indefensible-trade-horrible-drug/opium-captions?utm_source=openai))\n\nThat system had devastating consequences. Chinese efforts to suppress the opium trade helped precipitate the First Opium War of 1839–1842, fought by Britain against China—not simply a private Company war. ([south-ayrshire.gov.uk](https://www.south-ayrshire.gov.uk/article/26621/India?utm_source=openai))\n\n4. It helped establish tea production in India\n\nIn the 1830s, the Company’s administration supported efforts to cultivate and process tea in Assam, including work with indigenous tea plants. This helped lay the foundations for an Indian plantation industry that later expanded under private companies, reducing Britain’s dependence on Chinese tea. ([tea.co.uk](https://www.tea.co.uk/east-india-company?utm_source=openai))\n\nIn short, the Company did more than bring tea to Britain: it helped build the trading and colonial system that made everyday tea drinking possible. Its role links the familiar domestic story of the teapot to monopoly, conquest, and the opium trade. ([nationaltrust.org.uk](https://www.nationaltrust.org.uk/discover/history/what-was-the-east-india-company?utm_source=openai))",
+      "response_ms": 29890,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 11025,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 25895,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "Tea bags developed in America in the early 1900s, but only became a major part of British tea drinking after the Second World War. Their main selling point was convenience, rather than better tea. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nThe invention—and the familiar legend\n\nIn 1901, two Milwaukee women, Roberta C. Lawson and Mary Molaren, applied for a patent for a mesh “tea-leaf holder” designed to brew a single cup without leaving loose leaves in the drink. That predates the famous story about New York merchant Thomas Sullivan. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nAccording to that story, Sullivan sent customers silk bags containing tea samples around 1908. They brewed the tea inside the bags rather than emptying them, and then wanted more. He helped popularise bagged tea, but the accidental-invention story isn’t well documented and shouldn’t be treated as established fact. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nBritain’s slower adoption\n\nTea bags were established in America by the 1920s. Britain took longer: attachment to traditional brewing and wartime material shortages slowed adoption. Tetley’s 1953 launch was an important commercial milestone, not an overnight revolution—bags still accounted for less than 3% of the British market in the early 1960s. ([smithsonianmag.com](https://www.smithsonianmag.com/smart-news/ever-wonder-who-invented-tea-bag-180961469/))\n\nWhy they caught on\n\nThey removed several small chores: measuring loose tea, using a strainer, and cleaning wet leaves out of a teapot. They also made it easy to brew directly in a mug. That fitted the postwar enthusiasm for labour-saving household products. By 2007, bags accounted for about 96% of the British tea market, according to the UK Tea & Infusions Association. In short, they changed how Britons prepared an already beloved drink, rather than creating the taste for it. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))",
+      "response_ms": 25895,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2533,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 6777,
+      "prompt": "Can you give me a shopping list for tomorrow's dinner?",
+      "response": "What are you making, and how many people are coming? Will Idris and Lena be joining, so I can account for sesame-free and vegan options?",
+      "response_ms": 6777,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 7619,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 15350,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 29072,
+      "prompt": "Yes, they're coming, I mentioned that before. Four of us including me. Not sure what to make, something Italian or Indian would be good. Budget is about 40 euros.",
+      "response": "Sorry for making you repeat that. I’d go Indian-inspired: chickpea, spinach and coconut curry with basmati rice, cucumber–tomato salad, and fruit for dessert. One vegan meal for everyone, with no sesame ingredients. The curry is adapted from this four-serving recipe. ([bbcgoodfood.com](https://www.bbcgoodfood.com/recipes/coconut-chickpea-spinach-curry?utm_source=openai))\n\nShopping list for four\n\nProduce\n  2 onions\n  1 bulb garlic\n  1 small piece fresh ginger\n  300–400 g frozen spinach\n  1 cucumber\n  4 tomatoes\n  2 limes\n  1 bunch coriander, optional\n  4 oranges for dessert\n\nTins and rice\n  3 × 400 g tins chickpeas — for generous portions\n  2 × 400 ml tins coconut milk\n  1 × 500 g bag basmati rice — use about 300 g\n\nCheck your cupboard first\n  Sunflower or olive oil\n  Ground cumin\n  Turmeric\n  Garam masala\n  Chilli powder, optional\n  Salt\n\nBudget: aim for €25–35, leaving some room within your €40 limit. That’s a planning estimate, not checked local pricing; buying every spice and oil from scratch could push it higher. Skip the coriander first if needed.\n\nFor Idris: check packaged ingredients, particularly spice blends, for sesame and “may contain sesame” warnings. Use clean utensils and surfaces to prevent cross-contact; no sesame oil or tahini. ([foodallergycanada.org](https://foodallergycanada.org/allergies/sesame/?utm_source=openai))\n\nCooking outline: soften the onions, garlic and ginger in oil; add the spices, then coconut milk and drained chickpeas. Simmer, stir in spinach, and finish with lime. Serve with rice and the chopped cucumber–tomato salad.",
+      "response_ms": 29072,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 9203,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

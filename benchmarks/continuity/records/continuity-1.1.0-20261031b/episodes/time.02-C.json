@@ -1,0 +1,362 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "8551a7613d99fb06a2d4ed716c78eb5c6de75d0e784c9b3cd2feb34ba9b6803a",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "c8b60644417e0f48b305b9cc346b43156bef8a5af1dc612c439d43767ffe036a",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 652,
+  "dry_run": false,
+  "episode": "time.02",
+  "episode_ms": 344892,
+  "family": "time",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "time.02-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 206720
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 17,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 94188
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 7046
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1069
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 307954
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 30080
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 67439
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1140
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 323
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 98659
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 48379,
+      "first_native_text_ms": 6893,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3490,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 11885,
+      "prompt": "I've got a dentist appointment tomorrow at 9:30, and I'm not allowed to eat for two hours afterwards.",
+      "response": "Got it—dentist tomorrow at 9:30, then no food for two hours after you’re done.",
+      "response_ms": 11885,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26407,
+      "first_native_text_ms": 6969,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5240,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21813,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "A moving bicycle stays upright mainly because **it can steer its wheels back underneath you when you start to tip.**\n\nThink of balancing a broom upright on your palm. If it tips left, you move your hand left to get underneath it again. On a bicycle, steering does roughly the same job: if you lean left, turning slightly left brings the wheels back under your weight.\n\nThere are two things helping:\n- **You make tiny corrections**, often without noticing. Riding “straight” actually involves little changes in steering and lean.\n- **The bike itself can help steer into a lean**, thanks to the way its steering geometry and weight are arranged. It isn’t all conscious work by the rider.\n\nMoving matters because **turning the handlebars only moves your support sideways if the wheels are rolling**. At a standstill, that balancing trick becomes much harder.\n\nYou may have heard that the spinning wheels act like gyroscopes. They do contribute, but they aren’t the whole explanation—or even a requirement for a bicycle to be self-stable.\n\nSo the useful picture isn’t “spinning wheels hold it up.” It’s **“you and the bicycle keep steering the support underneath the falling weight.”**",
+      "response_ms": 21813,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 27372,
+      "first_native_text_ms": 10005,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6989,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 18627,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "**Something else: steering into the lean is the key mechanism.** If the bike starts tipping left, a small turn left brings its support back underneath it. The bike’s geometry and weight distribution help produce that response; gyroscopic effects can contribute too, rather than simply holding the bike upright. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))\n\nThe telling experiment: researchers built a bicycle with extra, counter-rotating wheels that cancelled the gyroscopic effects—and it could still balance itself while rolling without a rider. So gyroscopic effects aren’t necessary, though their contribution varies with the bike and its speed. ([research.tudelft.nl](https://research.tudelft.nl/en/publications/a-bicycle-can-be-selfstable-without-gyroscopic-or-caster-effects/?utm_source=openai))",
+      "response_ms": 18627,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 21401,
+      "first_native_text_ms": 8062,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8739,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19657,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because **going slowly makes your steering corrections less effective**: the wheels don’t move back underneath you quickly enough. At higher speed, a tiny turn can do the job; at a crawl, you need a much bigger turn to correct the same lean. ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))\n\nThink back to balancing a broom on your palm—now imagine you’re only allowed to move your hand very slowly. You can see which way the broom is falling, but catching it becomes much harder.\n\nThat’s why slow riding involves those conspicuous left-right handlebar movements, whereas at normal riding speed the corrections can be barely noticeable. **It’s less “the wheels stop holding you up” and more “you lose the ability to catch a lean with a small correction.”** ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))",
+      "response_ms": 19657,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 52108,
+      "first_native_text_ms": 9568,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 11370,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 13503,
+      "prompt": "What could I have for breakfast and lunch tomorrow?",
+      "response": "What time do you expect your dentist appointment to finish? Your two-hour wait before eating starts from then.",
+      "response_ms": 13503,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 6538,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 48225,
+      "first_native_text_ms": 14333,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 14866,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 20029,
+      "prompt": "Not sure, it starts at 9:30 but I don't know how long it'll take.",
+      "response": "No need to pin down a lunch time yet—just count the two hours from when you finish.\n\n- **Breakfast, before your appointment:** porridge with banana and yogurt—a proper breakfast rather than just coffee.\n- **Lunch, once the two-hour wait is over:** scrambled eggs with mashed potato, or a thick lentil soup.\n\nFollow any extra instructions your dentist gives you about food after the treatment.",
+      "response_ms": 20029,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 8645,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

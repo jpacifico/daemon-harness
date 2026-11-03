@@ -1,0 +1,170 @@
+{
+  "schema": "daemon.windows-setup-probe.v1",
+  "source": "0af487ad42ca9712f1c9c3ef7c6ab05c6d9cab17",
+  "root": "D:\\a\\_temp\\dr-zfe7q41j",
+  "telegram": false,
+  "real_model": false,
+  "oauth": false,
+  "passed": false,
+  "phases": [
+    "Downloading and verifying Hermes 0.21.5...",
+    "Extracting and verifying Hermes files...",
+    "Installing private Python 3.12...",
+    "Installing Hermes dependencies. This may take a few minutes...",
+    "Checking the installed host...",
+    "Preparing the private setup library...",
+    "Reproducing the published legacy Python rollback failure...",
+    "Preparing private installation...",
+    "Checking your installation and ChatGPT access...",
+    "Checking previous installation and preparing recovery...",
+    "Recovery prepared. The previous failed Python build and its journal are retained; your connections and memory are unchanged.",
+    "Preserved build: D:\\a\\_temp\\dr-zfe7q41j\\c\\hosts\\hermes\\installations\\7c485fa8f05c40abb394029ceeccba7d\\daemon\\data\\runtime\\.retained-legacy-python",
+    "Verifying your saved Telegram connection...",
+    "Saved connection verified \u2014 Telegram @synthetic_bot. Installing your daemon next.",
+    "Installing runtime, plugins and private services. This can take several minutes...",
+    "Installing runtime, plugins and private services...",
+    "Copy daemon files \u2014 snapshot...",
+    "Copy daemon files \u2014 apply...",
+    "Copy daemon files \u2014 verify...",
+    "Install Python and dependencies \u2014 snapshot...",
+    "Install Python and dependencies \u2014 apply...",
+    "Install Python and dependencies \u2014 verify...",
+    "Configure daemon identity \u2014 snapshot...",
+    "Configure daemon identity \u2014 apply...",
+    "Configure daemon identity \u2014 verify...",
+    "Configure daemon identity \u2014 rollback...",
+    "Install Python and dependencies \u2014 rollback...",
+    "Copy daemon files \u2014 rollback...",
+    "Checking the restored private installation...",
+    "Failed step: Configure daemon identity (verify).",
+    "Installation cause: RuntimeError: Daemon identity was not applied exactly.",
+    "Rollback needs recovery. Do not reinstall into this profile. Affected steps: identity",
+    "Diagnostic saved: D:\\a\\_temp\\dr-zfe7q41j\\c\\hosts\\hermes\\installations\\7c485fa8f05c40abb394029ceeccba7d\\installation-diagnostic.json",
+    "For help, share this diagnostic file, never your bot token or .env file."
+  ],
+  "cleanup": true,
+  "scheduler_commands": [
+    {
+      "seconds": 28.391,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.828,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 22.828,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.891,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.813,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.921,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.859,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.75,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.954,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.875,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.843,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.953,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 22.047,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "seconds": 22.328,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.969,
+      "exit": 3,
+      "stderr": ""
+    },
+    {
+      "seconds": 21.844,
+      "exit": 3,
+      "stderr": ""
+    }
+  ],
+  "powershell_startup": [
+    {
+      "environment": "filtered",
+      "seconds": 2.734,
+      "exit": 0,
+      "stdout": "ready\n",
+      "stderr": ""
+    },
+    {
+      "environment": "ci_session",
+      "seconds": 0.156,
+      "exit": 0,
+      "stdout": "ready\n",
+      "stderr": ""
+    }
+  ],
+  "host_ready_s": 113.64,
+  "legacy": {
+    "exit": 0,
+    "stdout": "{\"status\": \"rollback_failed\", \"completed\": [\"runtime-layout\"], \"rolled_back\": [\"runtime-layout\"], \"failed\": [\"runtime-environment\"], \"causes\": [{\"type\": \"TransactionRecoveryError\", \"message\": \"Installation failed and rollback needs manual recovery.\", \"stderr\": \"\"}, {\"type\": \"RuntimeError\", \"message\": \"Injected pre-publication failure after real managed Python acquisition\", \"stderr\": \"\"}]}\n",
+    "stderr": ""
+  },
+  "legacy_remaining_tree": {
+    "kind": "directory",
+    "tree_sha256": "cdad0cd7909a91dda7229e028640bd256fae99a045b9a0d3d440aa29cc21140f"
+  },
+  "causes": [
+    {
+      "type": "TransactionRecoveryError",
+      "message": "Installation failed and rollback needs manual recovery."
+    },
+    {
+      "type": "RuntimeError",
+      "message": "Daemon identity was not applied exactly."
+    }
+  ],
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_transaction.py\", line 148, in execute\n    adapter.verify(step)\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_install_diagnostics.py\", line 52, in verify\n    return self._call('verify', step)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_install_diagnostics.py\", line 37, in _call\n    return getattr(self.adapter, phase)(step, *args)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_hermes_ready_composition.py\", line 128, in verify\n    self._step(step).verify(step)\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_hermes_composition.py\", line 150, in verify\n    self._step(step).verify(step)\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_identity.py\", line 113, in verify\n    raise RuntimeError(\"Daemon identity was not applied exactly.\")\nRuntimeError: Daemon identity was not applied exactly.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\scripts\\qualification\\companion_windows_setup_probe.py\", line 375, in main\n    assert complete_private_setup(\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_setup.py\", line 346, in complete_private_setup\n    return _complete_private_setup(owner, ui, request, response)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_private_setup.py\", line 279, in _complete_private_setup\n    result = execute_prepared_installation(prepared, adapter=observed,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_install_session.py\", line 120, in execute_prepared_installation\n    return TransactionEngine(transactions_root).execute(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\a\\daemon-harness-canonical\\daemon-harness-canonical\\candidate\\src\\daemon_core\\companion_transaction.py\", line 158, in execute\n    raise TransactionRecoveryError(\ndaemon_core.companion_transaction.TransactionRecoveryError: Installation failed and rollback needs manual recovery.\n",
+  "logs": {
+    "installation-diagnostic.json": "{\n  \"schema\": \"daemon.installation-diagnostic.v1\",\n  \"at\": \"2026-10-06T06:03:02.199996+00:00\",\n  \"transaction_id\": \"fc5799d1d623473d87e11d2c58d10500\",\n  \"step\": \"identity\",\n  \"phase\": \"verify\",\n  \"causes\": [\n    {\n      \"type\": \"RuntimeError\",\n      \"message\": \"Daemon identity was not applied exactly.\"\n    }\n  ],\n  \"transaction_status\": \"rollback_failed\",\n  \"rollback_failed_steps\": [\n    \"identity\"\n  ],\n  \"rollback_causes\": [\n    {\n      \"step\": \"identity\",\n      \"causes\": [\n        {\n          \"type\": \"RuntimeError\",\n          \"message\": \"Identity has concurrent changes; rollback was refused.\"\n        }\n      ]\n    }\n  ]\n}\n"
+  },
+  "receipts": {},
+  "elapsed_s": 568.062
+}

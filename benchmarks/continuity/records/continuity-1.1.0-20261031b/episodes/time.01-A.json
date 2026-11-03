@@ -1,0 +1,306 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "57d746426f91678c758098d6b2f7de3ff835b83238872a66810139100ca97b67",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "95728197f94742f3ac0702f93a7b710903f7d2e878eeec61549ac99a1ad56212",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "time.01",
+  "episode_ms": 141205,
+  "family": "time",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "time.01-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 110080
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 10,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 51860
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1710
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 171
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 163650
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 7,
+      "name": "memory",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 229,
+      "name": "terminal",
+      "status": "error"
+    },
+    {
+      "duration_ms": 616,
+      "name": "terminal",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 5899,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14199,
+      "prompt": "Every Tuesday and Thursday I swim at 7 in the morning before work.",
+      "response": "I’ll remember that you swim Tuesdays and Thursdays at 7:00 AM before work.",
+      "response_ms": 14199,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 9111,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 26405,
+      "prompt": "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+      "response": "Basil needs a sunny, warm spot and soil that stays lightly moist—not constantly wet. A windowsill can work, but being near a window isn’t necessarily enough light, and cold glass or drafts can be a problem. ([blogs.ifas.ufl.edu](https://blogs.ifas.ufl.edu/pascoco/2024/03/08/spice-up-your-life-a-beginners-guide-to-growing-basil/?utm_source=openai))\n\nHere’s what matters most:\n\n1. Plenty of direct light\n   Aim for about 6–8 hours of sun daily. If your window gets only a little direct sun, consider a grow light rather than trying to compensate with more water or fertilizer. ([blogs.ifas.ufl.edu](https://blogs.ifas.ufl.edu/pascoco/2024/03/08/spice-up-your-life-a-beginners-guide-to-growing-basil/?utm_source=openai))\n\n2. Moisture plus drainage\n   Use a pot with drainage holes and well-draining potting mix. Check the soil before watering: let the surface begin to dry, but don’t let the entire pot become bone-dry. Water thoroughly, let it drain, and empty any collected water. Roots need air as well as moisture; continually saturated soil can damage them. Don’t water by a fixed calendar. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil?utm_source=openai))\n\n3. Warmth\n   Basil is more cold-sensitive than many other culinary herbs. Keep it away from chilly drafts and cold windowpanes, especially overnight. A sunny but cold sill may still be a poor home for it. ([chicagobotanic.org](https://www.chicagobotanic.org/plantinfo/tips/growing_herbs_your_windowsill?utm_source=openai))\n\n4. Regular, gentle harvesting\n   Pinch off growing tips to encourage branching rather than letting it become one tall stem. Remove flower buds if your goal is continued leaf production. ([extension.illinois.edu](https://extension.illinois.edu/herbs/basil?utm_source=openai))\n\n5. A little food—not a rescue dose\n   For indoor basil, Minnesota Extension suggests liquid fertilizer at half the label strength every four to six weeks. Fix light and watering problems first; fertilizing a stressed plant can make matters worse. ([extension.umn.edu](https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-problems/growing-basil?utm_source=openai))\n\nTo narrow down why yours keep dying: which direction does the window face, does the pot have drainage holes, and do the plants turn yellow, go crispy, or suddenly wilt?",
+      "response_ms": 26405,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 16,
+      "first_native_text_ms": 13947,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 23892,
+      "prompt": "How often should I water it, and how do I tell if I'm overdoing it?",
+      "response": "Check it daily, but don’t automatically water daily. The right interval depends on sunlight, temperature, pot size, and how quickly the soil dries—not a fixed schedule. ([uvm.edu](https://www.uvm.edu/d10-files/documents/2024-10/Caring_for_Houseplants.pdf?utm_source=openai))\n\nUse this routine:\n- Feel the soil about an inch down. If it’s still moist, wait; if it’s starting to feel dry, water. Lifting the pot also helps: a noticeably lighter pot has lost moisture. ([content-hub.uidaho.edu](https://content-hub.uidaho.edu/api/public/content/b573cb828a2f422284a818d045abb083?v=787a998f&utm_source=openai))\n- Water thoroughly, let excess drain through the bottom, and empty the saucer or decorative outer pot. Don’t leave it standing in water. ([extension.umd.edu](https://extension.umd.edu/resource/watering-indoor-plants?utm_source=openai))\n\nSigns you may be overdoing it:\n- Lower leaves turn yellow or drop.\n- The plant wilts even though the soil is wet.\n- The soil stays soggy rather than gradually drying. These are warning signs, not proof on their own. ([extension.umd.edu](https://www.extension.umd.edu/resource/overwatered-indoor-plants?utm_source=openai))\n\nThe key distinction: wilting with dry soil suggests thirst; wilting with wet soil can mean damaged roots—adding more water can make that worse. If it’s wet, pause watering and check that the pot drains freely. ([extension.umd.edu](https://www.extension.umd.edu/resource/winter-indoor-plant-problems?utm_source=openai))",
+      "response_ms": 23892,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 9,
+      "first_native_text_ms": 8199,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24150,
+      "prompt": "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?",
+      "response": "Supermarket pots are fine to keep growing—the catch is that each pot is usually lots of seedlings crammed together, not one bushy plant. Dividing them gives them room to grow. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n\nFor your next supermarket pot:\n- Gently separate the root ball into several smaller clumps, handling the roots rather than tugging on stems.\n- Repot the clumps in fresh potting mix, in pots with drainage holes.\n- Keep them warm and in good light, with soil moist but not soggy. ([tollbit.gardenersworld.com](https://tollbit.gardenersworld.com/how-to/grow-plants/how-to-make-five-plants-from-one-supermarket-basil?utm_source=openai))\n\nSeed is worth trying if you enjoy the process or want different varieties. Sow thinly, keep the seeds warm, and separate seedlings into their own pots once they’re large enough to handle. It takes longer to get harvestable plants, but lets you avoid overcrowding from the start. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))\n\nMy recommendation: try dividing a supermarket pot first. But address the windowsill conditions too—starting from seed won’t solve insufficient light, cold, or overly wet soil. Those needs are the same either way. ([rhs.org.uk](https://www.rhs.org.uk/herbs/basil/grow-your-own?utm_source=openai))",
+      "response_ms": 24150,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 12765,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 16761,
+      "prompt": "This Thursday the pool is closed for maintenance, so there's no swim that morning.",
+      "response": "Got it—no 7:00 AM swim this Thursday, November 5, because the pool is closed for maintenance.",
+      "response_ms": 16761,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 2578,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 10301,
+      "prompt": "Can you help me plan my Thursday morning?",
+      "response": "Since you swim at 7:00 AM on Thursdays before work, I’d plan around that:\n\n  6:00 AM — Wake up, hydrate, and have a light snack if you’re hungry.\n  Before 7:00 — Leave enough time to travel, change, and get poolside.\n  7:00 AM — Swim.\n  Afterward — Shower, get dressed, and have breakfast before work.\n\nPack your swim bag and work clothes Wednesday night to keep the morning simple.\n\nWhat time do you start work, and how long do you usually swim and commute?",
+      "response_ms": 10301,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 8182,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 2471,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 11313,
+      "prompt": "Actually the pool's closed this Thursday for maintenance, I mentioned that before. Work starts at 9 and I usually leave at 8:15. I'd still like to do something active though.",
+      "response": "You’re right—I missed the pool closure. With work at 9:00 and departure at 8:15, here’s a relaxed alternative:\n\n  6:45 — Wake up and get dressed.\n  7:00–7:35 — Brisk walk outside, or an easy indoor workout if the weather’s poor.\n  7:35–7:45 — Gentle stretching and cool down.\n  7:45–8:05 — Shower, dress, and have breakfast.\n  8:05–8:15 — Grab your things and leave.\n\nKeep it easy enough to feel refreshed rather than rushed. Set out your clothes and prep breakfast Wednesday night to make that last half hour easier.",
+      "response_ms": 11313,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 5868,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

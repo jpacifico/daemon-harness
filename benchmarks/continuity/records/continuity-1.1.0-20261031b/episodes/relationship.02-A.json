@@ -1,0 +1,250 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "e4356524164480f66d3bc44efa2c333f3d1de12b62a0eec6570271282adafca0",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "516ff3ecae9506eb4a19659f2689436f40e5ce8dcf663c7720a823dcff73809c",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "relationship.02",
+  "episode_ms": 85851,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "relationship.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 41216
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 37159
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 696
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 34
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 79071
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 3075,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 14931,
+      "prompt": "I've got my driving test tomorrow morning. Third attempt, fingers crossed.",
+      "response": "Fingers crossed for you! Two previous attempts don’t decide tomorrow’s result. Give yourself time in the morning, and if you make a small mistake, don’t assume it’s over—focus on the next safe decision. What’s worrying you most?",
+      "response_ms": 14931,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 3160,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20956,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "A moving bicycle stays upright mainly because it can steer its wheels back underneath you when you start to tip.\n\nImagine balancing a broom upright on your palm. If it leans to the left, you move your hand left to get back underneath it. A bicycle does something similar: if you lean left, steering left shifts the wheels’ path toward the side you’re falling toward, helping restore balance.\n\nThere are two things doing that steering:\n\n  You: You make small steering corrections, often without noticing. That’s why learning to ride is more about developing a feel for balance than memorizing instructions.\n\n  The bicycle itself: Its steering geometry can make the front wheel turn toward a lean. On many bicycles, this helps correct small disturbances even without a rider actively steering.\n\nMoving forward makes these corrections effective: turning the handlebars changes where the wheels go. When you’re stopped, simply turning the front wheel doesn’t move your support underneath you in the same way—so balancing is much harder.\n\nYou may have heard that the spinning wheels act like gyroscopes. That effect contributes, but it isn’t the main explanation, and a bicycle doesn’t need it to be stable.\n\nThe key idea: a bicycle isn’t preventing every tiny fall. It’s continually correcting those falls by steering.",
+      "response_ms": 20956,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 3563,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12436,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "Mostly something else: steering corrections that bring the wheels back underneath your balance.\n\nIf the bike tips left, steering left helps catch the fall—like moving your palm left to balance a leaning broom. You make these corrections instinctively, and the bike’s geometry and weight distribution can help it steer that way on its own.\n\nThe spinning wheels’ gyroscopic effect influences how the bike leans and steers, but it’s not the main thing keeping you upright. My earlier wording about it “contributing” shouldn’t suggest that it’s essential.",
+      "response_ms": 12436,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 4794,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15883,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because steering only helps you balance if the bike moves far enough to get its wheels back underneath you.\n\nAt a normal riding speed, a small steering adjustment quickly changes the wheels’ path and catches a lean. At very low speed, that same adjustment barely moves the wheels sideways before you tip farther. You need bigger, more deliberate handlebar movements and body shifts—which is why slow riders often weave.\n\nThink of balancing a broom on your palm again, but with a restriction: you can only move your hand very slowly. It becomes much harder to catch a falling broom.\n\nSo the main difficulty isn’t that the wheels have lost their gyroscopic effect; it’s that your steering corrections have much less effect at low speed.",
+      "response_ms": 15883,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 9776,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 15688,
+      "prompt": "Can you recommend a film for tonight?",
+      "response": "My pick: The Grand Budapest Hotel (2014). Wes Anderson’s comedy-adventure follows a hotel concierge and his young protégé through a stolen-painting caper; it runs 1 hour 39 minutes. ([20thcenturystudios.com](https://www.20thcenturystudios.com/movies/the-grand-budapest-hotel?utm_source=openai))\n\nI’d choose it for an evening when you want something playful rather than mindless, with a little melancholy underneath.",
+      "response_ms": 15688,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 5877,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

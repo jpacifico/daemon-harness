@@ -1,0 +1,271 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "e4356524164480f66d3bc44efa2c333f3d1de12b62a0eec6570271282adafca0",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "409bf7630557e10b2568570198c939498cfd6445a5b2e0cb65194628634c639a",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "relationship.03",
+  "episode_ms": 116882,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "relationship.03-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 45952
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 6,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 43520
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1320
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 16
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 90792
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 2342,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13317,
+      "prompt": "I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof.",
+      "response": "A flat first loaf is frustrating, but it gives you something to learn from. A longer proof may help if it was underproofed—but if it had already gone too far, more time can make it spread even more.\n\nBefore baking, was your dough tight and springy, or slack and spreading? And by “longer proof,” do you mean the first rise or the rise after shaping?",
+      "response_ms": 13317,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 3903,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 30898,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good chess opening prepares your pieces for the middlegame. You don’t need to memorize lots of moves to start improving—focus on what your moves accomplish.\n\n1. Control the center\n\nThe central squares—e4, d4, e5, and d5—give your pieces access to more of the board. Put a pawn in the center when you can, and bring pieces out to support or attack those squares.\n\nAs White, 1.e4 or 1.d4 is a straightforward way to begin. You don’t have to occupy the whole center; influencing it with pieces also counts.\n\n2. Develop your pieces\n\nBring your knights and bishops off their starting squares and onto useful squares. Aim to get several pieces working together rather than sending one piece out alone.\n\nKnights often belong on f3 and c3 for White, or f6 and c6 for Black: from there, they influence the center. Avoid moving the same piece repeatedly without a concrete reason—you may be giving your opponent time to develop.\n\n3. Get your king safe\n\nCastling usually tucks your king away from the center and brings a rook closer to the action. Prepare to castle fairly early, especially if central pawns are being exchanged and lines are opening.\n\nBe cautious about advancing the pawns in front of your castled king; they provide shelter.\n\n4. Spend your moves wisely\n\nAn opening move should usually help control the center, develop a piece, protect your king, or answer a threat.\n\nToo many pawn moves can leave your pieces stuck at home. Bringing your queen out early can let your opponent develop pieces while attacking her, forcing you to spend more moves retreating.\n\n5. React to your opponent—not just your plan\n\nOpening principles are guidelines, not a script. Before each move, ask:\n\n  What did my opponent’s last move threaten?\n  Is anything undefended?\n  Can I develop a piece while addressing that threat?\n\nIf a piece is under attack, saving it usually matters more than following a general rule.\n\nA simple example\n\nAfter 1.e4 e5 2.Nf3 Nc6 3.Bc4:\n\n  White’s e-pawn occupies the center.\n  White’s knight develops and attacks Black’s e5 pawn.\n  Black’s knight develops and defends that pawn.\n  White’s bishop becomes active, clearing the way for castling.\n\nEach move has a purpose. That’s more useful to understand than memorizing the sequence alone.\n\nYour opening goal: a safe king, active pieces, and a reasonable share of the center—not necessarily an immediate attack. When you’re unsure what to play, ask: “Which of my knights or bishops is still doing nothing, and where could it become useful?”",
+      "response_ms": 30898,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 3376,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19342,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "The main difference is the pawn structure—especially whether pawns leave clear routes for pieces or block them.\n\nOpen positions\n  Several central pawns have been exchanged, leaving open files (columns) and diagonals.\n  Bishops and rooks can become very active because they have room to operate.\n  Fast development and king safety are especially important: attacks can arrive quickly.\n\nClosed positions\n  Pawns are locked against one another, blocking routes through the center.\n  Knights often work well because they can jump over pawns, while bishops may struggle behind them.\n  Play often involves maneuvering pieces and preparing a pawn break—a pawn advance that challenges an opposing pawn and can open lines.\n\nImagine White has a pawn on d5 and Black has one on d6: neither can advance because the other blocks it. That’s one locked pair; several such blockages can make the position closed.\n\nHow this changes your plan:\n  In an open position, look for ways to activate your pieces along clear lines.\n  In a closed position, improve your pieces and decide where to challenge the pawn structure.\n\nThese aren’t absolute categories. A position can have a closed center but an open flank, and a pawn exchange can turn a closed position into an open one. Bishops aren’t always better in open positions, nor knights in closed ones—their actual activity matters most.",
+      "response_ms": 19342,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2821,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20998,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "Study endgames as little challenges, not chapters to finish.\n\nStart with a position you actually care about. Take an endgame from one of your games—especially a draw you nearly won or a loss you thought you could save. “How could I have won this?” gives the study a purpose.\n\nPlay it before reading the answer. Set up the position and try it against a friend or computer. Then check the explanation and replay it. If you use a computer, focus on whether you achieved the win or draw, not whether you matched every engine move.\n\nKeep sessions short. Try this 15-minute routine:\n  5 minutes: learn one idea.\n  5 minutes: solve or play a position using it.\n  5 minutes: try again with the other side, or with a pawn moved one square.\n\nStart with a few useful themes:\n  - King and pawn versus king: can you promote?\n  - King activity: when should your king join the fight?\n  - Passed pawns: push yours or stop theirs?\n  - Basic checkmates: king and queen, then king and rook, against a lone king.\n\nMake progress visible. Save a handful of positions you couldn’t solve. Revisit them later; being able to handle a position that once baffled you is more satisfying than counting pages read.\n\nThe key: spend more time making decisions on the board than reading about them. One position you understand and can play confidently is a worthwhile session.",
+      "response_ms": 20998,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 5270,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 10855,
+      "prompt": "What should I have with soup tonight?",
+      "response": "Crusty bread with butter is hard to beat. If you want something more filling, go with a grilled cheese; if the soup’s already rich, a crisp green salad.\n\nWhat kind of soup are you having?",
+      "response_ms": 10855,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 7655,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 2684,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 7849,
+      "prompt": "Tomato soup.",
+      "response": "Grilled cheese—cheddar on sourdough, toasted until crisp for dipping. A few pickles on the side would be good, too.",
+      "response_ms": 7849,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "simulator_ms": 5861,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

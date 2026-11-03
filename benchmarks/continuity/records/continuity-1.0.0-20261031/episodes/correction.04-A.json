@@ -1,0 +1,289 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "9129a2627b29773ba8226bbb11cac56bc67513fa1744f8c4b722c564a7a38671",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "8f9c379e46d7ceef43e860edbe651ab2b203bbefd52503c21e50c2abab342a18",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "correction.04",
+  "episode_ms": 81212,
+  "family": "correction",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "correction.04-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 104960
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 10,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 52091
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 867
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 48
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 157918
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 20,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 6,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 15,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 18,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 3742,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 9597,
+      "prompt": "Both my cousins visit this summer: Ana arrives on the 2nd of August, Luis on the 9th of August.",
+      "response": "Got it—Ana arrives August 2, and Luis arrives August 9. Which year do you mean? Those dates have already passed in 2026.",
+      "response_ms": 9597,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2474,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20300,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "A moving bicycle stays upright mainly because it can steer its wheels back underneath you when you start to fall.\n\nThink about balancing a broom upright on your palm. If it tips left, you move your hand left to get back beneath it. A bicycle does something similar: if you lean left, steering left moves the wheels’ contact points back toward the direction you’re falling. That turn can arrest the fall and restore your balance.\n\nTwo things help this happen:\n\n  You make tiny steering corrections, often without noticing. Learning to ride is largely learning how to make those corrections at the right time.\n\n  The bike’s design helps. The geometry of the front fork and the way the bike’s mass is distributed can make the front wheel steer toward a lean even without deliberate input from you. This helps explain why some bicycles can roll upright for a while without a rider.\n\nMoving makes those steering corrections effective: a small change in direction can quickly shift the wheels beneath you. At a standstill, turning the handlebars barely moves your support, so balancing is much harder.\n\nYou might have heard that spinning wheels hold the bike upright like gyroscopes. Their gyroscopic effects do influence its behavior, but they aren’t the whole explanation—or even necessary for a bicycle to balance.\n\nThe key idea: a bicycle isn’t simply resisting every lean. It’s continually correcting its balance by steering.",
+      "response_ms": 20300,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 8432,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13404,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "Mostly steering corrections, not the gyroscopic effect. When you start tipping left, you steer slightly left to bring the wheels back underneath you—like moving your hand under a tipping broom. While riding, you make those corrections almost unconsciously. ([www3.eng.cam.ac.uk](https://www3.eng.cam.ac.uk/~hemh1/gyrobike.htm?utm_source=openai))\n\nGyroscopic effects can help a bicycle steer into a lean, but its geometry and weight distribution also matter. Researchers have even built a bicycle that balances itself while rolling with its wheel gyroscopic effects canceled out. So “spinning wheels hold it upright” isn’t the main explanation; “steering lets it recover from a lean” is the better one. ([news.cornell.edu](https://news.cornell.edu/stories/2011/04/researchers-explain-why-bicycles-balance-themselves?utm_source=openai))",
+      "response_ms": 13404,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 9012,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12604,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because steering only helps you balance if the bike moves—and at low speed, it doesn’t move underneath you quickly enough.\n\nIf you start tipping left, you steer left to bring the wheels back under you. At normal riding speed, a tiny steering adjustment can do that quickly. At a crawl, the same adjustment barely changes where the wheels are before you’ve tipped farther. You need bigger, more carefully timed corrections, which is why slow riders often weave and turn their handlebars sharply.\n\nIt’s like balancing a broom on your palm while only being allowed to move your hand very slowly: you know which way to correct, but you struggle to get there in time.\n\nSo the main difficulty isn’t losing the wheels’ gyroscopic effect—it’s losing the ability to correct a lean quickly through steering.",
+      "response_ms": 12604,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 8830,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12092,
+      "prompt": "Correction for Luis only: he now arrives on the 16th of August. Ana's date hasn't changed.",
+      "response": "Luis now arrives on August 16. Ana still arrives on August 2.",
+      "response_ms": 12092,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 8738,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13121,
+      "prompt": "When should I get the spare room ready for Ana?",
+      "response": "Have the spare room ready by August 1, ahead of Ana’s August 2 arrival. Only Luis’s date changed to August 16.\n\nWhich year is the visit? August 2, 2026 has already passed.",
+      "response_ms": 13121,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

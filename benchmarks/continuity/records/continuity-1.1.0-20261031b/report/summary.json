@@ -1,0 +1,110 @@
+{
+  "arms": {
+    "A": {
+      "after_turn_ms_median": 6,
+      "asks_again": 2,
+      "disagreements": 2,
+      "final_replies_median": 2.0,
+      "first_help_lives": 18,
+      "first_help_median": 2.0,
+      "full_turn_ms_median": 16767,
+      "full_turn_ms_p90": 32969,
+      "invents": 0,
+      "lives_passed": 10,
+      "outcome": 18,
+      "outdated": 5,
+      "preferred": 8,
+      "remembers": 12,
+      "reply_ms_median": 15178,
+      "reply_ms_p90": 29072,
+      "tokens_after_turn_median": 0.0,
+      "tokens_before_reply_median": 0.0,
+      "tokens_reply_median": 149564.0,
+      "tokens_total_median": 149564.0,
+      "tokens_total_sum": 3614572,
+      "tokens_unavailable_lives": 0,
+      "tool_errors": 7
+    },
+    "C": {
+      "after_turn_ms_median": 38830,
+      "asks_again": 0,
+      "disagreements": 2,
+      "final_replies_median": 2.0,
+      "first_help_lives": 17,
+      "first_help_median": 1,
+      "full_turn_ms_median": 60589,
+      "full_turn_ms_p90": 87423,
+      "invents": 0,
+      "lives_passed": 12,
+      "outcome": 17,
+      "outdated": 1,
+      "preferred": 13,
+      "remembers": 16,
+      "reply_ms_median": 13114,
+      "reply_ms_p90": 29083,
+      "tokens_after_turn_median": 390452.0,
+      "tokens_before_reply_median": 0.0,
+      "tokens_reply_median": 126489.0,
+      "tokens_total_median": 518290.0,
+      "tokens_total_sum": 12345249,
+      "tokens_unavailable_lives": 0,
+      "tool_errors": 0
+    }
+  },
+  "efficiency_words_allowed": false,
+  "families": {
+    "correction": {
+      "A": 2,
+      "C": 2,
+      "lives": 4
+    },
+    "people": {
+      "A": 2,
+      "C": 1,
+      "lives": 4
+    },
+    "relationship": {
+      "A": 0,
+      "C": 2,
+      "lives": 4
+    },
+    "time": {
+      "A": 2,
+      "C": 1,
+      "lives": 4
+    },
+    "unknown": {
+      "A": 2,
+      "C": 3,
+      "lives": 4
+    },
+    "work": {
+      "A": 2,
+      "C": 3,
+      "lives": 4
+    }
+  },
+  "gates": {
+    "improves": {
+      "claim_allowed": false,
+      "difference_at_least_6": false,
+      "difference_interval_95": [
+        -5,
+        9
+      ],
+      "interval_excludes_zero": false,
+      "invents_not_higher": true,
+      "lives_passed_difference": 2,
+      "outdated_not_higher": true,
+      "preferred_more": true
+    },
+    "keeps_capabilities": {
+      "measured": false,
+      "see": "continuity-1.0.0"
+    }
+  },
+  "lives": 24,
+  "lives_with_earlier_facts": 24,
+  "ties": 3,
+  "tokens_total_ratio_c_over_a": 3.4154110085509433
+}

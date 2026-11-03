@@ -1,0 +1,430 @@
+{
+  "api_errors": 0,
+  "arm": "C",
+  "attestation": {
+    "context_sha256": "47935af513af5ce9832072d8b022f68b402682e5b6a646e3373104600c80144b",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "daemon_read_souvenirs",
+      "daemon_recall_l0"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "28bba7f3fd0c2b557c09bc912755129ce2ddb4cdda65d536f0e228e4f065ee17",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "e16cf1c4c71fcb38b23f8c6153c1b220b8ae79d687bdc90dabed4dfa3ccd2360"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": 917,
+  "dry_run": false,
+  "episode": "relationship.04",
+  "episode_ms": 509694,
+  "family": "relationship",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 8,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 8,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "relationship.04-C",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 304000
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 25,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 151723
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 10275
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 1617
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 465998
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 50304
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 93020
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1687
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 348
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 145011
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 47564,
+      "first_native_text_ms": 5469,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 1
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 3490,
+        "terminal_turn_count": 1,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15081,
+      "prompt": "I was really nervous about my job interview this morning.",
+      "response": "How did it go—did the nerves ease once you got talking?",
+      "response_ms": 15081,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26097,
+      "first_native_text_ms": 15155,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 2
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 5240,
+        "terminal_turn_count": 2,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 39878,
+      "prompt": "How does a sourdough starter actually work, chemically and biologically?",
+      "response": "A sourdough starter is **a living microbial community in flour and water**: yeasts and lactic acid bacteria ferment sugars, producing the gas that raises bread and the acids that make it sour. Flour supplies both food and some of the founding microbes; the baker and surrounding environment can contribute others. ([doi.org](https://doi.org/10.1128/mSphere.00950-19?utm_source=openai))\n\n### 1. Flour’s enzymes make the food accessible\nMost of flour’s carbohydrate is starch—long chains of sugar units. Once flour is hydrated, enzymes such as **amylases** break starch into smaller carbohydrates, including maltose. Those smaller sugars become fuel for the microbes. So “the yeast eats flour” skips an important step: enzymes prepare its meal. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))\n\n### 2. Yeasts produce the lift\nYeasts ferment sugars into **carbon dioxide and ethanol**. The simplified reaction for glucose is:\n\n**C₆H₁₂O₆ → 2 CO₂ + 2 C₂H₅OH**\n\nThe CO₂ forms bubbles. When those bubbles are retained in the dough’s structure—particularly its gluten network in wheat dough—the starter or bread dough rises. Much of the ethanol evaporates during baking. The rise is therefore trapped gas, not simply the microbes increasing in number. ([ag.purdue.edu](https://ag.purdue.edu/news/2026/04/the-science-behind-sourdough.html))\n\n### 3. Bacteria produce the acidity\nLactic acid bacteria also consume sugars. Their metabolic pathways differ: some predominantly produce lactic acid, while others produce a mixture that can include lactic acid, acetic acid, ethanol and CO₂. Which organisms are present and what substrates they have available influence the resulting mixture. **“Yeast makes gas, bacteria make sourness” is useful shorthand, but the jobs overlap.** ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))\n\n### 4. Feeding keeps the community going\nAdding fresh flour and water supplies new material for fermentation; keeping some old starter introduces an already-established population into that fresh food. Repeating this process lets you maintain the culture rather than start fermentation from scratch for every loaf. That is what a starter actually *starts*. ([ag.purdue.edu](https://ag.purdue.edu/news/2026/04/the-science-behind-sourdough.html))\n\nThere is another chemical layer, too: microbial activity changes the conditions in which flour’s enzymes work, and enzymes and bacteria break down proteins into smaller peptides and amino acids. Those transformations help shape flavor and dough properties—not just sourness and bubbles. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/24230468/))",
+      "response_ms": 39878,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 26847,
+      "first_native_text_ms": 9554,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 3
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 6986,
+        "terminal_turn_count": 3,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19986,
+      "prompt": "Why does it smell sour sometimes and like alcohol other times?",
+      "response": "Because it makes **both acids and alcohol**—and their balance changes as fermentation proceeds. It isn’t switching between two separate processes. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2022/02/22/how-to-make-your-sourdough-bread-more-or-less-sour-part-2?utm_source=openai))\n\n- **The sour, vinegary smell** comes especially from acetic acid, the acid in vinegar. Lactic acid contributes much of the sour *taste*, so sourness on your tongue and sharpness in your nose aren’t quite the same thing. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/faq?utm_source=openai))\n- **The alcoholic smell** comes from ethanol produced during fermentation. It can become particularly noticeable when the starter has gone a while without feeding; sometimes an alcohol-containing liquid layer called *hooch* collects on top. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter?utm_source=openai))\n\nSo a boozy smell is usually a **“feed me” signal, not a “throw me out” signal**. Both alcohol and vinegar aromas can be normal in a hungry starter. ([shop.kingarthurbaking.com](https://shop.kingarthurbaking.com/content/recipes/SourdoughBooklet_2_2026.pdf?utm_source=openai))",
+      "response_ms": 19986,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 28321,
+      "first_native_text_ms": 10759,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 4
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 8737,
+        "terminal_turn_count": 4,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22923,
+      "prompt": "How long can a starter survive in the fridge without feeding?",
+      "response": "**An established starter can often survive several weeks in the fridge without feeding—and sometimes months.** But surviving isn’t the same as being ready to raise bread: a neglected starter may need repeated feedings to recover. There isn’t a guaranteed expiration date. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter?utm_source=openai))\n\n- **For routine upkeep:** feed it about **once a week** while refrigerated. That’s maintenance advice, not a seven-day survival limit. ([kingarthurbaking.com](https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe?utm_source=openai))\n- **After a long gap:** resume room-temperature feedings, roughly every 12 hours, until it’s reliably rising again before baking with it. Recovery after months of neglect can take nearly as long as making a new starter. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n- **Alcohol smell or a liquid layer alone:** not a reason to throw it away. **Mold, pink or orange discoloration, or a putrid smell:** discard the whole starter rather than trying to rescue it. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter?utm_source=openai))",
+      "response_ms": 22923,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 38084,
+      "first_native_text_ms": 3120,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 5
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 11362,
+        "terminal_turn_count": 5,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8722,
+      "prompt": "Update: I got the job! Very relieved, it's all sorted.",
+      "response": "You got it! Congratulations. That’s a much better ending to the day than the morning’s nerves suggested. What’s the new role?",
+      "response_ms": 8722,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 50091,
+      "first_native_text_ms": 7614,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 6
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 13992,
+        "terminal_turn_count": 6,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 11318,
+      "prompt": "Help me plan a small celebration this weekend?",
+      "response": "Who would you like to celebrate with, or are you thinking of a little celebration just for yourself?",
+      "response_ms": 11318,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 8243,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 59397,
+      "first_native_text_ms": 10420,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 7
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 17496,
+        "terminal_turn_count": 7,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": false,
+      "process_ms": 14661,
+      "prompt": "With four close friends, at home",
+      "response": "Five of you at home—nice and manageable. How much cooking do you feel like doing?",
+      "response_ms": 14661,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 6468,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 74708,
+      "first_native_text_ms": 7017,
+      "index": 7,
+      "lifecycle": {
+        "complete": true,
+        "cycle_status_counts": {
+          "completed": 8
+        },
+        "spool_counts": {
+          "failed": 0,
+          "pending": 0,
+          "quarantined": 0,
+          "running": 0,
+          "scene_failed": 0,
+          "scene_pending": 0,
+          "scene_quarantined": 0,
+          "scene_running": 0
+        },
+        "telemetry_bytes": 21875,
+        "terminal_turn_count": 8,
+        "timed_out": false
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10861,
+      "prompt": "No strong preference really, whatever works. Budget's about 80 euros if that helps.",
+      "response": "€80 for the five of you gives us a useful budget. Any dietary restrictions or allergies to plan around?",
+      "response_ms": 10861,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

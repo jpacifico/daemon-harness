@@ -1,0 +1,282 @@
+[
+  {
+    "conversations": [
+      [
+        "I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "What should I have with soup tonight?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The user is baking a second sourdough loaf today, with a longer proof, after a flat first one."
+      ],
+      "next_step": "A suggestion for tonight that connects to the loaf being baked today, or asks how it turned out.",
+      "no_repeat": [],
+      "unknown": [
+        "How the second loaf turned out was never given."
+      ]
+    },
+    "packet": "P09",
+    "replies": {
+      "X": "You were trying another sourdough loaf today—how’s it coming along?",
+      "Y": "Crusty bread or a grilled cheese would be my pick. Add a lemony green salad if you want something fresh alongside it. What kind of soup?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I'm flying to Lisbon next month for a conference."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ],
+      [
+        "What time is my flight again?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The trip is a flight to Lisbon next month for a conference."
+      ],
+      "next_step": "Saying it does not know the time and offering a way to find it (for example the booking confirmation).",
+      "no_repeat": [],
+      "unknown": [
+        "The flight's date and time were never given."
+      ]
+    },
+    "packet": "P10",
+    "replies": {
+      "X": "You mentioned flying to Lisbon in November for a conference, but you haven’t given me the flight time. Do you have the booking confirmation handy?",
+      "Y": "I don’t have your flight details in the available history. What’s the airline and flight number, or can you share the booking confirmation?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Book club is at Clara's place on Wednesday, and I'm bringing dessert."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "Change of plan: we're meeting at the café on Rose Street instead, and I don't need to bring anything, the café serves food."
+      ],
+      [
+        "What do I need to prepare for book club?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Telling the user to bring dessert or that it is at Clara's."
+      ],
+      "must_use": [
+        "Book club is at the café on Rose Street.",
+        "The user does not need to bring anything."
+      ],
+      "next_step": "What is actually left to prepare (for example the book), or that nothing else is needed.",
+      "no_repeat": [
+        "Where book club is.",
+        "Whether to bring food."
+      ],
+      "unknown": []
+    },
+    "packet": "P11",
+    "replies": {
+      "X": "For book club on **Wednesday, November 4**, you’re meeting at **the café on Rose Street**, not Clara’s. **No dessert or other food to prepare**—the café serves food, and you said you don’t need to bring anything.\n\nReading-wise, finish what you can of the book and pick a passage or a question you’d like to discuss. You haven’t mentioned the title or meeting time here.",
+      "Y": "You don’t need to bring anything—dessert is off your list. Wednesday’s book club moved to the café on Rose Street instead of Clara’s, and the café serves food."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My parking permit number is K-4471. I'll need it when I call the council."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ],
+      [
+        "I'm on hold with the council. What's my permit number?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Claiming not to know the permit number."
+      ],
+      "must_use": [
+        "The permit number is K-4471."
+      ],
+      "next_step": "Giving the number K-4471.",
+      "no_repeat": [
+        "The permit number."
+      ],
+      "unknown": []
+    },
+    "packet": "P12",
+    "replies": {
+      "X": "Your permit number is **K-4471**.",
+      "Y": "Your parking permit number is K-4471."
+    }
+  },
+  {
+    "conversations": [
+      [
+        "My new manager is called Daniel and he likes updates by email."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ],
+      [
+        "Correction: it's Danielle, not Daniel, and she prefers a short Teams message, not an email."
+      ],
+      [
+        "Can you help me write my weekly update for my manager?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Addressing the update to Daniel or writing it as an email."
+      ],
+      "must_use": [
+        "The manager is Danielle.",
+        "She prefers a short Teams message."
+      ],
+      "next_step": "A draft short Teams message for Danielle.",
+      "no_repeat": [
+        "The manager's name.",
+        "The preferred format."
+      ],
+      "unknown": []
+    },
+    "packet": "P13",
+    "replies": {
+      "X": "Send me your wins, work in progress, blockers, and next week’s priorities—rough bullets are fine. I’ll turn them into a short Teams update for Danielle.",
+      "Y": "What did you work on this week, were there any blockers, and what’s planned for next week?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "Every Tuesday and Thursday I swim at 7 in the morning before work."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "This Thursday the pool is closed for maintenance, so there's no swim that morning."
+      ],
+      [
+        "Can you help me plan my Thursday morning?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Scheduling the 7 am swim on Thursday."
+      ],
+      "must_use": [
+        "There is no swim this Thursday because the pool is closed."
+      ],
+      "next_step": "A plan for a Thursday morning without the swim.",
+      "no_repeat": [
+        "Whether there is a swim on Thursday.",
+        "The usual swim routine."
+      ],
+      "unknown": []
+    },
+    "packet": "P14",
+    "replies": {
+      "X": "You usually swim on Thursdays at 7:00 a.m. before work. What time do you need to start work, and is there anything else you want to fit in that morning?",
+      "Y": "With the pool closed on Thursday, November 5, your usual 7 a.m. swim is off. What time do you need to leave for work—or start, if you’re working from home?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I've got a dentist appointment tomorrow at 9:30, and I'm not allowed to eat for two hours afterwards."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ],
+      [
+        "What could I have for breakfast and lunch tomorrow?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Suggesting food between the appointment and about 11:30."
+      ],
+      "must_use": [
+        "The dentist appointment is at 9:30 tomorrow.",
+        "No eating for two hours after it."
+      ],
+      "next_step": "A breakfast before the appointment and a lunch after the two hours.",
+      "no_repeat": [
+        "The appointment time.",
+        "The eating restriction."
+      ],
+      "unknown": []
+    },
+    "packet": "P15",
+    "replies": {
+      "X": "With your 9:30 appointment and the two-hour no-eating window afterwards, what dental treatment are you having?",
+      "Y": "Breakfast: Scrambled eggs on whole-grain toast with a side of fruit. For a no-cook option, try Greek yogurt with oats, berries, and peanut butter.\n\nLunch: A chicken or chickpea wrap with hummus, cucumber, and greens, plus carrots on the side.\n\nWhat ingredients do you already have, and any dietary restrictions?"
+    }
+  },
+  {
+    "conversations": [
+      [
+        "I'm taking my nephew Teo, who's seven, into the city on Sunday. He gets carsick on long drives and gets tired after about two hours of walking.",
+        "He's obsessed with trains and dinosaurs."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ],
+      [
+        "Help me sketch a plan for Sunday?"
+      ]
+    ],
+    "criteria": {
+      "must_not": [
+        "Planning a long drive or more than about two hours of continuous walking."
+      ],
+      "must_use": [
+        "Teo gets carsick on long drives.",
+        "Teo tires after about two hours of walking.",
+        "Teo loves trains and dinosaurs."
+      ],
+      "next_step": "An outline of the day built around his interests and limits.",
+      "no_repeat": [
+        "Teo's age or interests.",
+        "Whether he has any travel issues."
+      ],
+      "unknown": []
+    },
+    "packet": "P16",
+    "replies": {
+      "X": "I’d keep Sunday lightly structured:\n\n  Morning: Slow breakfast, then a walk or something else that gets you out.\n  Midday: One useful task—groceries, laundry, or a small bit of tidying.\n  Afternoon: A proper block for something you enjoy, with no productivity goal.\n  Evening: Easy dinner, a quick look at the week ahead, and time to unwind.\n\nAnything already booked, and are you leaning toward restful, social, or productive?",
+      "Y": "Which city are you and Teo heading to on Sunday?"
+    }
+  }
+]

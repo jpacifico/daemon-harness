@@ -1,0 +1,516 @@
+{
+  "judge": "j1",
+  "order": "XY",
+  "verdicts": {
+    "P17": {
+      "X": {
+        "first_help": 0,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "Is your sister’s wedding on 21 June 2027",
+            "verdict": "met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "your sister’s wedding in Porto on June 14",
+            "verdict": "violated"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "June 21: Your sister’s wedding.",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X remembered the corrected date, while Y built a whole plan on the outdated Porto and 14 June details and made the person correct it again."
+      }
+    },
+    "P18": {
+      "X": {
+        "first_help": 0,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "What’s the occasion",
+            "verdict": "asked"
+          }
+        ],
+        "outcome": {
+          "quote": "Main meal: a build-your-own taco spread",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y delivers a concrete celebration plan, while X only keeps asking questions."
+      }
+    },
+    "P19": {
+      "X": {
+        "first_help": 1,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "For proper chip-shop-style chips",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "fry them twice",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 0,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X immediately understood the context of proper chip-shop chips and covered salting, while Y asked what kind of chips were meant."
+      }
+    },
+    "P20": {
+      "X": {
+        "first_help": 1,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "before Ana arrives on August 2",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Have the spare room ready by August 1",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "Ana’s date is August 2",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "the day before Ana arrives on August 2",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X gave the concrete day straight away, while Y held the answer back until the year was settled."
+      }
+    },
+    "P21": {
+      "X": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "Your two-hour wait before eating starts from then.",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Breakfast, before your appointment:",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 0,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "",
+            "verdict": "not_met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X planned the meals around the dentist appointment and the eating restriction, while Y ignored both."
+      }
+    },
+    "P22": {
+      "X": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "short Teams update for Danielle",
+            "verdict": "met"
+          },
+          {
+            "quote": "short Teams update for Danielle",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Hi Danielle, quick weekly update:",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 2,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "needs Danielle’s input",
+            "verdict": "met"
+          },
+          {
+            "quote": "",
+            "verdict": "not_met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          },
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Hi Danielle — quick weekly update:",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X explicitly showed it remembered both the corrected name and the Teams format before drafting."
+      }
+    },
+    "P23": {
+      "X": {
+        "first_help": 1,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "since your day shifts start at 8 a.m.",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "Evening is probably the better fit this week",
+          "verdict": "met"
+        },
+        "unknown": []
+      },
+      "Y": {
+        "first_help": 0,
+        "must_not": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "must_use": [
+          {
+            "quote": "With your 8 a.m. starts",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ],
+        "outcome": {
+          "quote": "",
+          "verdict": "not_met"
+        },
+        "unknown": []
+      },
+      "preference": {
+        "choice": "X",
+        "reason": "X gives a clear recommendation, while Y keeps asking questions and never answers."
+      }
+    },
+    "P24": {
+      "X": {
+        "first_help": 1,
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "your doctor prescribed new blood-pressure tablets",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "What does the prescription label say?",
+          "verdict": "met"
+        },
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "Y": {
+        "first_help": 1,
+        "must_not": [],
+        "must_use": [
+          {
+            "quote": "your doctor prescribed new blood pressure tablets",
+            "verdict": "met"
+          }
+        ],
+        "no_repeat": [],
+        "outcome": {
+          "quote": "Check the prescription label or confirm with your pharmacist or doctor",
+          "verdict": "met"
+        },
+        "unknown": [
+          {
+            "quote": "",
+            "verdict": "clear"
+          }
+        ]
+      },
+      "preference": {
+        "choice": "Y",
+        "reason": "Y clearly says it cannot know the dose and points to the label, the pharmacist and the doctor, while X only asks about the label."
+      }
+    }
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "aded9ed7350fd0b4073a2faa04686fd97e0e688063c23c267cf6f82c06ff241c",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "work.01",
+  "episode_ms": 124170,
+  "family": "work",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 7,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 7,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "work.01-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 117376
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 10,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 35354
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1541
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 154271
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 27,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 16,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 8,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2604,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8027,
+      "prompt": "I'm organising our street's spring clean-up. The flyers are printed and the council has approved the date.",
+      "response": "What would you like help with next—recruiting volunteers, organising supplies, or planning jobs for the day?",
+      "response_ms": 8027,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2952,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 7131,
+      "prompt": "What's left: borrowing litter pickers, and finding someone to bring a first-aid kit.",
+      "response": "Two things left:\n- Arrange to borrow litter pickers.\n- Confirm someone will bring a first-aid kit.",
+      "response_ms": 7131,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 2879,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 30792,
+      "prompt": "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+      "response": "A good chess opening prepares your pieces for the middlegame. You don’t need to memorize lots of moves to start improving—you need to understand what your moves accomplish.\n\n1. Fight for the center\n\nThe central squares—e4, d4, e5, and d5—give your pieces access to more of the board. Putting a pawn in the center helps claim space and support your pieces.\n\nAs White, 1. e4 or 1. d4 is a straightforward starting point. You don’t have to occupy every central square; controlling them with pieces matters too.\n\n2. Develop your pieces\n\nBring your knights and bishops off their starting squares to useful, active positions. Knights usually work well toward the center, rather than at the edge.\n\nTry to develop a new piece instead of moving the same piece repeatedly without a clear reason. While you spend three moves maneuvering one knight, your opponent might bring three pieces into play.\n\n3. Make your king safe\n\nCastling usually gets your king away from the center and brings a rook closer to the action. Prepare to castle early, especially if central pawns are being exchanged and lines are opening.\n\nAvoid unnecessary pawn moves in front of your castled king: those pawns are its shelter.\n\n4. Don’t bring your queen out too early\n\nAn early queen can become a target. Your opponent may develop pieces while attacking it, forcing you to spend moves retreating instead of developing.\n\nThis isn’t an absolute ban—just make sure an early queen move has a concrete purpose.\n\n5. Make purposeful pawn moves\n\nPawns claim space and open paths for your bishops, but every pawn move uses a turn that could develop a piece. Pawns also can’t move backward, so the squares they stop protecting may become weaknesses.\n\nEarly on, prioritize pawn moves that help control the center or free your pieces.\n\nA simple example\n\nAfter 1. e4 e5 2. Nf3 Nc6 3. Bc4:\n\n  e4 claims central space and opens a path for White’s bishop.\n  Nf3 develops a knight, attacks Black’s e5 pawn, and helps control d4.\n  Bc4 develops a bishop to an active diagonal and clears the way for castling.\n\nThese moves work together: central influence, active pieces, and king safety.\n\nBefore each move, ask:\n\n  What did my opponent’s last move threaten?\n  Can I develop a piece or improve my control of the center?\n  Is my king safe?\n  Will this move leave a piece or pawn undefended?\n\nThe most important caveat: opening principles are guidelines, not rules that override threats. If your opponent attacks a piece, don’t ignore it just because you want to castle.\n\nAim to finish the opening with a safe king, active minor pieces, and a foothold in the center—not necessarily with an immediate attack.",
+      "response_ms": 30792,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 4062,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20851,
+      "prompt": "What's the difference between an open and a closed position?",
+      "response": "An open position has relatively few central pawns blocking the lines. A closed position has interlocking pawn chains that restrict movement. The key is the pawn structure—not simply how many pieces remain.\n\nOpen positions\n  Bishops and rooks often thrive because they have clear diagonals and files.\n  Rapid development and king safety are especially important: attacks can arrive quickly.\n  Tactical opportunities—such as forks, pins, and discovered attacks—often appear as lines open.\n\nFor example, if both sides exchange their central pawns early, their pieces can come into direct contact across the center.\n\nClosed positions\n  Locked central pawns block direct routes into the opponent’s position.\n  Knights often do well because they can jump over pawns, especially when they find protected squares deep in enemy territory.\n  Play often involves patient maneuvering and preparing a pawn break: a pawn advance that challenges an enemy pawn and may open lines.\n  Attacks frequently develop on the wings while the center stays blocked.\n\nFor example, White pawns on d4 and e5 facing Black pawns on d5 and e6 create a locked center.\n\nMany positions are somewhere in between, with one open file or one blocked part of the board. And a closed position can suddenly become open after a pawn break.\n\nA useful rule of thumb: in open positions, look for active lines for your pieces; in closed positions, look for better squares and a well-timed pawn break.",
+      "response_ms": 20851,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 3358,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24327,
+      "prompt": "Any advice on how to study endgames without getting bored?",
+      "response": "Treat endgames as small challenges to solve, rather than chapters to finish.\n\n- Play a position before studying it. Try to win it against a friend or a computer, then check the technique and try again. “Why couldn’t I win that?” gives the lesson a purpose.\n\n- Start with a few pieces. King-and-pawn endings give you concrete puzzles: Can you promote? Can your king get through? Who needs to move first? They’re easier to explore without getting overwhelmed.\n\n- Use your own games. Pick an ending where you weren’t sure what to do. Study that specific problem, then replay the position. Even a draw you could have saved makes a worthwhile challenge.\n\n- Change one detail. After solving a position, move a pawn one square or switch whose turn it is. Ask whether the result changes. This tests understanding instead of memorization.\n\n- Practice both sides. Winning a favorable position is one challenge; defending the worse side is another. Try to make the win as difficult as possible.\n\n- Keep sessions short and focused. Give yourself one goal, such as “learn how to win with king and queen against king,” rather than “study endgames.”\n\nA simple session: pick one position, attempt it without help, study the key idea, then reset and play it again without notes. Stop when you can explain why the method works—not just repeat the moves.\n\nStart with basic mates, then king-and-pawn endings, then common rook endings. You don’t need to master a whole category before trying the next one.",
+      "response_ms": 24327,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 4365,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8711,
+      "prompt": "Good news: the community centre is lending us twenty litter pickers.",
+      "response": "That’s good news—twenty litter pickers gives the cleanup a solid start.",
+      "response_ms": 8711,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 2,
+      "first_native_text_ms": 14670,
+      "index": 6,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24226,
+      "prompt": "I've got half an hour now. What should I do for the clean-up?",
+      "response": "Use this half hour to sort the first-aid kit—the community centre has already offered twenty litter pickers, and the flyers and council approval are done.\n\nFirst 10 minutes: message the volunteer group:\n“Can someone bring a stocked first-aid kit to the street clean-up? Please reply to confirm so I can tick it off.”\n\nNext 10 minutes: confirm who will collect and return the twenty litter pickers, and agree the collection time with the community centre.\n\nLast 10 minutes: follow up with a specific volunteer if nobody has claimed the kit, and record the names and arrangements in one place.\n\nAim to finish with a named person for the kit and a confirmed pickup plan—not more planning.",
+      "response_ms": 24226,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

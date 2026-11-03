@@ -1,0 +1,131 @@
+{
+  "name": "daemons-companion",
+  "version": "0.11.10",
+  "private": true,
+  "description": "Private Daemons installation and first Telegram conversation",
+  "author": "Jonathan Pacifico",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.cjs && node --check backend.cjs && node --check preload.cjs && node --check renderer.js && node --check i18n.js && node --check preferences.cjs && node --check instances.cjs && node --check about.cjs && node --check setup-homes.cjs && node --check daemon-cards.js && node --check updates.cjs",
+    "smoke": "electron . --smoke-test",
+    "package:mac": "electron-builder --mac dir",
+    "package:windows": "electron-builder --win nsis",
+    "test": "node --test *.test.cjs",
+    "test:instances-native": "node instances-native.cjs",
+    "icons": "electron build-icons.cjs"
+  },
+  "devDependencies": {
+    "electron": "44.5.1",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "org.daemonharness.companion",
+    "productName": "Daemons Companion",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "index.html",
+      "renderer.js",
+      "theme.css",
+      "assets/daemons-dervaux.svg",
+      "package.json",
+      "backend.cjs",
+      "runtime.json",
+      "smoke.cjs",
+      "smoke-fixture.py",
+      "i18n.js",
+      "preferences.cjs",
+      "locales/*.json",
+      "instances.cjs",
+      "instances-fixture.cjs",
+      "instances-native.cjs",
+      "about.cjs",
+      "setup-homes.cjs",
+      "setup-discard.cjs",
+      "host-offer-fixture.py",
+      "setup-homes-fixture.cjs",
+      "removal-fixture.py",
+      "health.cjs",
+      "diagnostics.cjs",
+      "daemon-cards.js",
+      "obsidian.cjs",
+      "assets/app-icon.png",
+      "assets/app-icon.ico",
+      "assets/trayTemplate.png",
+      "assets/trayTemplate@2x.png",
+      "host-associations.cjs",
+      "host-addition.cjs",
+      "attachment-native-smoke.cjs",
+      "removal-diagnostics.cjs",
+      "host-interface.cjs",
+      "updates.cjs",
+      "backup-crypto.cjs",
+      "backup-service.cjs",
+      "backup-google.cjs",
+      "backup-drive.cjs",
+      "backup-secrets.cjs",
+      "google-oauth.json",
+      "updater/apply-macos.sh",
+      "updater/apply-windows.ps1"
+    ],
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        },
+        {
+          "target": "dir",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "identity": "-",
+      "category": "public.app-category.utilities",
+      "signIgnore": [
+        "/Resources/installer/bin/uv$"
+      ],
+      "icon": "assets/app-icon.icns"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/app-icon.ico",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": false,
+      "deleteAppDataOnUninstall": false
+    },
+    "extraResources": [
+      {
+        "from": "runtime",
+        "to": "installer"
+      },
+      {
+        "from": "host-interfaces",
+        "to": "host-interfaces"
+      }
+    ]
+  },
+  "dependencies": {
+    "json5": "2.2.3",
+    "js-yaml": "4.3.2",
+    "plist": "3.1.0"
+  }
+}

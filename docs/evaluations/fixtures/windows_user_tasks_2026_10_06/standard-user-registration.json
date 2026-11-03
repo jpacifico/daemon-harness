@@ -1,0 +1,61 @@
+{
+  "source": "a6ba05881e70e83bc483198e85ac4cbccf82af90",
+  "admin_enabled": false,
+  "passed": true,
+  "cleanup": true,
+  "jobs": [
+    {
+      "persistent": true,
+      "observations": [
+        {
+          "running": false,
+          "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\DaemonHarness\\com.daemonharness.test.b916b8eaa6ff4341b0dec59d49eff3eb.after-turn-worker</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <RestartOnFailure>\r\n      <Count>3</Count>\r\n      <Interval>PT1M</Interval>\r\n    </RestartOnFailure>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <LogonTrigger>\r\n      <UserId>runnervmtn0fv\\DaemonQ7c170b452b</UserId>\r\n    </LogonTrigger>\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command>\r\n      <Arguments>-B -c \"import time;time.sleep(120)\"</Arguments>\r\n      <WorkingDirectory>D:\\a\\_temp\\standard-user-er38h9am\\temp\\user-tasks-spe8dttr</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>",
+          "signature_matches": true,
+          "native_state": "state=3;result=267011;instances=0\n",
+          "native_error": ""
+        }
+      ],
+      "expected_xml": "<?xml version='1.0' encoding='utf-16'?>\n<Task xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\" version=\"1.4\"><Triggers><LogonTrigger><Enabled>true</Enabled><UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId></LogonTrigger></Triggers><Principals><Principal id=\"Author\"><UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId><LogonType>InteractiveToken</LogonType><RunLevel>LeastPrivilege</RunLevel></Principal></Principals><Settings><MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy><DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries><StopIfGoingOnBatteries>false</StopIfGoingOnBatteries><StartWhenAvailable>true</StartWhenAvailable><ExecutionTimeLimit>PT0S</ExecutionTimeLimit><Enabled>true</Enabled><RestartOnFailure><Interval>PT1M</Interval><Count>3</Count></RestartOnFailure></Settings><Actions Context=\"Author\"><Exec><Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command><Arguments>-B -c \"import time;time.sleep(120)\"</Arguments><WorkingDirectory>D:\\a\\_temp\\standard-user-er38h9am\\temp\\user-tasks-spe8dttr</WorkingDirectory></Exec></Actions></Task>",
+      "matched": true,
+      "restored": true,
+      "running": false
+    },
+    {
+      "persistent": false,
+      "observations": [
+        {
+          "running": false,
+          "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\DaemonHarness\\com.daemonharness.test.b916b8eaa6ff4341b0dec59d49eff3eb.dreaming</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT2H</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <CalendarTrigger>\r\n      <StartBoundary>2000-01-01T04:00:00</StartBoundary>\r\n      <ScheduleByDay>\r\n        <DaysInterval>1</DaysInterval>\r\n      </ScheduleByDay>\r\n    </CalendarTrigger>\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command>\r\n      <Arguments>-B -c \"import time;time.sleep(120)\"</Arguments>\r\n      <WorkingDirectory>D:\\a\\_temp\\standard-user-er38h9am\\temp\\user-tasks-spe8dttr</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>",
+          "signature_matches": true,
+          "native_state": "state=3;result=267011;instances=0\n",
+          "native_error": ""
+        }
+      ],
+      "expected_xml": "<?xml version='1.0' encoding='utf-16'?>\n<Task xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\" version=\"1.4\"><Triggers><CalendarTrigger><Enabled>true</Enabled><StartBoundary>2000-01-01T04:00:00</StartBoundary><ScheduleByDay><DaysInterval>1</DaysInterval></ScheduleByDay></CalendarTrigger></Triggers><Principals><Principal id=\"Author\"><UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId><LogonType>InteractiveToken</LogonType><RunLevel>LeastPrivilege</RunLevel></Principal></Principals><Settings><MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy><DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries><StopIfGoingOnBatteries>false</StopIfGoingOnBatteries><StartWhenAvailable>true</StartWhenAvailable><ExecutionTimeLimit>PT2H</ExecutionTimeLimit><Enabled>true</Enabled></Settings><Actions Context=\"Author\"><Exec><Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command><Arguments>-B -c \"import time;time.sleep(120)\"</Arguments><WorkingDirectory>D:\\a\\_temp\\standard-user-er38h9am\\temp\\user-tasks-spe8dttr</WorkingDirectory></Exec></Actions></Task>",
+      "matched": true,
+      "restored": true,
+      "running": false
+    },
+    {
+      "persistent": true,
+      "observations": [
+        {
+          "running": false,
+          "xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <URI>\\DaemonHarness\\com.daemonharness.test.b916b8eaa6ff4341b0dec59d49eff3eb.hermes-gateway</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <RestartOnFailure>\r\n      <Count>3</Count>\r\n      <Interval>PT1M</Interval>\r\n    </RestartOnFailure>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <LogonTrigger>\r\n      <UserId>runnervmtn0fv\\DaemonQ7c170b452b</UserId>\r\n    </LogonTrigger>\r\n  </Triggers>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command>\r\n      <Arguments>-B -c \"import time;time.sleep(120)\"</Arguments>\r\n      <WorkingDirectory>D:\\a\\_temp\\standard-user-er38h9am\\temp\\user-tasks-spe8dttr</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>",
+          "signature_matches": true,
+          "native_state": "state=3;result=267011;instances=0\n",
+          "native_error": ""
+        }
+      ],
+      "expected_xml": "<?xml version='1.0' encoding='utf-16'?>\n<Task xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\" version=\"1.4\"><Triggers><LogonTrigger><Enabled>true</Enabled><UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId></LogonTrigger></Triggers><Principals><Principal id=\"Author\"><UserId>S-1-5-21-1000861503-3182281758-1041194900-1003</UserId><LogonType>InteractiveToken</LogonType><RunLevel>LeastPrivilege</RunLevel></Principal></Principals><Settings><MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy><DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries><StopIfGoingOnBatteries>false</StopIfGoingOnBatteries><StartWhenAvailable>true</StartWhenAvailable><ExecutionTimeLimit>PT0S</ExecutionTimeLimit><Enabled>true</Enabled><RestartOnFailure><Interval>PT1M</Interval><Count>3</Count></RestartOnFailure></Settings><Actions Context=\"Author\"><Exec><Command>C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe</Command><Arguments>-B -c \"import time;time.sleep(120)\"</Arguments><WorkingDirectory>D:\\a\\_temp\\standard-user-er38h9am\\temp\\user-tasks-spe8dttr</WorkingDirectory></Exec></Actions></Task>",
+      "matched": true,
+      "restored": true,
+      "running": false
+    }
+  ],
+  "scope": "registration-restoration-removal-only",
+  "execution_checked": false,
+  "baseline_error": "Access is denied. (Exception from HRESULT: 0x80070005 (E_ACCESSDENIED))\nAt line:1 char:423\n+ ... ($args[2]));$null=$folder.RegisterTask($args[1],$xml,6,$null,$null,3, ...\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], UnauthorizedAccessException\n    + FullyQualifiedErrorId : System.UnauthorizedAccessException\n \n",
+  "cleanup_errors": [],
+  "seconds": 18.953
+}

@@ -1,0 +1,249 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "24c7248d07ab31d0f105cba6cc94370d0bccbdd919a56c5e356dc7d0f9d8f11e",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "time.02",
+  "episode_ms": 61177,
+  "family": "time",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 5,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 5,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "time.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 41216
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 5,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 32680
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 673
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 57
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 74569
+      }
+    }
+  },
+  "tools": [],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 5234,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10723,
+      "prompt": "I've got a dentist appointment tomorrow at 9:30, and I'm not allowed to eat for two hours afterwards.",
+      "response": "The two-hour wait starts when your appointment finishes, not at 9:30. If you finish at 10:30, you can eat at 12:30—unless your dentist gives you different instructions.",
+      "response_ms": 10723,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 4,
+      "first_native_text_ms": 2444,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 17556,
+      "prompt": "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+      "response": "A moving bicycle stays upright mainly by steering its wheels back underneath it when it starts to lean.\n\nThink of balancing a broom upright on your palm: if it tips to the left, you move your hand left to get back under it. A bicycle does something similar with its wheels.\n\nHere’s the basic sequence:\n  1. The bike starts leaning left.\n  2. You steer slightly left.\n  3. The wheels follow a path that curves left, helping bring them back underneath your weight.\n\nWhile riding, you make these tiny steering corrections almost automatically. At a standstill, turning the handlebars doesn’t move the wheels underneath you—you need to roll for steering to help. That’s why balancing is generally easier once you’re moving.\n\nThe bike’s design helps, too. Its steering geometry and the way its weight is distributed can make the front wheel steer toward a lean on its own. That’s one reason some bikes can roll upright for a while without a rider.\n\nYou may have heard that the spinning wheels act like gyroscopes. They do, and that influences how the bike behaves, but it’s not the main explanation: spinning wheels alone aren’t what keep you upright.\n\nThe key idea is that riding a bicycle isn’t perfectly avoiding a fall. It’s continually correcting little falls by steering.",
+      "response_ms": 17556,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 3115,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 9920,
+      "prompt": "So is it mostly the gyroscopic effect, or something else?",
+      "response": "Mostly something else: steering into a lean so the wheels come back underneath you.\n\nThe wheels’ gyroscopic effect influences how the bike leans and steers, but it isn’t essential to balance. You make small steering corrections, and the bike’s geometry and weight distribution can help it make those corrections naturally.\n\nSo a bicycle is less like a spinning top resisting a tip, and more like balancing a broom on your palm by moving your hand underneath it.",
+      "response_ms": 9920,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 12,
+      "first_native_text_ms": 2282,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 12288,
+      "prompt": "Why is it so much harder to balance when you go very slowly?",
+      "response": "Because steering only corrects your balance as the bike moves forward. At very low speed, the wheels don’t move sideways underneath you quickly enough to catch a lean.\n\nAt a comfortable riding speed, a tiny turn of the handlebars can correct a small lean. Going slowly, you need bigger steering movements—and the bike may keep tipping before you’ve moved far enough to recover. You end up making those familiar wobbly, exaggerated corrections.\n\nThe wheels also have less gyroscopic effect at low speed, but that’s secondary. The main difficulty is that you’re still tipping under gravity while your steering corrections have much less effect.",
+      "response_ms": 12288,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 10,
+      "first_native_text_ms": 5965,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10606,
+      "prompt": "What could I have for breakfast and lunch tomorrow?",
+      "response": "Breakfast: Scrambled eggs on whole-grain toast with a side of fruit. For a no-cook option, try Greek yogurt with oats, berries, and peanut butter.\n\nLunch: A chicken or chickpea wrap with hummus, cucumber, and greens, plus carrots on the side.\n\nWhat ingredients do you already have, and any dietary restrictions?",
+      "response_ms": 10606,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

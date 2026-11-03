@@ -1,0 +1,289 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "e369e40aa6b307094d05e730f1f9972bd856e188f0862d6b6e932c2b75e8f332",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "work.02",
+  "episode_ms": 121260,
+  "family": "work",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "work.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 108288
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 10,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 50179
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1818
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 89
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 160285
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 12,
+      "name": "tool_describe",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 13,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 12,
+      "name": "session_search",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 10,
+      "name": "session_search",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 2305,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 13825,
+      "prompt": "I'm writing a 20-page report for my evening course. Chapters one and two are drafted. Chapter three, the case study, isn't started. It's due in ten days.",
+      "response": "You have a workable starting point: two chapters drafted and ten days left. The priority is getting a complete case-study draft before polishing chapters one and two.\n\nA suggested schedule for your evenings:\n\n  Days 1–2: Choose or narrow the case, gather the essential evidence, and outline chapter three.\n  Days 3–5: Draft the case study—background, analysis using your course concepts, and findings.\n  Day 6: Connect the case study to the earlier chapters and finish any missing introduction or conclusion.\n  Days 7–8: Revise the whole report for argument, structure, and length.\n  Day 9: Check citations, formatting, and proofreading.\n  Day 10: Final check and submission, with room for delays.\n\nTonight, aim for a chapter-three outline, not polished prose.\n\nWhat’s the report topic, and have you already chosen a case?",
+      "response_ms": 13825,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 6426,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 35406,
+      "prompt": "How does a sourdough starter actually work, chemically and biologically?",
+      "response": "A sourdough starter is a small microbial ecosystem: yeasts and lactic acid bacteria living in wet flour. They turn flour’s carbohydrates into gases, acids, and other flavor compounds. Feeding it keeps that ecosystem going.\n\nFlour supplies both the food and many of the microbes\n　\nFlour contains starch, proteins, minerals, enzymes, and naturally occurring microorganisms. Water activates flour’s enzymes and lets microbes grow. Additional microbes can come from hands, utensils, and the surrounding environment—it isn’t primarily a matter of “catching wild yeast from the air.”\n\nMost microbes can’t directly eat intact starch. Flour enzymes, especially amylases, break some starch into smaller sugars, including maltose. Those sugars become food for the starter’s community.\n\nYeasts make the gas that raises bread\n\nYeasts consume available sugars. Through alcoholic fermentation, they convert glucose into carbon dioxide and ethanol:\n\n    glucose → carbon dioxide + ethanol + energy\n\nMore precisely, one glucose molecule produces two molecules each of carbon dioxide and ethanol. The yeast captures some of the released energy to maintain itself and reproduce.\n\nThe carbon dioxide forms bubbles. In wheat dough, the gluten network traps those bubbles, allowing the dough to rise. Much of the ethanol escapes during fermentation and baking.\n\nBacteria make the acidity—and sometimes gas\n\nLactic acid bacteria ferment sugars too, but their products depend on the species and conditions:\n\n    Some pathways mainly produce lactic acid.\n    Others produce lactic acid, carbon dioxide, and ethanol or acetic acid.\n\nLactic acid contributes a comparatively gentle sourness; acetic acid gives the sharper, vinegar-like note. Their proportions, along with other fermentation products, help determine the bread’s aroma and taste.\n\nThe yeast and bacteria don’t have a single fixed partnership. Depending on which species are present, they may compete for sugars, use different sugars, or benefit from one another’s metabolic products.\n\nRepeated feeding selects the community\n\nA new flour-and-water mixture initially supports a changing assortment of microbes. As bacteria produce acids, the environment becomes less hospitable to many early inhabitants. Acid-tolerant yeasts and bacteria become established through repeated feeding.\n\nFeeding adds fresh nutrients and dilutes accumulated acids and other waste products. Discarding some starter keeps the amount manageable and lets a modest feeding provide plenty of fresh food relative to the existing population.\n\nThat’s why an early burst of bubbles doesn’t necessarily mean a new starter is ready: the community may still be changing.\n\nWhy it rises, peaks, and falls\n\nAfter feeding, microbial activity increases and gas accumulates. Eventually, fermentable food becomes more limited, acidity builds, and gas production slows. Meanwhile, gas escapes and the flour’s structure weakens, so the starter falls. Falling usually means it has passed its peak—not that it has died.\n\nIn short: enzymes unlock food from flour, yeasts and bacteria ferment it, gas provides lift, and acids shape both the flavor and the microbial ecosystem.",
+      "response_ms": 35406,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 3108,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 17637,
+      "prompt": "Why does it smell sour sometimes and like alcohol other times?",
+      "response": "Those smells come from different fermentation products, and their balance changes as the starter moves through a feeding cycle.\n\nA sour or vinegar-like smell\n    Lactic acid bacteria produce lactic and acetic acids. Acetic acid evaporates readily, so it creates that sharp vinegar smell. Lactic acid is much less volatile—it contributes more to sour taste than to smell.\n\nAn alcoholic or beer-like smell\n    Yeasts produce ethanol as they ferment sugars; some bacteria produce it too. It can become more noticeable as fermentation progresses and ethanol accumulates, especially when the starter has gone a while without feeding. A liquid layer sometimes called “hooch” can contain ethanol, but an alcoholic smell doesn’t require a visible layer.\n\nThe key is that these aren’t separate modes: your starter can be producing acids and alcohol at the same time. What you smell depends on their relative amounts, temperature, how long it’s been since feeding, and whether the container lets volatile compounds escape.\n\nFeeding dilutes the accumulated products and adds fresh flour, so the smell often becomes milder, then develops again. A strong alcoholic smell—especially in a starter that has already risen and fallen—usually means it’s ready for more food, not that something has gone wrong.",
+      "response_ms": 17637,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 9693,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 22978,
+      "prompt": "How long can a starter survive in the fridge without feeding?",
+      "response": "An established sourdough starter can often survive weeks—and sometimes months—in the fridge without feeding. But surviving isn’t the same as being ready to raise bread: longer neglect generally means more recovery feedings. There’s no guaranteed expiration date. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\nFor practical purposes:\n\n• Routine care: Feed it about once a week when refrigerated. That’s the recommended maintenance schedule, not a deadline after which it dies. ([extension.colostate.edu](https://extension.colostate.edu/resource/sourdough-basics-caring-for-your-starter-and-making-bread/?utm_source=openai))\n• A month forgotten: It may still be recoverable. An alcoholic smell or dark liquid (“hooch”) on top doesn’t by itself mean it’s spoiled. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2021/09/02/did-i-kill-my-sourdough-starter?utm_source=openai))\n• Several months forgotten: Revival may still work, but it can take almost as long as establishing a new starter. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\nBefore reviving it, check for spoilage. If you see mold or pink/orange coloration, or smell something rotten rather than the usual sour/alcoholic aroma, discard the entire starter—don’t just scrape the surface. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/faq?utm_source=openai))\n\nIf there are no spoilage signs, resume regular room-temperature feedings. Wait until it reliably becomes bubbly and rises after feeding before relying on it for bread; one feeding may not be enough. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))",
+      "response_ms": 22978,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 2258,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 6509,
+      "prompt": "Update: I finished the outline of chapter three last night. What's missing now is the interviews for the case study.",
+      "response": "Chapter three’s outline is finished; the case-study interviews are the remaining gap. Do you still need to conduct them, or just incorporate them into the chapter?",
+      "response_ms": 6509,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 14414,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 24804,
+      "prompt": "Where should I put my effort this week?",
+      "response": "Put your effort into the case-study interviews, then turning chapter three into a complete draft—not polishing chapters one and two.\n\nYour latest update says the outline is finished and the interviews are the remaining gap. That changes the priority: @session:100000001/20261031_112032_7553bd\n\nFor this week:\n  1. Unblock the interviews first. If they haven’t happened, contact participants now and set the earliest workable times. If they’re already recorded, extract the evidence you need.\n  2. Draft around the finished outline while you wait. Write the background and analytical framework, clearly marking where interview evidence belongs.\n  3. Incorporate the interviews and finish a rough chapter three before revising the whole report.\n\nAim to end the week with a complete report draft, leaving the remaining time before your deadline for revision, citations, and proofreading.\n\nAre the interviews still to be conducted, or just written up?",
+      "response_ms": 24804,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

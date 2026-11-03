@@ -1,0 +1,404 @@
+[
+  {
+    "criteria": {
+      "must_not": [
+        "Ignoring the request for a film."
+      ],
+      "must_use": [
+        "The user's driving test is tomorrow morning."
+      ],
+      "no_repeat": [],
+      "outcome": "A film suggestion that suits the evening before the test (for example light, not too late), with a brief good-luck word.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "I've got my driving test tomorrow morning. Third attempt, fingers crossed."
+      ],
+      [
+        "Can you explain how a bicycle stays upright when it's moving? I've never really understood it.",
+        "So is it mostly the gyroscopic effect, or something else?",
+        "Why is it so much harder to balance when you go very slowly?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "I’d pick **Fantastic Mr. Fox**—Wes Anderson’s stop-motion adaptation of Roald Dahl, about a fox whose raids on three farmers get his whole community into trouble. ([cinema.cornell.edu](https://cinema.cornell.edu/fantastic-mr-fox?utm_source=openai))\n\nAutumn colours, eccentric characters, and mischievous humour rather than sugary sweetness. It’s also about **87 minutes**—a point in its favour with your driving test tomorrow morning. ([iffr.com](https://iffr.com/en/iffr/2010/films/fantastic-mr-fox?utm_source=openai)) My vote tonight: a little beautifully organised chaos, then bed.",
+          "person": "Can you recommend a film for tonight?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "My pick: The Grand Budapest Hotel (2014). Wes Anderson’s comedy-adventure follows a hotel concierge and his young protégé through a stolen-painting caper; it runs 1 hour 39 minutes. ([20thcenturystudios.com](https://www.20thcenturystudios.com/movies/the-grand-budapest-hotel?utm_source=openai))\n\nI’d choose it for an evening when you want something playful rather than mindless, with a little melancholy underneath.",
+          "person": "Can you recommend a film for tonight?"
+        }
+      ]
+    },
+    "packet": "P01"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Claiming not to know the permit number."
+      ],
+      "must_use": [
+        "The permit number is K-4471."
+      ],
+      "no_repeat": [
+        "The permit number."
+      ],
+      "outcome": "Giving the number K-4471.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "My parking permit number is K-4471. I'll need it when I call the council."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Your parking permit number is K-4471.",
+          "person": "I'm on hold with the council. What's my permit number?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Your permit number is **K-4471**.",
+          "person": "I'm on hold with the council. What's my permit number?"
+        }
+      ]
+    },
+    "packet": "P02"
+  },
+  {
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The trip is a flight to Lisbon next month for a conference."
+      ],
+      "no_repeat": [],
+      "outcome": "Saying it does not know the time and offering a way to find it (for example the booking confirmation).",
+      "unknown": [
+        "The flight's date and time were never given."
+      ]
+    },
+    "earlier_conversations": [
+      [
+        "I'm flying to Lisbon next month for a conference."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "I don’t have your flight details in the available history. What’s the flight number and travel date, or can you share your booking confirmation?",
+          "person": "What time is my flight again?"
+        },
+        {
+          "assistant": "Your email isn’t connected in this session, so I couldn’t search your booking confirmation. Paste the email text here, or save it as a file and share its path—I’ll pull out the flight date, departure time, and time zone. You can omit your booking reference and payment details.",
+          "person": "I don't have the flight number or exact date handy, it's all in my booking confirmation email. Can you find it there?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "You told me you’re flying to Lisbon in November for a conference, but you haven’t shared the flight time. Can you send me your booking confirmation?",
+          "person": "What time is my flight again?"
+        },
+        {
+          "assistant": "I don’t have access to your inbox here. Can you paste the flight details from the confirmation email, leaving out your booking reference and personal details?",
+          "person": "It's in my booking confirmation email. Can you find it there?"
+        }
+      ]
+    },
+    "packet": "P03"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Telling the user to outline chapter three or to draft chapters one and two as if not done."
+      ],
+      "must_use": [
+        "The chapter three interviews are what is missing.",
+        "The chapter three outline is done.",
+        "Chapters one and two are drafted.",
+        "The deadline is about ten days away."
+      ],
+      "no_repeat": [
+        "Which chapters are done.",
+        "When the report is due."
+      ],
+      "outcome": "A plan for the week centred on arranging and doing the interviews.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "I'm writing a 20-page report for my evening course. Chapters one and two are drafted. Chapter three, the case study, isn't started. It's due in ten days."
+      ],
+      [
+        "How does a sourdough starter actually work, chemically and biologically?",
+        "Why does it smell sour sometimes and like alcohol other times?",
+        "How long can a starter survive in the fridge without feeding?"
+      ],
+      [
+        "Update: I finished the outline of chapter three last night. What's missing now is the interviews for the case study."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Put most of your effort into the case-study interviews, then drafting chapter three. Your outline is finished and chapters one and two are already drafted—the missing interviews are what could hold up the report.\n\nThis week’s order:\n\n1. Contact interviewees and secure times first. If you’ve already reached out, follow up and identify backups.\n2. Prepare a short question list tied to the gaps in your outline. Prioritize evidence you actually need for the chapter.\n3. Conduct the interviews and write up useful findings immediately afterward.\n4. Draft around them now: case background, context, and connections to chapters one and two. Leave clear placeholders for interview evidence.\n\nAim to finish the week with a complete rough draft of chapter three, not polished earlier chapters. With your ten-day deadline, protect the remaining time for revising the whole report and checking citations.",
+          "person": "Where should I put my effort this week?"
+        },
+        {
+          "assistant": "Day 1 — Get interviews moving\n  Contact interviewees with specific time options. Follow up on any existing requests and identify backups.\n  Prepare a short question list tied to the gaps in your chapter-three outline.\n\nDay 2 — Draft what doesn’t depend on interviews\n  Write the case background, context, and problem.\n  Mark where interview evidence is needed. Confirm interview times.\n\nDay 3 — Gather evidence\n  Conduct the first available interviews.\n  After each, capture key findings and distinguish exact quotes from your notes.\n\nDay 4 — Finish the core interviews\n  Complete remaining interviews where possible and follow up on essential gaps.\n  If scheduling is slipping, contact backups. Check your assignment requirements before considering alternative evidence.\n\nDay 5 — Turn evidence into analysis\n  Group findings under your outline headings.\n  Explain what the evidence means and how it connects to chapters one and two—not just what interviewees said.\n\nDay 6 — Complete chapter three\n  Assemble a full rough draft, including implications and a closing section.\n  Resolve essential gaps; leave wording improvements for revision.\n\nDay 7 — Read the report as a whole\n  Check whether the chapters support one coherent argument.\n  Fix major gaps, repetition, and transitions. List remaining citation, formatting, and proofreading tasks for the time before submission.\n\nIf interviews happen on different days, swap the evidence-gathering sessions with drafting sessions. The priority stays the same: get interviews scheduled early and reach a complete draft before polishing.",
+          "person": "Can you turn that into a day-by-day plan for the week?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "**The interviews first, then turning chapter three’s outline into a draft.** Chapters one and two already exist; the missing interviews depend on other people’s availability, so they’re the priority.\n\nI’d put this week’s effort here:\n\n1. **Secure interview dates now**, if they aren’t booked. Prepare a short question list tied to what the case study needs to establish.\n2. **Write around the gaps while you wait.** Draft the case background and your approach, leaving explicit placeholders for interview evidence—not invented conclusions.\n3. **After each interview, write up the relevant findings straight away.** Put them into the chapter while the conversation is fresh, rather than saving all the analysis for later.\n\nAim for **a complete, rough chapter three by the end of the week**, leaving the remaining time before November 10 for connecting the chapters, checking references and editing to length.\n\nFor now, only revisit chapters one and two when something there directly helps the case study. Polishing them can wait.",
+          "person": "Where should I put my effort this week?"
+        },
+        {
+          "assistant": "Yes. I’d aim for **a complete rough report by November 6**, keeping November 7–9 for revision before the November 10 deadline.\n\nThe interview slots may move; swap the surrounding writing tasks rather than losing those days.\n\n| Day | Main job | What “done” looks like |\n|---|---|---|\n| **Today — Sat, Oct 31** | Contact the interviewees—or follow up if you already have. Offer specific slots before November 5. Prepare a short question list tied to your chapter-three outline. | Requests sent; interview questions ready. |\n| **Sun, Nov 1** | Draft the case background and explain your approach. Mark exactly where interview evidence is needed. | The parts you can write without interviews are drafted. |\n| **Mon, Nov 2** | Follow up on unanswered requests. Hold any available interviews; otherwise, continue drafting around the gaps. | Clear booking status for each interview; more chapter text, not more outlining. |\n| **Tue, Nov 3** | Interview and immediately write up the relevant points, separating quotations from your own interpretation. | Each completed interview has usable notes linked to chapter sections. |\n| **Wed, Nov 4** | Continue interviews and start comparing the accounts: agreements, differences and what they tell you about the case. | A first draft of the findings, with remaining gaps clearly marked. |\n| **Thu, Nov 5** | Finish the remaining interviews if possible, then write the analysis. Connect the evidence to the ideas in chapters one and two. | A complete rough chapter three. |\n| **Fri, Nov 6** | Read all three chapters together. Draft or revise the introduction and conclusion so they match what the report actually establishes. | One complete report, however untidy. |\n\n**Then protect the finishing time:**\n- **Nov 7:** Fix the argument—missing explanations, contradictions, weak links between chapters.\n- **Nov 8:** Check quotations, references and the 20-page requirement.\n- **Nov 9:** Proofread, format and prepare the submission file.\n- **Nov 10:** Submit.\n\n**One checkpoint: November 2.** If you still can’t secure the interviews, contact your tutor that day about an acceptable fallback. Don’t let unanswered messages quietly consume the writing time.\n\nOn interview days, count the interview **and its write-up** as the main task. Don’t also assign yourself a heroic evening of drafting.",
+          "person": "Can you make it more concrete, like what to do each day?"
+        }
+      ]
+    },
+    "packet": "P04"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Planning a long drive or more than about two hours of continuous walking."
+      ],
+      "must_use": [
+        "Teo gets carsick on long drives.",
+        "Teo tires after about two hours of walking.",
+        "Teo loves trains and dinosaurs."
+      ],
+      "no_repeat": [
+        "Teo's age or interests.",
+        "Whether he has any travel issues."
+      ],
+      "outcome": "An outline of the day built around his interests and limits.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "I'm taking my nephew Teo, who's seven, into the city on Sunday. He gets carsick on long drives and gets tired after about two hours of walking.",
+        "He's obsessed with trains and dinosaurs."
+      ],
+      [
+        "My basil plants keep dying on the windowsill. Can you explain what basil actually needs?",
+        "How often should I water it, and how do I tell if I'm overdoing it?",
+        "Is it worth trying to grow it from seed, or are supermarket pots fine to keep going?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Which city are you and Teo heading to on Sunday?",
+          "person": "Help me sketch a plan for Sunday?"
+        },
+        {
+          "assistant": "I’d make it **one main outing, lunch, and an optional extra—not a city marathon.** With Teo’s interests, the train ride can count as part of the fun.\n\n### A loose Sunday plan\n- **Before leaving:** pack water, snacks and a small activity for the journey.\n- **40-minute train ride:** let him choose a train-spotting mission—count passing trains, spot different colours, or watch for junctions.\n- **On arrival:** toilet stop, then head straight to your main activity. Keep the walk short rather than adding a sightseeing detour.\n- **Main activity: around an hour.** Pick something train- or dinosaur-related if there’s a suitable option; otherwise, one thing he’s genuinely excited about is enough.\n- **Lunch with a proper sit-down break.** Put this before he’s exhausted, not after.\n- **Optional extra: 20–30 minutes nearby.** A playground or one small stop—not a second major attraction. Skip it without ceremony if he’s flagging.\n- **Train home:** leave while he still has a little energy for the journey and the walk from the station.\n\n**Keep the total walking comfortably below his two-hour limit**, including getting to and from stations. I’d aim for roughly three hours in the city, with permission to head home earlier. No obligation to get your money’s worth out of a tired seven-year-old.",
+          "person": "Doesn't really matter, just give me a general plan. We're taking the train in, about 40 minutes."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "I’d keep Sunday relaxed, with one useful task and something to look forward to:\n\n  Morning — Slow breakfast, then a walk or a little time outside.\n  Late morning — One chore or errand, capped at an hour.\n  Afternoon — A fun outing, hobby time, or catching up with someone. Leave some space unplanned.\n  Evening — Easy dinner and a short reset for Monday, then wind down.\n\nAre you leaning toward a restful day, a social day, or getting things done?",
+          "person": "Help me sketch a plan for Sunday?"
+        },
+        {
+          "assistant": "You’re right—I missed the context. Teo is your seven-year-old nephew, loves trains and dinosaurs, gets carsick on long drives, and tires after about two hours of walking.\n\nI’d build Sunday around one main stop: a train ride into the city if practical, a dinosaur exhibit, a seated lunch or snack break, then home before he’s worn out—not a packed sightseeing day.\n\nWhich city are you heading to, and where are you starting from?",
+          "person": "It's the day I'm taking Teo into the city, remember?"
+        },
+        {
+          "assistant": "That gives us a useful shape: a 40-minute train ride each way, about €50 total, and home by 6.\n\n  Late morning — Train into the city; make the journey part of the fun for Teo.\n  Main stop — One dinosaur exhibit or train-themed attraction, keeping the visit to roughly 60–90 minutes with chances to sit.\n  Lunch — A seated break, with packed food or a simple lunch depending on ticket costs.\n  Early afternoon — One small extra only if he still has energy; otherwise head back early.\n  Return — Choose a train that leaves time for the 40-minute ride, the trip from your station to home, and a buffer before 6.\n\nI’d set aside return fares first, then fit admission and food into what’s left of the €50.\n\nWhich city are you visiting, and which station are you leaving from?",
+          "person": "We're taking the train in, it's about 40 minutes. I'd like to be home by 6, and the budget's around 50 euros."
+        }
+      ]
+    },
+    "packet": "P05"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Applying the bike decision (repair rather than buy) to the laptop.",
+        "Bringing up the bike wheels."
+      ],
+      "must_use": [
+        "The laptop budget is about 1,200 euros.",
+        "It is mostly for spreadsheets and video calls."
+      ],
+      "no_repeat": [
+        "The budget.",
+        "What the laptop is for."
+      ],
+      "outcome": "Concrete criteria or a shortlist approach for that budget and use.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "For my bike repair project I decided not to buy new wheels. I'll true the old ones myself. That's settled."
+      ],
+      [
+        "I'd like to understand the history of tea in Britain. How did it become so popular?",
+        "What was the role of the East India Company in all that?",
+        "And when did tea bags appear, and why did they catch on?"
+      ],
+      [
+        "Completely separate thing: I'm buying a new laptop for work, from scratch. Budget around 1,200 euros, mostly spreadsheets and video calls."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "I’d start with what your work needs to run, rather than the brand. What spreadsheet software do you use, including any required macros or add-ins?",
+          "person": "How should I choose?"
+        },
+        {
+          "assistant": "That’s enough to start—we don’t need to invent specialist requirements.\n\n**I’d choose for everyday comfort before extra power.** Here’s the order I’d use:\n\n1. **Set a sensible baseline: 16GB RAM and a 512GB SSD.** A current mid-range processor is sufficient for ordinary office work; I wouldn’t spend your budget chasing the fastest chip. ([hp.com](https://www.hp.com/us-en/tech-takes/laptops/glossary.html?utm_source=openai))\n2. **Choose the size around where you work.** My preference would be 14 inches if you carry it regularly, or 15–16 inches if you mainly use it at a desk without a separate monitor.\n3. **Try the keyboard and screen in person.** Open a spreadsheet, type a few rows, and check whether you’re comfortable reading it at normal zoom. That would carry more weight with me than a flashy feature list.\n4. **Check the webcam and microphone—not just the processor.** For your use, I’d actively look for a sample video call or recording before buying.\n5. **Before committing, ask work whether they require a particular operating system or security setup.** You don’t need to know the technical details yourself.\n\nMy buying brief would be: **“Around €1,200 maximum, ordinary office work, 16GB/512GB, comfortable keyboard, readable screen, good calls.”** Treat the budget as a ceiling, not a target.",
+          "person": "I don't really know, just regular spreadsheets as far as I know. Nothing special that I'm aware of."
+        },
+        {
+          "assistant": "**Yes—two I’d put on your shortlist, assuming work allows a standard Windows laptop.** I checked French listings as a euro-price reference, not because you’ve confirmed where you’re buying.\n\n### ASUS Zenbook 14 OLED — UX3405\nMy first one to investigate for carrying to the office. The configuration I checked has **16GB RAM, a 512GB SSD, a 14-inch OLED screen and a listed weight of 1.22kg**. That’s the combination I’d look for, rather than paying for a higher-end processor. I couldn’t confirm a checkout price, so this is a candidate **only if you find that configuration within €1,200**, not a verified deal. ([estore.asus.com](https://estore.asus.com/fr/22516-fr-cnf-asus-zenbook-14-oled-ux3405.html))\n\n### Dell 14 — DC14250\nA straightforward alternative. Dell France lists the **Core 5 120U / 16GB / 512GB / 1920×1200 screen** configuration at **€1,052.78 including VAT**. Watch the small print: that configuration lists **no power adapter included**, so budget for one rather than assuming it comes in the box. ([dell.com](https://www.dell.com/fr-fr/shop/ordinateurs-portables-dell/ordinateur-portable-dell-14/spd/dell-dc14250-laptop?msockid=383e17ed4f3b68b2140101284e8969aa))\n\n**I’d try the ASUS first and keep the Dell as the comparison.** Before paying, I’d want a keyboard test and a webcam demonstration—not just the specification sheet.\n\nWhich country will you be buying in? That will let me narrow this to actual local offers and the right keyboard layout.",
+          "person": "I take it to the office twice a week, so 14 inch sounds right. Any specific models you'd suggest?"
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Without knowing the options, I’d use this approach:\n\n1. Name the outcome you want—not just what you want to avoid.\n2. Pick your three most important criteria, such as cost, time, enjoyment, or flexibility.\n3. Eliminate anything that violates a genuine nonnegotiable.\n4. Compare the remaining options against those criteria, rather than trying to find a perfect choice.\n5. If it’s reversible, try a small version first. If it’s hard to undo, investigate the biggest uncertainty before committing.\n\nIf you’re still tied, favor the option whose downsides you can live with—not merely the one whose best case looks most exciting.",
+          "person": "How should I choose?"
+        },
+        {
+          "assistant": "You’re right—I missed the earlier context. I found it: around €1,200, buying from scratch, mainly spreadsheets and video calls.\n\nI’d choose in this order:\n\n1. Work compatibility. Check your employer’s required software and IT policy before choosing Windows or Mac.\n\n2. Size. My default would be 16 inches if you mostly work at a desk without a separate monitor; 14 inches if you carry it daily.\n\n3. Memory. I’d target 16GB minimum—also Zoom’s recommended RAM—and consider 32GB for large, complex spreadsheets. For heavy Excel work, Microsoft recommends 64-bit Office, subject to add-in compatibility. ([support.zoom.com](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060748&utm_source=openai))\n\n4. Daily comfort. Among qualifying models, I’d prioritize a readable matte screen, comfortable keyboard, good webcam and quiet operation over a higher-tier processor. Look for a number pad if you do frequent numerical entry.\n\n5. Complete cost. My target would be €900–€1,050 for the laptop, leaving room for a headset, mouse and any software or charger you need.\n\nMy default shortlist specification: employer-approved Windows laptop, 16GB RAM, 512GB SSD, 16-inch matte screen and 1080p webcam. That’s a buying target, not a verified current deal. The Dell mentioned earlier was a comparison baseline, not a settled recommendation.\n\nWhich country will you buy in? That’s the missing detail for comparing actual offers.",
+          "person": "I meant the work laptop I mentioned before."
+        },
+        {
+          "assistant": "You’re right—the Dell was my suggestion, not something you mentioned. Sorry for blurring that distinction. No need to share your country.\n\nWith your commute and deadline, I’d choose a 14-inch Windows laptop rather than defaulting to 16 inches. My buying targets would be:\n\n  • Weight: around 1.5kg or less.\n  • Memory: 16GB minimum; 32GB if it fits the budget without sacrificing screen or keyboard quality. Zoom itself recommends 16GB. ([support.zoom.com](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060748&utm_source=openai))\n  • Storage: 512GB SSD.\n  • Screen: matte, ideally 1920 × 1200 or better.\n  • Calls: 1080p webcam and a headset.\n  • Charging: USB-C, with the charger included.\n\nI’d make delivery the first filter: only consider ready-to-ship configurations with an explicit arrival date comfortably before your deadline. Aim to have it a few days early for setup and testing—not on the last possible day.\n\nThen choose in this order:\n  1. Meets your work software and IT requirements.\n  2. Comfortable screen and keyboard.\n  3. Easy to carry.\n  4. Clear warranty and return terms.\n  5. Processor upgrades only after those are covered.\n\nMy default decision: a 14-inch, 16GB/512GB Windows model around €1,000, leaving room within your €1,200 budget for accessories. I’d only choose 16 inches if spreadsheet space matters more to you than portability.\n\nI haven’t verified a specific offer’s stock or delivery. If you paste two or three listings—or just their specs and prices—I can rank them without needing your location.",
+          "person": "I never mentioned a Dell. I'd rather not get into which country. I prefer Windows, I carry it to the office twice a week, and I need it within two weeks."
+        }
+      ]
+    },
+    "packet": "P06"
+  },
+  {
+    "criteria": {
+      "must_not": [
+        "Listing the van, the notice or the internet as still to do."
+      ],
+      "must_use": [
+        "Redirecting the post is still to do.",
+        "The van, the notice and the internet booking are done."
+      ],
+      "no_repeat": [],
+      "outcome": "Naming the post redirection as what remains, with a way to do it.",
+      "unknown": []
+    },
+    "earlier_conversations": [
+      [
+        "I'm moving flats at the end of the month. I've booked the van and given notice to my landlord.",
+        "Still to do: redirect my post and sort out internet at the new place."
+      ],
+      [
+        "Could you explain, in some detail, how ocean tides work and why there are usually two a day?",
+        "Interesting. And why are spring tides bigger than neap tides?",
+        "One more: how do tide tables get predicted so far in advance?"
+      ],
+      [
+        "Internet at the new flat is booked for the 28th."
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "**Redirecting your post** is the only thing still to arrange on the list you’ve given me.\n\n- Van — booked\n- Landlord — notice given\n- Internet — booked for the 28th; installation not confirmed\n- Post redirection — still to do",
+          "person": "What's left on my moving list?"
+        },
+        {
+          "assistant": "Which country are you redirecting your post in?",
+          "person": "How do I set up the post redirection?"
+        },
+        {
+          "assistant": "Yes—you hadn’t mentioned it. The general steps are:\n\n1. **Go to your postal operator’s official website** and look for “mail redirection,” “mail forwarding” or “change of address.” Depending on the operator, you can apply online or at a post office. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n2. **Enter your old and new addresses**, including flat numbers and postcodes, and the full names of everyone whose post should move with you. Include any other names you receive mail under where the form allows. ([anpost.com](https://www.anpost.com/AnPost/media/PDFs/Residential-Redirection.pdf?utm_source=openai))\n3. **Choose your start date and six months of redirection.** Six-month packages are available from several operators, but durations vary. If asked whether the *move* is permanent or temporary, answer that separately—wanting six months of forwarding doesn’t necessarily mean your move is temporary. ([royalmail.com](https://www.royalmail.com/personal/receiving-mail/redirection?utm_source=openai))\n4. **Complete identity checks and pay any applicable fee.** Have identification and address details ready; the exact checks depend on the service. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n5. **Save the confirmation and check the actual start and end dates.** Don’t assume it starts immediately: some operators require at least five working days to arrange it. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n\n**Use those six months to update senders directly**, rather than treating forwarding as a permanent address change. Check exclusions too—not every kind of mail is necessarily covered. ([usa.gov](https://www.usa.gov/change-address?utm_source=openai))",
+          "person": "Not something I've mentioned. Can you give me the general steps? I want it redirected for six months."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "Still to do:\n- Redirect your post to the new address.\n- Arrange internet at the new flat.\n\nAlready done: van booked and notice given to your landlord.",
+          "person": "What's left on my moving list?"
+        },
+        {
+          "assistant": "Sorry—I missed that correction. Internet is sorted; only redirecting your post remains.\n\nAssuming you’re moving within the US:\n1. Open the official USPS site and choose “Change of Address.”\n2. Enter your old and new addresses, choose a permanent move, and select the forwarding start date.\n3. Complete identity verification; the online fee is $1.25. You can also apply at a Post Office with acceptable identification.\n4. Keep your confirmation code so you can amend the request. ([usps.com](https://www.usps.com/manage/forward.htm?utm_source=openai))\n\nMost First-Class Mail is forwarded for 12 months. Update important senders directly too—forwarding doesn’t cover everything. ([faq.usps.com](https://faq.usps.com/articles/Knowledge/Mail-Forwarding-Options?utm_source=openai))\n\nIf you’re outside the US, tell me the country—the process will differ.",
+          "person": "Internet's already sorted, I told you it's booked for the 28th. So it's just the post. How do I redirect it?"
+        },
+        {
+          "assistant": "Yes—if you’re using USPS, temporary forwarding can run for six months (up to 185 days), with an end date you choose. However, that option is intended for people returning to their old address, not moving away permanently. ([pe.usps.com](https://pe.usps.com/text/DMM300/507.htm?utm_source=openai))\n\nI assumed the US earlier without confirmation. Which country are you moving in? That determines the right six-month option.",
+          "person": "I only want it redirected for six months, not twelve. Can I do that?"
+        }
+      ]
+    },
+    "packet": "P07"
+  },
+  {
+    "criteria": {
+      "must_not": [],
+      "must_use": [
+        "The user is baking a second sourdough loaf today, with a longer proof, after a flat first one."
+      ],
+      "no_repeat": [],
+      "outcome": "A suggestion for tonight that connects to the loaf being baked today, or asks how it turned out.",
+      "unknown": [
+        "How the second loaf turned out was never given."
+      ]
+    },
+    "earlier_conversations": [
+      [
+        "I'm learning to bake sourdough. My first loaf came out flat, so I'm trying again today with a longer proof."
+      ],
+      [
+        "I want to get better at chess. Can you explain the main ideas behind a good opening?",
+        "What's the difference between an open and a closed position?",
+        "Any advice on how to study endgames without getting bored?"
+      ]
+    ],
+    "final_conversations": {
+      "X": [
+        {
+          "assistant": "Crusty bread with butter is hard to beat. If you want something more filling, go with a grilled cheese; if the soup’s already rich, a crisp green salad.\n\nWhat kind of soup are you having?",
+          "person": "What should I have with soup tonight?"
+        },
+        {
+          "assistant": "Grilled cheese—cheddar on sourdough, toasted until crisp for dipping. A few pickles on the side would be good, too.",
+          "person": "Tomato soup."
+        }
+      ],
+      "Y": [
+        {
+          "assistant": "How did your second sourdough loaf turn out?",
+          "person": "What should I have with soup tonight?"
+        },
+        {
+          "assistant": "Tomato soup? I’d go with **grilled cheese**, cut into strips for dunking. Cheesy garlic toast would be a good alternative. ([bbcgoodfoodme.com](https://www.bbcgoodfoodme.com/recipes/tomato-soup-cheese-marmite-toast/?utm_source=openai))\n\nIf your sourdough is ready in time, I’d keep it simpler: bread, butter, and a wedge of sharp cheddar alongside. Let loaf two have its moment.",
+          "person": "It's still in the oven actually. It's tomato soup if that helps."
+        }
+      ]
+    },
+    "packet": "P08"
+  }
+]

@@ -1,0 +1,279 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "1c6d044acf257617272619648ff5b42a779314369eef125167bb902104ac0999",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "0e664ec6a060c15a8b4ca382fc13781a2513517c0994282f87c7b0139be67b81",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "people.02",
+  "episode_ms": 146870,
+  "family": "people",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "native_outcome": null,
+  "run_id": "people.02-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 85760
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 8,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 49061
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 2367
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 316
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 137188
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 19,
+      "name": "memory",
+      "status": "ok"
+    },
+    {
+      "duration_ms": 6,
+      "name": "clarify",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 9651,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 15368,
+      "prompt": "My brother Idris and his partner Lena are coming for dinner tomorrow. Lena is vegan, and Idris is allergic to sesame.",
+      "response": "Got it—Lena is vegan, and Idris is allergic to sesame. Want help planning a dinner menu that works for both?",
+      "response_ms": 15368,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 8891,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 21090,
+      "prompt": "I want one meal we all share, nothing fancy. I'll do the shopping tomorrow morning.",
+      "response": "I’d make a mild bean chili with rice, with avocado and lime for everyone—no separate meals or fancy ingredients.\n\nShopping list for three, with some leftovers:\n- 2 cans of beans, such as kidney and black beans\n- 1 large can crushed tomatoes\n- 1 onion, 2 bell peppers, 1 bulb garlic\n- Rice—use 1 cup uncooked\n- 2 avocados and 1 lime\n- Olive oil, ground cumin, smoked paprika, salt\n\nCooking: Soften the chopped onion and peppers in olive oil. Add minced garlic, 2 teaspoons cumin and 1 teaspoon smoked paprika; stir briefly. Add tomatoes and drained beans, then simmer for about 25 minutes, adding water as needed. Cook the rice separately and serve with avocado and lime.\n\nFor Idris, check every packaged ingredient for sesame and ask him tonight which brands and cross-contact precautions he relies on. “Vegan” doesn’t establish allergy safety; sesame can appear in plant-based foods. Use thoroughly cleaned cookware, utensils and surfaces to avoid cross-contact. ([foodallergy.org](https://www.foodallergy.org/living-food-allergy/food-allergy-essentials/common-allergens/sesame?utm_source=openai))",
+      "response_ms": 21090,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 7730,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 35348,
+      "prompt": "I'd like to understand the history of tea in Britain. How did it become so popular?",
+      "response": "Tea became popular in Britain through a combination of royal fashion, global trade, cheaper prices, and everyday habits. It began as an expensive imported luxury and gradually became a drink associated with almost everyone.\n\nFrom curiosity to fashionable luxury: the 1600s\n\nTea originated in China and reached Britain through European trading networks in the mid-seventeenth century. It was being sold in London coffeehouses by the 1650s, initially as an unfamiliar drink advertised partly for its supposed health benefits.\n\nCatherine of Braganza, the Portuguese princess who married Charles II in 1662, helped make tea fashionable at court. She didn’t introduce it to Britain, as is sometimes claimed, but her enthusiasm gave it prestige. Wealthy households adopted it, and serving tea became a way to display refined taste—as well as expensive porcelain and silver.\n\nTrade, sugar, and smuggling: the 1700s\n\nThe East India Company imported tea from China on an increasingly large scale. As supplies grew, tea spread beyond aristocratic households.\n\nSugar helped turn it into a British habit. Sweetened tea appealed to consumers, but that sweetness had a brutal economic foundation: much of Britain’s sugar came from Caribbean plantations worked by enslaved people.\n\nHigh taxes kept legal tea expensive and encouraged a vast smuggling trade. Smuggled tea helped bring the drink to people who couldn’t afford official prices. In 1784, the government sharply reduced tea duties, making legally imported tea much more affordable and undercutting smugglers.\n\nAn everyday necessity: the 1800s\n\nBy the nineteenth century, tea was woven into working-class as well as middle-class life. It offered warmth, stimulation, and an inexpensive accompaniment to bread or a simple meal. It also fitted into domestic routines, workplace breaks, and temperance campaigns promoting alternatives to alcohol.\n\nBritain’s growing demand had major consequences overseas. British traders used opium produced in India to help finance purchases of Chinese goods, including tea; that trade contributed to the conflicts known as the Opium Wars. Meanwhile, British colonial businesses developed enormous tea industries in India and Ceylon, now Sri Lanka, often under harsh and coercive labour conditions. Expanding production helped make tea a mass-market commodity.\n\nRitual made the habit stick\n\nAfternoon tea became a fashionable social occasion among the wealthy, while “tea” also came to mean an evening meal in many households. Later, branded blends, mass advertising, and eventually tea bags made the drink still more convenient.\n\nSo tea wasn’t always an inherently “British” tradition. An imported luxury became a national institution because commerce made it available, falling prices made it accessible, and hospitality and daily routines gave it a lasting place in people’s lives.",
+      "response_ms": 35348,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 2,
+      "first_native_text_ms": 8806,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 29793,
+      "prompt": "What was the role of the East India Company in all that?",
+      "response": "The East India Company was the main commercial link between Chinese tea producers and British drinkers. It helped turn tea into a mass import—but also tied Britain’s tea habit to monopoly power, colonial rule, and the opium trade. ([qdl.qa](https://www.qdl.qa/en/brief-history-english-east-india-company-1600%E2%80%931858?utm_source=openai))\n\n1. It supplied tea on a huge scale.\n\nDespite its name, the Company bought tea from China, not initially India. By the early 1700s, it was importing directly from China. Its trading operations connected Chinese suppliers with Britain, and tea eventually became one of its most important commodities. Royal fashion could generate interest; the Company supplied the growing market. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade?utm_source=openai))\n\n2. It controlled legal imports, rather than simply competing for customers.\n\nThe Company enjoyed a state-backed monopoly over Britain’s tea imports. That gave it enormous influence over supply and prices—although smuggling bypassed its control. So its role wasn’t simply “making tea cheap”: it expanded trade while protecting a privileged, profitable business. Its China-trade monopoly ended in 1834, following legislation passed in 1833. ([rmg.co.uk](https://www.rmg.co.uk/stories/maritime-history/cutty-sark-tea-trade?utm_source=openai))\n\n3. It helped finance tea purchases through opium.\n\nChinese sellers wanted payment in silver, creating a financing problem for British tea importers. The Company controlled opium production and sales in Bengal, selling the drug to private merchants who carried it into China illegally. The proceeds helped finance purchases of Chinese tea. That distinction matters: the Company did not have to smuggle the opium itself to enable and profit from the system. ([lib.cam.ac.uk](https://www.lib.cam.ac.uk/rcs/projects-exhibitions/opium-morally-indefensible-trade-horrible-drug/opium-captions?utm_source=openai))\n\n4. Its commercial system had consequences far beyond the teapot.\n\nChinese attempts to suppress the opium trade helped trigger the First Opium War, fought between Britain and China in 1839–1842. This was after the Company’s tea monopoly had ended, so it would be misleading to describe it simply as a Company war. But the tea-and-opium trading system was central to the conflict’s background. ([nam.ac.uk](https://www.nam.ac.uk/explore/first-china-war-1839-1842?trk=article-ssr-frontend-pulse_little-text-block&utm_source=openai))\n\nIn short, the Company didn’t invent Britain’s taste for tea. It built much of the trade that sustained it—and helped connect an ordinary British household purchase to imperial power and exploitation overseas. ([qdl.qa](https://www.qdl.qa/en/brief-history-english-east-india-company-1600%E2%80%931858?utm_source=openai))",
+      "response_ms": 29793,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 8,
+      "first_native_text_ms": 12879,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 25301,
+      "prompt": "And when did tea bags appear, and why did they catch on?",
+      "response": "Tea bags emerged commercially in the United States in the early 1900s, but they didn’t become a major feature of British life until after the Second World War. ([nationalgeographic.com](https://www.nationalgeographic.com/culture/article/tools-6-things-to-know-about-tea-bags?utm_source=openai))\n\nThe famous origin story centres on Thomas Sullivan, a New York tea merchant who sent samples in small silk bags around 1908. Customers supposedly put the whole bag into hot water rather than emptying it. It’s a memorable story, but not a secure account of the invention: earlier designs existed, including a “tea leaf holder” patented by two Milwaukee women after an application in 1901. Sullivan is better remembered as a populariser than the sole inventor. ([nationalgeographic.com](https://www.nationalgeographic.com/culture/article/tools-6-things-to-know-about-tea-bags?utm_source=openai))\n\nIn Britain, Tetley’s 1953 launch was an important commercial milestone. Adoption wasn’t immediate: tea bags still accounted for less than 3% of the British market in the early 1960s. Many people remained attached to loose-leaf tea and familiar ways of brewing it. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))\n\nThey caught on chiefly because they removed the fiddly parts of making tea:\n\n- No strainer was needed.\n- There were no loose, wet leaves to clean out of the pot.\n- A single cup could be brewed directly in a mug.\n\nThat convenience fitted the post-war enthusiasm for labour-saving products. Tea bags didn’t create Britain’s tea habit; they made an existing habit easier to maintain. ([tea.co.uk](https://www.tea.co.uk/the-history-of-the-tea-bag))",
+      "response_ms": 25301,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 5,
+      "first_native_text_ms": 12989,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 19888,
+      "prompt": "Can you give me a shopping list for tomorrow's dinner?",
+      "response": "Assuming dinner for four, here’s a shopping list for a vegan, sesame-free menu in case Idris and Lena are joining: tomato-chickpea pasta, green salad, and berries.\n\nProduce\n  1 onion\n  1 bulb garlic\n  1 lemon\n  1 bag baby spinach (5 oz)\n  1 head romaine\n  1 cucumber\n  1 pint cherry tomatoes\n  2 pints berries\n\nPasta and canned goods\n  1 lb egg-free pasta\n  2 cans chickpeas (15 oz each)\n  1 large can crushed tomatoes (28 oz)\n\nCheck your pantry\n  Olive oil\n  Balsamic vinegar\n  Dried oregano\n  Salt and black pepper\n  Optional: red pepper flakes\n\nIf Idris is coming, check packaged ingredients for sesame and cross-contact warnings; use clean utensils and preparation surfaces.",
+      "response_ms": 19888,
+      "returncode": 0,
+      "scored": true,
+      "session": 2,
+      "timed_out": false
+    }
+  ],
+  "version": "1.0.0"
+}

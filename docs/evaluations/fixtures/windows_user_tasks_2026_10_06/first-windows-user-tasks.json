@@ -1,0 +1,11 @@
+{
+  "source": "53079f29d2c44895b555ea37c6c8e326a74b1e91",
+  "admin_enabled": false,
+  "passed": false,
+  "cleanup": true,
+  "jobs": [],
+  "baseline_error": "Access is denied. (Exception from HRESULT: 0x80070005 (E_ACCESSDENIED))\nAt line:1 char:423\n+ ... ($args[2]));$null=$folder.RegisterTask($args[1],$xml,6,$null,$null,3, ...\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (:) [], UnauthorizedAccessException\n    + FullyQualifiedErrorId : System.UnauthorizedAccessException\n \n",
+  "error": "Traceback (most recent call last):\n  File \"D:\\a\\_temp\\standard-user-kpieudqd\\candidate\\scripts\\qualification\\windows_user_tasks_probe.py\", line 60, in main\n    assert backend.matches(job, definition)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "cleanup_errors": [],
+  "seconds": 3.75
+}

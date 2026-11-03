@@ -1,0 +1,1289 @@
+[
+  {
+    "epoch": 1793448795.760132,
+    "event": "native_background_probe_installed",
+    "monotonic": 1966642.161842083,
+    "payload": {},
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448798.580514,
+    "event": "session_start",
+    "monotonic": 1966644.982228166,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448798.5855901,
+    "event": "turn_start",
+    "monotonic": 1966644.987304083,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448798.61937,
+    "event": "api_request_start",
+    "monotonic": 1966645.021084583,
+    "payload": {
+      "api_call_count": 1,
+      "api_request_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5:api:1",
+      "approx_input_tokens": 4586,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 18344,
+      "session_id": "20261031_121316_95cb5b",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448801.189852,
+    "event": "first_visible_text",
+    "monotonic": 1966647.591572083,
+    "payload": {
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448802.0852668,
+    "event": "api_request_complete",
+    "monotonic": 1966648.486988083,
+    "payload": {
+      "api_call_count": 1,
+      "api_duration": 3.489515781402588,
+      "api_request_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5:api:1",
+      "finish_reason": "stop",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5",
+      "usage": {
+        "cache_read_tokens": 3968,
+        "cache_write_tokens": 0,
+        "input_tokens": 10677,
+        "output_tokens": 27,
+        "prompt_tokens": 14645,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 14672
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448802.090664,
+    "event": "turn_complete",
+    "monotonic": 1966648.492384708,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448802.0993779,
+    "event": "session_end",
+    "monotonic": 1966648.501098708,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448802.105612,
+    "event": "native_background_barrier",
+    "monotonic": 1966648.507333125,
+    "payload": {
+      "complete": true,
+      "completed": 0,
+      "failed": 0,
+      "model": "gpt-6-astra",
+      "pending": 0,
+      "scheduled": 0,
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:8d733d5b-edd3-443d-bcf8-bea0be897f5f:6af62cb5",
+      "wait_ms": 0
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448803.74127,
+    "event": "native_background_probe_installed",
+    "monotonic": 1966650.1429945,
+    "payload": {},
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448805.037031,
+    "event": "turn_start",
+    "monotonic": 1966651.438757125,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448805.070504,
+    "event": "api_request_start",
+    "monotonic": 1966651.472229916,
+    "payload": {
+      "api_call_count": 1,
+      "api_request_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178:api:1",
+      "approx_input_tokens": 4748,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 18992,
+      "session_id": "20261031_121316_95cb5b",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448807.989202,
+    "event": "first_visible_text",
+    "monotonic": 1966654.390934041,
+    "payload": {
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448809.189997,
+    "event": "api_request_complete",
+    "monotonic": 1966655.591731916,
+    "payload": {
+      "api_call_count": 1,
+      "api_duration": 4.140291929244995,
+      "api_request_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178:api:1",
+      "finish_reason": "stop",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178",
+      "usage": {
+        "cache_read_tokens": 14464,
+        "cache_write_tokens": 0,
+        "input_tokens": 233,
+        "output_tokens": 27,
+        "prompt_tokens": 14697,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 14724
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448809.211892,
+    "event": "turn_complete",
+    "monotonic": 1966655.613625333,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448809.2156758,
+    "event": "session_end",
+    "monotonic": 1966655.617409833,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448809.218559,
+    "event": "native_background_barrier",
+    "monotonic": 1966655.6202925,
+    "payload": {
+      "complete": true,
+      "completed": 0,
+      "failed": 0,
+      "model": "gpt-6-astra",
+      "pending": 0,
+      "scheduled": 0,
+      "session_id": "20261031_121316_95cb5b",
+      "turn_id": "20261031_121316_95cb5b:2ce00367-7a78-473a-bd41-f2dfc8e02e08:c71a1178",
+      "wait_ms": 0
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448810.8748538,
+    "event": "native_background_probe_installed",
+    "monotonic": 1966657.276591,
+    "payload": {},
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448812.3109388,
+    "event": "session_start",
+    "monotonic": 1966658.712677791,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448812.3213272,
+    "event": "turn_start",
+    "monotonic": 1966658.723066125,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448812.3630831,
+    "event": "api_request_start",
+    "monotonic": 1966658.764821708,
+    "payload": {
+      "api_call_count": 1,
+      "api_request_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa:api:1",
+      "approx_input_tokens": 4581,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 18324,
+      "session_id": "20261031_121330_c11483",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448815.199871,
+    "event": "first_visible_text",
+    "monotonic": 1966661.60161525,
+    "payload": {
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448839.9757361,
+    "event": "api_request_complete",
+    "monotonic": 1966686.377524958,
+    "payload": {
+      "api_call_count": 1,
+      "api_duration": 27.633037090301514,
+      "api_request_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa:api:1",
+      "finish_reason": "stop",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa",
+      "usage": {
+        "cache_read_tokens": 3968,
+        "cache_write_tokens": 0,
+        "input_tokens": 10675,
+        "output_tokens": 589,
+        "prompt_tokens": 14643,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 15232
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448839.992487,
+    "event": "turn_complete",
+    "monotonic": 1966686.394274916,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448840.002366,
+    "event": "session_end",
+    "monotonic": 1966686.40415425,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448840.008079,
+    "event": "native_background_barrier",
+    "monotonic": 1966686.409867416,
+    "payload": {
+      "complete": true,
+      "completed": 0,
+      "failed": 0,
+      "model": "gpt-6-astra",
+      "pending": 0,
+      "scheduled": 0,
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:18581c39-7b96-4f9f-93f0-f965c22601c7:6510f1aa",
+      "wait_ms": 0
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448841.849568,
+    "event": "native_background_probe_installed",
+    "monotonic": 1966688.251360541,
+    "payload": {},
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448843.1813009,
+    "event": "turn_start",
+    "monotonic": 1966689.583095458,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448843.206933,
+    "event": "api_request_start",
+    "monotonic": 1966689.608727375,
+    "payload": {
+      "api_call_count": 1,
+      "api_request_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005:api:1",
+      "approx_input_tokens": 6047,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 24188,
+      "session_id": "20261031_121330_c11483",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448847.243656,
+    "event": "first_visible_text",
+    "monotonic": 1966693.645458416,
+    "payload": {
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448860.9163961,
+    "event": "api_request_complete",
+    "monotonic": 1966707.318221416,
+    "payload": {
+      "api_call_count": 1,
+      "api_duration": 17.72750496864319,
+      "api_request_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005:api:1",
+      "finish_reason": "stop",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005",
+      "usage": {
+        "cache_read_tokens": 15104,
+        "cache_write_tokens": 0,
+        "input_tokens": 145,
+        "output_tokens": 295,
+        "prompt_tokens": 15249,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 15544
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448860.922455,
+    "event": "turn_complete",
+    "monotonic": 1966707.324280625,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448860.9300978,
+    "event": "session_end",
+    "monotonic": 1966707.331924,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448860.9359732,
+    "event": "native_background_barrier",
+    "monotonic": 1966707.337798625,
+    "payload": {
+      "complete": true,
+      "completed": 0,
+      "failed": 0,
+      "model": "gpt-6-astra",
+      "pending": 0,
+      "scheduled": 0,
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:6df84afc-db27-42dd-a4b0-b59584a4d09b:bcc30005",
+      "wait_ms": 0
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448862.597269,
+    "event": "native_background_probe_installed",
+    "monotonic": 1966708.999097875,
+    "payload": {},
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448864.124607,
+    "event": "turn_start",
+    "monotonic": 1966710.526438541,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448864.1473641,
+    "event": "api_request_start",
+    "monotonic": 1966710.549195291,
+    "payload": {
+      "api_call_count": 1,
+      "api_request_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923:api:1",
+      "approx_input_tokens": 6887,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 27548,
+      "session_id": "20261031_121330_c11483",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448867.482111,
+    "event": "first_visible_text",
+    "monotonic": 1966713.883949291,
+    "payload": {
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448885.256289,
+    "event": "api_request_complete",
+    "monotonic": 1966731.658158541,
+    "payload": {
+      "api_call_count": 1,
+      "api_duration": 21.1245219707489,
+      "api_request_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923:api:1",
+      "finish_reason": "stop",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923",
+      "usage": {
+        "cache_read_tokens": 15360,
+        "cache_write_tokens": 0,
+        "input_tokens": 202,
+        "output_tokens": 315,
+        "prompt_tokens": 15562,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 15877
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448885.2623098,
+    "event": "turn_complete",
+    "monotonic": 1966731.664179458,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448885.27139,
+    "event": "session_end",
+    "monotonic": 1966731.673259,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448885.277359,
+    "event": "native_background_barrier",
+    "monotonic": 1966731.679228125,
+    "payload": {
+      "complete": true,
+      "completed": 0,
+      "failed": 0,
+      "model": "gpt-6-astra",
+      "pending": 0,
+      "scheduled": 0,
+      "session_id": "20261031_121330_c11483",
+      "turn_id": "20261031_121330_c11483:65161c71-0ad0-4788-8fc2-03b8ff8b2a59:f1b9f923",
+      "wait_ms": 0
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448886.973623,
+    "event": "native_background_probe_installed",
+    "monotonic": 1966733.375495666,
+    "payload": {},
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448888.503873,
+    "event": "session_start",
+    "monotonic": 1966734.905747916,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121446_830130"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448888.514273,
+    "event": "turn_start",
+    "monotonic": 1966734.91614775,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121446_830130",
+      "turn_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448888.546508,
+    "event": "api_request_start",
+    "monotonic": 1966734.948382958,
+    "payload": {
+      "api_call_count": 1,
+      "api_request_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b:api:1",
+      "approx_input_tokens": 4577,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 18308,
+      "session_id": "20261031_121446_830130",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448892.87886,
+    "event": "first_visible_text",
+    "monotonic": 1966739.280744125,
+    "payload": {
+      "phase": "visible",
+      "session_id": "20261031_121446_830130"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448893.980631,
+    "event": "api_request_complete",
+    "monotonic": 1966740.382515666,
+    "payload": {
+      "api_call_count": 1,
+      "api_duration": 5.456979036331177,
+      "api_request_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b:api:1",
+      "finish_reason": "stop",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121446_830130",
+      "turn_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b",
+      "usage": {
+        "cache_read_tokens": 14464,
+        "cache_write_tokens": 0,
+        "input_tokens": 174,
+        "output_tokens": 21,
+        "prompt_tokens": 14638,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 14659
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448893.98638,
+    "event": "turn_complete",
+    "monotonic": 1966740.388264708,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121446_830130",
+      "turn_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448893.9956129,
+    "event": "session_end",
+    "monotonic": 1966740.397497875,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121446_830130",
+      "turn_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448894.0022268,
+    "event": "native_background_barrier",
+    "monotonic": 1966740.404111583,
+    "payload": {
+      "complete": true,
+      "completed": 0,
+      "failed": 0,
+      "model": "gpt-6-astra",
+      "pending": 0,
+      "scheduled": 0,
+      "session_id": "20261031_121446_830130",
+      "turn_id": "20261031_121446_830130:41c899df-908f-4ef9-8d7b-87e21e6e323b:8e1bf06b",
+      "wait_ms": 0
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448895.673832,
+    "event": "native_background_probe_installed",
+    "monotonic": 1966742.075720791,
+    "payload": {},
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448897.1403809,
+    "event": "session_start",
+    "monotonic": 1966743.542271375,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448897.152541,
+    "event": "turn_start",
+    "monotonic": 1966743.554431458,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448897.190042,
+    "event": "api_request_start",
+    "monotonic": 1966743.591933166,
+    "payload": {
+      "api_call_count": 1,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:1",
+      "approx_input_tokens": 4575,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 18300,
+      "session_id": "20261031_121455_a6537d",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448900.598741,
+    "event": "api_request_complete",
+    "monotonic": 1966747.000638,
+    "payload": {
+      "api_call_count": 1,
+      "api_duration": 3.4276089668273926,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:1",
+      "finish_reason": "tool_calls",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c",
+      "usage": {
+        "cache_read_tokens": 3968,
+        "cache_write_tokens": 0,
+        "input_tokens": 10672,
+        "output_tokens": 21,
+        "prompt_tokens": 14640,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 14661
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448900.695612,
+    "event": "tool_start",
+    "monotonic": 1966747.097509333,
+    "payload": {
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:1",
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "tool_call_id": "call_GtKdmLFlP9Vticy2lzPan3ct",
+      "tool_name": "tool_describe",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448900.703947,
+    "event": "tool_complete",
+    "monotonic": 1966747.105844333,
+    "payload": {
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:1",
+      "duration_ms": 27,
+      "error_type": null,
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "status": "ok",
+      "tool_call_id": "call_GtKdmLFlP9Vticy2lzPan3ct",
+      "tool_name": "tool_describe",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448900.7187572,
+    "event": "api_request_start",
+    "monotonic": 1966747.120653958,
+    "payload": {
+      "api_call_count": 2,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:2",
+      "approx_input_tokens": 5705,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 22820,
+      "session_id": "20261031_121455_a6537d",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448904.581113,
+    "event": "api_request_complete",
+    "monotonic": 1966750.983016875,
+    "payload": {
+      "api_call_count": 2,
+      "api_duration": 3.8641698360443115,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:2",
+      "finish_reason": "tool_calls",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c",
+      "usage": {
+        "cache_read_tokens": 14464,
+        "cache_write_tokens": 0,
+        "input_tokens": 1169,
+        "output_tokens": 50,
+        "prompt_tokens": 15633,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 15683
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448904.5881119,
+    "event": "tool_start",
+    "monotonic": 1966750.990015791,
+    "payload": {
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:2",
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "tool_call_id": "call_gOZcZLmy4MnZXXDXtKivyuzQ",
+      "tool_name": "session_search",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448904.603596,
+    "event": "tool_complete",
+    "monotonic": 1966751.005499666,
+    "payload": {
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:2",
+      "duration_ms": 16,
+      "error_type": null,
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "status": "ok",
+      "tool_call_id": "call_gOZcZLmy4MnZXXDXtKivyuzQ",
+      "tool_name": "session_search",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448904.625194,
+    "event": "api_request_start",
+    "monotonic": 1966751.02709825,
+    "payload": {
+      "api_call_count": 3,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:3",
+      "approx_input_tokens": 6369,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 25476,
+      "session_id": "20261031_121455_a6537d",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448909.066674,
+    "event": "api_request_complete",
+    "monotonic": 1966755.468586166,
+    "payload": {
+      "api_call_count": 3,
+      "api_duration": 4.447160005569458,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:3",
+      "finish_reason": "tool_calls",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c",
+      "usage": {
+        "cache_read_tokens": 15488,
+        "cache_write_tokens": 0,
+        "input_tokens": 807,
+        "output_tokens": 50,
+        "prompt_tokens": 16295,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 16345
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448909.0796878,
+    "event": "tool_start",
+    "monotonic": 1966755.481600708,
+    "payload": {
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:3",
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "tool_call_id": "call_REYHVlrHsOSEuihPcAq8qhoD",
+      "tool_name": "session_search",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448909.087072,
+    "event": "tool_complete",
+    "monotonic": 1966755.48898425,
+    "payload": {
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:3",
+      "duration_ms": 8,
+      "error_type": null,
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "status": "ok",
+      "tool_call_id": "call_REYHVlrHsOSEuihPcAq8qhoD",
+      "tool_name": "session_search",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448909.107025,
+    "event": "api_request_start",
+    "monotonic": 1966755.50893775,
+    "payload": {
+      "api_call_count": 4,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:4",
+      "approx_input_tokens": 6845,
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "request_char_count": 27380,
+      "session_id": "20261031_121455_a6537d",
+      "system_chars": 8025,
+      "system_sha256": "b676ce2e4ecd518fd81e8088ec195c35701bb358d1a91554920c8aa2a80e6980",
+      "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247",
+      "tool_names": [
+        "clarify",
+        "delegate_task",
+        "execute_code",
+        "hermes_tool_search",
+        "memory",
+        "patch",
+        "read_file",
+        "search_files",
+        "skill_view",
+        "skills_list",
+        "terminal",
+        "text_to_speech",
+        "tool_call",
+        "tool_describe",
+        "vision_analyze",
+        "web_extract",
+        "write_file"
+      ],
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448911.8222358,
+    "event": "first_visible_text",
+    "monotonic": 1966758.224154625,
+    "payload": {
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448918.175376,
+    "event": "api_request_complete",
+    "monotonic": 1966764.577304416,
+    "payload": {
+      "api_call_count": 4,
+      "api_duration": 9.07284665107727,
+      "api_request_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c:api:4",
+      "finish_reason": "stop",
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "provider": "openai-codex",
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c",
+      "usage": {
+        "cache_read_tokens": 16128,
+        "cache_write_tokens": 0,
+        "input_tokens": 600,
+        "output_tokens": 146,
+        "prompt_tokens": 16728,
+        "reasoning_tokens": 0,
+        "request_count": 1,
+        "total_tokens": 16874
+      }
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448918.18935,
+    "event": "turn_complete",
+    "monotonic": 1966764.591277916,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448918.2090409,
+    "event": "session_end",
+    "monotonic": 1966764.610970833,
+    "payload": {
+      "model": "gpt-6-astra",
+      "phase": "visible",
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c"
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  },
+  {
+    "epoch": 1793448918.2159941,
+    "event": "native_background_barrier",
+    "monotonic": 1966764.617922458,
+    "payload": {
+      "complete": true,
+      "completed": 0,
+      "failed": 0,
+      "model": "gpt-6-astra",
+      "pending": 0,
+      "scheduled": 0,
+      "session_id": "20261031_121455_a6537d",
+      "turn_id": "20261031_121455_a6537d:b235aea4-d5d5-480a-81e2-5e270084ffb8:94cfa19c",
+      "wait_ms": 0
+    },
+    "schema": "daemon.public-productivity.host-trace.v1"
+  }
+]

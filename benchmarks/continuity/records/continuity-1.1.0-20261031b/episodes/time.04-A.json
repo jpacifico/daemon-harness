@@ -1,0 +1,275 @@
+{
+  "api_errors": 0,
+  "arm": "A",
+  "attestation": {
+    "context_sha256": "57d746426f91678c758098d6b2f7de3ff835b83238872a66810139100ca97b67",
+    "external_tool_catalog_sha256": "abb642e577b36b6b7ba7824e3ddcb9944b44c1c1037fb9241628717d4333df09",
+    "installation_memory_tools": [
+      "memory"
+    ],
+    "personal_files_store_and_criteria_blocked": true,
+    "profile_sha256": "db388395cf02e25f89f5f1e7cc1b6229ec051f36596ee2d5691045939ed0420e",
+    "runtime_writable": true,
+    "sandbox": "macos-sandbox-exec",
+    "tool_catalog_sha256": "9b1348a5d7c2fae027e4df344128508b557c488218d621aa2e3f29b425167247"
+  },
+  "canonical_voice_observed": true,
+  "daemon_compose_ms": null,
+  "dry_run": false,
+  "episode": "time.04",
+  "episode_ms": 143236,
+  "family": "time",
+  "kind": "life",
+  "models_seen": [
+    "gpt-6-astra"
+  ],
+  "native_background": {
+    "barrier_count": 6,
+    "complete": true,
+    "completed": 0,
+    "embedding_usage": "unavailable",
+    "expected_barrier_count": 6,
+    "failed": 0,
+    "probe_installed": true,
+    "scheduled": 0,
+    "wait_ms": 0
+  },
+  "run_id": "time.04-A",
+  "status": "completed",
+  "tokens": {
+    "daemon.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "daemon.critical": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.background": {
+      "cache_read": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "cache_write": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "call_count": 0,
+      "input_uncached": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "output": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "reasoning": {
+        "quality": "host_reported",
+        "value": 0
+      },
+      "total": {
+        "quality": "host_reported",
+        "value": 0
+      }
+    },
+    "host.visible": {
+      "cache_read": {
+        "quality": "provider_reported",
+        "value": 59776
+      },
+      "cache_write": {
+        "quality": "provider_reported",
+        "value": 0
+      },
+      "call_count": 7,
+      "input_uncached": {
+        "quality": "provider_reported",
+        "value": 66759
+      },
+      "output": {
+        "quality": "provider_reported",
+        "value": 1970
+      },
+      "reasoning": {
+        "quality": "provider_reported",
+        "value": 324
+      },
+      "total": {
+        "quality": "provider_reported",
+        "value": 128505
+      }
+    }
+  },
+  "tools": [
+    {
+      "duration_ms": 16,
+      "name": "memory",
+      "status": "ok"
+    }
+  ],
+  "turns": [
+    {
+      "cli_diagnostic": "⚠ tirith security scanner enabled but not available — command scanning will use pattern matching only",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 2835,
+      "index": 0,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 8076,
+      "prompt": "Last month I was on night shifts, so I slept until noon every day.",
+      "response": "Were you getting enough sleep, or was the night schedule wearing you down?",
+      "response_ms": 8076,
+      "returncode": 0,
+      "scored": false,
+      "session": 0,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 6,
+      "first_native_text_ms": 19260,
+      "index": 1,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 56263,
+      "prompt": "How does a sourdough starter actually work, chemically and biologically?",
+      "response": "A sourdough starter is a small, self-renewing ecosystem: yeasts and bacteria living in wet flour. Their metabolism produces the gas that raises bread and the acids and aroma compounds that give sourdough its flavor. It isn’t “yeast-free”—it’s a way of cultivating yeast alongside bacteria rather than adding commercial yeast alone. ([doi.org](https://doi.org/10.1128/mSphere.00950-19?utm_source=openai))\n\n1. Flour supplies both the organisms and their food\n\nFlour isn’t sterile: it carries microorganisms, and others can arrive from hands and the surrounding environment. Adding water lets those organisms become active. During repeated feedings, the mixture selects for organisms that can grow on flour’s nutrients and tolerate increasingly acidic conditions. So you’re not simply “catching yeast from the air”; you’re cultivating a community from several sources. ([doi.org](https://doi.org/10.1128/mSphere.00950-19?utm_source=openai))\n\nMost of flour’s carbohydrate is starch—long chains of sugar units that ordinary sourdough yeasts can’t directly consume. Flour enzymes, especially amylases, break accessible starch into smaller carbohydrates, including maltose. Those sugars become fuel for fermentation. Think of enzymes as preparing the food and microbes as eating it. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC1951026/?utm_source=openai))\n\n2. Yeasts turn sugars into gas and alcohol\n\nThe simplified alcoholic-fermentation reaction is:\n\n    Glucose → ethanol + carbon dioxide + usable cellular energy\n\nFermentation allows yeast to keep extracting energy from sugar without requiring oxygen. The carbon dioxide forms bubbles; when retained in the dough, those bubbles make it expand. The ethanol and other microbial products contribute to the mixture’s chemistry and aroma. The rise is therefore trapped metabolic waste—not the microbes themselves swelling the dough. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC7837699/?utm_source=openai))\n\n3. Bacteria make it sour—and some also make gas\n\nLactic acid bacteria ferment sugars through different pathways:\n\n    Some produce mostly lactic acid.\n    Others produce lactic acid plus carbon dioxide and ethanol or acetic acid.\n\nLactic acid contributes sourness; acetic acid is the acid associated with vinegar. Which products accumulate depends on the organisms, available nutrients, and conditions such as oxygen exposure. “Yeast makes gas, bacteria make acid” is a useful first approximation, but some bacteria contribute gas too. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC7392915/?utm_source=openai))\n\n4. Acidity reshapes the ecosystem\n\nA new starter initially supports a changing mix of organisms. As bacteria produce acids, the pH falls. Organisms poorly suited to that environment lose ground, while acid-tolerant bacteria and yeasts persist. Repeated feeding and acidification gradually produce a more consistent community—a process called ecological succession. Early bubbles alone therefore don’t establish that the mature community has formed. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC10559884/?utm_source=openai))\n\nThe organisms aren’t necessarily cooperating in a perfectly balanced partnership. They compete for nutrients, and their metabolic products change each other’s growing conditions. The community persists because its members can survive the same recurring cycle of fresh food followed by fermentation and acid buildup. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC1951026/?utm_source=openai))\n\n5. Feeding renews the habitat\n\nAdding flour and water supplies fresh nutrients and dilutes accumulated acids and other products. Keeping a portion of the old starter transfers a large population of established organisms into that fresh food. This repeated transfer is called “back-slopping.” Discarding part of the starter mainly keeps the quantity and feeding proportions manageable; discard isn’t itself a chemical requirement. ([iris.univpm.it](https://iris.univpm.it/handle/11566/236654?utm_source=openai))\n\nIn short: enzymes release sugars, microbes ferment those sugars, gas raises the dough, and acids both flavor the bread and help select the community. A maintained starter is a living culture repeatedly renewing itself—not a fixed batch of ancient yeast cells. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC1951026/?utm_source=openai))",
+      "response_ms": 56263,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 3,
+      "first_native_text_ms": 16455,
+      "index": 2,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 32123,
+      "prompt": "Why does it smell sour sometimes and like alcohol other times?",
+      "response": "It’s producing acids and alcohol together—the smell changes depending on which compounds dominate at that point in fermentation. It isn’t switching between two entirely different processes. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC7763431/?utm_source=openai))\n\n• Sour or vinegary: bacterial fermentation produces acids, especially acetic acid, which gives that sharp vinegar smell. One distinction from my earlier explanation: sour taste and sour smell aren’t the same thing; lactic acid contributes acidity, while volatile compounds such as acetic acid contribute much more directly to the aroma. ([pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/36192996/?utm_source=openai))\n\n• Boozy or beer-like: you’re noticing ethanol produced during fermentation, especially by yeast. Yeast makes alcohol while consuming sugar—not only after the starter runs out of food. ([mdpi.com](https://www.mdpi.com/2304-8158/11/15/2373/pdf?version=1659944646&utm_source=openai))\n\n• Strongly alcoholic after a long gap between feedings: fermentation products have accumulated, and the starter is often ready for fresh flour and water. You may also see an alcohol-containing liquid layer called “hooch.” This alone doesn’t mean the starter has spoiled. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2023/08/28/liquid-on-top-of-sourdough-starter?utm_source=openai))\n\nAn ordinary sour or alcoholic smell is generally normal. Feed it if it’s overdue; discard it if you see fuzzy mold or pink or orange discoloration. Smell alone isn’t a reliable safety test. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/faq?utm_source=openai))",
+      "response_ms": 32123,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 0,
+      "first_native_text_ms": 8675,
+      "index": 3,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 20012,
+      "prompt": "How long can a starter survive in the fridge without feeding?",
+      "response": "An established starter can often survive several weeks in the fridge without feeding, and sometimes months—but surviving isn’t the same as being ready to raise bread. A neglected starter may need repeated feedings to recover. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2018/10/30/maintaining-a-smaller-sourdough-starter?utm_source=openai))\n\nA practical distinction:\n\n- Routine care: feed about once a week to keep it in good condition. ([extension.colostate.edu](https://extension.colostate.edu/resource/sourdough-basics-caring-for-your-starter-and-making-bread/?utm_source=openai))\n- Several weeks forgotten: don’t automatically throw it out; expect extra feedings before baking. ([kingarthurbaking.com](https://www.kingarthurbaking.com/blog/2018/10/30/maintaining-a-smaller-sourdough-starter?utm_source=openai))\n- Months forgotten: revival may still be possible, but it can take nearly as long as establishing a new starter. There isn’t a guaranteed maximum survival time. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/maintain?utm_source=openai))\n\nBefore reviving it, check for spoilage. An alcoholic smell alone is normal; mold, pink or orange coloration, or an abnormal rotten smell means discard it. ([kingarthurbaking.com](https://www.kingarthurbaking.com/learn/guides/sourdough/faq?utm_source=openai))\n\nIf it looks sound, resume room-temperature feedings roughly every 12 hours until it reliably doubles within about 6–8 hours after feeding. Judge its readiness by that renewed activity, not just by how many days you’ve fed it. ([kingarthurbaking.com](https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe?utm_source=openai))",
+      "response_ms": 20012,
+      "returncode": 0,
+      "scored": false,
+      "session": 1,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 7,
+      "first_native_text_ms": 6155,
+      "index": 4,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "process_ms": 10358,
+      "prompt": "That rota is over. I'm back on day shifts now, starting at 8 every morning.",
+      "response": "Got it—you’re back on day shifts, starting at 8 a.m. every morning.",
+      "response_ms": 10358,
+      "returncode": 0,
+      "scored": false,
+      "session": 2,
+      "timed_out": false
+    },
+    {
+      "cli_diagnostic": "",
+      "daemon_background_wait_ms": 1,
+      "first_native_text_ms": 3019,
+      "index": 5,
+      "lifecycle": {
+        "complete": true,
+        "not_applicable": true
+      },
+      "native_background_wait_ms": 0,
+      "person_ended": true,
+      "process_ms": 8495,
+      "prompt": "What's a better time for a yoga class this week, morning or evening?",
+      "response": "Evening is probably the better fit this week, since your day shifts start at 8 a.m. Aim for a class after work that won’t push bedtime later. Morning makes sense if you can fit it in without cutting sleep or rushing to work.",
+      "response_ms": 8495,
+      "returncode": 0,
+      "scored": true,
+      "session": 3,
+      "simulator_ms": 7823,
+      "timed_out": false
+    }
+  ],
+  "version": "1.1.0"
+}

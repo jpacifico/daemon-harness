@@ -84,47 +84,31 @@ computer. With it, you can:
 - open your daemon's memory, back it up encrypted to a file or Google Drive,
   and restore it to move your daemon to another computer.
 
-For now, use these commands on **Apple Silicon Macs** or **Windows x64**.
-The repository currently requires an authorized GitHub account.
-These permanent commands install the current published **alpha** on each run,
-including releases labelled as previews on GitHub. No version needs to be edited.
-
-### One-time prerequisite
-
-Install GitHub CLI using its [macOS instructions](https://github.com/cli/cli/blob/trunk/docs/install_macos.md),
-or run this in Windows PowerShell:
-
-~~~powershell
-winget install --id GitHub.cli --source winget
-~~~
-
-On Windows, close all PowerShell / Windows Terminal windows and reopen
-PowerShell from Start. Check `gh --version`, then sign in on either platform:
-
-~~~sh
-gh auth login --hostname github.com --web --git-protocol https
-~~~
+Use these commands on **Apple Silicon Macs** or **Windows x64**. No account
+is needed. Each run downloads the current published **alpha**, checks its
+SHA-256 checksum against the value pinned in the script, installs it and opens
+it. The commands never change: no version number needs to be edited.
 
 ### macOS — Terminal
 
 ~~~sh
-(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
+(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; curl --proto '=https' --tlsv1.2 -fsSL 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-macos.sh' -o "$daemons_script"; sh "$daemons_script")
 ~~~
 
 ### Windows — PowerShell
 
 ~~~powershell
-$daemonsScript = gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; & ([scriptblock]::Create((Invoke-RestMethod -UseBasicParsing -ErrorAction Stop 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-windows.ps1')))
 ~~~
 
 Close the app before running the command again to replace it.
-From r10, the app also updates itself: **Settings > Check for updates**.
+The app also updates itself: **Settings > Check for updates**.
 Replacing or updating the app does not reinstall or upgrade your existing daemon.
 When the app carries changes to how it installs and runs daemons, the daemon's
 page offers **Update**; see [installation impact](docs/installation_impact.md#updating-a-daemon).
 The packages do not yet have recognized distribution signatures.
 See the [installation guide](docs/companion_installation.md) for platform
-prompts and troubleshooting, including an unrecognized `gh` command.
+prompts and troubleshooting.
 
 ## Set up your daemon
 

@@ -3,9 +3,7 @@
 Présentation du projet et installation
 
 La Companion s’installe sur **Mac Apple Silicon** (M1 et suivants) ou
-**Windows x64**. Le projet étant privé, il faut un compte GitHub autorisé
-pour télécharger l’app. Les procédures ci-dessous utilisent votre session
-habituelle.
+**Windows x64**. Aucun compte n’est nécessaire pour la télécharger.
 
 Pour installer un nouveau daemon, prévoyez aussi un accès ChatGPT/Codex ou une
 clé OpenAI ou Anthropic, et un compte Telegram. L’app guide la création d’un bot
@@ -20,73 +18,31 @@ commandes ci-dessous, qui récupèrent et vérifient la version publiée courant
 Ces commandes téléchargent la Companion, vérifient son empreinte, l’installent
 puis l’ouvrent. **Elles restent identiques à chaque version** : à chaque
 exécution, le script courant récupère la dernière Companion publiée et vérifie
-son empreinte. Aucun numéro de version à changer dans la commande.
-Le téléchargement privé utilise **GitHub CLI** (`gh`).
-`gh auth login` connecte un compte ; **cette commande n’installe pas GitHub CLI**.
+son empreinte SHA-256. Aucun numéro de version à changer dans la commande.
 Ne collez aucun mot de passe ou jeton dans les commandes.
 
 ### Mac — Terminal
 
-Installer une fois [GitHub CLI pour macOS](https://github.com/cli/cli/blob/trunk/docs/install_macos.md),
-puis vérifier sa disponibilité :
+Lancer cette commande dans Terminal, sans `sudo` :
 
 ```sh
-gh --version
-```
-
-Connecter un compte autorisé au dépôt, si ce n’est pas déjà fait :
-
-```sh
-gh auth login --hostname github.com --web --git-protocol https
-```
-
-Après la connexion réussie, lancer cette commande dans Terminal, sans `sudo` :
-
-```sh
-(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
+(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; curl --proto '=https' --tlsv1.2 -fsSL 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-macos.sh' -o "$daemons_script"; sh "$daemons_script")
 ```
 
 L’app est installée dans `~/Applications/Daemons Companion.app`.
 
 ### Windows — PowerShell
 
-**1. Installer GitHub CLI**, si `gh --version` n’est pas reconnu :
+Lancer cette commande dans **PowerShell**, dans votre session habituelle, sans
+droits administrateur :
 
 ```powershell
-winget install --id GitHub.cli --source winget
-```
-
-Si `winget` n’est pas reconnu, télécharger le fichier dont le nom se termine
-par **`windows_amd64.msi`** dans la
-[dernière version officielle de GitHub CLI](https://github.com/cli/cli/releases/latest),
-puis l’ouvrir. Son nom commence par `gh_` et le numéro de version.
-
-**2. Fermer toutes les fenêtres PowerShell / Windows Terminal**, puis rouvrir
-PowerShell depuis le menu Démarrer. Un nouvel onglet ne suffit pas à prendre en
-compte l’installation. Vérifier :
-
-```powershell
-gh --version
-```
-
-Une version doit s’afficher avant de poursuivre. Si `gh` reste « non reconnu »,
-l’installation de GitHub CLI ou sa prise en compte par Windows n’est pas terminée.
-Voir aussi les [instructions Windows officielles de GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_windows.md).
-
-**3. Connecter un compte GitHub autorisé**, si ce n’est pas déjà fait :
-
-```powershell
-gh auth login --hostname github.com --web --git-protocol https
-```
-
-**4. Télécharger et installer la Companion**, après la connexion réussie :
-
-```powershell
-$daemonsScript = gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; & ([scriptblock]::Create((Invoke-RestMethod -UseBasicParsing -ErrorAction Stop 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-windows.ps1')))
 ```
 
 L’app est installée dans
 `%LOCALAPPDATA%\Programs\Daemons Companion\Daemons Companion.exe`.
+La commande ne modifie pas la stratégie d’exécution de PowerShell.
 
 ## Ouvrir l’app et commencer
 
@@ -165,10 +121,9 @@ séparée ; ouvrir ces réglages ne démarre et n’arrête aucun service.
 
 ## Remplacer une app existante
 
-À partir de r10, la Companion se met à jour elle-même : elle vérifie peu après
-son ouverture puis toutes les six heures, et **Réglages > Rechercher une mise à
-jour** vérifie aussitôt. Une app antérieure à r10 n’a pas de mise à jour
-intégrée : relancer une fois la commande d’installation.
+La Companion se met à jour elle-même : elle vérifie peu après son ouverture
+puis toutes les six heures, et **Réglages > Rechercher une mise à jour**
+vérifie aussitôt. Relancer la commande d’installation remplace aussi l’app.
 
 Pour remplacer l’app à la main, fermer la Companion avant de relancer la commande
 d’installation ou d’ouvrir le nouveau paquet. Il n’est pas nécessaire de

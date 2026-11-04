@@ -13,6 +13,7 @@ l'[aperçu](overview.fr.md) en donne le tour rapide.
 | Terme | Sens |
 | --- | --- |
 | **Daemon** | L'assistant personnel de l'utilisateur : son identité, sa mémoire et sa continuité. |
+| **Daemon Core** | Le moteur de Daemon Harness : la bibliothèque Python commune aux deux hôtes. |
 | **Hôte** | Le programme d'agent sur lequel le daemon fonctionne, Hermes Agent ou OpenClaw. Il possède le modèle, les canaux, les sessions, l'affichage progressif des réponses et les outils. |
 | **Gateway** | Le processus permanent de l'hôte qui reçoit les messages d'un canal (par exemple Telegram) et envoie les réponses. |
 | **Tour** | Un message de l'utilisateur et la réponse qui lui est faite. |
@@ -47,7 +48,7 @@ Six règles façonnent tous les composants.
 5. **Le chemin visible reste léger.** Le travail coûteux se fait après la
    réponse ou la nuit. Une panne interne est reprise ou se dégrade proprement ;
    elle ne bloque pas la conversation.
-6. **Les deux hôtes partagent un seul socle.** Composition, mémoire, règles de
+6. **Les deux hôtes partagent Daemon Core.** Composition, mémoire, règles de
    preuve et outils mémoire sont les mêmes pour Hermes et OpenClaw. Seul le
    code d'adaptation à chaque hôte diffère.
 
@@ -59,7 +60,7 @@ flowchart LR
         G[Gateway et canal] --> L[Modèle de l'hôte et boucle d'outils]
         P[Plugin du daemon]
     end
-    P <--> C[Socle commun]
+    P <--> C[Daemon Core]
     C <--> M[(Dossier mémoire)]
     C --> Q[(File d'après-tour)]
     Q --> W[Worker d'après-tour]
@@ -70,11 +71,11 @@ flowchart LR
 
 | Composant | Ce qu'il fait | Comment il tourne | Code |
 | --- | --- | --- | --- |
-| **Socle commun** | Compose le contexte d'un tour, lit et écrit la mémoire, exécute les jugements d'après-tour et l'entretien de nuit. | Une bibliothèque Python, chargée par tous les autres composants. | [`src/daemon_core/`](../src/daemon_core/) |
+| **Daemon Core** | Le moteur. Compose le contexte d'un tour, lit et écrit la mémoire, exécute les jugements d'après-tour et l'entretien de nuit. | Une bibliothèque Python, chargée par tous les autres composants. | [`src/daemon_core/`](../src/daemon_core/) |
 | **Plugin mémoire Hermes** (`daemon_core`) | Prépare chaque tour, inscrit les deux messages dans L0, dépose la tâche d'après-tour et sert les deux outils mémoire. | Dans la gateway Hermes, comme fournisseur de mémoire externe de Hermes. | [`integrations/hermes_plugin/`](../integrations/hermes_plugin/) |
 | **Plugin de voix Hermes** (`daemon_voice`) | Remplace les consignes système et l'historique de chaque requête au modèle par le contexte composé, à chaque étape de la boucle d'outils. | Dans la gateway Hermes, comme intermédiaire des appels au modèle. | [`integrations/hermes_voice_plugin/`](../integrations/hermes_voice_plugin/) |
 | **Plugin OpenClaw** | Fournit le contexte composé au modèle d'OpenClaw, expose les deux outils mémoire et signale chaque tour terminé. | Dans OpenClaw (Node.js), comme moteur de contexte. | [`integrations/openclaw_plugin/`](../integrations/openclaw_plugin/) |
-| **Pont local** | Relie le plugin OpenClaw, écrit en JavaScript, au socle Python. | Un serveur HTTP local, joignable seulement depuis le même ordinateur. | [`server/`](../server/) |
+| **Pont local** | Relie le plugin OpenClaw, écrit en JavaScript, à Daemon Core, en Python. | Un serveur HTTP local, joignable seulement depuis le même ordinateur. | [`server/`](../server/) |
 | **Worker d'après-tour** | Traite la file : jugements, écritures en mémoire, révision de la scène. | Un service d'arrière-plan permanent. | [`after_turn_daemon.py`](../src/daemon_core/after_turn_daemon.py), [`after_turn_spool.py`](../src/daemon_core/after_turn_spool.py) |
 | **Tâche de nuit** | Nettoyage de l'agenda, Dreaming et REM. | Une tâche planifiée, chaque jour à 4 h dans une installation par l'app. | [`nightly_maintenance.py`](../src/daemon_core/nightly_maintenance.py) |
 | **Service d'embeddings** | Calcule les embeddings de l'index des souvenirs avec Qwen3-Embedding 0.6B. | Un serveur local privé, distinct du modèle qui écrit les réponses. | [`semantic_atlas.py`](../src/daemon_core/semantic_atlas.py) |

@@ -13,6 +13,7 @@ short tour.
 | Term | Meaning |
 | --- | --- |
 | **Daemon** | The user's personal assistant: its identity, memory and continuity. |
+| **Daemon Core** | The engine of Daemon Harness: the Python library shared by both hosts. |
 | **Host** | The agent program the daemon runs on, Hermes Agent or OpenClaw. It owns the model, channels, sessions, streaming and tools. |
 | **Gateway** | The host's long-running process that receives messages from a channel (for example Telegram) and sends replies. |
 | **Turn** | One user message and the reply to it. |
@@ -46,7 +47,7 @@ Six rules shape every component.
 5. **The visible path stays light.** Costly work runs after the reply or at
    night. A failure inside the daemon is retried or degrades cleanly; it does
    not block the conversation.
-6. **Both hosts share one core.** Composition, memory, evidence rules and
+6. **Both hosts share Daemon Core.** Composition, memory, evidence rules and
    memory tools are the same for Hermes and OpenClaw. Only the adapter code
    that connects to each host differs.
 
@@ -58,7 +59,7 @@ flowchart LR
         G[Gateway and channel] --> L[Host model and tool loop]
         P[Daemon plugin]
     end
-    P <--> C[Shared core]
+    P <--> C[Daemon Core]
     C <--> M[(Memory folder)]
     C --> Q[(After-turn queue)]
     Q --> W[After-turn worker]
@@ -69,11 +70,11 @@ flowchart LR
 
 | Component | What it does | How it runs | Code |
 | --- | --- | --- | --- |
-| **Shared core** | Composes the context of a turn, reads and writes memory, runs the after-turn judgments and the nightly maintenance. | A Python library, loaded by every other component. | [`src/daemon_core/`](../src/daemon_core/) |
+| **Daemon Core** | The engine. Composes the context of a turn, reads and writes memory, runs the after-turn judgments and the nightly maintenance. | A Python library, loaded by every other component. | [`src/daemon_core/`](../src/daemon_core/) |
 | **Hermes memory plugin** (`daemon_core`) | Prepares each turn, records both messages in L0, queues the after-turn job and serves the two memory tools. | Inside the Hermes gateway, as Hermes's external memory provider. | [`integrations/hermes_plugin/`](../integrations/hermes_plugin/) |
 | **Hermes voice plugin** (`daemon_voice`) | Replaces the system prompt and history of each model request with the composed context, on every iteration of the tool loop. | Inside the Hermes gateway, as model-call middleware. | [`integrations/hermes_voice_plugin/`](../integrations/hermes_voice_plugin/) |
 | **OpenClaw plugin** | Supplies the composed context to OpenClaw's model, exposes the two memory tools and reports each finished turn. | Inside OpenClaw (Node.js), as a context engine. | [`integrations/openclaw_plugin/`](../integrations/openclaw_plugin/) |
-| **Local bridge** | Connects the OpenClaw plugin, written in JavaScript, to the Python core. | A local HTTP server, reachable only from the same computer. | [`server/`](../server/) |
+| **Local bridge** | Connects the OpenClaw plugin, written in JavaScript, to Daemon Core. | A local HTTP server, reachable only from the same computer. | [`server/`](../server/) |
 | **After-turn worker** | Processes the queue: judgments, memory writes, scene revision. | A persistent background service. | [`after_turn_daemon.py`](../src/daemon_core/after_turn_daemon.py), [`after_turn_spool.py`](../src/daemon_core/after_turn_spool.py) |
 | **Nightly job** | Agenda clean-up, Dreaming and REM. | A scheduled task, daily at 04:00 in an app installation. | [`nightly_maintenance.py`](../src/daemon_core/nightly_maintenance.py) |
 | **Embedding service** | Computes embeddings for the souvenir index with Qwen3-Embedding 0.6B. | A private local server, separate from the model that writes replies. | [`semantic_atlas.py`](../src/daemon_core/semantic_atlas.py) |

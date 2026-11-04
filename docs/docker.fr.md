@@ -3,8 +3,8 @@
 [English version](docker.md)
 
 Le `Dockerfile` du dépôt emballe l'[API HTTP locale](bridge-api.md) du daemon
-(page en anglais). OpenClaw tourne en JavaScript et le cœur commun du daemon en
-Python ; cette API fait le pont entre les deux : OpenClaw l'appelle pour
+(page en anglais). OpenClaw tourne en JavaScript et le moteur du daemon,
+Daemon Core, en Python ; cette API fait le pont entre les deux : OpenClaw l'appelle pour
 composer le contexte du daemon, exécuter les outils mémoire et enregistrer
 chaque tour. Companion et les procédures Hermes et OpenClaw n'utilisent pas
 Docker ; cette image s'adresse aux développeurs qui veulent cette API dans un

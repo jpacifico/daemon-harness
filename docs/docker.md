@@ -4,7 +4,7 @@
 
 The repository's `Dockerfile` packages the daemon's
 [local HTTP API](bridge-api.md). OpenClaw runs in JavaScript and the daemon's
-shared core in Python; this API is the bridge between them: OpenClaw calls it
+engine, Daemon Core, in Python; this API is the bridge between them: OpenClaw calls it
 to compose the daemon's context, run memory tools and record each turn.
 Companion and the Hermes and OpenClaw procedures do not use Docker; this image
 is for developers who want that API in a container, for example to test it in

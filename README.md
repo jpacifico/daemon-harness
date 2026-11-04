@@ -71,8 +71,15 @@ relevant context is sent to your chosen model provider.
 <a id="télécharger-manuellement"></a>
 <a id="installer-depuis-terminal-ou-powershell"></a>
 
-The Companion desktop app installs your daemon on Hermes Agent or OpenClaw and manages recognized
-local host installations. It supports English and French, light and dark mode.
+The **Daemons Companion** app installs and manages your daemons on your
+computer. With it, you can:
+
+- create one or more daemons, each with its own host, Hermes Agent or OpenClaw,
+  which the app installs, along with its model connection and Telegram bot;
+- add OpenClaw to a Hermes Agent daemon, sharing the same memory, or move a
+  daemon from one host to the other;
+- open your daemon's memory, back it up encrypted to a file or Google Drive,
+  and restore it to move your daemon to another computer.
 
 For now, use these commands on **Apple Silicon Macs** or **Windows x64**.
 The repository currently requires an authorized GitHub account.

@@ -72,9 +72,16 @@ le contexte pertinent est transmis au fournisseur de modèle choisi.
 
 ## Installer l’app
 
-L’app Companion installe votre daemon sur Hermes Agent ou OpenClaw et permet de
-gérer les installations locales reconnues. Elle est disponible en anglais et en français, avec un thème
-clair ou sombre.
+L’app **Daemons Companion** installe et gère vos daemons sur votre ordinateur.
+Elle permet de :
+
+- créer un ou plusieurs daemons, chacun avec son hôte, Hermes Agent ou
+  OpenClaw, que l’app installe, avec sa connexion au modèle et son bot Telegram ;
+- ajouter OpenClaw à un daemon Hermes Agent, avec la même mémoire, ou faire
+  passer un daemon d’un hôte à l’autre ;
+- ouvrir la mémoire de votre daemon, la sauvegarder chiffrée dans un fichier ou
+  sur Google Drive, et la restaurer pour déménager votre daemon sur un autre
+  ordinateur.
 
 Ces commandes conviennent aux **Mac Apple Silicon** et à **Windows x64**.
 Elles restent identiques et téléchargent la version **alpha actuellement publiée**,

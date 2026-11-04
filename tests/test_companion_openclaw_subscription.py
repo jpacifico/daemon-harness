@@ -302,6 +302,13 @@ def test_new_host_receives_reference_conversation_settings(tmp_path, kind):
         }
         assert config["session"] == {"dmScope": "per-channel-peer"}
         assert config["tools"]["profile"] == "coding"
+        # Host commands wait for the owner's approval in the Telegram DM.
+        assert config["tools"]["exec"] == {"mode": "ask"}
+        assert config["channels"]["telegram"]["execApprovals"] == {
+            "enabled": True,
+            "approvers": ["777001"],
+            "target": "dm",
+        }
         assert config["channels"]["telegram"]["streaming"] == {
             "mode": "progress",
             "preview": {"toolProgress": True, "commandText": "status"},

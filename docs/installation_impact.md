@@ -166,6 +166,13 @@ turn; one session per channel peer; the native `coding` tool profile plus the
 daemon's memory tools. With ChatGPT sign-in, the subscription's hosted web
 search is enabled in live mode. API-key OpenClaw hosts have no web search until
 a search provider is configured in OpenClaw.
+Host commands require approval: `tools.exec.mode: ask`, with Telegram
+`execApprovals` naming the owner as the only approver, in direct messages. A
+command not yet allowed waits for the owner's answer; without one, OpenClaw's
+default fallback refuses it (approvals expire after 30 minutes by default).
+Without these values, OpenClaw `2026.10.7` runs host commands without approval.
+Daemons created earlier keep their configuration; the
+[OpenClaw guide](../integrations/openclaw_plugin/INSTALL.md) gives the values.
 Evidence.
 
 ## Model connections and credentials

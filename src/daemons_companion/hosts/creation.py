@@ -204,7 +204,7 @@ def native_config(kind, model, user, port):
         "anthropic_api": "anthropic-messages",
         "xai_api": "openai-completions",
     }[kind]
-    return {
+    config = {
         **_reference_conversation(),
         "gateway": {
             "mode": "local",
@@ -242,6 +242,23 @@ def native_config(kind, model, user, port):
                 },
             }
         },
+    }
+    _require_command_approval(config, user)
+    return config
+
+
+def _require_command_approval(config, user):
+    """Host commands wait for the owner's approval in their Telegram DM.
+
+    OpenClaw otherwise runs host commands without asking. Its approvers are
+    not taken from ``allowFrom``, so the owner is named explicitly. Without an
+    answer, OpenClaw's default fallback refuses the command.
+    """
+    config["tools"]["exec"] = {"mode": "ask"}
+    config["channels"]["telegram"]["execApprovals"] = {
+        "enabled": True,
+        "approvers": [user],
+        "target": "dm",
     }
 
 

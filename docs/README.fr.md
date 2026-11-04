@@ -157,8 +157,12 @@ Après confirmation du plan d’installation, l’app :
   Gateway de l’hôte, l’entretien de la mémoire après chaque réponse, un
   entretien nocturne) et un modèle de recherche local d’environ 640 Mo ; les
   clés API vont dans le stockage d’identifiants du système ;
-- laisse à l’hôte ses outils et leurs autorisations, mais désactive sa propre
-  mémoire personnelle, qui ferait concurrence à celle du daemon ;
+- laisse à l’hôte ses outils, mais désactive sa propre mémoire personnelle,
+  qui ferait concurrence à celle du daemon ;
+- fait demander par l’hôte votre accord, dans votre conversation Telegram,
+  avant de lancer une commande sur votre ordinateur : sur OpenClaw, toute
+  commande que vous n’avez pas encore autorisée ; sur Hermes Agent, les
+  commandes qu’il juge dangereuses ;
 - laisse désactivés le mode arrière-plan, l’ouverture à la connexion, la
   sauvegarde chiffrée et Google Drive tant que vous ne les activez pas ;
 - ne supprime jamais le dossier memory : retirer un daemon ou son hôte le

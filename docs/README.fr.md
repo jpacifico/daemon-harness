@@ -2,15 +2,68 @@
 
 [English](../README.md) · **Français**
 
-Votre **daemon est votre assistant personnel IA** : une identité, une mémoire
-persistante et une continuité conçue pour durer. Daemons est le système cognitif
-personnel et open source qui lui permet de se construire avec vous.
+**Daemons** est un système cognitif open source pour un assistant personnel
+IA : votre **daemon**. C’est lui qui mène vos conversations, avec une identité,
+une mémoire et une continuité qui se construisent au fil de vos échanges.
 
-Il s’appuie sur un **agent hôte**, comme Hermes Agent ou OpenClaw, pour son
-modèle, ses outils et ses moyens d’action. Votre histoire est conservée
-indépendamment du modèle et de l’hôte, pour vous suivre lorsqu’ils changent.
-Votre mémoire reste locale, transparente et modifiable dans des fichiers
-Markdown, également consultables et gérables avec **Obsidian**.
+Il s’appuie sur un **agent hôte**, Hermes Agent ou OpenClaw, qui lui apporte le
+modèle, les outils et les canaux de communication. Son identité et sa mémoire
+n’appartiennent ni à l’un ni à l’autre : elles sont conçues pour survivre à un
+changement de modèle ou d’hôte, au fil des années.
+
+Votre daemon conserve ce qui compte, relie les événements et suit l’évolution
+de vos projets, de vos préférences et de votre situation. À chaque message, il
+retrouve le contexte utile, sans repartir de zéro ni réciter tout ce qu’il sait.
+
+## Les piliers d’un assistant personnel
+
+Un très bon assistant personnel repose sur six piliers. Voici comment Daemons
+répond à chacun.
+
+**Le contexte.** Pour vous aider, un assistant doit comprendre votre
+situation : savoir si vous êtes au travail, chez vous, en voyage, en réunion,
+au sport ou en famille. Plus le contexte est riche, plus l’aide est utile et
+personnelle. Votre daemon tient une lecture datée et révisable de votre
+situation présente (ce qui est établi, ce qui n’est que supposé, les échéances
+à venir), mise à jour après chaque échange à partir de ce que vous lui confiez.
+
+**La mémoire.** Au fil du temps, un assistant apprend vos préférences, vos
+méthodes de travail, vos habitudes, vos relations, vos routines et vos
+conversations passées. Votre daemon les conserve dans des notes Markdown
+locales, rangées en cinq dossiers ([PARGA](parga.fr.md)), chaque fait gardant
+sa source. Pour répondre, il ne lit que ce qui concerne le sujet.
+
+**La personnalité.** Le ton et la manière d’échanger doivent sembler naturels à
+la personne qui l’utilise, comme une conversation avec un ami de longue date.
+Votre daemon garde une seule voix, stable ; sa personnalité et sa façon de
+converser sont décrites dans deux fichiers que vous pouvez modifier. Aucun
+second assistant ne réécrit ses réponses.
+
+**Les compétences.** Un assistant doit aussi agir : rechercher, programmer,
+planifier, analyser des finances, utiliser des outils de conception, organiser
+un voyage, suivre la santé ou coopérer avec d’autres agents spécialisés.
+Daemons confie cette part à un hôte conçu pour cela : Hermes Agent ou OpenClaw,
+d’autres à venir. L’hôte garde ses propres outils et autorisations.
+
+**La confiance.** Un assistant de confiance comprend ce qui traverse votre
+travail, vos centres d’intérêt, vos relations et vos routines, pour repérer des
+tendances et faire émerger des idées utiles que vous n’auriez pas trouvées par
+vous-même. Votre daemon relie ce que vous dites aux souvenirs qui s’y
+rattachent, comme un rendez-vous et un problème resté en suspens, et distingue
+ce dont il se souvient de ce qu’il suppose.
+
+**La continuité.** Un assistant personnel s’envisage sur des années : il ne
+doit dépendre ni d’un seul fournisseur de modèle, ni d’un agent, ni d’un
+hébergeur. L’identité et la mémoire de votre daemon vivent sur votre
+ordinateur, hors du modèle et de l’hôte. Un daemon créé avec l’app peut passer
+d’Hermes Agent à OpenClaw, et inversement, avec sa mémoire ; une sauvegarde
+chiffrée le déplace sur un autre ordinateur.
+
+### Votre mémoire, aussi dans Obsidian
+
+Votre mémoire vous appartient. Elle reste sur votre ordinateur, dans des
+fichiers Markdown que vous pouvez lire et modifier directement ou dans
+[Obsidian](https://obsidian.md). [Votre mémoire et Obsidian](memory.md) (en anglais).
 
 Le projet est en **alpha** : consultez les [capacités et limites](alpha-testing.md).
 Le stockage local ne signifie pas que le modèle s’exécute sur votre ordinateur :

@@ -2,14 +2,63 @@
 
 **English** · [Français](docs/README.fr.md)
 
-Your **daemon is your personal AI assistant**: an identity, persistent memory
-and conversational continuity designed to last. Daemons is the open-source
-cognitive system that lets it develop that continuity with you.
+**Daemons** is an open-source cognitive system for a personal AI assistant:
+your **daemon**. The daemon holds your conversations, with an identity, a
+memory and a continuity that grow through your exchanges.
 
-It runs on a **host agent**, such as Hermes Agent or OpenClaw, which provides
-the model, tools and communication channels. Your history is kept outside the
-model and host so it can remain yours as they change. Memory is local,
-transparent and editable Markdown, also usable in **Obsidian**.
+It runs on a **host agent**, Hermes Agent or OpenClaw, which provides the
+model, the tools and the messaging channels. Its identity and memory belong to
+neither: they are designed to outlast a change of model or host, over years.
+
+Your daemon keeps what matters, connects events and follows how your projects,
+preferences and situation evolve. For each message, it finds the context that
+matters, without starting from scratch or reciting everything it knows.
+
+## The pillars of a personal assistant
+
+A very good personal assistant rests on six pillars. Here is how Daemons
+addresses each one.
+
+**Context.** To help you, an assistant has to understand your situation:
+whether you are at work, at home, travelling, in a meeting, exercising or with
+family. The richer the context, the more useful and personal the help. Your
+daemon keeps a dated, revisable reading of your present situation (what is
+established, what is only assumed, upcoming deadlines), updated after each
+exchange from what you share with it.
+
+**Memory.** Over time, an assistant learns your preferences, ways of working,
+habits, relationships, routines and earlier conversations. Your daemon keeps
+them in local Markdown notes filed in five folders ([PARGA](docs/parga.md)),
+each fact with its source. To reply, it reads only what concerns the subject.
+
+**Personality.** The tone and patterns of the conversation should feel natural
+to the person using it, like talking to a long-time friend. Your daemon keeps
+one stable voice; its personality and way of conversing are described in two
+files you can edit. No second assistant rewrites its replies.
+
+**Skills.** An assistant also has to act: research, programming, planning,
+financial analysis, design tools, travel arrangements, health tracking or
+working with other specialized agents. Daemons leaves this to a host built for
+it: Hermes Agent or OpenClaw, with others to come. The host keeps its own
+tools and permissions.
+
+**Trust.** A trusted assistant understands what runs through your work,
+interests, relationships and routines, to spot trends and surface useful ideas
+you would not have found on your own. Your daemon connects what you say to the
+memories related to it, such as an appointment and an unresolved problem, and
+tells apart what it remembers from what it assumes.
+
+**Continuity.** A personal assistant is meant for years: it should depend on
+no single model provider, agent or hosting service. Your daemon's identity and
+memory live on your computer, outside the model and the host. A daemon created
+with the app can move from Hermes Agent to OpenClaw and back with its memory,
+and an encrypted backup moves it to another computer.
+
+### Your memory, also in Obsidian
+
+Your memory belongs to you. It stays on your computer, in Markdown files you
+can read and edit directly or in [Obsidian](https://obsidian.md).
+[Memory and Obsidian](docs/memory.md).
 
 This is an **alpha**. See [available features and limits](docs/alpha-testing.md)
 before trying it. Local storage does not mean local model inference:

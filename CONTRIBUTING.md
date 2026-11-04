@@ -1,6 +1,6 @@
 # Contributing
 
-Start with [how Daemons works](docs/how-it-works.md), the
+Start with [how Daemon Harness works](docs/how-it-works.md), the
 [developer glossary](docs/glossary.md), and [AGENTS.md](AGENTS.md).
 The latter contains the full repository rules, currently in French.
 Architecture changes also require the linked responsibility and quality references.

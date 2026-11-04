@@ -1,6 +1,6 @@
 # Set up your first daemon
 
-A **daemon** is your personal AI assistant. **Daemons** is the software that
+A **daemon** is your personal AI assistant. **Daemon Harness** is the software that
 gives it a persistent identity, memory and continuity between conversations.
 An **agent host**, currently Hermes Agent or OpenClaw, supplies its model
 connection, tools and messaging channels. **Companion** is the desktop app

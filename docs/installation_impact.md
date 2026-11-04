@@ -32,7 +32,7 @@ From 0.11.0 these are off until you turn them on.
   account; turning background mode off removes it. Turning on a daily backup
   turns background mode on and says so.
 - **Back up memory** (a daemon's settings) writes one file encrypted with a
-  password you choose (scrypt, then AES-256-GCM). Daemons cannot recover the
+  password you choose (scrypt, then AES-256-GCM). Daemon Harness cannot recover the
   password. The daemon keeps running: the copy waits for its after-turn work
   and is retried if a file changes while it is read. Embeddings, indexes,
   channel state and credentials are not in a backup.
@@ -66,7 +66,7 @@ locations; older installations can have different paths.
 | Part | What is installed |
 | --- | --- |
 | Host | Hermes Agent `0.21.5` with its locked `messaging`, `bedrock`, `edge-tts` and `anthropic` extras, or OpenClaw `2026.10.7` with its own Node `24.22.1` |
-| Runtime | A private Python environment with the Daemons plugins and the host's **gateway**, the service that receives and sends messages |
+| Runtime | A private Python environment with the Daemon Harness plugins and the host's **gateway**, the service that receives and sends messages |
 | Memory maintenance | An after-turn worker and a nightly maintenance job (Dreaming and episodic REM) |
 | Memory search | A local embedding service with Qwen3-Embedding 0.6B (about 640 MB), separate from the model that writes replies |
 | OpenClaw only | A loopback API that the OpenClaw plugin calls |
@@ -193,7 +193,7 @@ OpenAI and Anthropic API billing is separate from consumer chat subscriptions.
 The daemon supplies the personal memory and the voice context. The managed host
 configuration disables the host's competing native personal memory and its
 automatic memory and skill rewriting. Tools and their permissions stay the
-host's; Daemons adds no email, web or professional-calendar integration of its
+host's; Daemon Harness adds no email, web or professional-calendar integration of its
 own. The precise effects differ by host:
 [Hermes Agent](../integrations/hermes_plugin/INSTALL.md) and
 [OpenClaw](../integrations/openclaw_plugin/INSTALL.md).
@@ -257,8 +257,8 @@ For a completed Hermes Agent daemon created by Companion, on Mac and Windows:
 - **Uninstall Hermes and the daemon** stops both and removes their programs,
   services and local search model. An OpenClaw added to this daemon is stopped
   and uninstalled too. Confirmation requires the installation's displayed name.
-- **Remove the daemon, keep Hermes** removes the Daemons integration,
-  maintenance and local search model. Hermes remains installed without Daemons
+- **Remove the daemon, keep Hermes** removes the Daemon Harness integration,
+  maintenance and local search model. Hermes remains installed without Daemon Harness
   memory and continuity. An added OpenClaw is stopped and disconnected first; it
   stays installed. Confirmation requires the daemon's name.
 

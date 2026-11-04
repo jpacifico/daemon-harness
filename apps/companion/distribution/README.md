@@ -14,7 +14,7 @@ and connect an account that can read this repository:
 gh auth login --hostname github.com --web --git-protocol https
 ```
 
-No credential is pasted into the installation command or collected by Daemons.
+No credential is pasted into the installation command or collected by Daemon Harness.
 The installation guide keeps the command-based route while the app is unsigned.
 Anonymous `curl` / `irm` cannot access private GitHub releases.
 

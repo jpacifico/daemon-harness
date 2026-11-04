@@ -1,8 +1,8 @@
-# Daemons
+# Daemon Harness
 
 **English** · [Français](docs/README.fr.md)
 
-**Daemons** is an open-source cognitive system for a personal AI assistant:
+**Daemon Harness** is an open-source cognitive system for a personal AI assistant:
 your **daemon**. The daemon holds your conversations, with an identity, a
 memory and a continuity that grow through your exchanges.
 
@@ -16,7 +16,7 @@ matters, without starting from scratch or reciting everything it knows.
 
 ## The pillars of a personal assistant
 
-A very good personal assistant rests on six pillars. Here is how Daemons
+A very good personal assistant rests on six pillars. Here is how Daemon Harness
 addresses each one.
 
 **Context.** To help you, an assistant has to understand your situation:
@@ -39,7 +39,7 @@ preparing the context adds no model call before the reply.
 
 **Skills.** An assistant also has to act: research, programming, planning,
 financial analysis, design tools, travel arrangements, health tracking or
-working with other specialized agents. Daemons leaves this to a host built for
+working with other specialized agents. Daemon Harness leaves this to a host built for
 it: Hermes Agent or OpenClaw, with others to come. The host keeps its own
 tools and permissions.
 
@@ -137,7 +137,7 @@ existing host is not a guided operation.
 Which models are offered, and why, is listed in [Model providers](docs/model_providers.md).
 
 [First setup](docs/getting-started.md) · [Memory and Obsidian](docs/memory.md) ·
-[What Daemons does](docs/how-it-works.md)
+[What Daemon Harness does](docs/how-it-works.md)
 
 ## Exact installation impact
 

@@ -1,7 +1,7 @@
 # Hermes integration
 
 Hermes Agent is the **host**: it runs the response model, tools, session and
-messaging channel. Daemons supplies personal identity, persistent memory and
+messaging channel. Daemon Harness supplies personal identity, persistent memory and
 conversation context through two plugins: `daemon_core`, the memory provider,
 and `daemon_voice`, the voice middleware.
 
@@ -39,7 +39,7 @@ for developers and operators, not a second step after app setup.
 ## Requirements and deployment scope
 
 - A compatible Hermes version with a working model and channel.
-- A durable Daemons checkout and a Python environment with `requirements.txt`.
+- A durable Daemon Harness checkout and a Python environment with `requirements.txt`.
 - An initialized daemon identity, conversation profile and memory.
 - Credentials for the daemon's background model calls.
 - Explicit profile, memory and state paths.

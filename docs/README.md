@@ -1,10 +1,10 @@
 # Documentation
 
-Daemons has user guides, implementation references and reproducible evaluation
+Daemon Harness has user guides, implementation references and reproducible evaluation
 records. Technical detail belongs here; terms are introduced before use.
 [Project overview and download](../README.md) · [Présentation française](README.fr.md)
 
-## Use Daemons
+## Use Daemon Harness
 
 | Goal | Guide |
 | --- | --- |
@@ -15,7 +15,7 @@ records. Technical detail belongs here; terms are introduced before use.
 | Know what an installation changes | [Exact installation impact](installation_impact.md) |
 | Test the alpha and report a failure | [Alpha checklist and limits](alpha-testing.md) |
 
-## Develop and operate Daemons
+## Develop and operate Daemon Harness
 
 Read these in order when joining the project:
 

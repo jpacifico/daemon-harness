@@ -1,6 +1,6 @@
 # Companion app source and distribution
 
-Companion is the desktop app for installing and managing local Daemons
+Companion is the desktop app for installing and managing local Daemon Harness
 installations. It uses Electron and supports English and French.
 [User setup](../../docs/getting-started.md) ·
 [Download commands](../../README.md#install-the-app)

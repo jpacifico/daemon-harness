@@ -1,8 +1,8 @@
-# Daemons
+# Daemon Harness
 
 [English](../README.md) · **Français**
 
-**Daemons** est un système cognitif open source pour un assistant personnel
+**Daemon Harness** est un système cognitif open source pour un assistant personnel
 IA : votre **daemon**. C’est lui qui mène vos conversations, avec une identité,
 une mémoire et une continuité qui se construisent au fil de vos échanges.
 
@@ -17,7 +17,7 @@ retrouve le contexte utile, sans repartir de zéro ni réciter tout ce qu’il s
 
 ## Les piliers d’un assistant personnel
 
-Un très bon assistant personnel repose sur six piliers. Voici comment Daemons
+Un très bon assistant personnel repose sur six piliers. Voici comment Daemon Harness
 répond à chacun.
 
 **Le contexte.** Pour vous aider, un assistant doit comprendre votre
@@ -43,7 +43,7 @@ contexte n’ajoute aucun appel au modèle avant la réponse.
 **Les compétences.** Un assistant doit aussi agir : rechercher, programmer,
 planifier, analyser des finances, utiliser des outils de conception, organiser
 un voyage, suivre la santé ou coopérer avec d’autres agents spécialisés.
-Daemons confie cette part à un hôte conçu pour cela : Hermes Agent ou OpenClaw,
+Daemon Harness confie cette part à un hôte conçu pour cela : Hermes Agent ou OpenClaw,
 d’autres à venir. L’hôte garde ses propres outils et autorisations.
 
 **La confiance.** On ne s’appuie que sur un assistant fiable et juste : il dit

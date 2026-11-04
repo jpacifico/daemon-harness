@@ -1,22 +1,22 @@
-# How Daemons works
+# How Daemon Harness works
 
 A daemon is a personal AI assistant whose identity and memory can continue
 across conversations and changes of model or host.
 
 The **host** is the program that gives the assistant its tools, model connection
-and messaging channel. Daemons currently integrates with Hermes Agent and
+and messaging channel. Daemon Harness currently integrates with Hermes Agent and
 OpenClaw. The **Companion app** installs and manages local installations.
 
 ## During a conversation
 
 1. The host receives your message, for example from Telegram.
-2. Daemons prepares context from the assistant's identity, the recent
+2. Daemon Harness prepares context from the assistant's identity, the recent
    conversation, its current situation and relevant memory.
 3. The host's model responds. It can read more memories or use the host's
    normal tools when needed.
 4. The host delivers the response.
 
-There is one conversational voice. Daemons does not place a second assistant
+There is one conversational voice. Daemon Harness does not place a second assistant
 in front of the host to rewrite every reply. On the standard path, preparing
 the initial context does not require an additional model call.
 

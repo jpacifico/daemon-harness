@@ -2,7 +2,7 @@
 
 **English** · [Français](architecture.fr.md)
 
-Daemons gives an agent host a persistent personal assistant: a stable voice,
+Daemon Harness gives an agent host a persistent personal assistant: a stable voice,
 a Markdown memory that belongs to the user, and a reading of the present
 situation. Each component, each step of a turn and each rule is described
 below with the code that implements it; the [overview](overview.md) gives the

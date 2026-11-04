@@ -225,7 +225,7 @@ A previously saved value is displayed as custom wording without rewriting it.
 **Installations → Désinstaller** explique les deux choix : **Désinstaller Hermes
 et le daemon**, ou **Retirer le daemon, garder Hermes**. Le premier arrête les
 deux et exige le nom de l’installation affichée (« Hermes - Nova ») ; le second
-conserve Hermes sans mémoire ni continuité Daemons et exige le nom du daemon.
+conserve Hermes sans mémoire ni continuité Daemon Harness et exige le nom du daemon.
 Le plan reste lié au profil et à sa révision ; le moteur de retrait est inchangé. Le premier périmètre est limité aux installations Hermes créées par
 Companion, complètes et munies de reçus vérifiables. Une installation externe,
 partagée ou modifiée de façon ambiguë est refusée ; OpenClaw et le retrait sous

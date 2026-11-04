@@ -2,7 +2,7 @@
 
 [English](architecture.md) · **Français**
 
-Daemons donne à un hôte d'agent un assistant personnel durable : une voix
+Daemon Harness donne à un hôte d'agent un assistant personnel durable : une voix
 stable, une mémoire Markdown qui appartient à l'utilisateur et une lecture de
 la situation présente. Chaque composant, chaque étape d'un tour et chaque
 règle est décrit ci-dessous avec le code qui le met en œuvre ;

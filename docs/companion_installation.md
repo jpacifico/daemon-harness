@@ -244,10 +244,10 @@ Sur Mac et Windows, ouvrir **Mes daemons → Détails de l’hôte → Désinsta
   leurs services et le modèle de recherche locale. Un OpenClaw ajouté à ce daemon
   est désinstallé aussi. Cette installation ne répondra plus sur Telegram. Pour confirmer,
   saisir le nom complet de l’installation affichée, par exemple **Hermes - Nova**.
-- **Retirer le daemon, garder Hermes** retire l’intégration Daemons, son
+- **Retirer le daemon, garder Hermes** retire l’intégration Daemon Harness, son
   entretien et le modèle de recherche locale. Un OpenClaw ajouté est déconnecté
   et reste installé. Hermes reste installé et peut continuer à répondre sur Telegram,
-  sans utiliser la mémoire ni entretenir la continuité Daemons. Pour confirmer,
+  sans utiliser la mémoire ni entretenir la continuité Daemon Harness. Pour confirmer,
   saisir le nom du daemon, par exemple **Nova**.
 
 Après le retrait du daemon seul, la carte propose uniquement **Désinstaller

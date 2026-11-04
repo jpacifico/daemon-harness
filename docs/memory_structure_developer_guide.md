@@ -64,7 +64,7 @@ d'organisation est l'utilité pour l'action, plutôt qu'une encyclopédie de
 thèmes. C'est l'origine des quatre rubriques Projects, Areas, Resources et
 Archives. [Présentation de Tiago Forte](https://fortelabs.com/blog/para/).
 
-Daemons reprend ces entrées, mais doit aussi conserver des relations, des
+Daemon Harness reprend ces entrées, mais doit aussi conserver des relations, des
 préférences et des situations subies, sans les transformer en projets. Son
 entretien automatisé exige en outre des dates, une provenance et des
 protections d'écriture que le seul classement PARA ne définit pas.
@@ -86,7 +86,7 @@ leurs mécanismes distincts, décrits plus bas.
 
 Zettelkasten met l'accent sur les notes reliées, le sens explicite des liens
 et les notes de structure qui donnent accès à un ensemble de connaissances.
-Daemons en retient les liens expliqués et la réutilisation d'une idée dans
+Daemon Harness en retient les liens expliqués et la réutilisation d'une idée dans
 plusieurs contextes. [Introduction de Sascha Fast](https://zettelkasten.de/introduction/).
 
 Garden distingue les idées et enseignements réutilisables des références

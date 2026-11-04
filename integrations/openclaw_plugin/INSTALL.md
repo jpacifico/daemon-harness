@@ -1,7 +1,7 @@
 # OpenClaw integration
 
 OpenClaw owns the response model, tools, sessions and messaging.
-Daemons integrates through a **context engine**, OpenClaw's extension point for
+Daemon Harness integrates through a **context engine**, OpenClaw's extension point for
 preparing model context, and a local Python HTTP bridge.
 
 ## Installed by Companion

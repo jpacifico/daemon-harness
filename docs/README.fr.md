@@ -7,7 +7,8 @@ IA : votre **daemon**. C’est lui qui mène vos conversations, avec une identit
 une mémoire et une continuité qui se construisent au fil de vos échanges.
 
 Il s’appuie sur un **agent hôte**, Hermes Agent ou OpenClaw, qui lui apporte le
-modèle, les outils et les canaux de communication. Son identité et sa mémoire
+modèle, le harness (la boucle qui permet au modèle d’agir avec des outils) et
+les canaux de communication. Son identité et sa mémoire
 n’appartiennent ni à l’un ni à l’autre : elles sont conçues pour survivre à un
 changement de modèle ou d’hôte, au fil des années.
 
@@ -33,11 +34,12 @@ conversations passées. Votre daemon les conserve dans des notes Markdown
 locales, rangées en cinq dossiers ([PARGA](parga.fr.md)), chaque fait gardant
 sa source. Pour répondre, il ne lit que ce qui concerne le sujet.
 
-**La personnalité.** Le ton et la manière d’échanger doivent sembler naturels à
-la personne qui l’utilise, comme une conversation avec un ami de longue date.
-Votre daemon garde une seule voix, stable ; sa personnalité et sa façon de
-converser sont décrites dans deux fichiers que vous pouvez modifier. Aucun
-second assistant ne réécrit ses réponses.
+**La personnalité.** Une bonne conversation est fluide et naturelle, avec un
+ton et une manière d’échanger qui conviennent à la personne, comme avec un ami
+de longue date. Votre daemon garde une seule voix, stable ; sa personnalité et
+sa façon de converser sont décrites dans deux fichiers que vous pouvez
+modifier. Aucun second assistant ne réécrit ses réponses, et la préparation du
+contexte n’ajoute aucun appel au modèle avant la réponse.
 
 **Les compétences.** Un assistant doit aussi agir : rechercher, programmer,
 planifier, analyser des finances, utiliser des outils de conception, organiser
@@ -45,12 +47,12 @@ un voyage, suivre la santé ou coopérer avec d’autres agents spécialisés.
 Daemons confie cette part à un hôte conçu pour cela : Hermes Agent ou OpenClaw,
 d’autres à venir. L’hôte garde ses propres outils et autorisations.
 
-**La confiance.** Un assistant de confiance comprend ce qui traverse votre
-travail, vos centres d’intérêt, vos relations et vos routines, pour repérer des
-tendances et faire émerger des idées utiles que vous n’auriez pas trouvées par
-vous-même. Votre daemon relie ce que vous dites aux souvenirs qui s’y
-rattachent, comme un rendez-vous et un problème resté en suspens, et distingue
-ce dont il se souvient de ce qu’il suppose.
+**La confiance.** On ne s’appuie que sur un assistant fiable et juste : il dit
+ce qu’il sait, reconnaît ce qu’il ignore et vérifie avant d’affirmer. Votre
+daemon est conçu pour distinguer ce dont il se souvient de ce qu’il suppose, et
+pour vérifier dans ses notes avant d’affirmer un fait : une recherche vide ne
+prouve pas qu’une chose n’a pas eu lieu, et un souvenir ancien ne décrit pas le
+présent.
 
 **La continuité.** Un assistant personnel s’envisage sur des années : il ne
 doit dépendre ni d’un seul fournisseur de modèle, ni d’un agent, ni d’un

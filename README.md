@@ -7,7 +7,8 @@ your **daemon**. The daemon holds your conversations, with an identity, a
 memory and a continuity that grow through your exchanges.
 
 It runs on a **host agent**, Hermes Agent or OpenClaw, which provides the
-model, the tools and the messaging channels. Its identity and memory belong to
+model, the harness (the loop that lets the model act with tools) and the
+messaging channels. Its identity and memory belong to
 neither: they are designed to outlast a change of model or host, over years.
 
 Your daemon keeps what matters, connects events and follows how your projects,
@@ -31,10 +32,11 @@ habits, relationships, routines and earlier conversations. Your daemon keeps
 them in local Markdown notes filed in five folders ([PARGA](docs/parga.md)),
 each fact with its source. To reply, it reads only what concerns the subject.
 
-**Personality.** The tone and patterns of the conversation should feel natural
-to the person using it, like talking to a long-time friend. Your daemon keeps
-one stable voice; its personality and way of conversing are described in two
-files you can edit. No second assistant rewrites its replies.
+**Personality.** A good conversation is fluid and natural, with a tone and
+patterns that suit the person, like talking to a long-time friend. Your daemon
+keeps one stable voice; its personality and way of conversing are described in
+two files you can edit. No second assistant rewrites its replies, and
+preparing the context adds no model call before the reply.
 
 **Skills.** An assistant also has to act: research, programming, planning,
 financial analysis, design tools, travel arrangements, health tracking or
@@ -42,11 +44,11 @@ working with other specialized agents. Daemons leaves this to a host built for
 it: Hermes Agent or OpenClaw, with others to come. The host keeps its own
 tools and permissions.
 
-**Trust.** A trusted assistant understands what runs through your work,
-interests, relationships and routines, to spot trends and surface useful ideas
-you would not have found on your own. Your daemon connects what you say to the
-memories related to it, such as an appointment and an unresolved problem, and
-tells apart what it remembers from what it assumes.
+**Trust.** You can only rely on an assistant that is dependable and accurate:
+it says what it knows, admits what it does not and checks before asserting.
+Your daemon is designed to tell apart what it remembers from what it assumes,
+and to check its notes before asserting a fact: an empty search does not prove
+that something never happened, and an old memory does not describe the present.
 
 **Continuity.** A personal assistant is meant for years: it should depend on
 no single model provider, agent or hosting service. Your daemon's identity and

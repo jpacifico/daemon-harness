@@ -7,8 +7,11 @@ your **daemon**. The daemon holds your conversations, with an identity, a
 memory and a continuity that grow through your exchanges.
 
 It runs on a **host agent**, Hermes Agent or OpenClaw, which provides the
-model, the harness and the messaging channels. Its identity and memory belong to
-neither: they are designed to outlast a change of model or host, over years.
+model, the harness and the messaging channels. Your daemon thus runs on a
+double harness, two layers: Daemon Harness, which carries its identity, memory
+and continuity, and the host, which gives it its ability to act. Its identity
+and memory belong neither to the host nor to the model: they are designed to
+outlast a change of either, over years.
 
 Your daemon keeps what matters, connects events and follows how your projects,
 preferences and situation evolve. For each message, it finds the context that

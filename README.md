@@ -19,8 +19,8 @@ matters, without starting from scratch or reciting everything it knows.
 
 ## The pillars of a personal assistant
 
-A very good personal assistant rests on six pillars. Here is how Daemon Harness
-addresses each one.
+Daemon Harness starts from a conviction: a very good personal assistant rests
+on six pillars. Here is how Daemon Harness addresses each one.
 
 **Context.** To help you, an assistant has to understand your situation:
 whether you are at work, at home, travelling, in a meeting, exercising or with

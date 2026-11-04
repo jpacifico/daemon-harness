@@ -20,8 +20,8 @@ retrouve le contexte utile, sans repartir de zéro ni réciter tout ce qu’il s
 
 ## Les piliers d’un assistant personnel
 
-Un très bon assistant personnel repose sur six piliers. Voici comment Daemon Harness
-répond à chacun.
+Daemon Harness part d’une conviction : un très bon assistant personnel repose
+sur six piliers. Voici comment Daemon Harness répond à chacun.
 
 **Le contexte.** Pour vous aider, un assistant doit comprendre votre
 situation : savoir si vous êtes au travail, chez vous, en voyage, en réunion,

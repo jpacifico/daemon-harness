@@ -7,8 +7,7 @@ IA : votre **daemon**. C’est lui qui mène vos conversations, avec une identit
 une mémoire et une continuité qui se construisent au fil de vos échanges.
 
 Il s’appuie sur un **agent hôte**, Hermes Agent ou OpenClaw, qui lui apporte le
-modèle, le harness (la boucle qui permet au modèle d’agir avec des outils) et
-les canaux de communication. Son identité et sa mémoire
+modèle, le harness et les canaux de communication. Son identité et sa mémoire
 n’appartiennent ni à l’un ni à l’autre : elles sont conçues pour survivre à un
 changement de modèle ou d’hôte, au fil des années.
 

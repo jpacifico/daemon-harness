@@ -146,7 +146,8 @@ small request check access before Telegram setup; a failed check keeps the key
 for a retry or another model.
 
 With ChatGPT, the host signs in natively and the daemon's maintenance uses a
-separate private Codex session (Codex CLI `0.159.2`). On OpenClaw, only Astra
+separate private Codex session (Codex CLI `0.159.2`, installed inside the
+private installation; a Codex already on the computer is not used). On OpenClaw, only Astra
 and GPT-6.1-Sol are offered, when the account's native catalogue returns them. Cancelling or failing a sign-in starts no service.
 
 API keys are stored in the macOS Keychain or Windows Credential Manager. The

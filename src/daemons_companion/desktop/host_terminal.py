@@ -210,16 +210,16 @@ class PackagedHostSetup:
         return select_model(ui, load, previous, resume=resume)
 
     def codex_executable(self, layout):
-        from daemons_companion.setup.subscription import discover_codex
+        """Return the pinned private Codex, never one found on the computer.
+
+        A personal Codex may be older than the release the recommended model
+        requires, so the daemon's memory work would be refused.
+        """
         from daemons_companion.setup.codex_install import private_codex
         managed = installed_host(layout)
-        if managed is not None:
-            layout = replace(layout, installation_id=Path(managed.config_path).parent.name)
-            owned = private_codex(layout)
-            if owned is not None:
-                return owned
-        found = discover_codex()
-        return found.resolve() if found else None
+        if managed is None:
+            return None
+        return private_codex(replace(layout, installation_id=Path(managed.config_path).parent.name))
 
     def complete(self, ui, request, response):
         from daemons_companion.hermes.first_install import complete_private_setup

@@ -10,7 +10,6 @@ from dataclasses import dataclass
 import hashlib
 import os
 from pathlib import Path
-import shutil
 import subprocess
 
 from daemons_companion.runtime.bootstrap import clean_environment, private_home_environment
@@ -175,7 +174,3 @@ class PrivateSubscriptionSetup:
             raise RuntimeError("Both native sign-ins must be confirmed before continuing.")
         return status
 
-
-def discover_codex():
-    found = shutil.which("codex")
-    return Path(found) if found else None

@@ -11,7 +11,8 @@ l'origine de chaque fait.
 **PARGA** est la façon dont ces souvenirs sont rangés. Le nom reprend
 l'initiale des cinq dossiers : **Projects**, **Areas**, **Resources**,
 **Garden** et **Archives**. Quatre viennent de la méthode PARA de Tiago Forte.
-Le cinquième, Garden, applique aux idées les principes du Zettelkasten.
+Le cinquième, Garden, est le jardin de vos idées, inspiré des principes du
+Zettelkasten.
 
 ## Pourquoi un classement
 
@@ -39,51 +40,68 @@ qui ouvre directement ce dossier.
 | **Projects** | Un résultat que vous poursuivez et qui aura une fin : son périmètre, ses décisions, ce dont il dépend et son avancement. | Préparer un anniversaire ; déployer un outil dans une équipe. | Une suggestion du daemon n'est pas un engagement : elle ne crée pas de projet. |
 | **Areas** | Ce qui dure sans date de fin : responsabilités et rôles, personnes et relations, préférences, situations que vous traversez. | Une collègue ; la santé ; une réparation en attente. | Une routine n'est pas un projet. |
 | **Resources** | Une référence précise à utiliser plus tard, comme un livre, un podcast ou un guide, avec la raison pour laquelle vous la gardez. | Un podcast à écouter avant une négociation. | Sa présence ne prouve pas qu'il a été écouté ou lu. |
-| **Garden** | Une idée, un principe ou un enseignement que vous avez formulé ou adopté, gardé à part pour pouvoir servir ailleurs. | « Essayer un changement sur un petit pilote réversible avant de le généraliser. » | Une référence (livre, article, vidéo) va dans `Resources` ; une idée suggérée par le daemon et que vous n'avez pas reprise n'est pas gardée. |
+| **Garden** | Une idée, un principe ou un enseignement que vous avez formulé ou adopté, et qui pourrait servir dans une tout autre partie de votre vie. La note grandit chaque fois que vous revenez à l'idée. | « Essayer un changement sur un petit pilote réversible avant de le généraliser. » | Un fait de votre vie va dans le dossier du sujet concerné ; une référence (livre, article, vidéo) va dans `Resources` ; une idée suggérée par le daemon et que vous n'avez pas reprise n'est pas gardée. |
 | **Archives** | Ce qui est terminé ou devenu inactif, avec son état final exact, toujours consultable. | Un voyage passé, avec ce qui a été décidé et vécu ; le récit d'un épisode passé. | Archivé ne veut pas dire réussi : une annulation, une pause et une réussite restent des états différents. |
 
 Chaque dossier peut contenir des sous-dossiers, qui évoluent avec vos besoins
 (`Areas/Work`, `Areas/Family`, `Projects/Home`…). Les noms de dossiers sont en
 anglais ; le contenu des notes reste dans la langue de vos conversations.
 
-## Garden : des idées qui survivent à leur origine
+## Garden : le jardin de vos idées
 
-`Projects`, `Areas` et `Resources` rangent une note selon ce à quoi elle sert
-maintenant. Une idée échappe à cette règle : un enseignement tiré d'un projet
-sert souvent à un autre, dans une autre partie de votre vie. Rangé dans le
-projet, il serait archivé avec lui et ne serait retrouvé qu'en cherchant ce
-projet. `Garden` garde ces idées à part, une par note, pour que n'importe quel
-projet ou domaine puisse y renvoyer par un lien.
+**Les autres dossiers rangent ce qui vous arrive ; Garden fait pousser ce que
+vous pensez.**
 
-**Ce qui y entre.** Une idée, un principe, une méthode ou un enseignement que
-vous énoncez, ou que vous adoptez explicitement, par exemple « désormais je
-commencerai par un petit pilote ». La note dit ce qu'est l'idée, où elle
-s'applique, où elle cesse de s'appliquer et d'où elle vient.
+`Projects`, `Areas`, `Resources` et `Archives` rangent votre vie : ce que vous
+poursuivez, ce qui dure, ce que vous gardez pour plus tard, ce qui est
+terminé. `Garden` range vos idées : un principe, une conviction, une méthode ou
+une leçon tirée de l'expérience, que vous avez formulés ou adoptés.
 
-**Ce qui n'y entre pas.** Une idée suggérée par le daemon et que vous n'avez
-pas reprise. Un livre, un article ou une vidéo que vous voulez garder, qui est
-une référence et va dans `Resources` ; une idée qui en vient et que vous
-adoptez peut avoir sa propre note Garden, reliée à cette référence. Un fait de
-votre vie, qui appartient au projet ou au domaine concerné.
+Une idée n'appartient pas à un seul sujet. Vous rénovez votre cuisine et vous
+apprenez qu'il vaut mieux tout mesurer deux fois avant de commander. Le
+chantier va dans `Projects`, puis dans `Archives` une fois terminé. La leçon,
+elle, va dans `Garden` : elle reste disponible pour un déménagement ou un autre
+achat, longtemps après la fin du chantier. Rangée dans le projet, elle aurait
+été archivée avec lui.
 
-**La vie d'une note Garden.**
+**La question à se poser.** Cette note pourrait-elle servir dans une tout
+autre partie de votre vie ? Si oui, elle va dans `Garden`. Si elle décrit une
+situation précise, elle va dans le dossier de cette situation.
 
-- **MemoryAgent**, le jugement d'après-réponse qui entretient les souvenirs,
-  la crée quand vous confiez ou adoptez l'idée, et note d'où elle vient dans
-  la conversation.
-- Il la relie au projet ou au domaine où l'idée est née, avec une phrase qui
-  dit pourquoi.
-- Quand vous appliquez l'idée ailleurs, la nuancez ou la contredisez, la note
-  est complétée. Son historique garde chaque étape : on voit comment l'idée a
-  évolué et dans quelles situations elle a été mise à l'épreuve.
-- Si l'idée devient elle-même un engagement, par exemple vous décidez de
-  lancer le pilote, la note passe dans `Projects`. Si elle inspire seulement un
-  projet distinct, elle reste dans `Garden`, et la note du nouveau projet y
-  renvoie.
+### Pourquoi « jardin »
 
-**À quoi elle sert.** Comme tout souvenir, une note Garden est retrouvée par
-l'**index des souvenirs**, un moteur de recherche local qui compare le sens de
-la conversation à celui de chaque note, quel que soit son dossier. Un principe
+Un jardin n'est pas une boîte de rangement : ce qu'on y plante pousse. Chaque
+étape de la vie d'une note Garden correspond à ce que fait le daemon.
+
+| Au jardin | Dans Garden |
+| --- | --- |
+| On plante une graine. | Vous énoncez ou adoptez une idée. **MemoryAgent**, le jugement d'après-réponse qui entretient les souvenirs, crée une note qui dit ce qu'est l'idée, où elle s'applique, où elle cesse de s'appliquer et d'où elle vient dans la conversation. |
+| Elle pousse. | Vous y revenez ou l'appliquez à une autre situation : la note est complétée. Son historique garde chaque étape, ce qui montre comment l'idée a mûri et où elle a été mise à l'épreuve. |
+| On taille. | Vous la nuancez ou changez d'avis : la correction est notée, et l'ancienne version reste dans l'historique. |
+| Les racines s'étendent. | La note est reliée aux projets et aux domaines où l'idée est née ou a servi, avec une phrase qui dit pourquoi. |
+| On transplante. | L'idée devient elle-même un engagement, par exemple vous décidez de lancer le pilote qu'elle décrivait : la note passe dans `Projects`. Si elle inspire seulement un projet distinct, elle reste dans `Garden` et la note du nouveau projet y renvoie. |
+| On ne plante que ses propres graines. | Une idée suggérée par le daemon et que vous n'avez pas reprise n'est pas gardée. |
+
+Le jardin ne pousse pas tout seul : une note Garden évolue quand vous reparlez
+de l'idée. Le daemon ne la retravaille pas de lui-même entre deux
+conversations, et il n'invente pas d'idées pour remplir le dossier.
+
+### Ce qui n'y va pas
+
+- **Un fait de votre vie**, même important : il appartient au projet ou au
+  domaine concerné. « Ma sœur compte énormément pour moi » décrit une relation et va dans
+  `Areas` ; « une décision se prend mieux après une nuit de sommeil » est une
+  idée qui peut servir partout et va dans `Garden`.
+- **Une référence** (livre, article, vidéo) : elle va dans `Resources`. Une
+  idée qui en vient et que vous adoptez peut avoir sa propre note Garden,
+  reliée à cette référence.
+- **Une idée du daemon** que vous n'avez pas reprise.
+
+### Comment une note Garden est retrouvée
+
+Comme tout souvenir, une note Garden est retrouvée par l'**index des
+souvenirs**, un moteur de recherche local qui compare le sens de la
+conversation à celui de chaque note, quel que soit son dossier. Un principe
 adopté au travail peut donc revenir dans une conversation sur l'organisation
 d'un événement familial. L'index ne fait que suggérer : le modèle ouvre la
 note avant de s'y appuyer.

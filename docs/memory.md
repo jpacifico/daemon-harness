@@ -41,7 +41,7 @@ We call this organization **PARGA**, for the five folder names below.
 | Projects | Work with a concrete outcome and an end | Planning a birthday |
 | Areas | Ongoing responsibilities, people and situations | Health, family, food preferences |
 | Resources | Material worth keeping for future use | A podcast to listen to, a reference guide |
-| Garden | Ideas and lessons that can develop over time | An idea for a future project |
+| Garden | Your ideas, principles and lessons, which grow as you come back to them | "Measure twice before ordering", learned during a renovation |
 | Archives | Inactive projects and past episodes | A completed trip or a retrospective account |
 
 A note can connect several subjects through links without being copied into
@@ -49,8 +49,9 @@ every folder. A completed project can remain useful later; archived does not
 mean deleted or unsearchable.
 
 The folder structure is inspired by PARA, with influences from IPCRA and linked
-note practices such as Zettelkasten. Garden separates developing ideas from
-reference material. [PARGA: how memory is organized](parga.md) explains each
+note practices such as Zettelkasten. Garden keeps your ideas apart from
+the facts of your life and from reference material, so they can grow and serve
+elsewhere. [PARGA: how memory is organized](parga.md) explains each
 folder and these inspirations. The [developer guide](memory_structure_developer_guide.md)
 explains the design and its implementation limits.
 

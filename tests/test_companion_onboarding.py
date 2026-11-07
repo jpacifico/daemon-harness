@@ -150,3 +150,33 @@ def test_slow_backend_calls_are_animated_and_prompts_are_not():
     assert run_wizard(ui, backend=slow) == 0
     assert seen == ['inspect', 'host_setup', 'plan']
     assert not ui.busy
+
+
+def test_codex_on_path_is_never_used_for_a_private_daemon(tmp_path, monkeypatch):
+    """An older Codex installed on the computer must not replace the pinned one."""
+    layout, _, _ = fixture(tmp_path, target_os='macos')
+    setup = PackagedHostSetup(SimpleNamespace(target_os='macos', validate=lambda: None))
+    monkeypatch.setattr(setup, 'layout', lambda: layout)
+    monkeypatch.setattr('daemons_companion.desktop.host_terminal.installed_host',
+                        lambda _: SimpleNamespace(config_path=str(layout.profile)))
+    personal = tmp_path / 'personal-bin'
+    personal.mkdir()
+    old = personal / 'codex'
+    old.write_text('#!/bin/sh\necho codex-cli 0.144.1\n')
+    old.chmod(0o755)
+    monkeypatch.setenv('PATH', str(personal))
+    monkeypatch.setattr('daemons_companion.setup.codex_install.private_codex', lambda _: None)
+    assert setup.codex_executable(layout) is None
+
+    pinned = tmp_path / 'pinned-codex'
+    installed = []
+    def install(layout, progress):
+        installed.append(layout)
+        return pinned
+    def authenticate(layout, *, codex):
+        assert codex == pinned
+        return SimpleNamespace(sign_in=lambda progress, *, activity: SubscriptionStatus(True, True))
+    monkeypatch.setattr('daemons_companion.setup.codex_install.install_private_codex', install)
+    monkeypatch.setattr('daemons_companion.setup.subscription.PrivateSubscriptionSetup', authenticate)
+    assert setup.connect_subscription(FakeUI(), 'hermes', 'codex_cli') is True
+    assert len(installed) == 1

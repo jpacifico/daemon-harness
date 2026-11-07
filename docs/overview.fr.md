@@ -220,7 +220,7 @@ interprétations ne deviennent jamais des faits actuels.
 Les cinq dossiers suivent une méthode de classement appelée **PARGA** :
 *Projects* (projets en cours), *Areas* (responsabilités, personnes et
 situations suivies dans la durée), *Resources* (ce qui mérite d'être gardé
-pour plus tard), *Garden* (idées et enseignements qui peuvent mûrir) et
+pour plus tard), *Garden* (vos idées et enseignements, qui grandissent quand vous y revenez) et
 *Archives* (ce qui est terminé, toujours consultable).
 [Obsidian](https://obsidian.md) est une application de prise de notes qui
 ouvre directement ce dossier. [PARGA : le classement de la mémoire](parga.fr.md)

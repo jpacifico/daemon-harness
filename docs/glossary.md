@@ -12,6 +12,7 @@ plain-language description.
 | Channel | A way to exchange messages, such as Telegram. A host can support more than one. |
 | Model provider | The service or local server running the language model. |
 | PARGA | Projects, Areas, Resources, Garden and Archives: the five user-visible memory folders. |
+| Garden | The PARGA folder for the user's own ideas, principles and lessons, kept apart from the facts of their life so they can serve elsewhere; a Garden note grows each time the user returns to the idea. |
 | Memory note / souvenir | A Markdown document holding sourced personal context. “Souvenir” remains in some code identifiers. |
 | Capsule | A legacy name for a memory note, retained in older paths and reports. It is not a separate new memory type. |
 | Vault | The memory folder opened in Obsidian. |

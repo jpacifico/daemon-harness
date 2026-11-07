@@ -10,7 +10,7 @@ situation or an idea, with its history and where each fact comes from.
 **PARGA** is how these souvenirs are filed. The name takes the initials of the
 five folders: **Projects**, **Areas**, **Resources**, **Garden** and
 **Archives**. Four come from Tiago Forte's PARA method. The fifth, Garden,
-applies the principles of the Zettelkasten to ideas.
+is the garden of your ideas, inspired by the principles of the Zettelkasten.
 
 ## Why organize memory
 
@@ -36,53 +36,68 @@ note-taking application that opens this folder directly.
 | **Projects** | An outcome you are pursuing, which will end: its scope, decisions, dependencies and progress. | Planning a birthday; rolling out a tool in a team. | A suggestion from the daemon is not a commitment: it does not create a project. |
 | **Areas** | What lasts without an end date: responsibilities and roles, people and relationships, preferences, situations you are going through. | A colleague; health; a repair waiting to be done. | A routine is not a project. |
 | **Resources** | A specific reference to use later, such as a book, a podcast or a guide, with the reason you keep it. | A podcast to listen to before a negotiation. | Being here does not prove it was listened to or read. |
-| **Garden** | An idea, principle or lesson that you formulated or adopted, kept on its own so it can serve elsewhere. | "Try a change on a small pilot that can be undone before generalizing it." | A reference (book, article, video) belongs in `Resources`; an idea the daemon suggested and you did not adopt is not kept. |
+| **Garden** | An idea, principle or lesson that you formulated or adopted, and that could serve in a completely different part of your life. The note grows each time you come back to the idea. | "Try a change on a small pilot that can be undone before generalizing it." | A fact about your life belongs to the folder of the subject concerned; a reference (book, article, video) belongs in `Resources`; an idea the daemon suggested and you did not adopt is not kept. |
 | **Archives** | What is finished or inactive, with its exact final state, still searchable. | A past trip, with what was decided and lived; the account of a past episode. | Archived does not mean successful: a cancellation, a pause and a success remain different states. |
 
 Each folder can hold subfolders, which change with your needs (`Areas/Work`,
 `Areas/Family`, `Projects/Home`…). Folder names are in English; the content of
 the notes stays in the language of your conversations.
 
-## Garden: ideas that outlive where they came from
+## Garden: the garden of your ideas
 
-`Projects`, `Areas` and `Resources` file a note by what it serves now. An idea
-does not fit that rule: a lesson learned on one project often serves another,
-in a different part of your life. Filed inside the project, it would be
-archived with it and found only by someone looking for that project. `Garden`
-keeps these ideas apart, one per note, so that any project or area can link
-to them.
+**The other folders file what happens to you; Garden grows what you think.**
 
-**What goes in.** An idea, principle, method or lesson that you state, or that
-you explicitly adopt, for example "from now on I'll start with a small pilot".
-The note says what the idea is, where it applies, where it stops applying and
-where it came from.
+`Projects`, `Areas`, `Resources` and `Archives` file your life: what you are
+pursuing, what lasts, what you keep for later, what is over. `Garden` files
+your ideas: a principle, a conviction, a method or a lesson learned from
+experience, that you formulated or adopted.
 
-**What does not go in.** An idea the daemon suggested and you did not take
-up. A book, article or video you want to keep, which is a reference and goes
-in `Resources`; an idea from it that you adopt can have its own Garden note,
-linked to that reference. A fact about your life, which belongs to the project
-or area concerned.
+An idea does not belong to a single subject. You renovate your kitchen and
+learn that it is better to measure everything twice before ordering. The
+renovation goes in `Projects`, then in `Archives` once it is over. The lesson
+goes in `Garden`: it stays available for a move or another purchase, long
+after the renovation ended. Filed inside the project, it would have been
+archived with it.
 
-**How a Garden note lives.**
+**The question to ask.** Could this note be useful in a completely different
+part of your life? If so, it goes in `Garden`. If it describes a specific
+situation, it goes in that situation's folder.
 
-- **MemoryAgent**, the after-reply judgment that maintains souvenirs, creates
-  it when you share or adopt the idea, and records where in the conversation
-  it comes from.
-- It links it to the project or area where the idea arose, with a sentence
-  saying why.
-- When you apply the idea elsewhere, refine it or contradict it, the note is
-  completed. Its history keeps each step, so you can see how the idea
-  evolved and which situations it was tested in.
-- If the idea itself becomes a commitment, for example you decide to run the
-  pilot, the note moves to `Projects`. If it only inspires a separate project,
-  it stays in `Garden`, and the new project's note links to it.
+### Why "garden"
 
-**How it is used.** Like every souvenir, a Garden note is found by the
-**souvenir index**, a local search engine that compares the meaning of the
-conversation with the meaning of each note, whatever its folder. A principle
-adopted at work can therefore come up in a conversation about organizing a
-family event. The index only suggests: the model opens the note before
-relying on it.
+A garden is not a storage box: what you plant there grows. Each stage in the
+life of a Garden note matches what the daemon does.
+
+| In a garden | In Garden |
+| --- | --- |
+| You plant a seed. | You state or adopt an idea. **MemoryAgent**, the after-reply judgment that maintains souvenirs, creates a note saying what the idea is, where it applies, where it stops applying and where in the conversation it comes from. |
+| It grows. | You come back to it or apply it to another situation: the note is completed. Its history keeps each step, showing how the idea matured and where it was put to the test. |
+| You prune. | You refine it or change your mind: the correction is recorded, and the earlier version stays in the history. |
+| The roots spread. | The note is linked to the projects and areas where the idea arose or was used, with a sentence saying why. |
+| You transplant. | The idea itself becomes a commitment, for example you decide to run the pilot it described: the note moves to `Projects`. If it only inspires a separate project, it stays in `Garden` and the new project's note links to it. |
+| You only plant your own seeds. | An idea the daemon suggested and you did not take up is not kept. |
+
+The garden does not grow on its own: a Garden note changes when you talk about
+the idea again. The daemon does not rework it by itself between
+conversations, and it does not invent ideas to fill the folder.
+
+### What does not go in
+
+- **A fact about your life**, however important: it belongs to the project or
+  area concerned. "My sister means a great deal to me" describes a relationship and goes in
+  `Areas`; "a decision is better made after a night's sleep" is an idea that
+  can serve anywhere and goes in `Garden`.
+- **A reference** (book, article, video): it goes in `Resources`. An idea from
+  it that you adopt can have its own Garden note, linked to that reference.
+- **An idea from the daemon** that you did not take up.
+
+### How a Garden note is found
+
+Like every souvenir, a Garden note is found by the **souvenir index**, a local
+search engine that compares the meaning of the conversation with the meaning
+of each note, whatever its folder. A principle adopted at work can therefore
+come up in a conversation about organizing a family event. The index only
+suggests: the model opens the note before relying on it.
 
 Garden is private and is not published anywhere. In that it differs from
 *digital gardens*, personal websites where notes are published as they grow.

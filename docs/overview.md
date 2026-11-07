@@ -213,8 +213,8 @@ their interpretations never become current facts.
 
 The five folders follow a filing method called **PARGA**: *Projects* (ongoing
 projects), *Areas* (responsibilities, people and situations followed over
-time), *Resources* (material worth keeping for later), *Garden* (ideas and
-lessons that can develop) and *Archives* (what is finished, still
+time), *Resources* (material worth keeping for later), *Garden* (your ideas and
+lessons, which grow as you come back to them) and *Archives* (what is finished, still
 searchable). [Obsidian](https://obsidian.md) is a note-taking application that
 opens this folder directly. [PARGA: how memory is organized](parga.md)
 explains each folder, the anatomy of a souvenir and where the method comes

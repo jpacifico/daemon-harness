@@ -154,7 +154,7 @@ nécessaire pour bénéficier de la nouvelle organisation.
 | **Projects** | Un résultat recherché : périmètre, décisions, dépendances et avancement. | Déployer Orion dans une équipe. Une envie durable de mener ce projet peut être conservée avant toute échéance ; une suggestion du daemon n'est pas un engagement. |
 | **Areas** | Les cadres durables de vie, responsabilités, relations, préférences et situations. | La fiche de Nora, son rôle professionnel, une réparation en attente dans Mobility. Une routine n'est pas automatiquement un projet. |
 | **Resources** | Une référence à consulter ou utiliser et l'intention qui lui est associée. | Un podcast à écouter. Sa présence ici ne prouve pas qu'il a été écouté ; elle ne déclenche pas un import de son contenu. |
-| **Garden** | Une idée, un principe ou un enseignement réutilisable, confié ou adopté par l'utilisateur. | Une réflexion sur les pilotes réversibles, reliée au projet qui l'a motivée. L'attribution et les limites restent explicites. |
+| **Garden** | Une idée, un principe ou un enseignement réutilisable, confié ou adopté par l'utilisateur, qui grandit quand il y revient. Un fait de sa vie reste dans le dossier du sujet concerné. | Une réflexion sur les pilotes réversibles, reliée au projet qui l'a motivée. L'attribution et les limites restent explicites. |
 | **Archives** | Une histoire passée ou explicitement inactive, encore consultable. | Une exposition terminée, avec son résultat et ses décisions. Une annulation, une pause et une réussite restent des états différents. |
 
 Les dossiers et les nouveaux chemins proposés par le daemon utilisent des

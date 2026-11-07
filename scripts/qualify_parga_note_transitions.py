@@ -7,11 +7,18 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 FIXTURE = REPO / "docs/evaluations/fixtures/parga_note_transitions_en.json"
-CASES = ("finished_project", "idea_becomes_project", "history_and_silence", "idea_inspires_separate_project")
+GARDEN_FIXTURE = REPO / "docs/evaluations/fixtures/parga_garden_placement_en.json"
+FIXTURES = (FIXTURE, GARDEN_FIXTURE)
+CASES = tuple(c['id'] for f in FIXTURES for c in json.loads(f.read_text())['cases'])
+
+
+def fixture_for(case_id):
+    """The fixture file that defines one case, for its checksum in results."""
+    return next(f for f in FIXTURES if any(c['id'] == case_id for c in json.loads(f.read_text())['cases']))
 
 
 def case_fixture(case_id):
-    case = next(c for c in json.loads(FIXTURE.read_text())['cases'] if c['id'] == case_id)
+    case = next(c for c in json.loads(fixture_for(case_id).read_text())['cases'] if c['id'] == case_id)
     first = case['notes'][0]
     return {**case, 'structured_note': first['text'], 'legacy_note': first['text'],
             'index': '- ' + first['name'] + ': ' + Path(first['path']).stem + '\n'}
@@ -56,6 +63,8 @@ def assess_case(root, result, case_id, mode):
         expected = item['expected_folder'] if mode == 'v1' else item['path'].split('/')[0]
         checks[item['name'] + ':folder'] = path.relative_to(vault).parts[0] == expected
         checks[item['name'] + ':history'] = all(line in text for line in item['preserve'])
+        if item.get('grows_with_any'):
+            checks[item['name'] + ':grew'] = any(term in text.lower() for term in item['grows_with_any'])
         states.append({'name': item['name'], 'path': path.relative_to(vault).as_posix(), 'text': text})
     if case.get('new_project_term'):
         checks['distinct_project_created'] = any(p.path.relative_to(vault).parts[0] == 'Projects' and
@@ -64,6 +73,33 @@ def assess_case(root, result, case_id, mode):
         graph = build_memory_graph(memory / 'capsules', memory_root=memory)
         checks['backlink_resolves'] = any(r.target == 'theme/work/harbor-workshop'
             for r in graph.index.souvenirs['theme/work/studio'].relations)
+    checks.update(_garden_checks(case, vault, locations))
     receipts = [json.loads(p.read_text()) for p in (memory / 'levels/note_relocations').glob('*.json')]
     (root / 'relocation-inspection.json').write_text(json.dumps({'checks': checks, 'notes': states, 'receipts': receipts}, indent=2))
+    return checks
+
+
+def _garden_checks(case, vault, locations):
+    """Placement expectations for notes created by the turn, matched by lowercase terms."""
+    seeded = {item['name'] for item in case['notes']}
+    def matching(spec, *, new_only=True):
+        found = []
+        for item in locations:
+            if new_only and item.name in seeded:
+                continue
+            if all(term in item.path.read_text().lower() for term in spec['terms']):
+                found.append(item.path.relative_to(vault).parts[0])
+        return found
+    checks = {}
+    for index, spec in enumerate(case.get('expect_new', ())):
+        folders, label = matching(spec), 'new:' + ('+'.join(spec['terms']) or 'any') + f':{index}'
+        if 'folder' in spec:
+            checks[label] = bool(folders) and all(f == spec['folder'] for f in folders)
+        elif 'not_folder' in spec:
+            checks[label] = bool(folders) and spec['not_folder'] not in folders
+        else:
+            checks[label] = spec['any_in_folder'] in folders
+    for index, spec in enumerate(case.get('expect_absent', ())):
+        folders = matching(spec, new_only=spec.get('new_only', False))
+        checks['absent:' + '+'.join(spec['terms']) + f':{index}'] = spec['folder'] not in folders
     return checks

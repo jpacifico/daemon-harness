@@ -60,6 +60,14 @@ def child_worker():
     main()
 
 
+
+def _parga_cases():
+    """Case identifiers from the versioned PARGA fixtures next to this script."""
+    root = Path(__file__).resolve().parents[1] / 'docs/evaluations/fixtures'
+    return tuple(case['id'] for name in ('parga_note_transitions_en.json', 'parga_garden_placement_en.json')
+                 for case in json.loads((root / name).read_text())['cases'])
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--arm", choices=["A", "B"], required=True)
@@ -71,7 +79,7 @@ def main():
     parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--fixture", type=Path, default=REPO / "docs/evaluations/fixtures/openclaw_memory_structure_en.json")
     parser.add_argument("--root-folders", action="store_true")
-    parser.add_argument("--transition-case", choices=("finished_project","idea_becomes_project","history_and_silence","idea_inspires_separate_project"))
+    parser.add_argument("--transition-case", choices=_parga_cases())
     parser.add_argument("--transition-mode", choices=("off","v1"), default="off")
     parser.add_argument("--reference-case", help="Optional synthetic reference-engagement observation")
     parser.add_argument("--voice-only", action="store_true", help="Keep isolated after-turn obligations without running a worker")
@@ -245,9 +253,9 @@ def main():
                                       if event.get("event") == "tool_completed"]
         if args.transition_case:
             from scripts.qualify_parga_note_transitions import assess_case
-            from scripts.qualify_parga_note_transitions import FIXTURE as transition_fixture
+            from scripts.qualify_parga_note_transitions import fixture_for
             result.update(transition_case=args.transition_case, transition_mode=args.transition_mode,
-                          fixture_sha256=hashlib.sha256(transition_fixture.read_bytes()).hexdigest())
+                          fixture_sha256=hashlib.sha256(fixture_for(args.transition_case).read_bytes()).hexdigest())
             result['checks'] = assess_case(root, result, args.transition_case, args.transition_mode)
             result['passed'] = all(result['checks'].values())
             result['quality_judgment'] = 'pending_operator_review'

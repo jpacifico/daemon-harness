@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "language": "en",
+  "description": "Synthetic Garden placement cases. Fictional people and works. Each case seeds exact notes, sends one user message, and checks where the after-turn filing puts or keeps the relevant note.",
+  "cases": [
+    {
+      "id": "garden_life_relationship",
+      "prompt": "My sister Lena means a great deal to me. Whatever else happens, Sunday afternoons are for her; I never let work take them.",
+      "notes": [
+        {
+          "name": "theme/health/morning-runs",
+          "path": "Areas/Health/Morning Runs.md",
+          "expected_folder": "Areas",
+          "text": "---\nkind: area\nmemory_views: [Areas]\nsubjects: [morning runs]\nfacets: [health routine]\n---\n# Morning Runs\n\n## Scope\nThe user's running routine.\n\n## Last confirmed state\n2026-09-02: Runs three mornings a week.\n",
+          "preserve": ["2026-09-02: Runs three mornings a week."]
+        }
+      ],
+      "expect_new": [{"terms": ["lena"], "not_folder": "Garden"}]
+    },
+    {
+      "id": "garden_life_feeling",
+      "prompt": "Lately, weekends with nothing planned make me anxious. I end Sunday evening feeling I achieved nothing worthwhile.",
+      "notes": [
+        {
+          "name": "theme/health/morning-runs",
+          "path": "Areas/Health/Morning Runs.md",
+          "expected_folder": "Areas",
+          "text": "---\nkind: area\nmemory_views: [Areas]\nsubjects: [morning runs]\nfacets: [health routine]\n---\n# Morning Runs\n\n## Scope\nThe user's running routine.\n\n## Last confirmed state\n2026-09-02: Runs three mornings a week.\n",
+          "preserve": ["2026-09-02: Runs three mornings a week."]
+        }
+      ],
+      "expect_new": [{"terms": ["weekend"], "not_folder": "Garden"}]
+    },
+    {
+      "id": "garden_adopted_principle",
+      "prompt": "A lesson I learned the hard way and want to keep: I never make an important decision the same evening. I sleep on it first. That holds at work and at home.",
+      "notes": [
+        {
+          "name": "theme/health/morning-runs",
+          "path": "Areas/Health/Morning Runs.md",
+          "expected_folder": "Areas",
+          "text": "---\nkind: area\nmemory_views: [Areas]\nsubjects: [morning runs]\nfacets: [health routine]\n---\n# Morning Runs\n\n## Scope\nThe user's running routine.\n\n## Last confirmed state\n2026-09-02: Runs three mornings a week.\n",
+          "preserve": ["2026-09-02: Runs three mornings a week."]
+        }
+      ],
+      "expect_new": [{"terms": ["sleep", "decision"], "folder": "Garden"}]
+    },
+    {
+      "id": "garden_idea_grows",
+      "prompt": "I applied our Small Batches principle at home too: we tried a new grocery budget for one month before committing to it for the year. It works outside the workshop as well, as long as the trial has a clear end date.",
+      "notes": [
+        {
+          "name": "theme/knowledge/small-batches",
+          "path": "Garden/Work/Small Batches.md",
+          "expected_folder": "Garden",
+          "text": "---\nkind: knowledge\nmemory_views: [Garden]\nsubjects: [Small Batches principle]\nfacets: [reusable lesson, batch size]\n---\n# Small Batches\n\n## Scope\nA reusable lesson adopted for workshop projects.\n\n## Last confirmed state\n2026-09-01: Keep this principle for future work.\n\n## History\nTest a small batch before committing the entire stock of material.\n",
+          "preserve": ["Test a small batch before committing the entire stock of material."],
+          "grows_with_any": ["grocery", "budget", "end date"]
+        }
+      ],
+      "expect_absent": [{"terms": ["batch"], "folder": "Garden", "new_only": true}]
+    },
+    {
+      "id": "garden_reference_and_idea",
+      "prompt": "I'm reading The Quiet Orchard by Mara Holt. Her point that rest is part of the work convinced me; I'm adopting it as a principle for myself.",
+      "notes": [
+        {
+          "name": "theme/health/morning-runs",
+          "path": "Areas/Health/Morning Runs.md",
+          "expected_folder": "Areas",
+          "text": "---\nkind: area\nmemory_views: [Areas]\nsubjects: [morning runs]\nfacets: [health routine]\n---\n# Morning Runs\n\n## Scope\nThe user's running routine.\n\n## Last confirmed state\n2026-09-02: Runs three mornings a week.\n",
+          "preserve": ["2026-09-02: Runs three mornings a week."]
+        }
+      ],
+      "expect_new": [
+        {"terms": ["quiet orchard"], "any_in_folder": "Resources"},
+        {"terms": [], "any_in_folder": "Garden"}
+      ]
+    },
+    {
+      "id": "garden_suggestion_not_adopted",
+      "prompt": "You suggested last week that I keep a morning journal. I tried it twice and it isn't for me, so I'm not doing it.",
+      "notes": [
+        {
+          "name": "theme/health/morning-runs",
+          "path": "Areas/Health/Morning Runs.md",
+          "expected_folder": "Areas",
+          "text": "---\nkind: area\nmemory_views: [Areas]\nsubjects: [morning runs]\nfacets: [health routine]\n---\n# Morning Runs\n\n## Scope\nThe user's running routine.\n\n## Last confirmed state\n2026-09-02: Runs three mornings a week.\n",
+          "preserve": ["2026-09-02: Runs three mornings a week."]
+        }
+      ],
+      "expect_absent": [{"terms": ["journal"], "folder": "Garden"}]
+    }
+  ]
+}

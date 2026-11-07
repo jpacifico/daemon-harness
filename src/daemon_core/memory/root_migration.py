@@ -9,7 +9,7 @@ import shutil
 import unicodedata
 
 from daemon_core.memory.library_layout import (
-    FOLDERS, MARKER, checked_note_path, unique_note_locations,
+    FOLDERS, MARKER, checked_note_path, garden_rule_block, unique_note_locations,
     render_vault_links,
 )
 from daemon_core.memory.reader import RESERVED_SOUVENIR_NAMES, RESERVED_SOUVENIR_PREFIXES
@@ -20,7 +20,7 @@ Return ONLY one storage_path per supplied stable name. Do not write, correct,
 merge or summarize any fact or note. Preserve distinct histories.
 Choose one primary folder: Projects (intended outcome with an end), Areas
 (ongoing responsibility, relationship or situation), Resources (references),
-Garden (adopted reusable ideas/lessons), Archives (explicitly past/inactive
+Garden (as defined below), Archives (explicitly past/inactive
 histories). Existing memory_views are useful declared categories, not a mandate
 for duplicates. Age or silence alone never closes a project or problem.
 REM episodic_scene and episodic_archive already explicitly concern past_only;
@@ -31,7 +31,7 @@ People and Situations are kinds, not top-level folders. Keep names meaningful
 and specific enough not to collide. Maximum three directories under a category.
 Return strict JSON: {"notes":[{"name":"exact supplied identity",
 "storage_path":"Areas/Family/Sam.md"}]}.
-"""
+""" + garden_rule_block()
 
 
 

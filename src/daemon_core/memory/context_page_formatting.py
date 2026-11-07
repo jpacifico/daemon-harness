@@ -15,6 +15,7 @@ from daemon_core.memory.context_pages import (
     structure_enabled, validate_context_page,
 )
 from daemon_core.memory.integrity import atomic_write_text, memory_file_lock
+from daemon_core.memory.library_layout import garden_rule_block
 from daemon_core.memory.metadata import parse_souvenir_frontmatter, _render_frontmatter
 from daemon_core.memory.obsidian import prepare_souvenir_format
 from daemon_core.memory.reader import is_system_managed_souvenir
@@ -31,7 +32,7 @@ resource, knowledge, episode. Judge coherent scope, not names or keywords.
 memory_views: relevant entries from Projects, Areas, Resources, Garden,
 Archives. Projects = intended outcomes; Areas = ongoing domains, roles,
 relationships or situations; Resources = references to consult/use;
-Garden = reusable ideas or lessons actually expressed/adopted by the user;
+Garden = as defined below;
 Archives = explicitly past or inactive histories, preserving exact state.
 Views may overlap. Old date, silence or no recent mention do not close a problem.
 memory_areas: optional English domain slugs such as health, family or work;
@@ -48,7 +49,7 @@ Relationships belong to their own people, projects and periods. Classifying a
 note does not prove completion, causality or participation in another event.
 Return strict JSON: {"notes":[{"name":"exact name","kind":"...",
 "memory_views":["..."],"memory_areas":["..."],"sections":{"Scope":[0],"History":[1]}}]}.
-"""
+""" + garden_rule_block()
 
 
 def source_blocks(content: str) -> tuple[dict, str, list[str]]:

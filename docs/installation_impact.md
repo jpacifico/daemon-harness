@@ -72,7 +72,9 @@ locations; older installations can have different paths.
 | OpenClaw only | A loopback API that the OpenClaw plugin calls |
 
 On Windows the services are scheduled tasks in the signed-in user's session;
-they run without console windows. Existing unrelated host installations are not
+they run without console windows. A service that crashes is restarted at most
+once a minute: up to three times on Windows, and without limit on Mac, where
+launchd keeps it alive. Existing unrelated host installations are not
 adopted or modified.
 
 ## Continuity profile

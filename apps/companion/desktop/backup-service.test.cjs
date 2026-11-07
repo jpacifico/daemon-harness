@@ -5,7 +5,7 @@ const fs = require('node:fs/promises');
 const os = require('node:os');
 const path = require('node:path');
 const crypto = require('node:crypto');
-const {Backups, KEEP_AUTOMATIC} = require('./backup-service.cjs');
+const {Backups, KEEP_AUTOMATIC, RETRY_AFTER_FAILURE} = require('./backup-service.cjs');
 const {decrypt} = require('./backup-crypto.cjs');
 
 const password = 'synthetic-long-password';
@@ -107,4 +107,17 @@ test('turning daily backup on needs Google; disconnecting removes keys and stops
   await backups.disconnect();
   assert.deepEqual(await backups.status('instance-1'), {configured: true, connected: false, automatic: {enabled: false, lastSuccess: null, lastError: null}});
   assert.deepEqual(await fs.readdir(path.join(root, 'backups/secrets')), []);
+});
+
+test('a failed automatic backup waits six hours before trying again', async t => {
+  const {backups, requests, tick} = await fixture(t, {fail: 'drive.permissionOrQuota'});
+  await backups.connect();
+  await backups.enableAutomatic('instance-1', password);
+  await backups.runDue();
+  assert.equal(requests.length, 1);
+  for (let hour = 1; hour < RETRY_AFTER_FAILURE / 3600000; hour++) { tick(3600000); await backups.runDue(); }
+  assert.equal(requests.length, 1);
+  tick(3600000);
+  await backups.runDue();
+  assert.equal(requests.length, 2);
 });

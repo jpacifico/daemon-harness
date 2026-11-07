@@ -2626,3 +2626,107 @@ def test_shared_projection_executor_completes_without_llm_when_delta_is_empty(
 
     assert scene is previous
     revise.assert_not_called()
+
+
+def _drain_until_settled(spool, handler, *, start, limit=200):
+    """Drain repeatedly, jumping past every scheduled delay."""
+    now = start
+    for _ in range(limit):
+        spool.drain("hermes", "u", handler, now=now)
+        counts = spool.counts("hermes", "u")
+        if not any(counts.values()):
+            return now
+        now += 2 * 86400.0
+    raise AssertionError("the queue never settled")
+
+
+def test_always_failing_turn_is_set_aside_and_later_turns_proceed(
+    monkeypatch,
+    tmp_path,
+):
+    first = replace(_job(monkeypatch, tmp_path, turn_id="turn-1"), source_turn_started_at=1.0)
+    second = replace(_job(monkeypatch, tmp_path, turn_id="turn-2"), source_turn_started_at=2.0)
+    _enable_receipts(monkeypatch, tmp_path, first, second)
+    spool = AfterTurnSpool(tmp_path / "spool")
+    spool.enqueue(first)
+    spool.enqueue(second)
+    calls = []
+
+    def handler(job):
+        calls.append(job.turn_id)
+        if job.turn_id == "turn-1":
+            raise ValueError("deterministic refusal")
+
+    _drain_until_settled(spool, handler, start=100.0)
+
+    assert calls.count("turn-1") == spool.max_total_attempts == 9
+    assert calls[-1] == "turn-2" and calls.count("turn-2") == 1
+    aside = list((tmp_path / "spool" / "quarantined").rglob("*.json"))
+    assert [json.loads(path.read_text())["turn_id"] for path in aside] == ["turn-1"]
+    receipt = json.loads(next((tmp_path / "spool" / "quarantine_receipts").rglob("*.json")).read_text())
+    assert receipt["reason_code"] == "retries_exhausted"
+    assert receipt["error_type"] == "RetriesExhausted"
+    assert receipt["status"] == "completed"
+    stages = read_continuity_receipt("turn-1")["stages"]
+    assert stages["outbox"]["reason_code"] == "retries_exhausted"
+
+
+def test_retry_schedule_grows_and_never_overflows(monkeypatch, tmp_path):
+    spool = AfterTurnSpool(tmp_path / "spool")
+    assert [after_turn_spool._retry_delay(n) for n in (1, 2, 3)] == [5.0, 10.0, 20.0]
+    assert after_turn_spool._retry_delay(10_000) == 300.0
+    assert [spool._failure_delay(n) for n in range(1, 9)] == [
+        5.0, 10.0, 20.0, 300.0, 1800.0, 7200.0, 21600.0, 86400.0,
+    ]
+    assert spool._failure_delay(10_000) == 86400.0
+
+
+def test_turn_stuck_with_huge_attempt_count_is_set_aside_without_a_model_call(
+    monkeypatch,
+    tmp_path,
+):
+    job = _job(monkeypatch, tmp_path)
+    spool = AfterTurnSpool(tmp_path / "spool", max_attempts=1)
+    spool.enqueue(job)
+    spool.drain("hermes", "u", lambda _job: (_ for _ in ()).throw(RuntimeError("x")), now=100.0)
+    failed = next((tmp_path / "spool" / "failed").rglob("*.json"))
+    payload = json.loads(failed.read_text(encoding="utf-8"))
+    payload["attempts"] = 1553  # observed on a field daemon before this guard
+    failed.write_text(json.dumps(payload), encoding="utf-8")
+    handler = Mock()
+
+    result = spool.drain("hermes", "u", handler, now=200.0)
+
+    handler.assert_not_called()
+    assert result.quarantined == 1
+    assert spool.counts("hermes", "u") == {"pending": 0, "running": 0, "failed": 0}
+
+
+def test_worker_dying_on_the_same_turn_at_every_restart_cannot_loop(
+    monkeypatch,
+    tmp_path,
+):
+    job = _job(monkeypatch, tmp_path)
+    spool = AfterTurnSpool(tmp_path / "spool", lease_seconds=1.0)
+    spool.enqueue(job)
+    claims = 0
+    now = 100.0
+
+    def die(_job):
+        nonlocal claims
+        claims += 1
+        raise KeyboardInterrupt()
+
+    for _ in range(100):
+        try:
+            spool.drain("hermes", "u", die, now=now)
+        except KeyboardInterrupt:
+            running = next((tmp_path / "spool" / "running").rglob("*.json"))
+            os.utime(running, (now, now))
+        if not any(spool.counts("hermes", "u").values()):
+            break
+        now += 2 * 86400.0
+        spool.recover_stale("hermes", "u", now=now)
+
+    assert claims == spool.max_total_attempts
+    assert len(list((tmp_path / "spool" / "quarantined").rglob("*.json"))) == 1

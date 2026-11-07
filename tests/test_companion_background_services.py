@@ -309,6 +309,8 @@ def test_launchd_definitions_are_one_persistent_and_one_nightly_job(tmp_path: Pa
     dream = plistlib.loads(render_job_definition(nightly, "macos"))
 
     assert worker["KeepAlive"] is True
+    # A crash loop restarts at most once a minute, as on Windows.
+    assert worker["ThrottleInterval"] == 60
     assert worker["RunAtLoad"] is True
     assert worker["ProgramArguments"][0] == after_turn.executable
     assert "EnvironmentVariables" not in worker

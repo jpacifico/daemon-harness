@@ -83,6 +83,19 @@ The durable queue records source references and stage completion. It has
 pending, processing and failed states; expired work can be reclaimed after a
 consumer dies. Failed work is inspectable rather than silently discarded.
 
+Every attempt calls the model, so the number of attempts per turn is finite:
+
+- nine attempts in all, separated by waits of 5, 10 and 20 seconds, then
+  5 minutes, 30 minutes, 2 hours, 6 hours and 24 hours;
+- an attempt interrupted because the worker stopped counts like a failed one;
+- after the last attempt, the turn is set aside under `quarantined/`, with a
+  receipt under `quarantine_receipts/` (`reason_code: retries_exhausted`). Its
+  exact sources stay in the conversation record, and the turns queued behind it
+  proceed.
+
+Turns are processed in order, so a turn that keeps failing delays every later
+turn for at most about a day and a half.
+
 A heartbeat proves the worker is alive. Verify that pending work progresses and
 that failed or scene-specific queues are not accumulating.
 Do not delete the spool to “reset” maintenance: that can discard unprocessed

@@ -182,6 +182,14 @@ def hermes_child(args):
         save(root / 'result.json',result)
 
 
+
+def _parga_cases():
+    """Case identifiers from the versioned PARGA fixtures next to this script."""
+    root = Path(__file__).resolve().parents[1] / 'docs/evaluations/fixtures'
+    return tuple(case['id'] for name in ('parga_note_transitions_en.json', 'parga_garden_placement_en.json')
+                 for case in json.loads((root / name).read_text())['cases'])
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--host',choices=('hermes','openclaw'),required=True)
@@ -190,7 +198,7 @@ def main():
         p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--hermes-home',type=Path,default=Path.home() / '.hermes')
     p.add_argument('--child',action='store_true')
-    p.add_argument('--transition-case', choices=('finished_project','idea_becomes_project','history_and_silence','idea_inspires_separate_project'))
+    p.add_argument('--transition-case', choices=_parga_cases())
     p.add_argument('--transition-mode', choices=('off','v1'), default='off')
     args=p.parse_args()
     os.umask(0o077)
@@ -242,9 +250,9 @@ def main():
             'first_delta_seconds':first_delta,
             'after_turn_wait_seconds':result.get('after_turn_wait_seconds')}
         if args.transition_case:
-            from scripts.qualify_parga_note_transitions import FIXTURE as transition_fixture
+            from scripts.qualify_parga_note_transitions import fixture_for
             summary.update(transition_case=args.transition_case, transition_mode=args.transition_mode,
-                           fixture_sha256=hashlib.sha256(transition_fixture.read_bytes()).hexdigest())
+                           fixture_sha256=hashlib.sha256(fixture_for(args.transition_case).read_bytes()).hexdigest())
         save(root / 'root-folders-result.json',summary)
         print(json.dumps(summary),flush=True)
     finally:

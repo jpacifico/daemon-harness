@@ -14,6 +14,7 @@ import re
 import yaml
 
 from daemon_core.memory.integrity import atomic_write_text, memory_file_lock
+from daemon_core.memory.library_layout import garden_rule_block
 
 logger = logging.getLogger(__name__)
 MARKER = ".memory-structure-prototype.json"
@@ -37,8 +38,8 @@ PAGE_RULES = """Context pages — isolated memory-structure V1:
 - memory_views lists explicit relevant entries from Projects, Areas, Resources,
   Garden, Archives. Projects follow intended outcomes; Areas ongoing domains,
   roles, relationships and situations; Resources references to use; Garden
-  ideas or lessons explicitly entrusted or adopted by the user. Archives offers
-  past or inactive histories with their exact state. Views can overlap.
+  as defined below. Archives offers past or inactive histories with their
+  exact state. Views can overlap.
   A closed project keeps its identity; silence never establishes closure.
 - memory_areas is an optional list of meaningful durable domain labels in
   English (lowercase slugs, e.g. health, family, work). Reuse existing labels
@@ -62,7 +63,7 @@ PAGE_RULES = """Context pages — isolated memory-structure V1:
 - Existing REM episodes remain owned by REM. Do not rewrite them or create a
   Retrospective section. This prototype works without new REM summaries.
 - Return the existing response schema, complete note and compact index_line.
-"""
+""" + garden_rule_block(growth=True)
 
 
 def structure_enabled(memory_root: Path | None = None) -> bool:
@@ -249,8 +250,8 @@ Physical vault folders (override the earlier navigation-only placement rules):
   Do not create root People, Situations or All notes categories. People and
   situations are kinds: locate them in their relevant domain, usually Areas.
 - Projects: a desired outcome with an end. Areas: ongoing responsibilities,
-  relationships and situations. Resources: useful references. Garden: adopted
-  ideas and lessons. Archives: explicitly finished or inactive histories.
+  relationships and situations. Resources: useful references. Garden: as
+  defined above. Archives: explicitly finished or inactive histories.
   Preserve provenance and uncertainty; mere age never proves completion.
 - Existing notes require no storage_path. Their physical folder is authoritative.
   memory_views and memory_areas remain optional discovery labels, not commands

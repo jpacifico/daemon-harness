@@ -24,6 +24,30 @@ FOLDERS = ('Projects', 'Areas', 'Resources', 'Garden', 'Archives')
 MARKER = 'vault-layout.json'
 IDENTITY = 'memory_id'
 logger = logging.getLogger(__name__)
+# One definition of Garden for every prompt that files or classifies notes.
+GARDEN_RULE = (
+    "Garden holds the user's own ideas, principles, methods or lessons, stated or "
+    "explicitly adopted by the user, that could serve in another part of their life. "
+    "A fact, relationship, feeling or situation of the user's life stays with its "
+    "subject (usually Areas or Projects), however important. An assistant suggestion "
+    "the user has not taken up is not kept."
+)
+# Only prompts that write notes after a conversation receive the growth rule.
+GARDEN_GROWTH_RULE = (
+    "When the user returns to, applies, refines or contradicts an idea, update its "
+    "existing Garden note and keep the earlier steps in History instead of creating "
+    "another note."
+)
+
+
+def garden_rule_block(*, growth: bool = False) -> str:
+    """The Garden definition as wrapped prompt bullets."""
+    import textwrap
+    rules = (GARDEN_RULE, GARDEN_GROWTH_RULE) if growth else (GARDEN_RULE,)
+    return ''.join(textwrap.fill(rule, 78, initial_indent='- ', subsequent_indent='  ') + '\n'
+                   for rule in rules)
+
+
 _NOTE_SCAN: ContextVar[dict | None] = ContextVar('note_scan', default=None)
 
 

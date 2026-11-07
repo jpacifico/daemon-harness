@@ -190,3 +190,26 @@ def test_frozen_batch_recovery_keeps_incompatible_source_and_publishes_valid_not
     audit_result = json.loads(audit.stdout)
     assert audit_result['complete'] and audit_result['formatted_notes'] == 1
     assert len(audit_result['retained_legacy_notes']) == 1
+
+
+def _flat(text):
+    return " ".join(text.split())
+
+
+def test_every_filing_prompt_shares_one_garden_definition():
+    from daemon_core.memory.context_page_formatting import FORMAT_RULES
+    from daemon_core.memory.context_pages import PAGE_RULES, ROOT_FOLDER_RULES
+    from daemon_core.memory.library_layout import GARDEN_GROWTH_RULE, GARDEN_RULE
+    from daemon_core.memory.root_migration import PLACEMENT_RULES
+
+    for prompt in (PAGE_RULES, FORMAT_RULES, PLACEMENT_RULES):
+        assert _flat(GARDEN_RULE) in _flat(prompt)
+    # Only conversation filing grows notes; offline formatting and placement never write facts.
+    assert _flat(GARDEN_GROWTH_RULE) in _flat(PAGE_RULES)
+    for prompt in (FORMAT_RULES, PLACEMENT_RULES):
+        assert _flat(GARDEN_GROWTH_RULE) not in _flat(prompt)
+    # The folder rules appended after PAGE_RULES point back to it instead of redefining Garden.
+    assert "Garden: as defined above" in _flat(ROOT_FOLDER_RULES)
+    for prompt in (PAGE_RULES, ROOT_FOLDER_RULES, FORMAT_RULES, PLACEMENT_RULES):
+        assert "adopted ideas and lessons" not in prompt
+        assert "adopted reusable ideas/lessons" not in prompt

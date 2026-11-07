@@ -42,6 +42,7 @@ AFTER_TURN_SPOOL_DIR_ENV = "DAEMON_CORE_AFTER_TURN_SPOOL_DIR"
 SCENE_COALESCING_ENV = "DAEMON_CORE_SCENE_COALESCING"
 AFTER_TURN_SPOOL_SCHEMA = "daemon.after-turn-job.v1"
 AFTER_TURN_QUARANTINE_SCHEMA = "daemon.after-turn-quarantine.v1"
+WORKER_INTERRUPTED = "WorkerInterrupted"
 AFTER_TURN_RUNTIME_SCHEMA = "daemon.after-turn-spool-runtime.v1"
 SCENE_PROJECTION_SCHEMA = "daemon.scene-projection-job.v2"
 SCENE_PROJECTION_QUARANTINE_SCHEMA = (
@@ -52,6 +53,11 @@ _SUPPORTED_SCENE_PROJECTION_SCHEMAS = frozenset(
 )
 DEFAULT_LEASE_SECONDS = 30 * 60
 DEFAULT_MAX_ATTEMPTS = 3
+# After the quick attempts, a turn whose sources are intact is retried at
+# growing intervals (about a day and a half in all), then set aside with an
+# exact receipt so the turns queued behind it can proceed. Every attempt calls
+# the model, so the number of attempts must stay finite.
+TERMINAL_RETRY_DELAYS_SECONDS = (300.0, 1800.0, 7200.0, 21600.0, 86400.0)
 DEFAULT_POLL_SECONDS = 1.0
 MAX_COALESCED_SCENE_TURNS = 64
 MAX_COALESCED_SCENE_BYTES = 16_000
@@ -85,6 +91,10 @@ def spool_namespace_status(root: Path, memory_root: Path) -> str:
     expected = technical_ref(str(memory_root.expanduser().resolve()))
     return ("ok" if current.get("memory_root_ref") == expected
             else "after_turn_spool_namespace_mismatch")
+
+
+class RetriesExhausted(RuntimeError):
+    """Every allowed attempt of one after-turn job failed."""
 
 
 @dataclass(frozen=True)
@@ -448,6 +458,9 @@ class AfterTurnSpool:
     ) -> None:
         self.root = (root or after_turn_spool_root()).expanduser()
         self.max_attempts = max(1, int(max_attempts))
+        self.max_total_attempts = (
+            self.max_attempts + len(TERMINAL_RETRY_DELAYS_SECONDS) + 1
+        )
         self.lease_seconds = max(1.0, float(lease_seconds))
         self.max_pending_scene_age_seconds = max(
             1.0,
@@ -762,7 +775,7 @@ class AfterTurnSpool:
                     failed_job = replace(
                         claimed,
                         available_at=(
-                            current + _retry_delay(claimed.attempts)
+                            current + self._failure_delay(claimed.attempts)
                         ),
                         last_error=exc.__class__.__name__,
                         lease_pid=0,
@@ -847,7 +860,8 @@ class AfterTurnSpool:
         source is no longer readable can never succeed and is quarantined
         immediately because its normal retries are already exhausted.  A
         failed job with intact sources is a transient execution failure
-        instead: requeue it only after its normal backoff has elapsed.
+        instead: requeue it only after its backoff has elapsed, and set it
+        aside once its allowed attempts are spent.
         """
 
         current = time.time() if now is None else float(now)
@@ -904,6 +918,17 @@ class AfterTurnSpool:
                         source_state="failed",
                         error=source_error,
                         now=current,
+                    )
+                    quarantined += 1
+                    continue
+                if job.attempts >= self.max_total_attempts:
+                    self._quarantine_job(
+                        path,
+                        job,
+                        source_state="failed",
+                        error=RetriesExhausted(job.last_error or "unknown"),
+                        now=current,
+                        reason_code="retries_exhausted",
                     )
                     quarantined += 1
                     continue
@@ -1166,9 +1191,20 @@ class AfterTurnSpool:
                         reason_code=handoff_reason,
                     )
                 else:
-                    recovered_job = replace(job, lease_pid=0)
+                    # An interrupted attempt already called the model. It
+                    # counts like a failed one, so a process that dies on
+                    # the same turn at every restart cannot loop forever.
+                    exhausted = job.attempts >= self.max_attempts
+                    recovered_job = replace(
+                        job,
+                        lease_pid=0,
+                        available_at=current + self._failure_delay(job.attempts),
+                        last_error=(
+                            WORKER_INTERRUPTED if exhausted else job.last_error
+                        ),
+                    )
                     destination = self._job_path(
-                        "pending",
+                        "failed" if exhausted else "pending",
                         recovered_job,
                     )
                     _write_job(path, recovered_job)
@@ -1180,8 +1216,13 @@ class AfterTurnSpool:
                     record_continuity_stage(
                         job.turn_id,
                         "outbox",
-                        "recovered",
-                        reason_code="stale_lease_requeued",
+                        "failed" if exhausted else "recovered",
+                        reason_code=(
+                            "attempts_exhausted"
+                            if exhausted
+                            else "stale_lease_requeued"
+                        ),
+                        **({"error_type": WORKER_INTERRUPTED} if exhausted else {}),
                     )
                 recovered += 1
         return recovered
@@ -1568,8 +1609,13 @@ class AfterTurnSpool:
         source_state: str,
         error: Exception,
         now: float,
+        reason_code: str = "l0_reference_unrecoverable",
     ) -> Path:
-        """Move one provably unreadable job aside and keep an exact receipt."""
+        """Move one job aside, kept with an exact receipt.
+
+        Either its sources are provably unreadable, or every allowed attempt
+        failed. In both cases the turns queued behind it proceed.
+        """
 
         if not path.exists():
             return self._job_path("quarantined", job)
@@ -1591,7 +1637,7 @@ class AfterTurnSpool:
             "host": job.host,
             "user_id": job.user_id,
             "source_state": source_state,
-            "reason_code": "l0_reference_unrecoverable",
+            "reason_code": reason_code,
             "error_type": error.__class__.__name__,
             "error": str(error)[:160],
             "job_sha256": hashlib.sha256(raw).hexdigest(),
@@ -1627,16 +1673,27 @@ class AfterTurnSpool:
             job.turn_id,
             "outbox",
             "skipped",
-            reason_code="l0_reference_unrecoverable",
+            reason_code=reason_code,
             error_type=error.__class__.__name__,
         )
         logger.warning(
-            "After-turn source quarantined | host=%s | source=%s | error=%s",
+            "After-turn job set aside | host=%s | source=%s | reason=%s | error=%s",
             job.host,
             job.turn_id,
+            reason_code,
             error.__class__.__name__,
         )
         return destination
+
+    def _failure_delay(self, attempts: int) -> float:
+        """Delay before the next attempt of a turn that just failed."""
+        if attempts <= self.max_attempts:
+            return _retry_delay(attempts)
+        index = min(
+            attempts - self.max_attempts - 1,
+            len(TERMINAL_RETRY_DELAYS_SECONDS) - 1,
+        )
+        return TERMINAL_RETRY_DELAYS_SECONDS[index]
 
     def _state_from_path(self, path: Path) -> str:
         try:
@@ -1957,7 +2014,7 @@ class AfterTurnWorker:
                 self._consecutive_errors = 0
             if batch_executions or self.projection_handler is None:
                 _flush_batch()
-            self._wake.wait(timeout=max(self.poll_seconds, min(30, self._consecutive_errors * 2)))
+            self._wake.wait(timeout=max(self.poll_seconds, min(300, self._consecutive_errors * 2)))
             self._wake.clear()
 
 
@@ -2179,7 +2236,8 @@ def _projection_cycles_completed(job: SceneProjectionJob) -> bool:
 
 
 def _retry_delay(attempt: int) -> float:
-    return min(300.0, 5.0 * (2 ** max(0, attempt - 1)))
+    # The exponent is capped so a large attempt count can never overflow.
+    return min(300.0, 5.0 * (2 ** min(max(0, attempt - 1), 6)))
 
 
 def _next_projection_recovery_limit(job: SceneProjectionJob) -> int:

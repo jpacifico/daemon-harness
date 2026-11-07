@@ -45,6 +45,9 @@ ANGLES = (
 MAX_ACTIVE_FOLLOWUPS = 3   # Pending follow-ups within the near-term horizon.
 ACTIVE_HORIZON_HOURS = 72  # More distant intentions must not block present initiative.
 MAX_DELIVERED_PER_DAY = 3  # Maximum delivered follow-ups per day.
+# Each attempt calls the model, so deferrals are finite and spaced out.
+MAX_RESCHEDULES = 3
+MIN_RESCHEDULE_DELAY_MINUTES = 30
 FIRE_LOCK_STALE_SECONDS = 15 * 60
 _TRUE = {"1", "true", "on", "yes"}
 
@@ -297,7 +300,17 @@ def reschedule(
     if fu is None or fu.state != "pending":
         return False
     now = now or datetime.now(TZ)
-    fu.fire_at = clamp_to_waking(fire_at, now=now)
+    fire_at = clamp_to_waking(fire_at, now=now)
+    earliest = now + timedelta(minutes=MIN_RESCHEDULE_DELAY_MINUTES)
+    target = datetime.fromisoformat(fire_at)
+    if target.tzinfo is None:
+        target = target.replace(tzinfo=earliest.tzinfo or TZ)
+    if target < earliest:
+        fire_at = clamp_to_waking(
+            earliest.replace(tzinfo=None).isoformat(timespec="minutes"),
+            now=now,
+        )
+    fu.fire_at = fire_at
     fu.job_id = None
     fu.reschedule_count += 1
     fu.outcome_reason = f"rescheduled:{reason.strip()}" if reason.strip() else "rescheduled"
@@ -591,6 +604,11 @@ def _fire_locked(followup_id: str, *, dry_run: bool = False, provider=None, now:
         logger.info("Relance %s : annulée par le juge (%s)", followup_id, reason or "sans raison")
         return ""
     if action == "reschedule":
+        current = load_intent(followup_id)
+        if current is not None and current.reschedule_count >= MAX_RESCHEDULES:
+            set_state(followup_id, "cancelled", now=now, reason="reschedule_limit")
+            logger.info("Relance %s : trop de reports → annulée", followup_id)
+            return ""
         reschedule(followup_id, verdict["fire_at"], now=now, reason=reason)
         updated = load_intent(followup_id)
         logger.info(

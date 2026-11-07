@@ -512,3 +512,29 @@ def test_status_exposes_pending_scopes_and_outcomes(monkeypatch):
     assert "[long]" in status
     assert "silent" in status
     assert "reason=invalid_verdict" in status
+
+
+def test_deferrals_are_spaced_and_capped(tmp_path, monkeypatch):
+    _patch_l0(monkeypatch, tmp_path)
+    fid = _make()
+    from daemon_core import followup as followup_module
+
+    # A judge asking for a near-immediate retry is moved 30 minutes out.
+    near = MessageProvider(action="reschedule", fire_at="2026-06-30T18:05", reason="plus tard")
+    assert fire(fid, provider=near, now=_at(18, 0)) == ""
+    assert load_intent(fid).fire_at == "2026-06-30T18:30"
+
+    hour = 18
+    for _ in range(followup_module.MAX_RESCHEDULES - 1):
+        hour += 1
+        provider = MessageProvider(action="reschedule", fire_at=f"2026-06-30T{hour}:45", reason="plus tard")
+        fire(fid, provider=provider, now=_at(hour, 0))
+    capped = load_intent(fid)
+    assert capped.state == "pending"
+    assert capped.reschedule_count == followup_module.MAX_RESCHEDULES
+
+    again = MessageProvider(action="reschedule", fire_at="2026-06-30T22:30", reason="plus tard")
+    assert fire(fid, provider=again, now=_at(21, 30)) == ""
+    final = load_intent(fid)
+    assert final.state == "cancelled"
+    assert final.reschedule_count == followup_module.MAX_RESCHEDULES

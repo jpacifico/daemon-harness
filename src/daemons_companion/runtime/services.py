@@ -652,7 +652,10 @@ def _render_launchd(job: BackgroundJob) -> bytes:
         "ProcessType": "Background",
     }
     if job.persistent:
-        document.update({"KeepAlive": True, "ThrottleInterval": 10})
+        # launchd restarts a crashed service without limit. One minute, as on
+        # Windows, keeps a crash loop slow; a service that ran longer than
+        # this restarts at once.
+        document.update({"KeepAlive": True, "ThrottleInterval": 60})
     else:
         document["StartCalendarInterval"] = {"Hour": job.hour, "Minute": 0}
     return plistlib.dumps(document, sort_keys=True)

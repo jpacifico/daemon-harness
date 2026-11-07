@@ -10,6 +10,8 @@ const backupCrypto = require('./backup-crypto.cjs');
 const {ProtectedStore} = require('./backup-secrets.cjs');
 
 const DAY = 24 * 60 * 60 * 1000;
+// A failed automatic backup is retried at most every six hours, not at every hourly check.
+const RETRY_AFTER_FAILURE = 6 * 60 * 60 * 1000;
 const KEEP_AUTOMATIC = 7;
 const EXTENSION = 'daemonbackup';
 
@@ -131,6 +133,7 @@ class Backups {
       const schedule = await this.schedule();
       for (const [daemon, entry] of Object.entries(schedule.daemons)) {
         if (!entry.enabled || (entry.last_success && this.now() - Date.parse(entry.last_success) < DAY)) continue;
+        if (entry.last_error && entry.last_attempt && this.now() - Date.parse(entry.last_attempt) < RETRY_AFTER_FAILURE) continue;
         try {
           await this.toDrive(entry.instance, {automatic: true});
           Object.assign(entry, {last_success: new Date(this.now()).toISOString(), last_error: null});
@@ -138,6 +141,7 @@ class Backups {
           const code = String(error.message || '');
           if (/busy|already running|Finish or stop/i.test(code)) continue;
           entry.last_error = /^(backup|archive|google|drive)\.[a-zA-Z-]+$/.test(code) ? code : 'backup.unavailable';
+          entry.last_attempt = new Date(this.now()).toISOString();
         }
         await this.saveSchedule(schedule);
       }
@@ -152,4 +156,4 @@ class Backups {
     return target;
   }
 }
-module.exports = {Backups, checkedPassword, fileName, EXTENSION, KEEP_AUTOMATIC};
+module.exports = {Backups, checkedPassword, fileName, EXTENSION, KEEP_AUTOMATIC, RETRY_AFTER_FAILURE};

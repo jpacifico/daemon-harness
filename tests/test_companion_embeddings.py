@@ -116,7 +116,13 @@ def test_readiness_rejects_invalid_vectors(monkeypatch, vector):
         module.probe(33333)
 
 
-def test_bad_download_never_published(tmp_path):
+@pytest.fixture
+def ample_disk(monkeypatch):
+    """The free-space check reads the real disk; a full CI machine must not decide these tests."""
+    monkeypatch.setattr(module.shutil, 'disk_usage', lambda path: SimpleNamespace(total=1 << 50, used=0, free=1 << 50))
+
+
+def test_bad_download_never_published(tmp_path, ample_disk):
     scope = scope_fixture(tmp_path)
     with pytest.raises(RuntimeError, match='integrity'):
         module.prepare(scope, 'macos', lambda _: None,
@@ -161,7 +167,7 @@ def test_scheduler_failure_restores_only_new_jobs(tmp_path, monkeypatch, target_
     assert len(scheduler.installs) == (0 if failure == 'occupied-port' else 2)
 
 
-def test_probe_failure_keeps_verified_assets_and_stops_owned_process(tmp_path, monkeypatch):
+def test_probe_failure_keeps_verified_assets_and_stops_owned_process(tmp_path, monkeypatch, ample_disk):
     scope = scope_fixture(tmp_path)
     archive = tmp_path / 'package.tgz'
     with tarfile.open(archive, 'w:gz') as out:

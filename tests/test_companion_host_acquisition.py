@@ -214,7 +214,7 @@ def _sequence(monkeypatch, outcomes):
 
 
 @pytest.mark.parametrize("code,retry_after,expected_wait", [
-    (429, None, 2.0), (503, "7", 7.0), (502, None, 2.0), (504, "999", 60.0)])
+    (429, None, 2.0), (503, "7", 7.0), (502, None, 2.0), (504, "999", 120.0)])
 def test_transient_refusal_is_retried_then_verified(download, monkeypatch, code, retry_after, expected_wait):
     root, content, release, _, _ = download
     ok = Response(content, release, **{"Content-Length": str(len(content))})
@@ -232,13 +232,16 @@ def test_exhausted_retries_explain_without_raw_error(download, monkeypatch, fail
 
     root, _, release, _, _ = download
     make = (lambda: _refusal(release.url, 429)) if failure == "refusal" else (lambda: URLError(TimeoutError("timed out")))
-    opened, sleeps = _sequence(monkeypatch, [make() for _ in range(4)])
+    attempts = len(acquisition.RETRY_DELAYS) + 1
+    opened, sleeps = _sequence(monkeypatch, [make() for _ in range(attempts)])
     with pytest.raises(acquisition.HostDownloadUnavailable) as caught:
         acquisition.stage_disposable_host_artifact(release.artifact_id, root)
     expected = acquisition.DOWNLOAD_LIMITED if failure == "refusal" else acquisition.DOWNLOAD_UNREACHABLE
     assert str(caught.value) == expected
     assert caught.value.__cause__ is None and caught.value.__suppress_context__
-    assert len(opened) == 4 and sum(sleeps) <= acquisition.MAX_TOTAL_RETRY_WAIT
+    assert len(opened) == attempts and sum(sleeps) <= acquisition.MAX_TOTAL_RETRY_WAIT
+    # A short outage of the download service is waited out, not reported.
+    assert sum(sleeps) >= 240
     assert not list(root.glob("*.tar.gz"))
     assert_clean(root)
 

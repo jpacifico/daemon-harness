@@ -60,8 +60,10 @@ test('Hermes Agent branding changes catalog literals, never user content or engi
   }
 });
 test('a known download cause is localized while unknown technical causes stay exact', () => {
-  const limited = 'Installation cause: ' + catalog['host.download_limited'].en;
-  assert.equal(locale.message(limited, 'fr'), 'Cause de l’échec : ' + catalog['host.download_limited'].fr);
+  const limited = 'Installation cause: ' + catalog['host.download_limited'].en.replace('{service}', 'GitHub');
+  assert.equal(locale.message(limited, 'fr'), 'Cause de l’échec : ' + catalog['host.download_limited'].fr.replace('{service}', 'GitHub'));
+  const waiting = catalog['host.download_waiting'].en.replace('{service}', 'GitHub').replace('{seconds}', '45').replace('{attempt}', '4').replace('{total}', '7');
+  assert.equal(locale.message(waiting, 'fr'), 'Aucune réponse de GitHub. Nouvel essai dans 45 secondes (essai 4 sur 7)…');
   assert.equal(locale.message('Installation cause: HTTP Error 404: Not Found', 'fr'),
     'Cause de l’échec : HTTP Error 404: Not Found');
 });

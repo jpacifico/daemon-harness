@@ -22,11 +22,11 @@ PACKAGES = {
 }
 
 
-def download_package(url, destination, size, digest):
+def download_package(url, destination, size, digest, progress=None):
     end = time.monotonic() + 300
     checksum = hashlib.sha256()
     count = 0
-    with open_with_retry(lambda: urlopen(url, timeout=30)) as response, destination.open("xb") as stream:
+    with open_with_retry(lambda: urlopen(url, timeout=30), url=url, notice=progress) as response, destination.open("xb") as stream:
         if not response.geturl().startswith("https://"):
             raise RuntimeError("Codex download must use HTTPS.")
         while chunk := response.read1(1024 * 1024):
@@ -92,7 +92,7 @@ def private_codex(layout):
     return binary
 
 
-def install_private_codex(layout, progress, *, downloader=download_package):
+def install_private_codex(layout, progress, *, downloader=None):
     existing = private_codex(layout)
     if existing:
         return existing
@@ -106,7 +106,10 @@ def install_private_codex(layout, progress, *, downloader=download_package):
     with tempfile.TemporaryDirectory(prefix="download-", dir=parent) as raw:
         temporary = Path(raw)
         archive = temporary / "codex.tar.gz"
-        downloader(url, archive, size, digest)
+        if downloader is None:
+            download_package(url, archive, size, digest, progress)
+        else:
+            downloader(url, archive, size, digest)
         # Verify independently even when the downloader is substituted by a local cache.
         if archive.stat().st_size != size or hashlib.sha256(archive.read_bytes()).hexdigest() != digest:
             raise RuntimeError("Codex package integrity check failed.")

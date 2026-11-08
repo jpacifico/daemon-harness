@@ -44,6 +44,12 @@
         for (const field of fields) {
           const key = exact.get(found.args[field]);
           if (key) found.args[field] = t(key, language);
+          else {
+            // A nested catalog template (a download cause naming its service)
+            // is translated around its own values, which stay exact.
+            const inner = patterns.find(p => p.re.test(found.args[field]));
+            if (inner) found.args[field] = t(inner.key, language, Object.fromEntries(inner.names.map((name, i) => [name, inner.re.exec(found.args[field])[i + 1]])));
+          }
         }
         return text.replace(trimmed, t(found.key, language, found.args));
       }

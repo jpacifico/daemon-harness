@@ -162,3 +162,28 @@ def test_quit_from_hidden_field_never_submits_secret():
     ui.secret = lambda _: ':quit'
     with pytest.raises(Quit):
         verify_telegram_token(ui, lambda _: pytest.fail('must not configure'))
+
+
+def test_a_download_outage_explains_itself_and_offers_retry():
+    from daemons_companion.runtime.acquisition import DOWNLOAD_UNREACHABLE, HostDownloadUnavailable
+    attempts = []
+    def complete(ui, request, response):
+        attempts.append(1)
+        if len(attempts) == 1:
+            raise HostDownloadUnavailable(DOWNLOAD_UNREACHABLE.format(service='GitHub'))
+        return True
+    setup = SimpleNamespace(context=SimpleNamespace(target_os='windows'),
+                            offer=lambda *a: False, connect_subscription=lambda *a: True,
+                            choose_model=lambda *a: 'selected-model', complete=complete)
+    class Recording(FakeUI):
+        offered = []
+        def choose(self, title, options, *, default=0):
+            if title == 'Setup did not finish':
+                self.offered.append(options)
+            return super().choose(title, options, default=default)
+    ui = Recording(choices=[0, 0, 0, 0, 0, 0, 0, 0], fields=['Avery'])
+    assert run_wizard(ui, backend=backend(), host_setup=setup) == 0
+    assert attempts == [1, 1]
+    assert ui.offered == [('Retry', 'Change model access', 'Quit')]
+    assert DOWNLOAD_UNREACHABLE.format(service='GitHub') in ui.output
+    assert not any(line.startswith('Please review:') for line in ui.output)

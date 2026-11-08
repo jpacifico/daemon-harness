@@ -277,7 +277,7 @@ def download(url: str, destination: Path, expected: str):
     hasher = hashlib.sha256()
     total = 0
     with (
-        open_with_retry(lambda: urllib.request.urlopen(request, timeout=45)) as response,
+        open_with_retry(lambda: urllib.request.urlopen(request, timeout=45), url=url) as response,
         destination.open("xb") as output,
     ):
         if response.geturl() != url:

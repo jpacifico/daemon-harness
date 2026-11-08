@@ -1059,12 +1059,23 @@
     "template": true
   },
   "host.download_limited": {
-    "en": "The host download service is temporarily limiting requests. Nothing was installed; retry in a few minutes.",
-    "fr": "Le service de téléchargement de l’hôte limite temporairement les requêtes. Rien n’a été installé ; réessayez dans quelques minutes."
+    "en": "Downloads from {service} are limited right now. The steps already done are kept: wait a few minutes, then try again.",
+    "fr": "Les téléchargements depuis {service} sont limités en ce moment. Les étapes déjà faites sont conservées : attendez quelques minutes, puis réessayez.",
+    "template": true
   },
   "host.download_unreachable": {
-    "en": "The host download service could not be reached. Nothing was installed; check the Internet connection and retry.",
-    "fr": "Le service de téléchargement de l’hôte est injoignable. Rien n’a été installé ; vérifiez la connexion Internet et réessayez."
+    "en": "No response from {service} for about five minutes, usually a temporary problem on its side or no Internet connection. The steps already done are kept: wait a few minutes, then try again.",
+    "fr": "Aucune réponse de {service} pendant environ cinq minutes : en général un problème passager de son côté, ou pas de connexion Internet. Les étapes déjà faites sont conservées : attendez quelques minutes, puis réessayez.",
+    "template": true
+  },
+  "host.download_waiting": {
+    "en": "No response from {service}. Retrying in {seconds} seconds (attempt {attempt} of {total})...",
+    "fr": "Aucune réponse de {service}. Nouvel essai dans {seconds} secondes (essai {attempt} sur {total})…",
+    "template": true
+  },
+  "setup.retry": {
+    "en": "Retry",
+    "fr": "Réessayer"
   },
   "host.retained": {
     "en": "Any incomplete private files and recovery journal are retained in {path}.",

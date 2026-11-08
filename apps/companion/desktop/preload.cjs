@@ -28,6 +28,8 @@ contextBridge.exposeInMainWorld('companion', Object.freeze({
   theme: value => ipcRenderer.invoke('display-theme', value),
   background: (enabled, openAtLogin) => ipcRenderer.invoke('display-background', enabled, openAtLogin),
   projectLink: key => ipcRenderer.invoke('project-link', key),
+  serviceStatus: id => ipcRenderer.invoke('service-status', id),
+  openServiceStatus: id => ipcRenderer.invoke('service-status-open', id),
   updateStatus: () => ipcRenderer.invoke('update-status'),
   checkUpdate: () => ipcRenderer.invoke('update-check'),
   installUpdate: () => ipcRenderer.invoke('update-install'),

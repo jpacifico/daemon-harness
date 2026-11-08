@@ -99,18 +99,20 @@ def acquire(context, ui):
 
 def reconnect_api(owner, ui, kind):
     from daemon_core import api_providers as api
+    from daemons_companion.setup import provider_api
     from daemons_companion.setup.api_setup import ApiConnection
 
     host, _ = load_host(owner.context)
     key = api.validate_key(ui.secret("Paste your API key (hidden)"))
     with ui.activity("Checking your API key and available models..."):
-        models = api.model_catalog(kind, key)
+        models = provider_api.model_catalog(kind, key)
     owner.api_connection = ApiConnection(kind, str(host.attempt), key, models)
     return True
 
 
 def connect_api(owner, ui, host, saved=None):
     from daemon_core import api_providers as api
+    from daemons_companion.setup import provider_api
     from daemons_companion.setup.api_setup import ApiConnection, choose_api_model
     from daemons_companion.setup.progress import save
     from daemons_companion.desktop.terminal import Back, Quit
@@ -164,7 +166,7 @@ def connect_api(owner, ui, host, saved=None):
             reused, tried = ("" if tried else reused_key(ui, kind)), True
             key = api.validate_key(reused or ui.secret("Paste your API key (hidden)"))
             with ui.activity("Checking your API key and available models..."):
-                models = api.model_catalog(kind, key)
+                models = provider_api.model_catalog(kind, key)
             owner.api_connection = ApiConnection(kind, str(host.attempt), key, models)
             model = choose_api_model(owner, ui, saved.get("model", ""), resume=bool(saved.get("model")))
             save(scope, "openclaw", model=model)

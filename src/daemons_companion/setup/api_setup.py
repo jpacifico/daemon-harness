@@ -1,7 +1,8 @@
 """API key/model onboarding; secrets never enter the public installation plan."""
 from dataclasses import dataclass, field, replace
 
-from daemon_core.api_providers import API_PROVIDERS, ApiConnectionError, model_catalog, validate_key, verify_model
+from daemon_core.api_providers import API_PROVIDERS, ApiConnectionError, validate_key
+from daemons_companion.setup.provider_api import model_catalog, verify_model
 from daemons_companion.runtime.host_install import installed_host
 
 

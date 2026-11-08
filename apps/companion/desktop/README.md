@@ -295,6 +295,32 @@ messages, dialogue and note content. A write failure is shown with an option to
 export the in-memory report before closing. Existing private transaction reports
 remain available beside the failed installation for deeper investigation.
 
+## Failures caused by outside services
+
+The app depends on outside services: GitHub (downloads and app updates),
+OpenAI (ChatGPT sign-in and models), the API providers (Anthropic, Mistral AI,
+OpenAI, xAI), Google Drive (backups), Telegram, Ollama and Node.js. When one of
+them fails, the message names it, says what was kept and what to do.
+
+`services.js` lists these services. A catalog entry in `locales/messages.json`
+marks a failure as an outage of a service with `"status"`: either a service id
+(`"github"`) or the template argument that holds its name (`"{service}"`).
+Only outages carry it, not a refused key or a usage limit, which are about the
+user's own access.
+
+Under such a failure, the app reads that service's public status page
+(`service-status.cjs`) and shows what it reports: an incident in progress with
+its published name, no incident (then check the Internet connection), or a
+status page that cannot be reached either. A link opens the status page. The
+request goes only to the fixed address in `services.js`, carries no user data,
+and is made only while the failure is on screen; answers are kept for two
+minutes. The answer is information for the reader: it never decides a retry.
+
+GitHub, OpenAI, Anthropic, Mistral AI and Google Drive publish a readable status
+page. Telegram, Ollama, Node.js and xAI do not: their failures name them without
+a status line. A daemon's health report adds the status of its model provider
+when its last answer failed.
+
 ## Contextual health diagnostics and Obsidian
 
 Companion provides a per-check Health diagnostic: matching technical error

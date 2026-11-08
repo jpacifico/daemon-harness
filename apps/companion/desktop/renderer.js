@@ -11,7 +11,7 @@ let draft = null, languageSaving = false, themeSaving = false;
 let update = {enabled:false, state:'disabled'}, updateBusy = false;
 let renderedPage = null;
 let started={steps:null,open:false,loading:false};
-const reportState={id:null,health:null,diagnostic:null,busy:false,message:'',back:'instances',expanded:new Set()};
+const reportState={id:null,health:null,diagnostic:null,service:null,busy:false,message:'',back:'instances',expanded:new Set()};
 const discardState={plan:null,busy:false,id:null};
 // Passwords stay in these fields until submitted; they are cleared afterwards.
 const backupState={id:null,name:'',busy:false,result:null,password:'',confirm:'',mode:'once',destination:'file'};
@@ -34,6 +34,49 @@ const guidanceText = value => {
   const text = locale.message(value, language);
   return locale.isConfirmation(value) || locale.isEmphasis(value) ? `<strong>${escape(text)}</strong>` : escape(text).replace(/(@BotFather|@userinfobot|\/newbot|\/start|ChatGPT connection [12] of 2|Connexion ChatGPT [12] sur 2|Memory connection confirmed \(1 of 2\)|Connexion pour la mémoire confirmée \(1 sur 2\))/g, '<strong>$1</strong>');
 };
+// A failure that names an outside service also shows what that service's status
+// page says (services.js), so a reader can tell its outage from a fault of the app.
+const serviceStates = new Map(), serviceRequests = new Set();
+function failureService(value) {
+  const found = value ? locale.statusOf(value) : null;
+  const id = found ? found.id || daemonServices.serviceId(found.name) : null;
+  return id && daemonServices.readable(id) ? id : null;
+}
+function serviceStatusText(id) {
+  const name = daemonServices.SERVICES[id].name, value = serviceStates.get(id);
+  const t = (key, args = {}) => escape(locale.t(key, language, {service: name, ...args}));
+  // The service's own words stay as published, marked so they are never translated.
+  const quoted = (key, field, items) => escape(locale.t(key, language, {service: name, [field]: '\u0001'}))
+    .replace('\u0001', `<span data-original>${escape(items.join(' · '))}</span>`);
+  const text = !value ? t('service.checking')
+    : value.state === 'incident' && value.incidents?.length ? quoted('service.incident', 'incident', value.incidents)
+    : value.state === 'incident' && value.disruptions?.length ? quoted('service.disruption', 'component', value.disruptions)
+    : value.state === 'clear' ? t('service.clear') : t('service.unreachable');
+  return `<span>${text}</span> <button class="text-button" data-service-open="${id}">${t('service.open')} ↗</button>`;
+}
+function requestServiceStatus(id) {
+  const known = serviceStates.get(id);
+  if ((known && Date.now() - known.at < 60000) || serviceRequests.has(id)) return;
+  serviceRequests.add(id);
+  window.companion.serviceStatus(id).then(value => ({...value, at: Date.now()}), () => ({state: 'unreachable', at: Date.now()}))
+    .then(value => {
+      serviceStates.set(id, value); serviceRequests.delete(id);
+      document.querySelectorAll(`[data-service-status="${id}"]`).forEach(element => { element.innerHTML = serviceStatusText(id); });
+    });
+}
+// One line per service, under the messages that name it.
+const serviceStatus = (...values) => serviceLines(values.map(failureService));
+function serviceLines(list) {
+  const ids = [...new Set(list.filter(id => id && daemonServices.readable(id)))];
+  ids.forEach(requestServiceStatus);
+  return ids.map(id => `<span class="service-status" data-service-status="${id}">${serviceStatusText(id)}</span>`).join('');
+}
+// A failure shown by its code: its English catalog text names the service.
+const codeStatus = code => { try { return serviceStatus(locale.t(code, 'en')); } catch { return ''; } };
+document.addEventListener('click', event => {
+  const link = event.target.closest?.('[data-service-open]');
+  if (link) window.companion.openServiceStatus(link.dataset.serviceOpen).catch(() => {});
+});
 const button = (label, action, primary = false, disabled = false) => `<button class="button ${primary ? 'primary' : ''}" data-action="${action}" ${disabled ? 'disabled' : ''}>${label}</button>`;
 // Adding a host skips naming: the daemon already exists.
 const flow = () => state.mode === 'add-host' ? phases.filter(p => p !== 'identity') : state.mode === 'change-provider' ? ['model','installation','conversation'] : phases;
@@ -73,7 +116,7 @@ function body() {
     ${state.phase==='host'&&state.mode!=='add-host'?`<p class="hint">${escape(locale.t('setup.duration',language))}</p>`:''}
     <div id="activity" role="status" aria-live="polite">${activityBody()}</div>
     ${!state.prompt && state.result ? `<div class="note">${state.result.result === 'error' ? errorBody(state.result.message) : escape(state.result.message || 'Setup ended. See the details below for the verified result.')}</div>` : ''}
-    ${state.guidance.length ? `<div class="guidance">${state.guidance.map(message => `<p>${guidanceText(message)}</p>`).join('')}</div>` : ''}
+    ${state.guidance.length ? `<div class="guidance">${state.guidance.map(message => `<p>${guidanceText(message)}</p>`).join('')}${serviceStatus(...state.guidance)}</div>` : ''}
     ${links()}${promptBody()}${state.phase==='model'&&state.modelCatalog?modelCatalogBody(state.modelCatalog):''}${details()}<div class="links">${['add-host','change-provider'].includes(state.mode)?button("Export host diagnostic","host-diagnostic"):button("Diagnostic report","diagnostic")}</div>`;
 }
 
@@ -87,7 +130,7 @@ function elapsedActivity() {
 }
 function activityBody() {
   if (!state.active || state.prompt) return '';
-  return `<div class="row busy"><span class="spinner" aria-hidden="true"></span><span>${escape(state.activity || 'Preparing the next step…')}</span></div>
+  return `<div class="row busy"><span class="spinner" aria-hidden="true"></span><span>${escape(state.activity || 'Preparing the next step…')}</span></div>${serviceStatus(state.activity)}
     <p class="hint" aria-live="off">${escape(locale.t('setup.elapsed',language))}: <span data-activity-elapsed>${elapsedActivity()}</span></p>
     ${activityOutputAt?`<p class="hint">${escape(locale.t('setup.output',language))} <span data-original>${new Date(activityOutputAt).toLocaleTimeString(language)}</span></p>`:`<p class="hint" data-activity-silence ${activitySeconds()<SILENCE_NOTICE_SECONDS?'hidden':''}>${escape(locale.t('setup.silence',language))}</p>`}`;
 }
@@ -115,7 +158,7 @@ async function changeTheme(value) {
   finally { themeSaving = false; render(); document.querySelector(`[data-theme-choice][value="${theme}"]`)?.focus(); }
 }
 const updateErrors = ['update.access','update.unreachable','update.invalid','update.verify','update.failed','update.busy'];
-const updateError = () => updateErrors.includes(update.error) ? `<p class="error">${escape(locale.t(update.error,language))}</p>` : '';
+const updateError = () => updateErrors.includes(update.error) ? `<p class="error">${escape(locale.t(update.error,language))}</p>${codeStatus(update.error)}` : '';
 // What the app says about its own update, wherever it is shown.
 function updateNote() {
   const hide = '<div class="links"><button class="text-button" data-update-dismiss>Hide</button></div>';
@@ -304,10 +347,10 @@ function errorBody(value) {
     const [code,detail='']=clean.split('|');let text,known=true;
     try{text=locale.t(code,language);}catch{known=false;text=locale.t(code.startsWith('archive.')?'archive.invalid':'backup.unavailable',language);}
     const extra=[known?'':code,detail].filter(Boolean).join(' · ');
-    return escape(text)+(extra?`<span class="error-detail">${escape(locale.t('error.detail',language))} <span data-original>${escape(extra)}</span></span>`:'');
+    return escape(text)+(extra?`<span class="error-detail">${escape(locale.t('error.detail',language))} <span data-original>${escape(extra)}</span></span>`:'')+codeStatus(code);
   }
   if (language === 'fr' && !locale.identify(clean)) return `<span>${escape(locale.t('error.detailsNotice', language))}</span><details><summary>${escape(locale.t('error.technical', language))}</summary><pre data-original>${escape(value)}</pre></details>`;
-  return escape(clean);
+  return escape(clean)+serviceStatus(clean);
 }
 function showError(error) { state.error = error.message || 'The action could not complete.'; render(); }
 async function action(name) {
@@ -574,7 +617,7 @@ function dailyBackup() {
   if(!google.configured||!daemonBackup)return '';
   const a=daemonBackup,when=a.lastSuccess?new Date(a.lastSuccess).toLocaleString(language==='fr'?'fr-FR':'en-GB',{dateStyle:'medium',timeStyle:'short'}):'';
   return `<h3>Daily backup to Google Drive</h3>${a.enabled
-    ?`<p>On. A backup is sent every day while the app is running; the last seven are kept.</p>${when?`<p>Last backup: ${escape(when)}</p>`:''}${a.lastError?`<p class="note">${escape(errorText(a.lastError))}</p>`:''}${button('Turn off daily backup','daemon-backup-off',false,state.daemonBusy)}`
+    ?`<p>On. A backup is sent every day while the app is running; the last seven are kept.</p>${when?`<p>Last backup: ${escape(when)}</p>`:''}${a.lastError?`<p class="note">${escape(errorText(a.lastError))}</p>${codeStatus(a.lastError)}`:''}${button('Turn off daily backup','daemon-backup-off',false,state.daemonBusy)}`
     :`<p>Off.</p>${button('Turn on daily backup…','daemon-backup-auto',false,state.daemonBusy||!google.connected)}${google.connected?'':'<p class="hint">Connect Google Drive in Settings first.</p>'}`}`;
 }
 const PROVIDER_NAMES={mistral_api:'Mistral AI',openai_api:'OpenAI',anthropic_api:'Anthropic',xai_api:'SpaceXSI'};
@@ -584,7 +627,7 @@ function providerError(value) {
     try{text=locale.t(code,language);}catch{text=locale.t('provider.unavailable',language);}
     return escape(detail?text+' ('+detail+')':text);}
   // Fixed provider messages from the key check are already in the catalog.
-  return escape(locale.message(clean,language));
+  return escape(locale.message(clean,language))+serviceStatus(clean);
 }
 function providerSection() {
   const p=providerInfo,s=providerState,t=key=>escape(locale.t(key,language));
@@ -845,7 +888,7 @@ async function openReport(kind,id=null) {
 }
 async function loadReport() {
   reportState.busy=true;state.error='';render();
-  try {if(state.page==='health')reportState.health=await window.companion.health(reportState.id);else reportState.diagnostic=await window.companion.diagnostic(reportState.id);}
+  try {if(state.page==='health'){reportState.health=await window.companion.health(reportState.id);reportState.service=await modelService(reportState.id);}else reportState.diagnostic=await window.companion.diagnostic(reportState.id);}
   catch(error){state.error=error.message;}
   finally {reportState.busy=false;render();}
 }
@@ -948,6 +991,9 @@ function healthArea(r,name,keys) {
   if(failed)return {state:'notice',text:'health.v2.night.failed'};
   return {state:'ok',text:last?'health.v2.night.ok':'health.v2.night.new',at:last};
 }
+// The service behind a daemon's model, for its status page when an answer failed.
+const MODEL_SERVICES={codex_cli:'openai',openai_api:'openai',anthropic_api:'anthropic',mistral_api:'mistral',xai_api:'xai'};
+const modelService=id=>window.companion.providerStatus(id).then(p=>MODEL_SERVICES[p?.kind]||null,()=>null);
 function healthSummary(r,tr,date) {
   const name=state.inventory?.instances.find(i=>i.id===reportState.id)?.daemon?.name||'';
   const areas=HEALTH_AREAS.map(([area,keys])=>({area,...healthArea(r,area,keys)}));
@@ -959,7 +1005,7 @@ function healthSummary(r,tr,date) {
     :kind==='help'?`<button class="text-button" data-project-link="contact">${tr('health.support')}</button>`
     :`<button class="text-button" data-health-export="" ${reportState.busy?'disabled':''}>${tr('health.v2.export')}</button>`;
   return `<div class="health-verdict health-verdict-${problem?'problem':'ok'}"><h2>${problem?fill(problem.text+'.title',problem):fill('health.v2.allGood',{})}</h2></div>
-    <ul class="health-areas">${areas.map(a=>`<li class="health-area health-area-${a.state}" data-health-area="${a.area}"><span class="health-dot" aria-hidden="true"></span><div><h3>${tr('health.v2.'+a.area)}</h3><p>${fill(a.text,a)}</p>
+    <ul class="health-areas">${areas.map(a=>`<li class="health-area health-area-${a.state}" data-health-area="${a.area}"><span class="health-dot" aria-hidden="true"></span><div><h3>${tr('health.v2.'+a.area)}</h3><p>${fill(a.text,a)}${a.text==='health.v2.reply.model'?serviceLines([reportState.service]):''}</p>
       ${a.actions?.length?`<div class="links">${a.actions.map(button).join('')}</div>`:''}</div><span class="sr-only">${tr('health.v2.state.'+a.state)}</span></li>`).join('')}</ul>`;
 }
 function healthCard(c,tr,date,badge) {

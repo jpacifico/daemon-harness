@@ -1061,17 +1061,20 @@
   "host.download_limited": {
     "en": "Downloads from {service} are limited right now. The steps already done are kept: wait a few minutes, then try again.",
     "fr": "Les téléchargements depuis {service} sont limités en ce moment. Les étapes déjà faites sont conservées : attendez quelques minutes, puis réessayez.",
-    "template": true
+    "template": true,
+    "status": "{service}"
   },
   "host.download_unreachable": {
     "en": "No response from {service} for about five minutes, usually a temporary problem on its side or no Internet connection. The steps already done are kept: wait a few minutes, then try again.",
-    "fr": "Aucune réponse de {service} pendant environ cinq minutes : en général un problème passager de son côté, ou pas de connexion Internet. Les étapes déjà faites sont conservées : attendez quelques minutes, puis réessayez.",
-    "template": true
+    "fr": "{service} ne répond plus depuis environ cinq minutes : en général un problème passager de son côté, ou pas de connexion Internet. Les étapes déjà faites sont conservées : attendez quelques minutes, puis réessayez.",
+    "template": true,
+    "status": "{service}"
   },
   "host.download_waiting": {
     "en": "No response from {service}. Retrying in {seconds} seconds (attempt {attempt} of {total})...",
-    "fr": "Aucune réponse de {service}. Nouvel essai dans {seconds} secondes (essai {attempt} sur {total})…",
-    "template": true
+    "fr": "{service} ne répond pas. Nouvel essai dans {seconds} secondes (essai {attempt} sur {total})…",
+    "template": true,
+    "status": "{service}"
   },
   "setup.retry": {
     "en": "Retry",
@@ -1308,7 +1311,8 @@
   },
   "telegram.timeout": {
     "en": "Telegram did not respond in time. Check your internet connection and try again here.",
-    "fr": "Telegram n’a pas répondu à temps. Vérifiez votre connexion Internet et réessayez ici."
+    "fr": "Telegram n’a pas répondu à temps. Vérifiez votre connexion Internet et réessayez ici.",
+    "status": "telegram"
   },
   "telegram.mismatch": {
     "en": "The saved Telegram account does not match this installation. Enter the bot token again to confirm this account.",
@@ -1320,7 +1324,8 @@
   },
   "telegram.network": {
     "en": "Cannot reach Telegram. Check your internet connection and try again here.",
-    "fr": "Telegram est injoignable. Vérifiez votre connexion Internet et réessayez ici."
+    "fr": "Telegram est injoignable. Vérifiez votre connexion Internet et réessayez ici.",
+    "status": "telegram"
   },
   "telegram.webhook": {
     "en": "This bot already has a webhook connected to another service. Create a new dedicated bot in BotFather and paste its token here.",
@@ -4485,7 +4490,8 @@
   },
   "openclaw.chatgpt.11": {
     "en": "ChatGPT sign-in could not be completed. You can retry or choose another provider.",
-    "fr": "La connexion ChatGPT n’a pas abouti. Vous pouvez réessayer ou choisir un autre fournisseur."
+    "fr": "La connexion ChatGPT n’a pas abouti. Vous pouvez réessayer ou choisir un autre fournisseur.",
+    "status": "openai"
   },
   "openclaw.chatgpt.limits": {
     "en": "Models are verified against your ChatGPT account. Subscription limits apply.",
@@ -4586,7 +4592,8 @@
   },
   "chatgpt.retry.5": {
     "en": "ChatGPT is connected, but the model list could not be confirmed. Retry loading the models; your connection is retained.",
-    "fr": "ChatGPT est connecté, mais la liste des modèles n’a pas pu être confirmée. Réessayez de la charger ; votre connexion est conservée."
+    "fr": "ChatGPT est connecté, mais la liste des modèles n’a pas pu être confirmée. Réessayez de la charger ; votre connexion est conservée.",
+    "status": "openai"
   },
   "chatgpt.retry.6": {
     "en": "ChatGPT authorization was not completed. Retry the connection or choose another provider.",
@@ -4594,7 +4601,8 @@
   },
   "chatgpt.retry.7": {
     "en": "ChatGPT setup could not finish this step. Your progress is retained. Retry or export the diagnostic.",
-    "fr": "Cette étape de connexion ChatGPT n’a pas pu se terminer. Votre progression est conservée. Réessayez ou exportez le diagnostic."
+    "fr": "Cette étape de connexion ChatGPT n’a pas pu se terminer. Votre progression est conservée. Réessayez ou exportez le diagnostic.",
+    "status": "openai"
   },
   "hostAdd.heading.host": {
     "en": "Add OpenClaw to your daemon.",
@@ -4859,8 +4867,9 @@
     "fr": "La mise à jour n’a pas pu être téléchargée. Connectez-vous à GitHub avec gh auth login, puis réessayez."
   },
   "update.unreachable": {
-    "en": "The update could not be reached. Check your internet connection, then try again.",
-    "fr": "La mise à jour est inaccessible. Vérifiez votre connexion Internet, puis réessayez."
+    "en": "GitHub, where updates are published, cannot be reached. Nothing was changed: check your Internet connection, then try again.",
+    "fr": "GitHub, où les mises à jour sont publiées, est injoignable. Rien n’a été modifié : vérifiez votre connexion Internet, puis réessayez.",
+    "status": "github"
   },
   "update.invalid": {
     "en": "The update information is invalid. Nothing was changed.",
@@ -5262,16 +5271,18 @@
     "fr": "Google Drive a refusé la sauvegarde : l’espace est peut-être plein."
   },
   "drive.network": {
-    "en": "Cannot reach Google Drive. Check your internet connection.",
-    "fr": "Google Drive est injoignable. Vérifiez votre connexion internet."
+    "en": "Cannot reach Google Drive. Nothing was changed: check your Internet connection, then try again.",
+    "fr": "Google Drive est injoignable. Rien n’a été modifié : vérifiez votre connexion Internet, puis réessayez.",
+    "status": "google"
   },
   "drive.integrity": {
     "en": "The backup on Google Drive does not match the file sent. Try again.",
     "fr": "La sauvegarde sur Google Drive ne correspond pas au fichier envoyé. Réessayez."
   },
   "drive.uploadFailed": {
-    "en": "Sending to Google Drive failed. Try again.",
-    "fr": "L’envoi vers Google Drive a échoué. Réessayez."
+    "en": "Google Drive did not accept the backup. Your memory is unchanged: try again in a few minutes.",
+    "fr": "Google Drive n’a pas accepté la sauvegarde. Votre mémoire n’a pas changé : réessayez dans quelques minutes.",
+    "status": "google"
   },
   "drive.notFound": {
     "en": "This backup is no longer in your Google Drive.",
@@ -6146,5 +6157,68 @@
   "providerChange.preparing": {
     "en": "Preparing the model change…",
     "fr": "Préparation du changement de modèle…"
+  },
+  "service.checking": {
+    "en": "Checking {service}’s status page…",
+    "fr": "Vérification du statut publié par {service}…",
+    "template": true
+  },
+  "service.incident": {
+    "en": "{service} reports an incident in progress: “{incident}”. The app cannot fix it: try again once {service} has resolved it.",
+    "fr": "{service} signale un incident en cours : « {incident} ». L’app ne peut pas le régler : réessayez quand {service} l’aura résolu.",
+    "template": true
+  },
+  "service.disruption": {
+    "en": "{service} reports a disruption: {component}. The app cannot fix it: try again once {service} has resolved it.",
+    "fr": "{service} signale une perturbation : {component}. L’app ne peut pas la régler : réessayez quand {service} l’aura résolue.",
+    "template": true
+  },
+  "service.clear": {
+    "en": "{service}’s status page reports no incident right now. Check your Internet connection, then try again in a few minutes.",
+    "fr": "{service} ne signale aucun incident sur sa page de statut pour le moment. Vérifiez votre connexion Internet, puis réessayez dans quelques minutes.",
+    "template": true
+  },
+  "service.unreachable": {
+    "en": "{service}’s status page cannot be reached either. Check your Internet connection, then try again.",
+    "fr": "La page de statut publiée par {service} est injoignable elle aussi. Vérifiez votre connexion Internet, puis réessayez.",
+    "template": true
+  },
+  "service.open": {
+    "en": "View {service}’s status page",
+    "fr": "Voir la page de statut publiée par {service}",
+    "template": true
+  },
+  "provider.named.unavailable": {
+    "en": "{service} is not answering right now. Your key is kept: try again in a few minutes.",
+    "fr": "{service} ne répond pas pour le moment. Votre clé est conservée : réessayez dans quelques minutes.",
+    "template": true,
+    "status": "{service}"
+  },
+  "provider.named.unreachable": {
+    "en": "Cannot reach {service}. Your key is kept: check your Internet connection, then try again.",
+    "fr": "{service} est injoignable. Votre clé est conservée : vérifiez votre connexion Internet, puis réessayez.",
+    "template": true,
+    "status": "{service}"
+  },
+  "provider.named.invalid": {
+    "en": "{service} returned an unexpected response. Your key is kept: try again in a few minutes.",
+    "fr": "{service} a renvoyé une réponse inattendue. Votre clé est conservée : réessayez dans quelques minutes.",
+    "template": true,
+    "status": "{service}"
+  },
+  "provider.named.limit": {
+    "en": "{service} reports a usage limit. Check your API balance with {service}, or try again later.",
+    "fr": "{service} signale une limite d’utilisation. Vérifiez votre crédit API auprès de {service}, ou réessayez plus tard.",
+    "template": true
+  },
+  "provider.named.rejected": {
+    "en": "{service} rejected this API key or its permissions. Check the key and try again.",
+    "fr": "{service} a refusé cette clé API ou ses autorisations. Vérifiez la clé et réessayez.",
+    "template": true
+  },
+  "drive.requestFailed": {
+    "en": "Google Drive did not answer the request. Nothing was changed: try again in a few minutes.",
+    "fr": "Google Drive n’a pas répondu à la demande. Rien n’a été modifié : réessayez dans quelques minutes.",
+    "status": "google"
   }
 }

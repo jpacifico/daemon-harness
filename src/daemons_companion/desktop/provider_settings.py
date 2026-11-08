@@ -31,10 +31,9 @@ from daemon_core.api_providers import (
     ApiConnectionError,
     hermes_model_config,
     hermes_provider_entries,
-    model_catalog,
     validate_key,
-    verify_model,
 )
+from daemons_companion.setup.provider_api import model_catalog, verify_model
 from daemon_core.memory.integrity import memory_file_try_lock
 from daemons_companion.hosts.creation import native_config
 from daemons_companion.openclaw.host_install import checked_file, direct

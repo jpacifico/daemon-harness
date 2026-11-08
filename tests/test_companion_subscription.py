@@ -51,7 +51,8 @@ def test_native_signins_are_separate_private_and_resumable(tmp_path, monkeypatch
     signins = [call for call in native.calls if call[2]]
     assert len(signins) == 2
     assert signins[0][0][-1] == "login"
-    assert signins[1][0][1:] == ["auth", "add", "openai-codex", "--browser"]
+    # Hermes uses its device-code sign-in: no local callback server a browser could block.
+    assert signins[1][0][1:] == ["auth", "add", "openai-codex"]
     assert signins[0][1]["CODEX_HOME"] != signins[1][1]["CODEX_HOME"]
     for command, env, _ in native.calls:
         assert "personal-secret" not in env.values()

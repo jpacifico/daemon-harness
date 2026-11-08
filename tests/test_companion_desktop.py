@@ -179,6 +179,24 @@ def test_a_browser_sign_in_ends_its_link_whatever_its_outcome(tmp_path, code):
     assert types.index('link') < types.index('sign-in-ended')
 
 
+def test_a_device_sign_in_shows_its_link_and_code(tmp_path):
+    output = io.StringIO()
+    ui = DesktopUI(io.StringIO(), output)
+    # Hermes' own device-code output, colours included.
+    script = ("print('To continue, follow these steps:\\n'); "
+              "print('  1. Open this URL in your browser:'); "
+              "print('     \\033[94mhttps://auth.openai.com/codex/device\\033[0m\\n'); "
+              "print('  2. Enter this code:'); print('     \\033[94mAB12-CD345\\033[0m\\n'); "
+              "print('Waiting for sign-in... (press Ctrl+C to cancel)')")
+    result = ui.subscription_runner([sys.executable, '-c', script], {**os.environ, 'HOME': str(tmp_path)}, interactive=True)
+    assert result.returncode == 0
+    events = [json.loads(line) for line in output.getvalue().splitlines()]
+    types = [event['type'] for event in events]
+    assert {'type': 'link', 'url': 'https://auth.openai.com/codex/device'}.items() <= next(e for e in events if e['type'] == 'link').items()
+    assert [e['code'] for e in events if e['type'] == 'chatgpt-code'] == ['AB12-CD345']
+    assert types.index('chatgpt-code') < types.index('sign-in-ended')
+
+
 def test_activity_and_secret_prompt_share_real_transport():
     output = io.StringIO()
     ui = DesktopUI(io.StringIO(), output)

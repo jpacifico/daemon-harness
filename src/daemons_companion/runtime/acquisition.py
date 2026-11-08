@@ -154,9 +154,11 @@ DOWNLOAD_LIMITED = ("The host download service is temporarily limiting requests.
 DOWNLOAD_UNREACHABLE = ("The host download service could not be reached. "
                         "Nothing was installed; check the Internet connection and retry.")
 TRANSIENT_HTTP = frozenset({429, 502, 503, 504})
-RETRY_DELAYS = (2.0, 8.0, 20.0)
-MAX_RETRY_WAIT = 60.0
-MAX_TOTAL_RETRY_WAIT = 90.0
+# About five minutes in all: an outage of the download service usually lasts
+# minutes, and giving up after thirty seconds sent users back a setup step.
+RETRY_DELAYS = (2.0, 8.0, 20.0, 45.0, 90.0, 120.0)
+MAX_RETRY_WAIT = 120.0
+MAX_TOTAL_RETRY_WAIT = 300.0
 _sleep = time.sleep
 
 

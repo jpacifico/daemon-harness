@@ -237,6 +237,20 @@ jugements d'un modèle, dans l'ordre ([`loop.py`](../src/daemon_core/loop.py)) :
    déplacer un souvenir vers un autre dossier PARGA après un nouveau message
    de l'utilisateur qui le justifie ([`note_relocation.py`](../src/daemon_core/memory/note_relocation.py)).
 
+**Limite connue : un fait dit en passant attend la nuit.** Le Radar juge la
+profondeur d'après ce que l'échange demande à la mémoire. Un message qui
+apporte un fait durable sans rien demander, comme « je travaille sur un projet
+qui s'appelle X », peut être jugé léger, et MemoryAgent ne tourne alors pas
+pour lui. Le fait n'est pas perdu : il reste dans L0, et le plus souvent dans
+la scène en cours, qui le garde en tête pendant la conversation. Le Dreaming
+de la nuit relit les messages exacts de la journée et ajoute le fait au bon
+souvenir quand l'oubli est manifeste. D'ici là, aucun souvenir ne le
+contient. Ce délai est
+accepté : le Radar épargne MemoryAgent sur les échanges légers, et faire
+tourner MemoryAgent à chaque tour sans les souvenirs candidats du Radar a été
+essayé puis rejeté, parce qu'il perdait des précisions sur des souvenirs
+existants.
+
 ### Les projections remplaçables, une fois par série de messages
 
 Quand plusieurs messages arrivent rapprochés, le travail entièrement réécrit à
@@ -274,9 +288,10 @@ tourne pour chaque utilisateur :
    datée, sans affirmer que l'événement a eu lieu.
 2. **Dreaming** ([`dreaming.py`](../src/daemon_core/dreaming.py)), s'il y a eu
    de l'activité ou si un passage précédent doit être repris : il relit les
-   souvenirs écrits pendant les dernières 48 heures en les comparant aux
-   messages exacts dont ils viennent, et les corrige ou fusionne les doublons
-   avec prudence. Il n'écrit jamais l'agenda.
+   messages exacts récents et les souvenirs écrits pendant les dernières
+   48 heures, ajoute ce qui a manifestement été oublié dans la journée, et
+   corrige les souvenirs ou fusionne les doublons avec prudence. Il n'écrit
+   jamais l'agenda.
 3. **REM** ([`rem.py`](../src/daemon_core/rem.py), [`episodic_rem.py`](../src/daemon_core/episodic_rem.py)),
    dans les mêmes conditions : il écrit le récit d'épisodes passés, sourcé par
    L0, dans `Archives/Episodes`. Ses interprétations restent des lectures du

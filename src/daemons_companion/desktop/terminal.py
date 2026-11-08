@@ -707,10 +707,15 @@ def run_wizard(ui: Terminal, *, backend=handle_request, packaged: bool = False, 
                 # After the switch, the previous host is restarted rather than retried.
                 ui.say(message(error))
                 return stop_change(ui, change) if change is not None else 1
-            ui.say("Please review: " + safe_text(error))
+            from daemons_companion.runtime.acquisition import HostDownloadUnavailable
+            download = isinstance(error, HostDownloadUnavailable)
+            # A download outage is not the user's choice to review: say what
+            # happened and offer to retry the same installation.
+            ui.say(safe_text(error) if download else "Please review: " + safe_text(error))
             if step >= 7:
                 try:
-                    choice = ui.choose("Setup did not finish", ("Return to review", "Change model access", "Quit"))
+                    choice = ui.choose("Setup did not finish", (
+                        "Retry" if download else "Return to review", "Change model access", "Quit"))
                 except Back:
                     choice = 0
                 if choice == 2:

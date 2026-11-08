@@ -236,7 +236,7 @@ def test_exhausted_retries_explain_without_raw_error(download, monkeypatch, fail
     opened, sleeps = _sequence(monkeypatch, [make() for _ in range(attempts)])
     with pytest.raises(acquisition.HostDownloadUnavailable) as caught:
         acquisition.stage_disposable_host_artifact(release.artifact_id, root)
-    expected = acquisition.DOWNLOAD_LIMITED if failure == "refusal" else acquisition.DOWNLOAD_UNREACHABLE
+    expected = (acquisition.DOWNLOAD_LIMITED if failure == "refusal" else acquisition.DOWNLOAD_UNREACHABLE).format(service="GitHub")
     assert str(caught.value) == expected
     assert caught.value.__cause__ is None and caught.value.__suppress_context__
     assert len(opened) == attempts and sum(sleeps) <= acquisition.MAX_TOTAL_RETRY_WAIT
@@ -293,3 +293,38 @@ def test_other_setup_downloads_share_the_retry(tmp_path, monkeypatch, module_nam
         downloader(url, tmp_path / "artifact", len(content), digest)
     assert (tmp_path / "artifact").read_bytes() == content
     assert sleeps == [2.0] and outcomes == []
+
+
+@pytest.mark.parametrize("url,service", [
+    ("https://github.com/ollama/ollama/releases/download/v1/x.tgz", "GitHub"),
+    ("https://codeload.github.com/o/r/tar.gz/abc", "GitHub"),
+    ("https://release-assets.githubusercontent.com/x", "GitHub"),
+    ("https://registry.ollama.ai/v2/library/x/blobs/sha256:00", "Ollama"),
+    ("https://nodejs.org/dist/v1/node.tgz", "Node.js"),
+    ("https://example.test/x", "example.test"),
+    (None, "The download service"),
+])
+def test_download_messages_name_the_service(url, service):
+    assert acquisition.download_service(url) == service
+
+
+def test_a_long_wait_is_explained_before_each_pause(monkeypatch):
+    from urllib.error import URLError
+
+    sleeps, notices = [], []
+    monkeypatch.setattr(acquisition, "_sleep", sleeps.append)
+    attempts = iter([URLError(TimeoutError("timed out")), URLError(TimeoutError("timed out")), "ok"])
+
+    def open_once():
+        value = next(attempts)
+        if isinstance(value, Exception):
+            raise value
+        return value
+
+    assert acquisition.open_with_retry(open_once, url="https://github.com/x", notice=notices.append) == "ok"
+    total = len(acquisition.RETRY_DELAYS) + 1
+    assert notices == [
+        f"No response from GitHub. Retrying in 2 seconds (attempt 2 of {total})...",
+        f"No response from GitHub. Retrying in 8 seconds (attempt 3 of {total})...",
+    ]
+    assert sleeps == [2.0, 8.0]

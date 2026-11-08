@@ -65,7 +65,7 @@ def download(url, destination, size, digest, progress=lambda _: None):
     checksum = hashlib.sha256()
     count = 0
     shown = -1
-    with open_with_retry(lambda: urlopen(Request(url, headers={'Accept-Encoding': 'identity'}), timeout=30)) as response, io_path(destination).open('xb') as stream:
+    with open_with_retry(lambda: urlopen(Request(url, headers={'Accept-Encoding': 'identity'}), timeout=30), url=url, notice=progress) as response, io_path(destination).open('xb') as stream:
         if not response.geturl().startswith('https://'):
             raise RuntimeError('Embedding downloads require HTTPS.')
         while chunk := response.read1(1024**2):

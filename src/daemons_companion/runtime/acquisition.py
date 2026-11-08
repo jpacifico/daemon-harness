@@ -6,6 +6,8 @@ The native shells receive reviews, never arbitrary download URLs or commands.
 
 from __future__ import annotations
 
+from urllib.parse import urlsplit
+
 from dataclasses import dataclass
 from email.utils import parsedate_to_datetime
 import hashlib
@@ -149,10 +151,12 @@ def _open_artifact(url: str):
 # A pinned download server may briefly refuse or drop an anonymous request.
 # Opening is retried a few times, before any byte is written; every other
 # response, redirect or integrity failure still fails immediately.
-DOWNLOAD_LIMITED = ("The host download service is temporarily limiting requests. "
-                    "Nothing was installed; retry in a few minutes.")
-DOWNLOAD_UNREACHABLE = ("The host download service could not be reached. "
-                        "Nothing was installed; check the Internet connection and retry.")
+DOWNLOAD_LIMITED = ("Downloads from {service} are limited right now. The steps already done are kept: "
+                    "wait a few minutes, then try again.")
+DOWNLOAD_UNREACHABLE = ("No response from {service} for about five minutes, usually a temporary problem "
+                        "on its side or no Internet connection. The steps already done are kept: "
+                        "wait a few minutes, then try again.")
+DOWNLOAD_WAITING = "No response from {service}. Retrying in {seconds} seconds (attempt {attempt} of {total})..."
 TRANSIENT_HTTP = frozenset({429, 502, 503, 504})
 # About five minutes in all: an outage of the download service usually lasts
 # minutes, and giving up after thirty seconds sent users back a setup step.
@@ -178,10 +182,26 @@ def _retry_after(error: HTTPError) -> float | None:
         return None
 
 
-def open_with_retry(open_once):
-    """Return open_once()'s response, retrying only transient refusals."""
+def download_service(url: str | None) -> str:
+    """The service a user can recognise in a download message."""
+    host = (urlsplit(url).hostname or "").lower() if url else ""
+    if host == "github.com" or host.endswith((".github.com", ".githubusercontent.com")):
+        return "GitHub"
+    if host == "ollama.com" or host.endswith(".ollama.ai") or host.endswith(".ollama.com"):
+        return "Ollama"
+    if host == "nodejs.org" or host.endswith(".nodejs.org"):
+        return "Node.js"
+    return host or "The download service"
+
+
+def open_with_retry(open_once, *, url=None, notice=None):
+    """Return open_once()'s response, retrying only transient refusals.
+
+    notice, when given, is told before each pause, so a long wait is explained.
+    """
+    service = download_service(url)
     waited = 0.0
-    for delay in (*RETRY_DELAYS, None):
+    for attempt, delay in enumerate((*RETRY_DELAYS, None), start=1):
         try:
             return open_once()
         except HTTPError as error:
@@ -194,8 +214,11 @@ def open_with_retry(open_once):
         if delay is None:
             # The raw HTTP or socket text is replaced, not chained, so the
             # installer shows one plain explanation that can be localized.
-            raise HostDownloadUnavailable(message) from None
+            raise HostDownloadUnavailable(message.format(service=service)) from None
         pause = min(MAX_RETRY_WAIT, delay if wait is None else max(wait, 0.0), MAX_TOTAL_RETRY_WAIT - waited)
+        if notice is not None:
+            notice(DOWNLOAD_WAITING.format(service=service, seconds=round(pause), attempt=attempt + 1,
+                                           total=len(RETRY_DELAYS) + 1))
         _sleep(pause)
         waited += pause
 
@@ -234,7 +257,7 @@ def stage_disposable_host_artifact(artifact_id: str, root: Path) -> Path:
             if _verified_file(destination, release):
                 return destination
             raise ValueError("Existing host artifact is not the expected file; nothing was replaced.")
-        response = open_with_retry(lambda: _open_artifact(release.url))
+        response = open_with_retry(lambda: _open_artifact(release.url), url=release.url)
         deadline = time.monotonic() + 180
         with response:
             if response.status != 200 or response.geturl() != release.url:

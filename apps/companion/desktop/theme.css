@@ -8,9 +8,11 @@
   --brand-blue: #0a0182;
   --blue: var(--brand-blue); --primary: var(--brand-blue); --primary-edge: transparent; --line: #e0e4e9;
   --muted: #626c7a; --subtle: #687382; --control: #f1f3f5; --control-text: #424951;
-  --inset: #f4f6f9; --active: #efeeff; --active-text: var(--brand-blue);
-  --selected: #f6f5ff; --selected-border: #8b83d3; --track: #e0ddf8;
-  --past: #8d85c5; --focus: var(--brand-blue); --error: #ad4038;
+  /* Selection tints are light blues, as in dark mode: tints of the brand's
+     indigo itself read as lavender. */
+  --inset: #f4f6f9; --active: #e8f0ff; --active-text: var(--brand-blue);
+  --selected: #f0f5ff; --selected-border: #5b8def; --track: #d9e5fb;
+  --past: #6a8ed2; --focus: var(--brand-blue); --error: #ad4038;
   color: var(--text); background: var(--background);
 }
 @media (prefers-color-scheme: dark) {

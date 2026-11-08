@@ -7,7 +7,7 @@
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "check": "node --check main.cjs && node --check backend.cjs && node --check preload.cjs && node --check renderer.js && node --check i18n.js && node --check preferences.cjs && node --check instances.cjs && node --check about.cjs && node --check setup-homes.cjs && node --check daemon-cards.js && node --check updates.cjs",
+    "check": "node --check main.cjs && node --check backend.cjs && node --check preload.cjs && node --check renderer.js && node --check i18n.js && node --check preferences.cjs && node --check instances.cjs && node --check about.cjs && node --check setup-homes.cjs && node --check daemon-cards.js && node --check updates.cjs && node --check services.js && node --check service-status.cjs",
     "smoke": "electron . --smoke-test",
     "package:mac": "electron-builder --mac dir",
     "package:windows": "electron-builder --win nsis",
@@ -38,6 +38,8 @@
       "smoke.cjs",
       "smoke-fixture.py",
       "i18n.js",
+      "services.js",
+      "service-status.cjs",
       "preferences.cjs",
       "locales/*.json",
       "instances.cjs",

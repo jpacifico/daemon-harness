@@ -86,6 +86,7 @@ def _connect(ui, daemon, info, name, context) -> Connection | None:
 
 def _api(ui, host, kind) -> Connection:
     from daemon_core import api_providers as api
+    from daemons_companion.setup import provider_api
     from daemons_companion.setup.api_setup import ApiConnection, choose_api_model
 
     ui.say("Your API key is used for conversations and memory maintenance. API usage is billed by your provider, "
@@ -94,7 +95,7 @@ def _api(ui, host, kind) -> Connection:
         try:
             key = api.validate_key(ui.secret("Paste your API key (hidden)"))
             with ui.activity("Checking your API key and available models..."):
-                models = api.model_catalog(kind, key)
+                models = provider_api.model_catalog(kind, key)
             break
         except api.ApiConnectionError as error:
             ui.say(str(error))

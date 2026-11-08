@@ -15,6 +15,7 @@ const locale = createLocalizer(catalog);
 let preferences, instances, appInfo, obsidian, hostAddition, hostInterface, updates, updating = false;
 const healthReports=new Map(), removalReports=new Map();
 const about = require('./about.cjs');
+const {SERVICES} = require('./services.js');
 const background = () => nativeTheme.shouldUseDarkColors ? '#10141b' : '#f7f8fa';
 // Windows draws its window buttons over the app's own top edge, in the main
 // panel's colours, so the sidebar and the panel reach the top as on macOS.
@@ -117,6 +118,16 @@ handle('update-install', async () => {
   updating=true;closing=true;
   setImmediate(()=>app.quit());
   return updates.status();
+});
+// Status pages of outside services, read only while a failure names one.
+let serviceStatus = null;
+const smokeStatusFetch = async () => new Response(JSON.stringify({page:{name:'Synthetic'},status:{indicator:'minor'},
+  incidents:[{name:'Synthetic incident',status:'investigating',impact:'minor',components:[]}],components:[]}),{status:200});
+handle('service-status', async id => (serviceStatus ??= new (require('./service-status.cjs').ServiceStatus)({fetch:smoke?smokeStatusFetch:networkFetch})).check(id));
+handle('service-status-open', async id => {
+  const page = typeof id === 'string' && Object.hasOwn(SERVICES, id) ? SERVICES[id].page : null;
+  if (!page) throw new Error('Unsupported link.');
+  if (smoke) smokeOpenedLinks.push(page); else await shell.openExternal(page);
 });
 handle('project-link', async key => {
   const url = about.destination(key);

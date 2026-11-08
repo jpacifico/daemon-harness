@@ -63,7 +63,23 @@ test('a known download cause is localized while unknown technical causes stay ex
   const limited = 'Installation cause: ' + catalog['host.download_limited'].en.replace('{service}', 'GitHub');
   assert.equal(locale.message(limited, 'fr'), 'Cause de l’échec : ' + catalog['host.download_limited'].fr.replace('{service}', 'GitHub'));
   const waiting = catalog['host.download_waiting'].en.replace('{service}', 'GitHub').replace('{seconds}', '45').replace('{attempt}', '4').replace('{total}', '7');
-  assert.equal(locale.message(waiting, 'fr'), 'Aucune réponse de GitHub. Nouvel essai dans 45 secondes (essai 4 sur 7)…');
+  assert.equal(locale.message(waiting, 'fr'), 'GitHub ne répond pas. Nouvel essai dans 45 secondes (essai 4 sur 7)…');
   assert.equal(locale.message('Installation cause: HTTP Error 404: Not Found', 'fr'),
     'Cause de l’échec : HTTP Error 404: Not Found');
+});
+test('a failure names the outside service whose status page the app consults', () => {
+  assert.deepEqual(locale.statusOf('Anthropic is not answering right now. Your key is kept: try again in a few minutes.'), {name: 'Anthropic'});
+  assert.deepEqual(locale.statusOf('No response from GitHub. Retrying in 45 seconds (attempt 4 of 7)...'), {name: 'GitHub'});
+  assert.deepEqual(locale.statusOf(locale.t('update.unreachable')), {id: 'github'});
+  assert.deepEqual(locale.statusOf(locale.t('drive.uploadFailed')), {id: 'google'});
+  // Nested in an installation cause, the service is still the one named, never the prefix.
+  const cause = 'Installation cause: No response from GitHub for about five minutes, usually a temporary problem on its side or no Internet connection. The steps already done are kept: wait a few minutes, then try again.';
+  assert.deepEqual(locale.statusOf(cause), {name: 'GitHub'});
+  assert.match(locale.message(cause, 'fr'), /^Cause de l’échec : GitHub ne répond plus depuis environ cinq minutes/);
+  // A rejected key or a usage limit is about the user's own access: no status page.
+  assert.equal(locale.statusOf('OpenAI rejected this API key or its permissions. Check the key and try again.'), null);
+  assert.equal(locale.statusOf('OpenAI reports a usage limit. Check your API balance with OpenAI, or try again later.'), null);
+  assert.equal(locale.statusOf('Setup did not finish'), null);
+  assert.equal(locale.message('Mistral AI returned an unexpected response. Your key is kept: try again in a few minutes.', 'fr'),
+    'Mistral AI a renvoyé une réponse inattendue. Votre clé est conservée : réessayez dans quelques minutes.');
 });

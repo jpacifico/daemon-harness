@@ -10,7 +10,11 @@
         const names = [];
         const parts = entry.en.split(/(\{[a-zA-Z_]+\})/g).map(part => {
           if (!/^\{[a-zA-Z_]+\}$/.test(part)) return quote(part);
-          names.push(part.slice(1, -1)); return '([^\\r\\n]+?)';
+          const name = part.slice(1, -1);
+          names.push(name);
+          // A service is a short name, never a sentence: a message nested in
+          // another one ("Installation cause: …") cannot be taken for it.
+          return name === 'service' ? '([A-Z][A-Za-z0-9. ]{0,39})' : '([^\\r\\n]+?)';
         });
         patterns.push({key, names, re: new RegExp('^' + parts.join('') + '$')});
       }
@@ -67,9 +71,22 @@
       }
       for (const element of root.querySelectorAll('[aria-label]')) element.setAttribute('aria-label', message(element.getAttribute('aria-label'), language));
     }
+    // The outside service a failure message names, for its status page: a fixed
+    // id from the catalog, or the name a template received. A message nested in
+    // another one (an installation cause) is followed.
+    function statusOf(value, depth = 0) {
+      const found = identify(String(value).trim());
+      if (!found) return null;
+      const status = catalog[found.key].status, argument = /^\{([a-zA-Z_]+)\}$/.exec(status || '');
+      if (argument) return found.args[argument[1]] ? {name: found.args[argument[1]]} : null;
+      if (status) return {id: status};
+      if (depth > 1) return null;
+      for (const arg of Object.values(found.args)) { const inner = statusOf(arg, depth + 1); if (inner) return inner; }
+      return null;
+    }
     const isConfirmation = value => catalog[identify(String(value).trim())?.key]?.confirmation === true;
     const isEmphasis = value => catalog[identify(String(value).trim())?.key]?.emphasis === true;
-    return {t, identify, message, localizeElement, isConfirmation, isEmphasis};
+    return {t, identify, message, localizeElement, isConfirmation, isEmphasis, statusOf};
   }
   if (typeof module === 'object') module.exports = {createLocalizer};
   else scope.createLocalizer = createLocalizer;

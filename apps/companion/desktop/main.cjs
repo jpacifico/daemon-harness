@@ -560,7 +560,8 @@ app.whenReady().then(async () => {
   });
   window.webContents.session.setPermissionRequestHandler((_contents, _permission, callback) => callback(false));
   window.webContents.session.setPermissionCheckHandler(() => false);
-  const allowed = new Set(['index.html', 'theme.css', 'renderer.js', 'daemon-cards.js', 'i18n.js', 'assets/daemons-dervaux.svg'].map(name => pathToFileURL(path.join(__dirname, name)).href));
+  // Every file the window loads (window-files.test.cjs checks index.html against it).
+  const allowed = new Set(['index.html', 'theme.css', 'renderer.js', 'daemon-cards.js', 'i18n.js', 'services.js', 'assets/daemons-dervaux.svg'].map(name => pathToFileURL(path.join(__dirname, name)).href));
   window.webContents.session.webRequest.onBeforeRequest((details, callback) => callback({ cancel: !allowed.has(details.url) }));
   window.webContents.on('will-navigate', event => event.preventDefault());
   window.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));

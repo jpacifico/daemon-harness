@@ -168,7 +168,7 @@ class PackagedHostSetup:
             return
         ui.say("Connect your ChatGPT account in the browser. No API key is needed.")
         ui.say("DAEMONS uses the official Codex component for background memory work. If missing, it will be downloaded and verified inside this private installation.")
-        ui.say("Hermes and the daemon keep separate native sessions, so two browser sign-ins may be needed. Complete both prompts to continue.")
+        ui.say("Hermes and the daemon keep separate native sessions, so two sign-ins may be needed: the first in your browser, the second with a code shown here. Complete both to continue.")
         ui.say("Existing personal sign-ins are not copied or replaced. Completed private sign-ins are retained if you cancel.")
         with ui.activity('Checking private model access...'):
             self.context.validate()

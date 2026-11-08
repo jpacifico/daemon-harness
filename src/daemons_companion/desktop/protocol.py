@@ -289,6 +289,13 @@ class DesktopUI:
                     if allowed_link(url) and url not in seen:
                         seen.add(url)
                         self.emit("link", url=url)
+                # A device sign-in prints a one-time code to enter on that page.
+                plain = re.sub(r"\x1b\[[0-9;]*m", "", tail)
+                for match in re.finditer(r"Enter this code:\s+([A-Z0-9-]{4,32})\s", plain):
+                    code = match.group(1)
+                    if code not in seen:
+                        seen.add(code)
+                        self.emit("chatgpt-code", code=code)
         thread = threading.Thread(target=read, daemon=True)
         thread.start()
         started = time.monotonic()

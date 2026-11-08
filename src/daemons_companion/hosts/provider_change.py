@@ -124,8 +124,8 @@ def _subscription(ui, daemon, context) -> Connection:
     if layout.profile != daemon.scope.profile:
         raise ProviderSettingsError("provider.unsupported")
     ui.say("Connect your ChatGPT account in the browser. No API key is needed.")
-    ui.say("Hermes and the daemon keep separate native sessions, so two browser sign-ins may be needed. "
-           "Complete both prompts to continue.")
+    ui.say("Hermes and the daemon keep separate native sessions, so two sign-ins may be needed: "
+           "the first in your browser, the second with a code shown here. Complete both to continue.")
     if hasattr(ui, "emit"):
         ui.emit("connection-start")
     with ui.activity("Preparing ChatGPT access...") as progress:

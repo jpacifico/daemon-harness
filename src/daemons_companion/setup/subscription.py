@@ -164,8 +164,11 @@ class PrivateSubscriptionSetup:
                 raise RuntimeError("ChatGPT sign-in was not completed. Setup has not advanced.")
             progress("Memory connection confirmed (1 of 2).")
         if not current.hermes:
-            progress("ChatGPT connection 2 of 2 — conversations. Use the same account. This is a separate connection, not a retry of the first one.")
-            command = [str(self.layout.executable), "auth", "add", "openai-codex", "--browser"]
+            progress("ChatGPT connection 2 of 2 — conversations. Open the link, sign in with the same account and enter the code shown here. This is a separate connection, not a retry of the first one.")
+            # Hermes' device-code sign-in: its browser sign-in waits on a
+            # one-connection local server that an idle browser connection
+            # can block indefinitely, right after the Codex sign-in above.
+            command = [str(self.layout.executable), "auth", "add", "openai-codex"]
             if self.runner(command, self.environment(hermes=True, browser=True), interactive=True).returncode:
                 raise RuntimeError("Hermes sign-in was cancelled or failed. Completed Codex sign-in is retained.")
         with activity("Verifying both ChatGPT connections..."):

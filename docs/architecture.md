@@ -233,6 +233,18 @@ model judgments, in order
    MemoryAgent can also move a souvenir to another PARGA folder after a new
    user message that justifies it ([`note_relocation.py`](../src/daemon_core/memory/note_relocation.py)).
 
+**Known limit: a fact stated in passing waits for the night.** The Radar
+judges depth by what the exchange needs from memory. A message that brings a
+durable fact without asking for anything, such as "I'm working on a project
+called X", can be judged light, and MemoryAgent then does not run for it. The
+fact is not lost: it stays in L0, and usually in the current scene, which
+keeps it in mind during the conversation. The nightly Dreaming rereads that
+day's exact messages and adds the fact to the right souvenir when the omission
+is clear. Until then, no souvenir holds it. This delay is accepted: the
+Radar keeps MemoryAgent off light exchanges, and running MemoryAgent on every
+turn without the Radar's candidate souvenirs was tried and rejected because it
+lost precisions about existing souvenirs.
+
 ### Replaceable projections, once per series of messages
 
 When several messages arrive close together, the work that is fully
@@ -268,9 +280,10 @@ runs for each user:
    lines whose date has passed move, byte for byte, to a dated archive, without
    any claim that the event took place.
 2. **Dreaming** ([`dreaming.py`](../src/daemon_core/dreaming.py)), if there was
-   activity or a previous run must be retried: it rereads the souvenirs written
-   in the last 48 hours against the exact messages they come from, and
-   carefully corrects them or merges duplicates. It never writes the agenda.
+   activity or a previous run must be retried: it rereads the recent exact
+   messages and the souvenirs written in the last 48 hours, adds what was
+   obviously left out during the day, and carefully corrects souvenirs or
+   merges duplicates. It never writes the agenda.
 3. **REM** ([`rem.py`](../src/daemon_core/rem.py), [`episodic_rem.py`](../src/daemon_core/episodic_rem.py)),
    under the same condition: it writes accounts of past episodes, sourced from
    L0, into `Archives/Episodes`. Their interpretations stay readings of the

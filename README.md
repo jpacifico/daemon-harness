@@ -65,8 +65,11 @@ can read and edit directly or in [Obsidian](https://obsidian.md).
 [Memory and Obsidian](docs/memory.md).
 
 This is an **alpha**. See [available features and limits](docs/alpha-testing.md)
-before trying it. Local storage does not mean local model inference:
-relevant context is sent to your chosen model provider.
+before trying it. In this alpha, Daemon Harness uses a lot of tokens: a
+**ChatGPT Plus or Pro subscription** is recommended to try it.
+
+Local storage does not mean local model inference: relevant context is sent to
+your chosen model provider.
 
 ## Install the app
 

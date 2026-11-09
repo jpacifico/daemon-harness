@@ -70,6 +70,9 @@ fichiers Markdown que vous pouvez lire et modifier directement ou dans
 [Obsidian](https://obsidian.md). [Votre mémoire et Obsidian](memory.md) (en anglais).
 
 Le projet est en **alpha** : consultez les [capacités et limites](alpha-testing.md).
+Dans cette version alpha, Daemon Harness consomme beaucoup de tokens : un
+**abonnement ChatGPT Plus ou Pro** est recommandé pour le tester.
+
 Le stockage local ne signifie pas que le modèle s’exécute sur votre ordinateur :
 le contexte pertinent est transmis au fournisseur de modèle choisi.
 

@@ -79,15 +79,24 @@ def route_context_depth(
     current_discussion: str = "",
     recent_dialogue: str = "",
     situated_context: bool | None = None,
+    final_selection: bool | None = None,
 ) -> ContextRoute:
+    """Route one message against the memory map.
+
+    ``final_selection`` asks the radar for a final souvenir proposal over the
+    flat index. ``None`` follows the profile switch; callers that never read
+    the proposal pass ``False`` so the flat index is not sent at all.
+    """
     available = list_available_souvenirs()
     souvenir_catalog = load_root_souvenir_index() if available else ""
     metadata_catalog = load_souvenir_metadata_label_catalog() if available else ""
-    final_selection_mode = os.environ.get(RADAR_FINAL_SELECTION_ENV, "off").strip().lower()
+    if final_selection is None:
+        final_selection = (
+            os.environ.get(RADAR_FINAL_SELECTION_ENV, "off").strip().lower()
+            in {"shadow", "on"}
+        )
     flat_souvenir_catalog = (
-        load_souvenir_index()
-        if available and final_selection_mode in {"shadow", "on"}
-        else ""
+        load_souvenir_index() if available and final_selection else ""
     )
     if situated_context is None:
         situated_context = (

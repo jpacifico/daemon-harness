@@ -151,6 +151,10 @@ class DaemonCore:
                 user_agenda=user_agenda,
                 moment_memory=active_context,
                 current_discussion=conversation_state or immediate_focus,
+                # The after-turn path reads only the mode, the candidates and
+                # the memory needs: the final proposal over the flat index
+                # serves the pre-response selection, never this path.
+                final_selection=False,
             )
             logger.info(
                 "Radar mémoire async | user_id=%s | mode=%s | depth=%s | interaction=%s | register=%s | candidates=%s | active_request=%r | ambiguity=%s | confidence=%.2f | reason=%s",

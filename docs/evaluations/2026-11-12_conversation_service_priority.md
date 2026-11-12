@@ -24,8 +24,9 @@ embedding service, which work while the owner waits. The reference daemon's
 gateway sets no class, so it runs as `Standard`.
 
 **Decision: conversational services now use `Standard`; the after-turn worker
-and the nightly maintenance stay `Background`.** This decision rests on the
-measurements below. Its effect on a real daemon's turns is not yet measured.
+and the nightly maintenance stay `Background`.** On a real Companion daemon, the
+daemon's work before the model call fell from about 3.4 s to 1.0 s, the
+reference daemon's level. The model call remains the largest part of the wait.
 
 ## Measurements before the change (read-only, from host logs)
 
@@ -33,25 +34,33 @@ Both daemons ran on the same Mac (Apple M4, 16 GB), with the same model
 (`gpt-6-astra`, medium reasoning) and the same embedding model file. Only log
 timestamps and counters were read; no message text was kept.
 
-Medians of the phases before the first model call:
+Medians of the phases before the first model call, from 5 to 11 November for
+the reference daemon and up to the change on 12 November for the Companion
+daemon:
 
-| Phase | Companion daemon (5 turns) | Reference daemon (23 turns) |
+| Phase | Companion daemon (11 turns) | Reference daemon (60 turns) |
 | --- | --- | --- |
-| prefetch to Atlas start | 1.92 s | 0.35 s |
-| Atlas search | 2.00 s | 0.69 s |
+| prefetch to Atlas start | 1.14 s | 0.32 s |
+| Atlas search | 1.81 s | 0.66 s |
 | Atlas end to context ready | 0.40 s | 0.10 s |
-| First model call | 12.4 s | 7.3 s |
+| First model call | 12.5 s | 6.6 s |
+| Message received to reply ready | 15.4 s | 7.7 s |
 
-Each daemon phase is three to five times slower, not just one. The process
-priority reported by `ps` was 4 for the Companion gateway and its embedding
-server, and 20 for the reference gateway.
+A first count kept only turns whose first model call was the first call of its
+agent session (5 and 23 turns). The table uses the corrected count; the
+conclusions did not change.
 
-The first model call is also slower, although the Companion daemon sends fewer
-input tokens (16,000 to 20,000 against 22,000 to 30,000). **The cause of that
-gap is not established.** No measurement links it to the launchd class.
+Each daemon phase is about three times slower. The process priority reported by
+`ps` was 4 for the Companion gateway and its embedding server, and 20 for the
+reference gateway.
+
+The first model call is also slower. The two daemons hold different
+conversations and memories, so their model calls are not directly comparable.
+**The cause of that gap is not established.** No measurement links it to the
+launchd class.
 
 The Mac was using 13 of its 14 GB of swap during these reads. That affects both
-daemons. The Companion sample is small.
+daemons.
 
 ## Isolated launchd check
 
@@ -80,6 +89,38 @@ File reads varied too much between runs to compare (0.17 to 2.86 s in
   the current one, and restores the former one exactly on rollback. Any other
   definition is still refused.
 
+## Canary on the Companion daemon
+
+With the owner's agreement, the existing Companion daemon's gateway and
+embedding service definitions were changed on 12 November at 10:16, and only in
+their class (`Background` to `Standard`). Both processes then ran at priority
+20. The after-turn worker and nightly maintenance were left unchanged. The
+original definitions were kept byte for byte for rollback.
+
+Restarting the gateway took two attempts: launchd refused the first restart
+because the gateway had not finished stopping. The daemon was offline for about
+one minute.
+
+The owner then used the daemon normally for 11 turns. Medians:
+
+| Phase | Before (11 turns) | After (11 turns) | Reference daemon (60 turns) |
+| --- | --- | --- | --- |
+| prefetch to Atlas start | 1.14 s | 0.27 s | 0.32 s |
+| Atlas search | 1.81 s | 0.63 s | 0.66 s |
+| Atlas end to context ready | 0.40 s | 0.10 s | 0.10 s |
+| First model call | 12.5 s | 8.8 s (4.2 to 17.0 s) | 6.6 s |
+| Message received to reply ready | 15.4 s | 13.4 s | 7.7 s |
+
+The first turn after the restart is included. Its Atlas search took 2.21 s and
+its intake 4.38 s.
+
+**The daemon's own work before the model call now matches the reference daemon
+(about 1.0 s against 3.4 s before).** The total time is still dominated by the
+model call. Across the 13 model calls after the change, call time follows the
+length of the reply (Spearman rank correlation 0.77 with output tokens). Prompt
+cache hits on a turn's first call stayed at 6,656 tokens, about 35 % of the
+input.
+
 ## Exit criteria and results
 
 Fixed before the change.
@@ -95,10 +136,11 @@ Fixed before the change.
 
 ## Not established
 
-- The effect on a real daemon's turns. Measuring it needs the services of an
-  existing daemon rewritten in the `Standard` class, then at least ten turns
-  compared with the medians above.
-- Any effect on model-call latency.
+- Any effect on model-call latency. The medians moved from 12.5 s to 8.8 s, but
+  calls vary from 4 to 17 s with reply length, and 11 turns cannot separate
+  that from chance.
+- Why the Companion daemon's model calls stay slower than the reference
+  daemon's.
 - Windows, where Companion sets no task priority and Task Scheduler applies its
   default. Not measured.
 - Daemons created by 0.11.15 or earlier keep the `Background` class. Updating

@@ -62,6 +62,9 @@ class BackgroundJob:
     log_path: str
     persistent: bool
     hour: int | None = None
+    # A conversational job answers the owner while they wait. Only the native
+    # scheduling class depends on it, so plan and receipt digests leave it out.
+    conversational: bool = False
 
     def public_dict(self) -> dict[str, object]:
         return {
@@ -537,6 +540,18 @@ def render_job_definition(job: BackgroundJob, target_os: str) -> bytes:
     raise ValueError("Background services support macOS and Windows only.")
 
 
+def known_job_definitions(job: BackgroundJob, target_os: str) -> tuple[bytes, ...]:
+    """Definitions an installed job may carry: the current one first.
+
+    Releases up to 0.11.15 scheduled every macOS job as Background. Such an
+    installation stays recognised so it can be upgraded or rolled back.
+    """
+    current = render_job_definition(job, target_os)
+    if target_os != "macos" or not job.conversational:
+        return (current,)
+    return (current, _render_launchd(job, process_type="Background"))
+
+
 class CompanionBackgroundServicesAdapter:
     """Apply one reversible pair of registrations to an injected scheduler."""
 
@@ -638,7 +653,11 @@ class CompanionBackgroundServicesAdapter:
         return build_background_jobs(self.layout)
 
 
-def _render_launchd(job: BackgroundJob) -> bytes:
+def _render_launchd(job: BackgroundJob, *, process_type: str | None = None) -> bytes:
+    # Background confines a job to throttled CPU and I/O. A conversational job
+    # keeps Standard, the class of the reference daemon's gateway.
+    if process_type is None:
+        process_type = "Standard" if job.conversational else "Background"
     program = [job.executable, *job.arguments]
     if not job.persistent:
         program = ["/usr/bin/caffeinate", "-s", *program]
@@ -649,7 +668,7 @@ def _render_launchd(job: BackgroundJob) -> bytes:
         "RunAtLoad": job.persistent,
         "StandardOutPath": job.log_path,
         "StandardErrorPath": job.log_path,
-        "ProcessType": "Background",
+        "ProcessType": process_type,
     }
     if job.persistent:
         # launchd restarts a crashed service without limit. One minute, as on
@@ -1039,6 +1058,7 @@ __all__ = [
     "WindowsTaskSchedulerBackend",
     "background_services_step",
     "build_background_jobs",
+    "known_job_definitions",
     "render_job_definition",
     "scoped_job_code",
 ]

@@ -178,6 +178,7 @@ class PrivateOpenClawControl:
             str(self.host.attempt),
             str(self.host.attempt / "logs/gateway.log"),
             True,
+            conversational=True,
         )
 
     def state(self):

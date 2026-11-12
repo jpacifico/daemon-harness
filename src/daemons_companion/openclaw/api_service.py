@@ -108,6 +108,7 @@ def build_openclaw_api_job(layout: OpenClawApiServiceLayout) -> BackgroundJob:
         str(release),
         str(state / "openclaw-api.log"),
         True,
+        conversational=True,
     )
 
 

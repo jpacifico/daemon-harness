@@ -367,7 +367,8 @@ def build_service_job(scope, python, release, namespace):
         'from daemons_companion.setup.embeddings import serve;'
         f'serve({str(scope.attempt)!r})')
     return BackgroundJob(scoped_job_code(EMBEDDINGS_JOB, namespace), str(python),
-        ('-B', '-c', command), str(release), str(root_for(scope) / 'supervisor.log'), True)
+        ('-B', '-c', command), str(release), str(root_for(scope) / 'supervisor.log'), True,
+        conversational=True)
 
 
 def serve(attempt):

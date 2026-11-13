@@ -140,7 +140,8 @@ Fixed before the change.
   calls vary from 4 to 17 s with reply length, and 11 turns cannot separate
   that from chance.
 - Why the Companion daemon's model calls stay slower than the reference
-  daemon's.
+  daemon's. A side-by-side test excluded Companion's configuration as the
+  cause: see [Model-call latency](2026-11-13_model_call_latency_ab.md).
 - Windows, where Companion sets no task priority and Task Scheduler applies its
   default. Not measured.
 - Daemons created by 0.11.15 or earlier keep the `Background` class. Updating

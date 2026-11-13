@@ -77,6 +77,13 @@ once a minute: up to three times on Windows, and without limit on Mac, where
 launchd keeps it alive. Existing unrelated host installations are not
 adopted or modified.
 
+On Mac, the services that work while the user waits for a reply (the gateway,
+the memory search and the OpenClaw API) run in launchd's standard class. The
+after-turn worker and the nightly maintenance run in the background class,
+which macOS confines to slower cores and throttled disk access. Daemons created
+by 0.11.15 or earlier run every service in the background class. Updating the
+app does not rewrite their services.
+
 ## Continuity profile
 
 A new daemon receives the `parga-v1` continuity profile, recorded in a marker

@@ -96,6 +96,7 @@ def build_jobs(layout, host, target_os):
             str(host.attempt),
             str(host.attempt / "logs" / f"{kind}.log"),
             True,
+            conversational=True,
         )
         for code, kind in ((OPENCLAW_API_JOB, "api"), (OPENCLAW_GATEWAY_JOB, "gateway"))
     )

@@ -251,7 +251,8 @@ def private_gateway_job(layout, runtime, namespace, *, legacy=False):
     return BackgroundJob(scoped_job_code(HERMES_GATEWAY_JOB, namespace), str(layout.python) if legacy else layout.launch_python,
                          ("-B", "-c", script, str(scope.attempt), str(layout.executable),
                           "gateway", "run", "--external-supervisor"),
-                         str(layout.attempt), str(runtime.state_root / "gateway.log"), True)
+                         str(layout.attempt), str(runtime.state_root / "gateway.log"), True,
+                         conversational=True)
 
 
 def run_gateway(attempt: str, executable: str):

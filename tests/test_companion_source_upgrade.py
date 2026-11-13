@@ -14,7 +14,7 @@ from daemons_companion.runtime.release import (
 )
 from daemons_companion.runtime.environment import CompanionRuntimeEnvironmentAdapter
 from daemons_companion.hermes.composition import HermesCompositionLayout
-from daemons_companion.runtime.services import render_job_definition
+from daemons_companion.runtime.services import known_job_definitions, render_job_definition
 from daemons_companion.setup.plan import PlanStep
 from tests.test_companion_private_setup import owned
 from tests.test_companion_runtime_environment import _bundle, FakeRunner
@@ -214,6 +214,58 @@ def test_concurrent_profile_edit_blocks_apply_and_is_preserved(setup):
         upgrade.run(review["revision"])
     assert "USER_EDIT=retained" in env.read_text()
     assert scheduler.values == saved
+
+
+def _install_pre_priority_definitions(initial, scheduler):
+    """Register services exactly as releases up to 0.11.15 rendered them."""
+    for job in initial.jobs():
+        scheduler.install(job, known_job_definitions(job, scheduler.target_os)[-1])
+    if scheduler.target_os == "macos":
+        assert any(job.conversational for job in initial.jobs())
+        assert not all(
+            scheduler.matches(j, render_job_definition(j, "macos")) for j in initial.jobs()
+        )
+    return dict(scheduler.values)
+
+
+def test_upgrade_moves_pre_priority_services_to_their_current_class(setup):
+    factory, initial, scheduler, memory, _, _ = setup
+    _install_pre_priority_definitions(initial, scheduler)
+    upgrade = factory()
+    assert upgrade.run(upgrade.review()["revision"])["status"] == "committed"
+    assert all(
+        scheduler.matches(j, render_job_definition(j, scheduler.target_os))
+        for j in upgrade.jobs()
+    )
+    assert memory.read_text() == "Synthetic canonical memory remains exact.\n"
+
+
+@pytest.mark.parametrize("phase", CODES)
+def test_failed_upgrade_restores_pre_priority_services_exactly(setup, phase):
+    factory, initial, scheduler, _, _, _ = setup
+    saved = _install_pre_priority_definitions(initial, scheduler)
+
+    def fail(step):
+        if step == phase:
+            raise RuntimeError("Synthetic failure")
+
+    upgrade = factory(hook=fail)
+    assert upgrade.run(upgrade.review()["revision"])["status"] == "rolled_back"
+    assert scheduler.values == saved
+
+
+def test_upgrade_refuses_a_service_class_it_never_rendered(setup):
+    factory, initial, scheduler, _, _, _ = setup
+    if scheduler.target_os != "macos":
+        pytest.skip("The scheduling class is a launchd key.")
+    job = next(j for j in initial.jobs() if j.conversational)
+    definition = render_job_definition(job, "macos").replace(
+        b"<string>Standard</string>", b"<string>Interactive</string>"
+    )
+    assert definition != render_job_definition(job, "macos")
+    scheduler.install(job, definition)
+    with pytest.raises((ValueError, RuntimeError)):
+        factory().review()
 
 
 def test_unknown_service_and_existing_attachment_refused(setup):

@@ -12,6 +12,7 @@ from unittest.mock import patch
 import pytest
 
 from daemons_companion.runtime.services import (
+    known_job_definitions,
     AFTER_TURN_JOB,
     NIGHTLY_JOB,
     OPENCLAW_API_JOB,
@@ -318,6 +319,25 @@ def test_launchd_definitions_are_one_persistent_and_one_nightly_job(tmp_path: Pa
     assert dream["StartCalendarInterval"] == {"Hour": 4, "Minute": 0}
     assert dream["ProgramArguments"][:2] == ["/usr/bin/caffeinate", "-s"]
     assert dream["ProgramArguments"][2] == nightly.executable
+
+
+def test_only_conversational_launchd_jobs_leave_the_background_class(tmp_path: Path):
+    layout, _plan = _fixture(tmp_path, "macos")
+    after_turn, nightly = build_background_jobs(layout)
+    assert not after_turn.conversational and not nightly.conversational
+    for job in (after_turn, nightly):
+        assert plistlib.loads(render_job_definition(job, "macos"))["ProcessType"] == "Background"
+        assert known_job_definitions(job, "macos") == (render_job_definition(job, "macos"),)
+    gateway = replace(after_turn, code=after_turn.code + "-gateway", conversational=True)
+    current, legacy = known_job_definitions(gateway, "macos")
+    assert plistlib.loads(current)["ProcessType"] == "Standard"
+    # Installations up to 0.11.15 stay recognisable, differing only by class.
+    assert plistlib.loads(legacy) == {**plistlib.loads(current), "ProcessType": "Background"}
+    background = replace(gateway, conversational=False)
+    assert render_job_definition(background, "macos") == legacy
+    assert gateway.public_dict() == background.public_dict()
+    assert render_job_definition(gateway, "windows") == render_job_definition(background, "windows")
+    assert known_job_definitions(gateway, "windows") == (render_job_definition(gateway, "windows"),)
 
 
 def test_windows_definitions_use_logon_and_daily_triggers_without_privilege(tmp_path: Path):

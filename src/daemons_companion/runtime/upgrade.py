@@ -37,6 +37,7 @@ from daemons_companion.hermes.profile import (
 from daemons_companion.hermes.ready_composition import _services_layout
 from daemons_companion.runtime.services import (
     build_background_jobs,
+    known_job_definitions,
     render_job_definition,
 )
 from daemons_companion.hermes.gateway import private_gateway_job
@@ -261,10 +262,10 @@ class Upgrade:
         captures = {}
         for job in self.jobs():
             capture = self.scheduler.capture(job.code)
-            if not capture_matches(
-                capture, render_job_definition(job, self.target_os), self.target_os
-            ) or not self.scheduler.matches(
-                job, render_job_definition(job, self.target_os)
+            if not any(
+                capture_matches(capture, definition, self.target_os)
+                and self.scheduler.matches(job, definition)
+                for definition in known_job_definitions(job, self.target_os)
             ):
                 raise UpgradeRefused("services-changed", "An owned source service is stopped or changed.")
             captures[job.code] = base64.b64encode(capture).decode()
@@ -455,8 +456,9 @@ class Upgrade:
                     self.scheduler.restore(code, base64.b64decode(saved))
             self.wait_ready()
             for job in self.jobs():
-                if not self.scheduler.matches(
-                    job, render_job_definition(job, self.target_os)
+                if not any(
+                    self.scheduler.matches(job, definition)
+                    for definition in known_job_definitions(job, self.target_os)
                 ):
                     raise RuntimeError("Old service did not restart.")
         else:

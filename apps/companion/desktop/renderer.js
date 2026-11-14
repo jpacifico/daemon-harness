@@ -3,7 +3,7 @@ const hostInterfaceState={id:null,busy:false,message:''};
 const openHostDetails=new Set();
 let obsidianInfo=null,obsidianMessage='',obsidianBusy=false;
 // The daemon's model and API key (Settings > Model). The key typed here is sent once and never kept.
-let providerInfo=null,providerState={};
+let providerInfo=null,providerState={},daemonUpdate=null;
 let locale, language = 'en', theme = 'light', appInfo = {};
 const navigation = {instances:'My daemons', about:'About'};
 const darkAppearance = window.matchMedia('(prefers-color-scheme: dark)');
@@ -79,7 +79,7 @@ document.addEventListener('click', event => {
 });
 const button = (label, action, primary = false, disabled = false) => `<button class="button ${primary ? 'primary' : ''}" data-action="${action}" ${disabled ? 'disabled' : ''}>${label}</button>`;
 // Adding a host skips naming: the daemon already exists.
-const flow = () => state.mode === 'add-host' ? phases.filter(p => p !== 'identity') : state.mode === 'change-provider' ? ['model','installation','conversation'] : phases;
+const flow = () => state.mode === 'add-host' ? phases.filter(p => p !== 'identity') : state.mode === 'change-provider' ? ['model','installation','conversation'] : state.mode === 'update-daemon' ? ['installation'] : phases;
 const hostHeadings = { host: 'Add OpenClaw to your daemon.', model: 'Connect OpenClaw to a model.', telegram: 'Create the OpenClaw bot.', installation: 'Starting OpenClaw.', conversation: 'First conversation on OpenClaw.' };
 const providerHeadings = { model: 'Choose another model provider.', installation: 'Switching the model connection.', conversation: 'Check your daemon’s reply.' };
 const headings = { host: 'Install your daemon’s host.', identity: 'Name your daemon.', model: 'Connect your model.', review: 'Review your setup.', telegram: 'Connect Telegram.', installation: 'Installing your daemon.', conversation: 'First meeting.' };
@@ -117,7 +117,7 @@ function body() {
     <div id="activity" role="status" aria-live="polite">${activityBody()}</div>
     ${!state.prompt && state.result ? `<div class="note">${state.result.result === 'error' ? errorBody(state.result.message) : escape(state.result.message || 'Setup ended. See the details below for the verified result.')}</div>` : ''}
     ${state.guidance.length ? `<div class="guidance">${state.guidance.map(message => `<p>${guidanceText(message)}</p>`).join('')}${serviceStatus(...state.guidance)}</div>` : ''}
-    ${links()}${promptBody()}${state.phase==='model'&&state.modelCatalog?modelCatalogBody(state.modelCatalog):''}${details()}<div class="links">${['add-host','change-provider'].includes(state.mode)?button("Export host diagnostic","host-diagnostic"):button("Diagnostic report","diagnostic")}</div>`;
+    ${links()}${promptBody()}${state.phase==='model'&&state.modelCatalog?modelCatalogBody(state.modelCatalog):''}${details()}<div class="links">${['add-host','change-provider','update-daemon'].includes(state.mode)?button("Export host diagnostic","host-diagnostic"):button("Diagnostic report","diagnostic")}</div>`;
 }
 
 let activityStartedAt = null, activityOutputAt = null;
@@ -454,7 +454,7 @@ window.companion.onEvent(event => {
   if (event.type === 'input-rejected') state.error = event.message;
   if (event.type === 'finished') {
     draft = null; state.result = event; state.prompt = null;
-    if(event.result === 'installed' && state.mode !== 'change-provider')state.savedSetup = 'installed';
+    if(event.result === 'installed' && !['change-provider','update-daemon'].includes(state.mode))state.savedSetup = 'installed';
   }
   if (event.type === 'idle') {state.active = false;if(state.page==='instances'){refreshInstances();return;}}
   render();
@@ -593,6 +593,7 @@ function daemonBody() {
       ${!d.canEditUser?`<p class="note">${d.userReason==='unsupported'?escape(locale.t('daemon.user.unsupported',language)):'No single user account is linked to these settings. Tell your daemon your preferences in conversation.'}</p>`:'<p class="hint">These are your setup preferences. Explicit corrections you have given in conversation remain authoritative.</p>'}
       ${daemonAccounts(d)}
     </fieldset></form>
+    ${updateSection(v)}
     ${providerSection()}
     ${hostChangeSection(d,v)}
     <section class="daemon-memory"><h2>Memory</h2><p>Your memories are stored in this folder.</p><p class="memory-path" data-original>${escape(d.memory)}</p>
@@ -604,6 +605,28 @@ function daemonBody() {
       <p role="status" class="row">${obsidianBusy?'<span class="spinner" aria-hidden="true"></span>':''}${obsidianMessage?escape(locale.t(obsidianMessage,language)):''}</p></div>
       <div class="backup-help"><h3>Backup</h3><p>Save an encrypted copy of this daemon’s memory. You can install a new daemon from it, on this computer or another one.</p>${button('Back up memory…','daemon-backup',false,state.daemonBusy)}${dailyBackup()}</div></section>
     <div class="links">${button('Reload saved settings','daemon-reload',false,state.daemonBusy)}</div>`;
+}
+// Shown only when the app can bring this daemon to its runtime, or must say why
+// not; a daemon already on it shows nothing (runtime/upgrade.py check).
+const UPDATE_PENDING=['prepared','in_progress','failed','rollback_failed','command_recovery'];
+const UPDATE_REFUSALS={'protected-runtime':'daemonUpdate.engine','portability':'daemonUpdate.portability','attached-hosts':'daemonUpdate.attachedHosts',
+  'services-changed':'hostAdd.servicesChanged','hermes-profile':'hostAdd.hermesProfile','openclaw-profile':'daemonUpdate.openclawProfile','host-config':'hostAdd.hostConfig'};
+function updateSection(v) {
+  const u=daemonUpdate,name=v.name||locale.t('daemon.unnamed',language),t=key=>escape(locale.t(key,language,{name}));
+  if(!u||u.status==='current')return '';
+  const start=label=>`<div class="links"><button class="button" data-daemon-update ${state.daemonBusy||state.active?'disabled':''}>${t(label)}</button></div>`;
+  const body=u.status==='available'?`<p>${t('daemonUpdate.available')}</p><p class="hint">${t('daemonUpdate.scope')}</p>${start('daemonUpdate.start')}`
+    :UPDATE_PENDING.includes(u.status)?`<p class="note">${t('hostAdd.interrupted')}</p>${start('daemonUpdate.restore')}`
+    :u.status==='refused'?`<p>${t(UPDATE_REFUSALS[u.code]||'daemonUpdate.unavailable')}</p>`
+    :`<p class="hint">${t('daemonUpdate.unavailable')}</p>`;
+  return `<section class="daemon-update"><h2>${t('daemonUpdate.title')}</h2>${body}</section>`;
+}
+async function startDaemonUpdate(id) {
+  if(state.active||state.instanceBusy||state.daemonBusy)return;
+  hostAdditionState.id=id;
+  Object.assign(state,{page:'setup',mode:'update-daemon',operation:'setup',active:true,result:null,messages:[],guidance:[],links:[],prompt:null,phase:'installation',error:'',modelCatalog:null,chatgptCode:'',chatgptStage:'',activity:'Preparing the update…'});
+  render();
+  try{await window.companion.startDaemonUpdate(id);}catch(error){state.active=false;showError(error);}
 }
 function hostChangeSection(d,v) {
   if(!['hermes','openclaw'].includes(d.host))return '';
@@ -677,6 +700,7 @@ function bindProvider() {
   },'provider.checking'));
   document.querySelector('[data-provider-edit]')?.addEventListener('click',()=>{Object.assign(providerState,{editing:true,key:'',model:providerInfo.model,models:null,error:'',done:null,checked:null});render();document.querySelector('#provider-key')?.focus();});
   document.querySelector('[data-provider-switch]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startProviderSwitch(id);});
+  document.querySelector('[data-daemon-update]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startDaemonUpdate(id);});
   document.querySelector('[data-provider-cancel]')?.addEventListener('click',()=>{providerState={};render();});
   document.querySelector('[data-provider-models]')?.addEventListener('click',()=>providerAction(async id=>{
     const result=await window.companion.checkProvider(id,providerState.key?.trim()||null);
@@ -776,9 +800,9 @@ async function restoreAction(name) {
 }
 async function openDaemon(id) {
   if(state.daemonBusy || state.active)return;
-  obsidianInfo=null;obsidianMessage='';
+  obsidianInfo=null;obsidianMessage='';daemonUpdate=null;
   rememberDraft();state.page='daemon';state.daemon=null;state.daemonDraft=null;state.daemonPronounChoice=null;state.daemonCustomPronouns='';state.daemonPreferencesOpen=null;state.daemonBusy=true;state.error='';state.daemonMessage='';render();
-  try {state.daemon=await window.companion.daemonSettings(id);state.daemonDraft={...state.daemon.values};obsidianInfo=await window.companion.obsidianStatus(id).catch(()=>null);daemonBackup=null;await refreshGoogle(id);await loadProvider(id);}
+  try {state.daemon=await window.companion.daemonSettings(id);state.daemonDraft={...state.daemon.values};obsidianInfo=await window.companion.obsidianStatus(id).catch(()=>null);daemonBackup=null;await refreshGoogle(id);await loadProvider(id);daemonUpdate=await window.companion.daemonUpdateStatus(id).catch(()=>null);}
   catch(error){state.error=error.message;}
   finally {state.daemonBusy=false;render();}
 }
@@ -922,7 +946,7 @@ function crumbs() {
   if(state.page==='removal')return [home,daemon,{label:t('topbar.removal')}];
   if(state.page==='restore')return [home,{label:t('topbar.restore')}];
   if(state.page==='diagnostic'||state.page==='discard')return [home,{label:t(state.page==='discard'?'topbar.discard':'topbar.diagnostic')}];
-  return [home,{label:t(state.mode==='add-host'?'topbar.addHost':state.mode==='change-provider'?'topbar.changeProvider':'topbar.install')},...(labels[state.phase]?[{label:labels[state.phase]}]:[])];
+  return [home,{label:t(state.mode==='add-host'?'topbar.addHost':state.mode==='change-provider'?'topbar.changeProvider':state.mode==='update-daemon'?'topbar.updateDaemon':'topbar.install')},...(labels[state.phase]?[{label:labels[state.phase]}]:[])];
 }
 function topbarStatus() {
   const t=key=>locale.t(key,language),rows=state.inventory?.instances||[];

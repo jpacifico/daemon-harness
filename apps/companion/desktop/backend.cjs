@@ -215,7 +215,7 @@ class Backend {
     if(this.active || this.settingsBusy)throw new Error('Finish or stop setup before managing another instance.');
     this.settingsBusy=true;
     let finished; this.settingsStopped=new Promise(resolve=>{finished=resolve;});
-    const diagnostic=removal==='attachment'&&request.source_profile&&!['upgrade-status','create-status'].includes(request.operation)?this.hostDiagnostic(request.source_profile):null;
+    const diagnostic=removal==='attachment'&&request.source_profile&&!['upgrade-status','upgrade-check','create-status'].includes(request.operation)?this.hostDiagnostic(request.source_profile):null;
     if(diagnostic){diagnostic.begin();diagnostic.record({phase:'installation',operation:request.operation,status:'started'});}
     try {
       if(!this.settingsRuntime)this.settingsRuntime=await this.prepare(new AbortController().signal,{settingsOnly:true});
@@ -245,9 +245,10 @@ class Backend {
       throw error;
     } finally {this.authChild=null;this.authCancelled=false;this.emit({type:"host-chatgpt-end"});this.settingsBusy=false;finished();}
   }
-  async start(mode = 'setup', setupId = null, hostAddition = null, restoreArchive = null, move = false, hostChange = null, providerChange = null) {
+  async start(mode = 'setup', setupId = null, hostAddition = null, restoreArchive = null, move = false, hostChange = null, providerChange = null, daemonUpdate = null) {
     if (this.active || this.settingsBusy) throw new Error('Setup or daemon settings are already running.');
-    if (!['setup', 'new', 'status', 'add-host', 'change-provider'].includes(mode)) throw new Error('Unsupported action.');
+    if (!['setup', 'new', 'status', 'add-host', 'change-provider', 'update-daemon'].includes(mode)) throw new Error('Unsupported action.');
+    if ((mode === 'update-daemon') !== Boolean(daemonUpdate && ['source_profile','base'].every(k=>typeof daemonUpdate[k]==='string'&&path.isAbsolute(daemonUpdate[k])) && typeof daemonUpdate.name==='string')) throw new Error('Unsupported action.');
     if ((mode === 'add-host') !== Boolean(hostAddition)) throw new Error('Unsupported action.');
     if ((mode === 'change-provider') !== Boolean(providerChange && ['profile','base'].every(k=>typeof providerChange[k]==='string'&&path.isAbsolute(providerChange[k])) && typeof providerChange.name==='string')) throw new Error('Unsupported action.');
     if (restoreArchive && (mode !== 'new' || !path.isAbsolute(restoreArchive))) throw new Error('Unsupported action.');
@@ -269,16 +270,16 @@ class Backend {
     this.prompt = null;
     this.links.clear();
     this.abort = new AbortController();
-    this.stopped = this._start(mode, setupId, hostAddition, providerChange);
+    this.stopped = this._start(mode, setupId, hostAddition, providerChange, daemonUpdate);
     return { started: true };
   }
-  async _start(mode, setupId = null, hostAddition = null, providerChange = null) {
+  async _start(mode, setupId = null, hostAddition = null, providerChange = null, daemonUpdate = null) {
     if(mode!=='status'){this.diagnosticHome=null;this.diagnostics=new Diagnostics(null,this.metadata);this.diagnostics.begin();}
     try {
-      if(mode==='add-host'||mode==='change-provider') {
+      if(mode==='add-host'||mode==='change-provider'||mode==='update-daemon') {
         // The same guided session as a setup; its report stays with the daemon's host diagnostic.
-        this.installHome=path.join(this.bootstrapHome,mode==='add-host'?'host-addition':'provider-change');
-        this.diagnostics=this.hostDiagnostic(mode==='add-host'?hostAddition.source_profile:providerChange.profile);
+        this.installHome=path.join(this.bootstrapHome,{'add-host':'host-addition','change-provider':'provider-change','update-daemon':'daemon-update'}[mode]);
+        this.diagnostics=this.hostDiagnostic(mode==='add-host'?hostAddition.source_profile:mode==='update-daemon'?daemonUpdate.source_profile:providerChange.profile);
         this.diagnostics.begin();
       } else if(this.setupHomes) {
         this.installHome = await (mode==='new' ? this.setupHomes.create() : setupId ? this.setupHomes.select(setupId) : this.setupHomes.current());
@@ -297,7 +298,7 @@ class Backend {
             source_profile:this.hostChange.profile,base:this.hostChange.base})+'\n',{mode:0o600,flag:'wx'});
         }
       }
-      if(mode!=='status'&&mode!=='add-host'&&mode!=='change-provider') {
+      if(!['status','add-host','change-provider','update-daemon'].includes(mode)) {
         this.diagnosticHome=this.installHome;
         this.diagnostics=new Diagnostics(this.installHome?path.join(this.installHome,'diagnostics'):null,this.metadata);
         this.diagnostics.begin();
@@ -315,6 +316,7 @@ class Backend {
       if (mode === 'status') args.push('--status');
       if (mode === 'add-host') { args.push('--add-host'); env.DAEMONS_ADD_HOST = JSON.stringify(hostAddition); }
       if (mode === 'change-provider') { args.push('--change-provider'); env.DAEMONS_CHANGE_PROVIDER = JSON.stringify(providerChange); }
+      if (mode === 'update-daemon') { args.push('--update-daemon'); env.DAEMONS_UPDATE_DAEMON = JSON.stringify(daemonUpdate); }
       if (this.abort.signal.aborted) throw new Error('Setup cancelled.');
       await new Promise((resolve, reject) => {
         const child = this.child = spawn(python, args, { env, cwd: this.installHome,

@@ -22,6 +22,33 @@ Apps older than r10 have no updater: rerun the download command once.
 Updating the app replaces only the app. It does not reinstall, upgrade or
 restart an existing daemon, move memory or reconnect accounts.
 
+## Updating a daemon
+
+A daemon runs its own copy of the Daemon Harness code, installed when it was
+created. When the app carries a newer copy, the daemon's page offers
+**Update**, for a daemon created by the app on Hermes Agent or on OpenClaw. It
+runs only when you choose it.
+
+The update replaces only the part of the copy that installs and connects the
+daemon: how its services are scheduled and started. The engine (memory, voice,
+prompts, host plugins and dependencies), the memory itself, the model
+connection and the Telegram bot do not change. The app stops the daemon's
+services, installs the new copy beside the old one, points the host profile
+at it, restarts the services and waits until the gateway, the memory worker
+and, on OpenClaw, the daemon API and its plugin are ready. The daemon does not
+answer on Telegram in the meantime. If any step fails, the previous copy,
+profile and services are restored exactly; an interrupted update is offered
+for restoration the next time the page opens. On OpenClaw, the profile then
+loads the plugin from the new copy only; the previous copy is kept on disk for
+that restoration.
+
+The page explains instead why a daemon cannot be updated:
+
+- the newer copy also changes the engine, which an existing daemon keeps: back
+  up the memory and install a new daemon from that backup;
+- the daemon also answers from an added host;
+- its services, host settings or OpenClaw workspace changed since installation.
+
 ## Background mode, backups and Google Drive
 
 From 0.11.0 these are off until you turn them on.

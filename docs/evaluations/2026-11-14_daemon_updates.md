@@ -73,3 +73,46 @@ version upgrades, and any automatic update without the owner's click.
    0.11.15 exactly. The time the daemon is offline is measured.
 9. **Windows.** Covered by unit tests only unless a native run is possible;
    reported as such.
+
+### Amendment (14 November 2026, before any real-daemon trial)
+
+Criterion 5 named `integrations/` as untouched. `AGENTS.md` requires each
+integration's `INSTALL.md` to describe a change to an installer's rollback, so
+`integrations/hermes_plugin/INSTALL.md` and `integrations/openclaw_plugin/INSTALL.md`
+gain one paragraph each. The runtime update itself treats `INSTALL.md` as
+documentation, outside the engine. No other file under `integrations/` changes.
+
+## Change
+
+- `runtime/upgrade.py`: the Hermes transaction keeps its steps; its
+  host-specific parts (services, profile, profile check, readiness, added-host
+  test) become methods. `OpenClawUpgrade` supplies them for a daemon created on
+  OpenClaw: gateway, daemon API and background services; configuration and
+  workspace; readiness of the after-turn worker, the daemon API, the gateway and
+  its plugin, with up to ten minutes for the gateway to boot. A daemon created
+  on OpenClaw registers its own host; only a registration for another profile
+  counts as an added host. `check` tells the daemon's page what to offer.
+- `openclaw/profile.py`: the profile projection drops plugin paths that point
+  into another release of the same daemon, so an updated profile loads the
+  plugin once. A first install has no such path and is unchanged. `current()`
+  tells whether the profile still holds its installation's projection.
+- `openclaw/gateway.py`: the gateway service is built by one function, shared
+  by installation and update; the update probes a gateway it registered itself.
+- `hosts/update.py`: the guided update, shared with Add a host, whose wording is
+  unchanged. `desktop/protocol.py` serves it as `--update-daemon`.
+- Desktop: the daemon's page shows the update section; the backend runs the
+  guided session in its own private folder; English and French texts.
+
+## Results so far
+
+| Criterion | Result |
+| --- | --- |
+| 1. Offer | Unit tests: available, current, refused with its code, interrupted. Page rendering not yet seen in a running app |
+| 2. Hermes daemon | Existing transaction tests pass unchanged |
+| 3. OpenClaw daemon | Pass (unit tests, macOS and Windows renderings): services and profile point at the new release, the plugin is loaded from it only, memory and account unchanged |
+| 4. Rollback | Pass (unit tests): failure after each step, readiness failure and interrupted controller, both hosts |
+| 5. Engine untouched | Pass, with the amendment above |
+| 6. Add a host unchanged | Pass: same texts and refusal codes (unit tests) |
+| 7. Suites | Python 3.12: 3229 passed, 25 skipped; desktop 166/166; lint clean. CI not run yet |
+| 8. Real daemons, macOS | Not run yet |
+| 9. Windows | Unit tests only |

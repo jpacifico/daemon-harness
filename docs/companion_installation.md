@@ -174,7 +174,11 @@ Pour remplacer l’app à la main, fermer la Companion avant de relancer la comm
 d’installation ou d’ouvrir le nouveau paquet. Il n’est pas nécessaire de
 désinstaller l’app au préalable.
 Le remplacement conserve le daemon, ses connexions et sa mémoire ; il ne met pas
-à jour Hermes, OpenClaw ou le code du daemon déjà installé.
+à jour Hermes, OpenClaw ou le code du daemon déjà installé. Quand la nouvelle app
+apporte des changements à la façon dont elle installe et fait fonctionner les
+daemons, la page du daemon propose **Mettre à jour**. Le moteur du daemon, sa
+mémoire, sa connexion au modèle et son bot Telegram ne changent pas ; si une
+étape échoue, la version précédente est rétablie à l’identique.
 
 Sur Mac, la commande prépare la nouvelle app avant de remplacer la précédente
 et restaure l’ancienne si ce remplacement échoue. Sur Windows, le remplacement

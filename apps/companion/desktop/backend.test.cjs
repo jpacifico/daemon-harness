@@ -111,3 +111,19 @@ test('a backup archive survives its caller removing the decrypted copy right aft
   assert.deepEqual(await fsp.readdir(path.join(bootstrap, 'restore-pending')), []);
   await fsp.rm(root, {recursive: true, force: true});
 });
+test('a daemon update runs only for owned absolute paths, in its own private session', async () => {
+  const fsp = require('node:fs/promises'), os = require('node:os');
+  const root = await fsp.mkdtemp(path.join(os.tmpdir(), 'daemon-update-'));
+  const bootstrap = path.join(root, 'bootstrap'); await fsp.mkdir(bootstrap);
+  const backend = new Backend({emit: () => {}, bootstrapHome: bootstrap});
+  let seen = null;
+  backend.prepare = async () => { seen = backend.installHome; throw new Error('synthetic stop before Python'); };
+  const request = {source_profile: path.join(root, 'base/profile'), base: path.join(root, 'base'), name: 'Aster'};
+  for (const bad of [null, {...request, base: 'relative'}, {...request, name: 7}])
+    await assert.rejects(backend.start('update-daemon', null, null, null, false, null, null, bad), /Unsupported action/);
+  await assert.rejects(backend.start('setup', null, null, null, false, null, null, request), /Unsupported action/);
+  await backend.start('update-daemon', null, null, null, false, null, null, request);
+  await backend.stopped;
+  assert.equal(seen, path.join(bootstrap, 'daemon-update'));
+  await fsp.rm(root, {recursive: true, force: true});
+});

@@ -92,70 +92,12 @@ def run(ui, source_profile: Path, base: Path, name: str) -> bool:
 
 
 def _update_if_needed(ui, source_profile, base, name):
-    from daemons_companion.runtime.upgrade import current_status, from_request
+    from daemons_companion.hosts.update import ADD_HOST, UpdateStopped, ensure_current
 
-    request = {"source_profile": str(source_profile), "base": str(base)}
-    upgrade = from_request(request)
-    status = current_status(upgrade)
-    if status["status"] == "current":
-        return
-    recover = status["status"] not in {"required", "committed", "rolled_back"}
-    if recover:
-        ui.say(f"A previous update of {name} was interrupted. The app can restore its previous version safely.")
-    else:
-        ui.say(f"{name} first needs the update that comes with this app version.")
-        ui.say("Its memory, model account and Telegram bot do not change. Its services restart for a few seconds.")
-    if ui.choose(
-        "Update your daemon?" if not recover else "Restore the previous version?",
-        ("Update and continue" if not recover else "Restore and continue", "Cancel"),
-    ) != 0:
-        raise Quit
-    with ui.activity("Updating your daemon. This can take a few minutes..."):
-        if recover:
-            result = upgrade.run(status["revision"], recover=True)
-        else:
-            try:
-                reviewed = upgrade.review()
-            except ValueError as error:
-                code = getattr(error, "code", None) or "review"
-                ui.say(_REVIEW_REFUSALS.get(code, _REVIEW_REFUSALS["review"]).format(name=name))
-                raise HostAdditionStopped("Daemon update refused.", code) from None
-            result = upgrade.run(reviewed["revision"])
-    if result.get("status") != "committed":
-        ui.say(
-            f"The update did not complete. {name} was restored to its previous version and keeps working. "
-            "Export the diagnostic if you want to report it."
-        )
-        raise HostAdditionStopped("Update rolled back.")
-    ui.say(f"{name} is up to date.")
-
-
-_TOO_OLD = (
-    "{name} was created with an older version of the app, which cannot be updated automatically. "
-    "To use OpenClaw, create a new daemon with this version."
-)
-# Plain explanations for each review refusal code of runtime.upgrade.
-_REVIEW_REFUSALS = {
-    "protected-runtime": _TOO_OLD,
-    "portability": _TOO_OLD,
-    "attached-hosts": (
-        "{name} already has another host attached, and this version cannot update both together. "
-        "To use OpenClaw, create a new daemon with this version."
-    ),
-    "services-changed": (
-        "{name}'s background services are not running as they were installed. "
-        "Restart your computer, check that {name} answers on Telegram, then try again."
-    ),
-    "hermes-profile": (
-        "{name}'s Hermes Agent settings changed since installation, so the update was not started. "
-        "Your daemon keeps working."
-    ),
-    "host-config": (
-        "{name}'s Hermes Agent settings need a migration that this version does not do yet. "
-        "Your daemon keeps working."
-    ),
-    "review": "{name} could not be checked for its update. Your daemon keeps working; export the diagnostic to report it.",
-}
+    try:
+        ensure_current(ui, source_profile, base, name, ADD_HOST, cancel=Quit)
+    except UpdateStopped as error:
+        raise HostAdditionStopped(str(error), error.code) from None
 
 
 def _resumable_creation(base, source_profile, state):

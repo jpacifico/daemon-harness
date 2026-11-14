@@ -123,7 +123,9 @@ $daemonsScript = gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/
 Fermez l’app avant de relancer la commande pour la remplacer.
 À partir de r10, l’app se met aussi à jour elle-même : **Réglages > Rechercher une
 mise à jour**. Remplacer ou mettre à jour l’app ne réinstalle ni ne met à
-niveau votre daemon existant.
+niveau votre daemon existant. Quand l’app apporte des changements à la façon
+dont elle installe et fait fonctionner les daemons, la page du daemon propose
+**Mettre à jour** ; voir l’[impact de l’installation](installation_impact.md#updating-a-daemon).
 Les paquets ne disposent pas encore de signatures de distribution reconnues.
 Le [guide d’installation](companion_installation.md) explique les difficultés
 connues et les solutions si `gh` n’est pas reconnu.

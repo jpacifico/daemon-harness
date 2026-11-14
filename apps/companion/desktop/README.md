@@ -124,7 +124,8 @@ symlinks and concurrent changes are not guessed or overwritten. Shared metadata
 keeps its original account/platform. Current conversation and corrected canonical
 memory retain precedence over setup addressing answers; no prompt is changed.
 The memory folder can be opened or its path copied for Obsidian; relocation is
-not implemented. Installing this app does not update any existing daemon runtime.
+not implemented. Installing this app does not update any existing daemon runtime;
+the daemon's page offers that update when only Companion code differs.
 
 The first form may prepare the app's private Python component, with visible
 progress; it does not create or resume a daemon installation. Saving needs no host
@@ -334,7 +335,9 @@ memory directory before requesting its opening. Running Obsidian, unreadable
 settings and detected concurrent changes block registration. Existing vaults and
 settings are preserved. Notes are never copied, moved or rewritten by Companion;
 Obsidian creates its own vault settings when opening. First-use help appears once.
-Replacing the app does not upgrade or restart an existing daemon runtime.
+Replacing the app does not upgrade or restart an existing daemon runtime. The
+daemon's page offers **Update** (hosts/update.py, runtime/upgrade.py) for a
+daemon created on Hermes Agent or OpenClaw whose engine matches the app's.
 
 See [the user and technical guide](../../../docs/companion-health-actions.md).
 

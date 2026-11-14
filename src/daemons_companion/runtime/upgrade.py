@@ -54,6 +54,13 @@ CODES = (
     "hermes-profile",
     "upgrade-start",
 )
+OPENCLAW_CODES = (
+    "upgrade-stop",
+    "runtime-layout",
+    "runtime-environment",
+    "openclaw-profile",
+    "upgrade-start",
+)
 # Companion code (installation, services, host connection) may change for an
 # existing daemon. Its behaviour does not: the daemon core, prompts, memory
 # templates, host plugins and dependencies must stay byte-identical.
@@ -112,6 +119,13 @@ def compatible(old, target):
 
 
 class Upgrade:
+    """The reviewed runtime update of a daemon created on Hermes Agent."""
+
+    CODES = CODES
+    profile_code = "hermes-profile"
+    # Seconds the restarted services have to report ready before rollback.
+    ready_seconds = 120
+
     def __init__(
         self, composition, host, scheduler, user, *, runner=None, probe=None, hook=None
     ):
@@ -171,6 +185,21 @@ class Upgrade:
             _gateway_ready,
         )
         from daemons_companion.hermes.activation import _readiness_probe
+
+        if not self._worker_restarted():
+            return False
+        from daemons_companion.runtime.bootstrap import _source_io_path
+
+        spool = self.runtime.state_root / "after-turn-spool"
+        path = _source_io_path if self.target_os == "windows" else lambda p: p
+        return _gateway_ready(private_gateway_status(self.host)) and _readiness_probe(
+            verify_current_release(self.runtime).name,
+            path(self.runtime.memory_root),
+            path(spool),
+        )
+
+    def _worker_restarted(self):
+        """The after-turn worker beat since the services were (re)started."""
         from daemon_core.after_turn_service import after_turn_service_path
 
         spool = self.runtime.state_root / "after-turn-spool"
@@ -187,17 +216,10 @@ class Upgrade:
                 return False
         except (OSError, ValueError, TypeError):
             return False
-        from daemons_companion.runtime.bootstrap import _source_io_path
-
-        path = _source_io_path if self.target_os == "windows" else lambda p: p
-        return _gateway_ready(private_gateway_status(self.host)) and _readiness_probe(
-            verify_current_release(self.runtime).name,
-            path(self.runtime.memory_root),
-            path(spool),
-        )
+        return True
 
     def wait_ready(self):
-        deadline = time.monotonic() + 120
+        deadline = time.monotonic() + self.ready_seconds
         while not self.probe():
             if time.monotonic() >= deadline:
                 raise RuntimeError("Gateway or memory worker did not become ready.")
@@ -236,12 +258,10 @@ class Upgrade:
         if pending and pending["status"] not in {"committed", "rolled_back"}:
             return pending
         self.runtime.installation_scope.validate_home(self.runtime.companion_home)
-        # Any registered destination requires a coordinated multi-host upgrade.
-        for pattern in ("host-attachment-*.json", "host-bindings/*.json"):
-            if any(self.runtime.state_root.glob(pattern)):
-                raise UpgradeRefused(
-                    "attached-hosts", "Attached hosts must be handled by a coordinated upgrade."
-                )
+        if self.attached_hosts():
+            raise UpgradeRefused(
+                "attached-hosts", "Attached hosts must be handled by a coordinated upgrade."
+            )
         old = verify_current_release(self.runtime)
         target = _bundle_manifest(self.runtime.bundle_root)
         old_manifest = json.loads(
@@ -250,15 +270,7 @@ class Upgrade:
         compatible(old_manifest, target)
         if old.name == target["digest"]:
             return {"revision": old.name, "status": "current"}
-        try:
-            self.profile_adapter().verify(
-                PlanStep("hermes-profile", "Check source profile", ())
-            )
-        except ValueError as error:
-            raise UpgradeRefused("hermes-profile", "The source Hermes profile changed.") from error
-        config = checked_file(self.host.profile / "config.yaml", 1048576)
-        if _patch_hermes_config(config) != config:
-            raise UpgradeRefused("host-config", "Host configuration requires a separate migration.")
+        self.check_profile()
         captures = {}
         for job in self.jobs():
             capture = self.scheduler.capture(job.code)
@@ -287,20 +299,43 @@ class Upgrade:
             "_record": record,
         }
 
+    def attached_hosts(self):
+        """Any registered destination requires a coordinated multi-host upgrade."""
+        state = self.runtime.state_root
+        return any(
+            any(state.glob(pattern))
+            for pattern in ("host-attachment-*.json", "host-bindings/*.json")
+        )
+
+    def check_profile(self):
+        """The host profile is exactly what this daemon's installation wrote."""
+        try:
+            self.profile_adapter().verify(
+                PlanStep("hermes-profile", "Check source profile", ())
+            )
+        except ValueError as error:
+            raise UpgradeRefused("hermes-profile", "The source Hermes profile changed.") from error
+        config = checked_file(self.host.profile / "config.yaml", 1048576)
+        if _patch_hermes_config(config) != config:
+            raise UpgradeRefused("host-config", "Host configuration requires a separate migration.")
+
+    def host_probe(self):
+        return HostProbe(
+            HostKind.HERMES,
+            True,
+            True,
+            str(self.host.executable),
+            version="owned",
+            version_status="verified",
+        )
+
     def plan(self):
         return SetupPlan(
-            HostProbe(
-                HostKind.HERMES,
-                True,
-                True,
-                str(self.host.executable),
-                version="owned",
-                version_status="verified",
-            ),
+            self.host_probe(),
             "Existing daemon",
             "unchanged",
             {"kind": "preserved"},
-            tuple(PlanStep(c, c, (self.record["revision"],)) for c in CODES),
+            tuple(PlanStep(c, c, (self.record["revision"],)) for c in self.CODES),
         )
 
     def run(self, revision, *, recover=False):
@@ -364,7 +399,7 @@ class Upgrade:
                 "runtime-environment": lambda: CompanionRuntimeEnvironmentAdapter(
                     self.composition.runtime_environment, runner=self.run_environment
                 ),
-                "hermes-profile": self.profile_adapter,
+                self.profile_code: self.profile_adapter,
             }[code]()
         return self.delegates[code]
 
@@ -465,6 +500,120 @@ class Upgrade:
             self.delegate(step.code).rollback(step, directory)
 
 
+class OpenClawUpgrade(Upgrade):
+    """The same reviewed runtime update for a daemon created on OpenClaw.
+
+    Its services are the gateway, the daemon API and the background jobs; its
+    profile is the OpenClaw configuration and the managed workspace. The
+    gateway boots the whole OpenClaw CLI and loads the plugin, which takes
+    minutes on a busy Windows PC, so readiness waits longer.
+    """
+
+    CODES = OPENCLAW_CODES
+    profile_code = "openclaw-profile"
+    ready_seconds = 600
+
+    def __init__(self, composition, host, scheduler, user, **kwargs):
+        super().__init__(composition, host, scheduler, user, **kwargs)
+        self._control = None
+
+    def jobs(self):
+        from daemons_companion.openclaw.api_service import build_openclaw_api_job
+        from daemons_companion.openclaw.gateway import openclaw_gateway_job
+        from daemons_companion.openclaw.ready_composition import (
+            _api_layout,
+            _services_layout as _openclaw_services_layout,
+        )
+
+        layout = self.composition
+        return (
+            openclaw_gateway_job(self.host, self.runtime, layout.runtime_environment),
+            build_openclaw_api_job(_api_layout(layout, self.user)),
+            *build_background_jobs(_openclaw_services_layout(layout, self.user)),
+        )
+
+    def profile_adapter(self):
+        from daemons_companion.openclaw.profile import (
+            OpenClawProfileAdapter,
+            OpenClawProfileLayout,
+        )
+
+        return OpenClawProfileAdapter(
+            OpenClawProfileLayout(self.runtime, self.composition.openclaw_state),
+            selected_host=HostKind.OPENCLAW,
+            user_id=self.user,
+            daemon_url=f"http://127.0.0.1:{self.composition.api_port}",
+        )
+
+    def attached_hosts(self):
+        # A daemon created on OpenClaw registers its own host; only another
+        # profile is an added host.
+        state = self.runtime.state_root
+        if any(state.glob("host-attachment-*.json")):
+            return True
+        for path in state.glob("host-bindings/*.json"):
+            record = json.loads(checked_file(path, 16384))
+            if record.get("profile") != str(self.host.profile):
+                return True
+        return False
+
+    def check_profile(self):
+        try:
+            current = self.profile_adapter().current()
+        except ValueError as error:
+            raise UpgradeRefused("openclaw-profile", "The OpenClaw profile changed.") from error
+        if not current:
+            raise UpgradeRefused("openclaw-profile", "The OpenClaw profile changed.")
+
+    def host_probe(self):
+        return HostProbe(
+            HostKind.OPENCLAW,
+            True,
+            True,
+            str(self.host.entry),
+            version="owned",
+            version_status="verified",
+        )
+
+    def control(self):
+        # One probe object per start: it remembers a loaded plugin, which
+        # must not carry over from the new gateway to a restored old one.
+        from daemons_companion.openclaw.gateway import PrivateOpenClawControl
+
+        if self._control is None or self._control[0] != self.started_at:
+            self._control = (
+                self.started_at,
+                PrivateOpenClawControl(
+                    self.host,
+                    self.runtime,
+                    self.composition.runtime_environment,
+                    self.scheduler,
+                    self.composition.gateway_port,
+                    existing=True,
+                ),
+            )
+        return self._control[1]
+
+    def health(self):
+        from daemons_companion.openclaw.activation import _readiness_probe
+        from daemons_companion.openclaw.gateway import api_ready
+        from daemons_companion.runtime.bootstrap import _source_io_path
+
+        if not self._worker_restarted():
+            return False
+        path = _source_io_path if self.target_os == "windows" else lambda p: p
+        if not _readiness_probe(
+            verify_current_release(self.runtime).name,
+            path(self.runtime.memory_root),
+            path(self.runtime.state_root / "after-turn-spool"),
+        ):
+            return False
+        if not api_ready(self.composition.api_port, runtime=self.runtime):
+            return False
+        control = self.control()
+        return control.gateway_ready() and control.plugin_ready()
+
+
 def require_completed_installation(scope):
     receipt = json.loads(checked_file(scope.attempt / "daemon-setup.json", 8192))
     transaction = receipt.get("transaction_id", "")
@@ -503,6 +652,8 @@ def from_request(request):
     bundle = direct(Path(os.environ["DAEMON_HARNESS_COMPANION_BUNDLE_ROOT"]))
     uv = direct(Path(os.environ["DAEMON_HARNESS_COMPANION_UV_EXECUTABLE"]))
     sha = os.environ["DAEMON_HARNESS_COMPANION_UV_SHA256"]
+    if scope.host_kind == "openclaw":
+        return _openclaw_upgrade(scope, profile, bundle, uv, sha, target_os)
     host = HostInstallLayout(
         profile.parents[4], uv, sha, scope.installation_id, target_os
     )
@@ -512,6 +663,15 @@ def from_request(request):
     runtime = CompanionRuntimeLayout(
         scope.home, bundle, scope, (scope.home / "data/memory/.daemon").is_dir()
     )
+    user = _source_user(scope)
+    composition = HermesCompositionLayout(
+        runtime, profile, uv, sha, target_os, scope.installation_id
+    )
+    scheduler = native_scheduler(target_os, scope.installation_id)
+    return Upgrade(composition, host, scheduler, user)
+
+
+def _source_user(scope):
     user = json.loads(checked_file(scope.attempt / "connection.json", 8192)).get(
         "user_id"
     )
@@ -519,11 +679,47 @@ def from_request(request):
         raise ValueError("The source user is ambiguous.")
     if require_completed_installation(scope).get("user_id") != user:
         raise ValueError("The completed installation identity changed.")
-    composition = HermesCompositionLayout(
-        runtime, profile, uv, sha, target_os, scope.installation_id
+    return user
+
+
+def _openclaw_upgrade(scope, profile, bundle, uv, sha, target_os):
+    from daemons_companion.hosts.attachment_command import native_scheduler
+    from daemons_companion.openclaw.gateway import host_for
+    from daemons_companion.openclaw.ready_composition import (
+        OpenClawReadyCompositionLayout,
+    )
+
+    pointer = scope.receipt()["host"]
+    if pointer.get("target_os") != target_os:
+        raise ValueError("Source platform changed.")
+    ports = pointer.get("api_port"), pointer.get("gateway_port")
+    if any(type(port) is not int or not 1024 <= port <= 65535 for port in ports) or ports[0] == ports[1]:
+        raise ValueError("The OpenClaw ports are ambiguous.")
+    host = host_for(scope)
+    if host.profile != profile:
+        raise ValueError("The private host layout changed.")
+    runtime = CompanionRuntimeLayout(
+        scope.home, bundle, scope, (scope.home / "data/memory/.daemon").is_dir()
+    )
+    composition = OpenClawReadyCompositionLayout(
+        runtime, profile, uv, sha, target_os, ports[0], ports[1], scope.installation_id
     )
     scheduler = native_scheduler(target_os, scope.installation_id)
-    return Upgrade(composition, host, scheduler, user)
+    return OpenClawUpgrade(composition, host, scheduler, _source_user(scope))
+
+
+def check(upgrade):
+    """What the daemon's page offers: nothing, an update, a recovery, or why not."""
+    status = current_status(upgrade)
+    if status["status"] != "required":
+        return status
+    try:
+        reviewed = upgrade.review()
+    except UpgradeRefused as error:
+        return {"revision": status["revision"], "status": "refused", "code": error.code}
+    if reviewed["status"] == "review":
+        return {"revision": status["revision"], "status": "available"}
+    return {k: v for k, v in reviewed.items() if k != "_record"}
 
 
 def dispatch(request):
@@ -534,6 +730,8 @@ def dispatch(request):
         operation = request["operation"]
         if operation == "upgrade-status":
             return current_status(upgrade)
+        if operation == "upgrade-check":
+            return check(upgrade)
         if operation == "upgrade-review":
             return {k: v for k, v in upgrade.review().items() if k != "_record"}
         if operation in ("upgrade-apply", "upgrade-recover"):

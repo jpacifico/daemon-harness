@@ -140,8 +140,33 @@ def host_environment(scope):
     return env
 
 
+def openclaw_gateway_job(host, runtime, environment):
+    """The gateway service of a daemon created on OpenClaw, from its active release."""
+    release = verify_current_release(runtime)
+    python = release_environment_interpreter(
+        resolve_release_environment(environment), host.target_os
+    )
+    from daemons_companion.runtime.bootstrap import _source_io_path
+
+    path = _source_io_path if host.target_os == "windows" else lambda p: p
+    bootstrap = (
+        "import runpy,sys;sys.dont_write_bytecode=True;"
+        f"sys.path.insert(0,{str(path(release))!r});sys.path.insert(0,{str(path(release / 'src'))!r});"
+        "runpy.run_module('daemons_companion.openclaw.gateway',run_name='__main__')"
+    )
+    return BackgroundJob(
+        scoped_job_code(OPENCLAW_GATEWAY_JOB, host.installation_id),
+        str(path(python)),
+        ("-I", "-B", "-c", bootstrap, "--attempt", str(host.attempt)),
+        str(host.attempt),
+        str(host.attempt / "logs/gateway.log"),
+        True,
+        conversational=True,
+    )
+
+
 class PrivateOpenClawControl:
-    def __init__(self, host, runtime, environment, scheduler, port):
+    def __init__(self, host, runtime, environment, scheduler, port, *, existing=False):
         self.host, self.runtime, self.environment, self.scheduler, self.port = (
             host,
             runtime,
@@ -155,31 +180,13 @@ class PrivateOpenClawControl:
         self.definition = None
         self.probes = {}
         self.plugin_loaded = False
-        if scheduler.capture(self.code) is not None:
+        # An installation creates the gateway service; a runtime update only
+        # probes the one its own transaction registered.
+        if not existing and scheduler.capture(self.code) is not None:
             raise ValueError("A gateway service already exists; recovery is required.")
 
     def job(self):
-        release = verify_current_release(self.runtime)
-        python = release_environment_interpreter(
-            resolve_release_environment(self.environment), self.host.target_os
-        )
-        from daemons_companion.runtime.bootstrap import _source_io_path
-
-        path = _source_io_path if self.host.target_os == "windows" else lambda p: p
-        bootstrap = (
-            "import runpy,sys;sys.dont_write_bytecode=True;"
-            f"sys.path.insert(0,{str(path(release))!r});sys.path.insert(0,{str(path(release / 'src'))!r});"
-            "runpy.run_module('daemons_companion.openclaw.gateway',run_name='__main__')"
-        )
-        return BackgroundJob(
-            self.code,
-            str(path(python)),
-            ("-I", "-B", "-c", bootstrap, "--attempt", str(self.host.attempt)),
-            str(self.host.attempt),
-            str(self.host.attempt / "logs/gateway.log"),
-            True,
-            conversational=True,
-        )
+        return openclaw_gateway_job(self.host, self.runtime, self.environment)
 
     def state(self):
         capture = self.scheduler.capture(self.code)

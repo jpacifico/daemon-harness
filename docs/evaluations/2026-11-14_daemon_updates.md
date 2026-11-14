@@ -103,16 +103,70 @@ documentation, outside the engine. No other file under `integrations/` changes.
 - Desktop: the daemon's page shows the update section; the backend runs the
   guided session in its own private folder; English and French texts.
 
-## Results so far
+## Results
 
 | Criterion | Result |
 | --- | --- |
-| 1. Offer | Unit tests: available, current, refused with its code, interrupted. Page rendering not yet seen in a running app |
-| 2. Hermes daemon | Existing transaction tests pass unchanged |
-| 3. OpenClaw daemon | Pass (unit tests, macOS and Windows renderings): services and profile point at the new release, the plugin is loaded from it only, memory and account unchanged |
-| 4. Rollback | Pass (unit tests): failure after each step, readiness failure and interrupted controller, both hosts |
+| 1. Offer | Pass. Unit tests: available, current, refused with its code, interrupted. Running app: the page of each trial daemon showed the update section before the update and nothing after it |
+| 2. Hermes daemon | Pass: existing transaction tests, and the real trial below |
+| 3. OpenClaw daemon | Pass: unit tests (macOS and Windows renderings) and the real trial below |
+| 4. Rollback | Pass: unit tests for every step, both hosts; one forced failure per host on a real daemon restored it exactly |
 | 5. Engine untouched | Pass, with the amendment above |
 | 6. Add a host unchanged | Pass: same texts and refusal codes (unit tests) |
 | 7. Suites | Python 3.12: 3229 passed, 25 skipped; desktop 166/166; lint clean. CI not run yet |
-| 8. Real daemons, macOS | Not run yet |
+| 8. Real daemons, macOS | Pass, see below |
 | 9. Windows | Unit tests only |
+
+## Real-daemon trial (macOS, 14 November 2026)
+
+### Protocol
+
+- Isolated state: the Companion 0.11.15 app and a build of this branch
+  (payload `6663461`, engine identical to 0.11.15) ran unpackaged with
+  `DAEMONS_COMPANION_DEV_BASE` set to a throwaway folder. The owner's daemons,
+  their services and their memory were not touched.
+- One throwaway daemon per host, created with 0.11.15 on the owner's ChatGPT
+  subscription (model Astra) and one throwaway Telegram bot, used by one daemon
+  at a time. The owner did the ChatGPT and Telegram steps.
+- State recorded as hashes only: service definitions and their service class,
+  the runtime revision named in each service, memory files, profile and
+  connection files. No contents were read or kept.
+- Forced failure: the branch's transaction run from the command line with a
+  failure injected after its last step (`upgrade-start`), when the services
+  had already restarted on the new code, so every step had to be undone.
+- Update: the Update button in the branch build, then a Telegram message.
+  Offline time read from a sample of the service processes every 0.5 s.
+
+### Measurements
+
+| | Hermes Agent daemon | OpenClaw daemon |
+| --- | --- | --- |
+| Forced failure, whole operation | 90.1 s, `rolled_back` | 144.0 s, `rolled_back` |
+| After rollback | Same release; new copy removed; service definitions byte-identical; memory 23/23 files identical; profile, model connection and bot settings identical | Same release; new copy removed; service definitions byte-identical; memory 16/16 identical; configuration, workspace, connections 17/17 identical |
+| Confirmation to committed update | 82.0 s | 83.5 s |
+| Gateway without a process | 40.7 s | 45.2 s |
+| Services stopped to readiness verified | 68.8 s | 69.9 s |
+| Runtime revision | `a9074739` → `e9243775`; previous kept | `a9074739` → `e9243775`; previous kept |
+| Service class | Gateway and embeddings Background → Standard; worker and Dreaming stay Background | Gateway, daemon API and embeddings Background → Standard; worker and Dreaming stay Background |
+| Profile change | `.env`: only `DAEMON_CORE_PYTHON` and `DAEMON_CORE_SRC`, by the release id; `config.yaml` identical; Telegram settings identical (compared key by key, values not shown) | `openclaw.json`: only `plugins.load.paths`, one path, moved to the new release; workspace identical |
+| Memory | 23/23 identical | 16/16 identical |
+| Reply after the update | Three replies, none degraded, composition 0.04–0.10 s; after-turn worker on the new revision, no error | Message received and answered (17 s); after-turn worker on the new revision, no error |
+
+Each forced failure restarted the old services; only files the gateway
+rewrites on every start (its process record and heartbeat) differed afterwards.
+
+### Observations
+
+- In the update flow, the screen keeps the installation title (“Installation
+  de votre daemon.”) and the final banner says the installation is finished.
+  The update itself is described correctly in the texts below them.
+- Found in Companion 0.11.15 while creating the trial daemons, unrelated to
+  this change, and present on `main` too:
+  - pressing Back on the Telegram token screen restarts the whole Telegram
+    step and forgets the account ID already entered;
+  - local memory search refuses to start below about 9.2 GiB of free disk,
+    while its message says 11 GB; after that refusal the app returns to the
+    host choice.
+- In the unpackaged 0.11.15 run, the ChatGPT sign-in page did not open by
+  itself; the owner used the link. Whether the installed app behaves the same
+  was not checked.

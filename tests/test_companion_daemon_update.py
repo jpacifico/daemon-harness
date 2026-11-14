@@ -176,6 +176,8 @@ def test_protocol_reports_each_outcome(owned, upgrade, result):
     request = {"source_profile": str(profile), "base": str(base), "name": "Aster"}
     assert serve_daemon_update(ui, request) == 0
     assert ui.events[-1][0] == "finished" and ui.events[-1][1]["result"] == result
+    # Every outcome ends on its own sentence, never the generic setup banner.
+    assert ui.events[-1][1]["message"]
     assert ui.finished
 
 
@@ -210,6 +212,8 @@ def test_every_text_of_the_update_is_translated():
     shown = [text.format(name="Aster") for text in texts]
     shown += [
         "Aster already runs the version of this app.",
+        "The update is finished. Aster's services restarted and were checked.",
+        "Updating your daemon.",
         "Your daemon keeps working as it was.",
         "The update was not started. Your daemon keeps working as it was.",
         "The update could not be completed (reference: ValueError). Open the daemon's page again: "

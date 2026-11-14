@@ -446,7 +446,9 @@ def serve_daemon_update(ui, request):
         name = safe_text(request["name"])[:80]
         updated = run(ui, Path(request["source_profile"]), Path(request["base"]), name)
         if updated:
-            ui.emit("finished", result="installed")
+            ui.emit("finished", result="installed", message=(
+                f"The update is finished. {name}'s services restarted and were checked."
+            ))
         else:
             ui.emit("finished", result="unfinished", message=f"{name} already runs the version of this app.")
         return 0

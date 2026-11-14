@@ -81,6 +81,7 @@ const button = (label, action, primary = false, disabled = false) => `<button cl
 // Adding a host skips naming: the daemon already exists.
 const flow = () => state.mode === 'add-host' ? phases.filter(p => p !== 'identity') : state.mode === 'change-provider' ? ['model','installation','conversation'] : state.mode === 'update-daemon' ? ['installation'] : phases;
 const hostHeadings = { host: 'Add OpenClaw to your daemon.', model: 'Connect OpenClaw to a model.', telegram: 'Create the OpenClaw bot.', installation: 'Starting OpenClaw.', conversation: 'First conversation on OpenClaw.' };
+const updateHeadings = { installation: 'Updating your daemon.' };
 const providerHeadings = { model: 'Choose another model provider.', installation: 'Switching the model connection.', conversation: 'Check your daemon’s reply.' };
 const headings = { host: 'Install your daemon’s host.', identity: 'Name your daemon.', model: 'Connect your model.', review: 'Review your setup.', telegram: 'Connect Telegram.', installation: 'Installing your daemon.', conversation: 'First meeting.' };
 
@@ -112,7 +113,7 @@ function body() {
   if (state.page === 'about') return aboutBody();
   if (state.page === 'settings') return settingsBody();
   const current = flow().indexOf(state.phase);
-  return `<div class="steps" aria-label="${escape(labels[state.phase] || 'Setup')}">${flow().map((_, i) => `<span class="${i === current ? 'current' : i < current ? 'past' : ''}"></span>`).join('')}</div><div class="eyebrow">${escape(labels[state.phase] || 'Setup')}</div><h1>${escape(state.prompt?.title === 'Conversation language' ? 'Choose your conversation language.' : state.prompt?.title === 'Choose your model' ? 'Choose your model.' : state.prompt?.title === 'ChatGPT setup needs attention' ? 'Complete your ChatGPT setup.' : (state.mode === 'add-host' ? hostHeadings : state.mode === 'change-provider' ? providerHeadings : headings)[state.phase] || 'Setting things up.')}</h1>
+  return `<div class="steps" aria-label="${escape(labels[state.phase] || 'Setup')}">${flow().map((_, i) => `<span class="${i === current ? 'current' : i < current ? 'past' : ''}"></span>`).join('')}</div><div class="eyebrow">${escape(labels[state.phase] || 'Setup')}</div><h1>${escape(state.prompt?.title === 'Conversation language' ? 'Choose your conversation language.' : state.prompt?.title === 'Choose your model' ? 'Choose your model.' : state.prompt?.title === 'ChatGPT setup needs attention' ? 'Complete your ChatGPT setup.' : (state.mode === 'add-host' ? hostHeadings : state.mode === 'change-provider' ? providerHeadings : state.mode === 'update-daemon' ? updateHeadings : headings)[state.phase] || 'Setting things up.')}</h1>
     ${state.phase==='host'&&state.mode!=='add-host'?`<p class="hint">${escape(locale.t('setup.duration',language))}</p>`:''}
     <div id="activity" role="status" aria-live="polite">${activityBody()}</div>
     ${!state.prompt && state.result ? `<div class="note">${state.result.result === 'error' ? errorBody(state.result.message) : escape(state.result.message || 'Setup ended. See the details below for the verified result.')}</div>` : ''}

@@ -157,9 +157,11 @@ rewrites on every start (its process record and heartbeat) differed afterwards.
 
 ### Observations
 
-- In the update flow, the screen keeps the installation title (“Installation
-  de votre daemon.”) and the final banner says the installation is finished.
-  The update itself is described correctly in the texts below them.
+- In the update flow, the screen kept the installation title (“Installation
+  de votre daemon.”) and the final banner said the installation was finished.
+  Corrected after the trial: the screen reads “Updating your daemon.” and ends
+  with “The update is finished. {name}'s services restarted and were checked.”
+  (texts only; not re-run on a real daemon).
 - Found in Companion 0.11.15 while creating the trial daemons, unrelated to
   this change, and present on `main` too:
   - pressing Back on the Telegram token screen restarts the whole Telegram

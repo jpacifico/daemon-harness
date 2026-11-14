@@ -240,6 +240,33 @@ class OpenClawProfileAdapter:
         )
         _restore_directory(self.layout.workspace, before["workspace"])
 
+    def current(self) -> bool:
+        """Whether the profile already holds this release's exact projection.
+
+        A runtime update re-points a profile it installed itself; any other
+        edit of the managed paths needs a separate migration.
+        """
+        release = self._validate_layout()
+        config = _read_regular_bytes(self.layout.config_path)
+        if config is None:
+            return False
+        expected = _render_config(
+            config,
+            plugin_source=release / "integrations" / "openclaw_plugin",
+            workspace=self.layout.workspace,
+            user_id=self.user_id,
+            daemon_url=self.daemon_url,
+            runtime_health_path=self.layout.runtime.state_root
+            / "openclaw-runtime-health.json",
+        )
+        return (
+            expected == config
+            and _read_regular_bytes(self.layout.workspace_marker)
+            == _WORKSPACE_MARKER_CONTENT.encode("utf-8")
+            and _read_regular_bytes(self.layout.workspace_agents)
+            == self._canonical_agents(release)
+        )
+
     def _canonical_agents(self, release: Path) -> bytes:
         source = release / "integrations" / "openclaw_plugin" / "workspace" / "AGENTS.md"
         content = _read_regular_bytes(_io_path(source))
@@ -417,6 +444,7 @@ def _project_config(
             ("plugins", "entries", "codex", "config", "codexDynamicToolsLoading"),
             "searchable",
         )
+    _drop_other_releases(config, plugin_source)
     _append_unique(config, ("plugins", "load", "paths"), (str(plugin_source),))
     _set_path(config, ("plugins", "slots", "contextEngine"), "daemon-harness")
     _set_path(config, ("plugins", "entries", "daemon-harness", "enabled"), True)
@@ -522,6 +550,34 @@ def _get_path(mapping: Mapping[str, object], path: tuple[str, ...], default: obj
             return default
         current = current[part]
     return current
+
+
+def _drop_other_releases(mapping: dict[str, object], plugin_source: Path) -> None:
+    """A runtime update points the profile at its new release only.
+
+    The previous release keeps its own plugin copy for rollback; loading both
+    would register the daemon plugin twice. Paths outside this daemon's
+    releases are the owner's and stay.
+    """
+    current = _get_path(mapping, ("plugins", "load", "paths"), _MISSING)
+    if not isinstance(current, list):
+        return
+    releases = plugin_source.parents[2]
+
+    def other_release(item: object) -> bool:
+        if not isinstance(item, str) or item == str(plugin_source):
+            return False
+        path = Path(item)
+        return (
+            len(path.parents) > 2
+            and path.parents[2] == releases
+            and path.parent.name == "integrations"
+            and path.name == "openclaw_plugin"
+        )
+
+    kept = [item for item in current if not other_release(item)]
+    if kept != current:
+        _set_path(mapping, ("plugins", "load", "paths"), kept)
 
 
 def _append_unique(

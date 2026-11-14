@@ -12,6 +12,8 @@ contextBridge.exposeInMainWorld('companion', Object.freeze({
   checkProvider: (id,key=null) => ipcRenderer.invoke('provider-check',id,key),
   changeProvider: (id,revision,model,key=null) => ipcRenderer.invoke('provider-change',id,revision,model,key),
   startProviderSwitch: id => ipcRenderer.invoke('provider-switch-start',id),
+  daemonUpdateStatus: id => ipcRenderer.invoke('daemon-update-status',id),
+  startDaemonUpdate: id => ipcRenderer.invoke('daemon-update-start',id),
   openObsidian: id => ipcRenderer.invoke('obsidian-open',id),
   reviewDiscard: id => ipcRenderer.invoke('setup-discard-review',id),
   applyDiscard: (id,token) => ipcRenderer.invoke('setup-discard-apply',id,token),

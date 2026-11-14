@@ -31,6 +31,12 @@ A Hermes Agent daemon created by Companion can receive an added OpenClaw host
 host; both removals keep the memory folder. The complete list of effects is in
 [installation impact](../../docs/installation_impact.md).
 
+When the app carries a newer copy of the code that installs and runs daemons,
+the daemon's page offers **Update**. The plugin, prompts, memory, model
+connection and bot stay as they are; services are restarted from the new
+copy and everything is restored if a step fails. A daemon with an added host
+is not updated this way. See [installation impact](../../docs/installation_impact.md#updating-a-daemon).
+
 ## Manual installation on an existing profile
 
 The following procedure modifies an **existing** Hermes profile. It is intended

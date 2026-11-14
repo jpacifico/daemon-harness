@@ -431,6 +431,44 @@ def serve_host_addition(ui, request):
         ui.finished = True
 
 
+def serve_daemon_update(ui, request):
+    """Guided runtime update from the daemon's page; the parent supplies only owned paths and a name."""
+    from pathlib import Path
+    from daemons_companion.hosts.update import UpdateStopped, run
+
+    try:
+        if (
+            not isinstance(request, dict)
+            or set(request) != {"source_profile", "base", "name"}
+            or not all(isinstance(v, str) and v for v in request.values())
+        ):
+            raise ValueError("Invalid daemon update request.")
+        name = safe_text(request["name"])[:80]
+        updated = run(ui, Path(request["source_profile"]), Path(request["base"]), name)
+        if updated:
+            ui.emit("finished", result="installed", message=(
+                f"The update is finished. {name}'s services restarted and were checked."
+            ))
+        else:
+            ui.emit("finished", result="unfinished", message=f"{name} already runs the version of this app.")
+        return 0
+    except UpdateStopped:
+        ui.emit("finished", result="unfinished", message="Your daemon keeps working as it was.")
+        return 0
+    except (Quit, Back, KeyboardInterrupt, EOFError):
+        ui.emit("finished", result="cancelled", message="The update was not started. Your daemon keeps working as it was.")
+        return 130
+    except Exception as error:
+        category = error_category(error)
+        ui.diagnostic("daemon-update", "failed", error)
+        ui.emit("finished", result="error", error_code=category, message=(
+            f"The update could not be completed (reference: {category}). Open the daemon's page again: "
+            "an interrupted update is restored from there. Export the diagnostic to report it."))
+        return 1
+    finally:
+        ui.finished = True
+
+
 def serve_provider_change(ui, request, owner):
     """Guided provider change; the parent supplies only owned paths and a name."""
     from pathlib import Path
@@ -534,6 +572,8 @@ def main():
         ui.start()
         if sys.argv[1:] == ['--add-host']:
             return serve_host_addition(ui, json.loads(os.environ.get("DAEMONS_ADD_HOST", "null")))
+        if sys.argv[1:] == ['--update-daemon']:
+            return serve_daemon_update(ui, json.loads(os.environ.get("DAEMONS_UPDATE_DAEMON", "null")))
         if sys.argv[1:] == ['--change-provider']:
             return serve_provider_change(ui, json.loads(os.environ.get("DAEMONS_CHANGE_PROVIDER", "null")), owner)
         if sys.argv[1:] == ['--status']:

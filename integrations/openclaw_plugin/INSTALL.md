@@ -26,6 +26,14 @@ their version and stay recognised for services, attachment and removal.
   default. OpenClaw answers Telegram **Start** itself, which opens the welcome.
 - **Settings:** the reference conversation settings below.
 
+A daemon created directly on OpenClaw is offered **Update** in its page when
+the app carries a newer copy of the code that installs and runs it. The plugin,
+workspace instructions, memory, model connection and bot stay as they are; the
+profile then loads the plugin from the new copy only, and the previous copy is
+kept to restore it if a step fails. An OpenClaw added to a Hermes Agent daemon
+is not updated this way.
+[Updating a daemon](../../docs/installation_impact.md#updating-a-daemon).
+
 An unfinished first OpenClaw installation can be deleted from the app; an
 unfinished Add a host is resumed. A completed daemon created directly on
 OpenClaw is uninstalled from the app with its private OpenClaw, keeping its

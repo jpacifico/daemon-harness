@@ -80,7 +80,7 @@ function ownPage(event) {
 }
 const mutations = new Set(['host-interface-open','instances-action','removal-review','removal-apply','daemon-save',
   'setup-start','setup-new','setup-discard-review','setup-discard-apply','host-add-start','update-install',
-  'memory-backup','setup-restore','backup-drive','backup-automatic','google-disconnect','provider-change','provider-switch-start','host-change-start']);
+  'memory-backup','setup-restore','backup-drive','backup-automatic','google-disconnect','provider-change','provider-switch-start','host-change-start','daemon-update-start']);
 let mutationBusy = false;
 function handle(channel, callback) {
   ipcMain.handle(channel, async (event, ...args) => {
@@ -381,6 +381,28 @@ handle('provider-switch-start', async id => {
   if(!info.switchable||info.pending)throw new Error('provider.unsupported');
   backend.conversationLanguage=preferences.language;
   return backend.start('change-provider',null,null,null,false,null,{profile,base:instances.base,name:name||'Your daemon'});
+});
+// Runtime update of a daemon this app created (hosts/update.py, runtime/upgrade.py).
+// The page asks what is possible; the update itself is a guided session.
+async function ownedDaemon(id) {
+  await instances.refresh();const row=instances.rows.get(id);
+  const owned=row?.profile&&!row.problem&&row.daemon?.runtime&&(row.profile===instances.base||row.profile.startsWith(instances.base+path.sep));
+  return owned?row:null;
+}
+handle('daemon-update-status', async id => {
+  if(smoke||backend.active||backend.settingsBusy)return null;
+  const row=await ownedDaemon(id);
+  if(!row)return null;
+  try {return await backend.daemonSettings({operation:'upgrade-check',source_profile:row.profile,base:instances.base},'attachment');}
+  catch {return {status:'unavailable'};}
+});
+handle('daemon-update-start', async id => {
+  if(backend.active||backend.settingsBusy)throw new Error('Finish the current setup or daemon action, then try again.');
+  const row=await ownedDaemon(id);
+  if(!row)throw new Error('This daemon cannot be updated by the app.');
+  backend.conversationLanguage=preferences.language;
+  await hostInterface?.closeFor(id);
+  return backend.start('update-daemon',null,null,null,false,null,null,{source_profile:row.profile,base:instances.base,name:row.daemon?.name||'Your daemon'});
 });
 // Memory backups (backup-service.cjs): to a file or Google Drive, by hand or daily.
 const {Backups,checkedPassword,fileName,EXTENSION:BACKUP_EXTENSION}=require('./backup-service.cjs');

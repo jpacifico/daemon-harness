@@ -6220,5 +6220,99 @@
     "en": "Google Drive did not answer the request. Nothing was changed: try again in a few minutes.",
     "fr": "Google Drive n’a pas répondu à la demande. Rien n’a été modifié : réessayez dans quelques minutes.",
     "status": "google"
+  },
+  "topbar.updateDaemon": {
+    "en": "Update a daemon",
+    "fr": "Mettre à jour un daemon"
+  },
+  "daemonUpdate.title": {
+    "en": "Daemon update",
+    "fr": "Mise à jour du daemon"
+  },
+  "daemonUpdate.available": {
+    "en": "An update for {name} comes with this app version. It changes how the app installs and runs {name}, not what it says or remembers.",
+    "fr": "Une mise à jour pour {name} est fournie avec cette version de l’app. Elle change la façon dont l’app installe et fait fonctionner {name}, pas ses réponses ni sa mémoire.",
+    "template": true
+  },
+  "daemonUpdate.scope": {
+    "en": "Its memory, model account and Telegram bot do not change. It does not answer on Telegram until its services have restarted.",
+    "fr": "Sa mémoire, son compte de modèle et son bot Telegram ne changent pas. Aucune réponse sur Telegram tant que ses services n’ont pas redémarré."
+  },
+  "daemonUpdate.start": {
+    "en": "Update",
+    "fr": "Mettre à jour"
+  },
+  "daemonUpdate.restore": {
+    "en": "Restore",
+    "fr": "Rétablir"
+  },
+  "daemonUpdate.question": {
+    "en": "Update {name} now?",
+    "fr": "Mettre à jour {name} maintenant ?",
+    "template": true
+  },
+  "daemonUpdate.preparing": {
+    "en": "Preparing the update…",
+    "fr": "Préparation de la mise à jour…"
+  },
+  "daemonUpdate.engine": {
+    "en": "The update that comes with this app version also changes the daemon's engine, which an existing daemon keeps. {name} keeps working as it is. To get it, back up {name}'s memory, then install a new daemon from that backup.",
+    "fr": "La mise à jour fournie avec cette version de l’app change aussi le moteur du daemon, qu’un daemon existant conserve. {name} continue de fonctionner tel quel. Pour en profiter, sauvegardez la mémoire de {name}, puis installez un nouveau daemon à partir de cette sauvegarde.",
+    "template": true
+  },
+  "daemonUpdate.portability": {
+    "en": "{name} cannot be updated automatically by this version of the app. Your daemon keeps working.",
+    "fr": "Cette version de l’app ne peut pas mettre à jour {name} automatiquement. Votre daemon continue de fonctionner.",
+    "template": true
+  },
+  "daemonUpdate.attachedHosts": {
+    "en": "{name} also answers from another host, and this version cannot update both hosts together yet. Your daemon keeps working.",
+    "fr": "{name} répond aussi depuis un autre hôte, et cette version ne sait pas encore mettre à jour les deux hôtes ensemble. Votre daemon continue de fonctionner.",
+    "template": true
+  },
+  "daemonUpdate.openclawProfile": {
+    "en": "{name}'s OpenClaw settings changed since installation, so the update was not started. Your daemon keeps working.",
+    "fr": "Les réglages OpenClaw de {name} ont changé depuis l’installation : la mise à jour n’a pas été lancée. Votre daemon continue de fonctionner.",
+    "template": true
+  },
+  "daemonUpdate.unavailable": {
+    "en": "The app could not check whether {name} has an update. {name} keeps working.",
+    "fr": "L’app n’a pas pu vérifier si {name} a une mise à jour. {name} continue de fonctionner.",
+    "template": true
+  },
+  "daemonUpdate.current": {
+    "en": "{name} already runs the version of this app.",
+    "fr": "{name} utilise déjà la version de cette app.",
+    "template": true
+  },
+  "daemonUpdate.keeps": {
+    "en": "Your daemon keeps working as it was.",
+    "fr": "Votre daemon continue de fonctionner comme avant."
+  },
+  "daemonUpdate.cancelled": {
+    "en": "The update was not started. Your daemon keeps working as it was.",
+    "fr": "La mise à jour n’a pas été lancée. Votre daemon continue de fonctionner comme avant."
+  },
+  "daemonUpdate.error": {
+    "en": "The update could not be completed (reference: {category}). Open the daemon's page again: an interrupted update is restored from there. Export the diagnostic to report it.",
+    "fr": "La mise à jour n’a pas pu aboutir (référence : {category}). Rouvrez la page du daemon : une mise à jour interrompue s’y rétablit. Exportez le diagnostic pour la signaler.",
+    "template": true
+  },
+  "daemonUpdate.busy": {
+    "en": "Finish the current setup or daemon action, then try again.",
+    "fr": "Terminez l’installation ou l’action en cours sur un daemon, puis réessayez."
+  },
+  "daemonUpdate.unsupported": {
+    "en": "This daemon cannot be updated by the app.",
+    "fr": "Ce daemon ne peut pas être mis à jour par l’app."
+  },
+  "daemonUpdate.heading": {
+    "en": "Updating your daemon.",
+    "fr": "Mise à jour de votre daemon."
+  },
+  "daemonUpdate.finished": {
+    "en": "The update is finished. {name}'s services restarted and were checked.",
+    "fr": "La mise à jour est terminée. Les services de {name} ont redémarré et ont été vérifiés.",
+    "template": true
   }
 }

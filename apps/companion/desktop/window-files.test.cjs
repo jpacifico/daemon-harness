@@ -22,3 +22,19 @@ test('every file index.html loads is allowed by the window', () => {
   const packaged = JSON.parse(read('package.json')).build.files;
   for (const file of allowed) assert.ok(packaged.includes(file), `${file} is not packaged`);
 });
+
+test('the window scripts never declare the same top-level function twice', () => {
+  // These scripts share the window's global scope: a second declaration
+  // silently replaces the first, and the page that relied on it breaks.
+  const scripts = [...read('index.html').matchAll(/<script\b[^>]*\bsrc="([^"]+\.js)"/g)].map(match => match[1]);
+  assert.ok(scripts.includes('renderer.js'));
+  const seen = new Map();
+  for (const file of scripts) {
+    for (const match of read(file).matchAll(/^(?:async\s+)?function\s+([A-Za-z_$][\w$]*)\s*\(/gm)) {
+      const name = match[1];
+      assert.ok(!seen.has(name), `${name} is declared in ${seen.get(name)} and again in ${file}`);
+      seen.set(name, file);
+    }
+  }
+  assert.ok(seen.size > 50);
+});

@@ -162,6 +162,11 @@ rewrites on every start (its process record and heartbeat) differed afterwards.
   Corrected after the trial: the screen reads “Updating your daemon.” and ends
   with “The update is finished. {name}'s services restarted and were checked.”
   (texts only; not re-run on a real daemon).
+- Found while packaging 0.11.17, before any release: the page section was
+  named like the app-update section of the Settings page, so it replaced it and
+  the Settings page failed (the packaged smoke test caught it; the unit tests
+  did not render that page). Renamed, and a desktop test now refuses two
+  top-level functions with the same name in the window scripts.
 - Found in Companion 0.11.15 while creating the trial daemons, unrelated to
   this change, and present on `main` too:
   - pressing Back on the Telegram token screen restarts the whole Telegram

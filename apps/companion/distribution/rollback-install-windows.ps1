@@ -10,9 +10,9 @@
     $ErrorActionPreference = 'Stop'
     Set-StrictMode -Version Latest
     $daemonRepo = 'jpacifico/daemon-harness'
-    $daemonTag = 'companion-v0.11.14'
+    $daemonTag = 'companion-v0.11.15'
     $daemonAsset = 'Daemons-Companion-Windows-x64.exe'
-    $daemonDigest = '3c8fbe59a0b09419794bea314ec3b5c02efdcf98b3e232c0db1c66ce5d9dce7e'
+    $daemonDigest = '17d8d06fef28d9eec3044c3c174bd8b492e0da7e01508a77e40bc0826da8d70a'
     $daemonScratch = $null
     try {
         if ([Environment]::OSVersion.Platform -ne 'Win32NT') { throw 'This package requires Windows.' }

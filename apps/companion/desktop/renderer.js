@@ -594,7 +594,7 @@ function daemonBody() {
       ${!d.canEditUser?`<p class="note">${d.userReason==='unsupported'?escape(locale.t('daemon.user.unsupported',language)):'No single user account is linked to these settings. Tell your daemon your preferences in conversation.'}</p>`:'<p class="hint">These are your setup preferences. Explicit corrections you have given in conversation remain authoritative.</p>'}
       ${daemonAccounts(d)}
     </fieldset></form>
-    ${updateSection(v)}
+    ${daemonUpdateSection(v)}
     ${providerSection()}
     ${hostChangeSection(d,v)}
     <section class="daemon-memory"><h2>Memory</h2><p>Your memories are stored in this folder.</p><p class="memory-path" data-original>${escape(d.memory)}</p>
@@ -612,7 +612,7 @@ function daemonBody() {
 const UPDATE_PENDING=['prepared','in_progress','failed','rollback_failed','command_recovery'];
 const UPDATE_REFUSALS={'protected-runtime':'daemonUpdate.engine','portability':'daemonUpdate.portability','attached-hosts':'daemonUpdate.attachedHosts',
   'services-changed':'hostAdd.servicesChanged','hermes-profile':'hostAdd.hermesProfile','openclaw-profile':'daemonUpdate.openclawProfile','host-config':'hostAdd.hostConfig'};
-function updateSection(v) {
+function daemonUpdateSection(v) {
   const u=daemonUpdate,name=v.name||locale.t('daemon.unnamed',language),t=key=>escape(locale.t(key,language,{name}));
   if(!u||u.status==='current')return '';
   const start=label=>`<div class="links"><button class="button" data-daemon-update ${state.daemonBusy||state.active?'disabled':''}>${t(label)}</button></div>`;

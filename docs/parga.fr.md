@@ -12,7 +12,8 @@ l'origine de chaque fait.
 l'initiale des cinq dossiers : **Projects**, **Areas**, **Resources**,
 **Garden** et **Archives**. Ce classement s'inspire notamment de PARA
 (Tiago Forte), d'IPCRA (Eliott Meunier) et du Zettelkasten, adaptés à un
-assistant qui tient votre mémoire à jour après chaque échange.
+système agentique qui se charge de maintenir automatiquement votre mémoire sur
+le long terme.
 
 ## Pourquoi un classement
 

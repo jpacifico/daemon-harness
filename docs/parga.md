@@ -10,8 +10,8 @@ situation or an idea, with its history and where each fact comes from.
 **PARGA** is how these souvenirs are filed. The name takes the initials of the
 five folders: **Projects**, **Areas**, **Resources**, **Garden** and
 **Archives**. This filing draws in particular on PARA (Tiago Forte), IPCRA
-(Eliott Meunier) and the Zettelkasten, adapted to an assistant that keeps your
-memory up to date after each exchange.
+(Eliott Meunier) and the Zettelkasten, adapted to an agentic system that takes care of
+maintaining your memory automatically over the long term.
 
 ## Why organize memory
 

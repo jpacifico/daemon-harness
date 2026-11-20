@@ -49,9 +49,12 @@ class SetupHomes {
       if(path.basename(directory) === 'private' && !(await fs.readdir(directory)).length)return 'none';
       const discard=await metadata(path.join(directory,'setup-discard.json'));
       if(discard?.schema==='daemon.companion-setup-discard.v1')return discard.status==='done'?'none':'discarding';
-      const host=await metadata(path.join(directory,'hosts/hermes/current.json'));
-      if(host?.schema==='daemon.companion-host-install.v1' && /^[0-9a-f]{32}$/.test(host.installation_id||'')) {
-        const attempt=path.join(directory,'hosts/hermes/installations',host.installation_id);
+      // A daemon removed by the app, created on Hermes Agent or directly on
+      // OpenClaw, leaves only its retained files: no setup to show.
+      for(const [name,schema] of [['hermes','daemon.companion-host-install.v1'],['openclaw','daemon.openclaw-first.v1']]) {
+        const host=await metadata(path.join(directory,'hosts',name,'current.json'));
+        if(host?.schema!==schema || !/^[0-9a-f]{32}$/.test(host.installation_id||''))continue;
+        const attempt=path.join(directory,'hosts',name,'installations',host.installation_id);
         const removal=await metadata(path.join(attempt,'companion-removal.json'),2*1024*1024);
         if(removal?.schema==='daemon.companion-removal.v1' && removal.profile===path.join(attempt,'profile') && removal.status!=='rolled_back')return removal.status==='done'?'none':'unreadable';
       }

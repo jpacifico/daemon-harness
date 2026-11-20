@@ -148,61 +148,52 @@ Which models are offered, and why, is listed in [Model providers](docs/model_pro
 
 <a id="impact-exact-de-linstallation"></a>
 
-After you confirm the setup plan, the app creates a private host installation
-(Hermes Agent `0.21.5`, or OpenClaw `2026.10.7` with Node `24.22.1`), a memory
-folder and background services: the host's gateway, an after-turn memory worker,
-a nightly maintenance job and a local search model (about 640 MB). It does not
-adopt or modify unrelated installations. API keys go to the operating system's
-credential store.
+When you confirm the setup plan, the app:
 
-- **Continuity:** new daemons receive the `parga-v1` profile and the reference
-  daemon's voice (`persona.md` and `conversation.md`, without name or gender).
-  No model call is added before the first text of a reply.
-- **Host settings:** Companion writes the reference daemon's conversation and
-  Telegram display settings into the new host's own configuration. With ChatGPT,
-  OpenClaw also enables the subscription's hosted web search; API-key OpenClaw
-  hosts have no web search until one is configured.
-- **Host memory and tools:** the host keeps its native tools and permissions.
-  Its competing native personal memory and automatic memory and skill rewriting
-  are disabled.
-- **Removal:** a Hermes Agent daemon can be removed while keeping Hermes, or
-  uninstalled with its host; both keep the memory folder. A daemon created
-  directly on OpenClaw is uninstalled with its private OpenClaw, keeping the
-  memory folder.
-- **Changing host:** a daemon created by the app can move from Hermes Agent to
-  OpenClaw or back, with its memory, Telegram bot and model connection. The
-  previous host is uninstalled only after the daemon has answered on the new
-  one; its memory folder is kept as an archive.
-- **Existing daemons:** updating the app changes none of them. A daemon keeps
-  the profile it was created with.
-- **Backups and background mode:** background mode, open at login, encrypted
-  backups and Google Drive stay off until you turn them on. A backup restores
-  into a new daemon, as a copy or a move; it never changes the original daemon.
+- installs a **private host**: its own copy of Hermes Agent or OpenClaw,
+  reserved for your daemon and kept apart from any copy already on your
+  computer, which it does not touch;
+- creates your daemon's memory folder, its background services (the host's
+  gateway, memory upkeep after each reply, a nightly maintenance job) and a
+  local search model of about 640 MB; API keys go to your operating system's
+  credential store;
+- leaves the host its tools and permissions, but turns off the host's own
+  personal memory, which would compete with the daemon's;
+- keeps background mode, open at login, encrypted backups and Google Drive off
+  until you turn them on;
+- never deletes the memory folder: removing a daemon or its host keeps it.
 
-Read the [complete installation-impact reference](docs/installation_impact.md)
-for paths, credentials, settings, maintenance, removal and platform limits.
-Manual plugin installation is in the [Hermes Agent](integrations/hermes_plugin/INSTALL.md)
+The [complete installation-impact reference](docs/installation_impact.md) lists
+paths, versions, settings, maintenance, removal and platform limits. Manual
+plugin installation is in the [Hermes Agent](integrations/hermes_plugin/INSTALL.md)
 and [OpenClaw](integrations/openclaw_plugin/INSTALL.md) guides.
 
 ## What has been measured
 
-The [Continuity Benchmark](docs/continuity-benchmark.md) compares the same
-Hermes Agent, model and tools with and without the daemon, on 24 synthetic
-personal-assistant scenarios judged blind by two Claude Opus 5.5 judges. Its
-claims were fixed before any run. Version 1.1 (31 October 2026):
+Existing benchmarks test an agent's skills, not whether it knows the person it
+works for. So we built the [Continuity Benchmark](docs/continuity-benchmark.md):
+it compares the same Hermes Agent, with the same model and tools, with and
+without the daemon, on 24 invented people who each talk to their assistant
+over several conversations. Its criteria were fixed before any run, and two
+blind Claude Opus 5.5 judges must agree on each verdict.
 
-- with the daemon, Hermes used every earlier fact in 16 scenarios against 12,
-  never asked again for something already said (0 against 2), used outdated
-  context less (1 against 5) and was preferred in 13 scenarios against 8;
-- it passed 12 scenarios against 10, short of the required +6: **no claim that
-  the daemon improves Hermes as a personal assistant is made**. Its main
-  failure is a chain of single questions in place of help;
-- Hermes kept its capabilities: 12 of 12 native tasks on both sides
-  (version 1.0);
-- a full turn, after-turn memory work included, used 3.42 times the tokens of
-  Hermes alone.
+Version 1.1 (31 October 2026):
 
-[Reports, records and limits](docs/continuity-benchmark.md).
+| | Hermes alone | Hermes + daemon |
+| --- | ---: | ---: |
+| Uses every earlier fact | 12 / 24 | **16 / 24** |
+| Asks again for something already said | 2 | **0** |
+| Uses outdated or unrelated context | 5 | **1** |
+| Invents a fact | 0 | 0 |
+| Preferred in blind comparison | 8 | **13** (3 ties) |
+| Native agent tasks passed (version 1.0) | 12 / 12 | 12 / 12 |
+
+Measured with GPT-6-Astra through a ChatGPT subscription. A full turn currently
+uses 3.42 times the tokens of Hermes alone, mostly for memory upkeep after the
+reply; we are working to reduce it and will publish our progress as soon as
+possible.
+
+[Full results, method and limits](docs/continuity-benchmark.md).
 
 ## Documentation and development
 

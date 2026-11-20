@@ -194,7 +194,8 @@ latence, limites restantes et une seule prochaine étape recommandée.
 Toute modification d'un installateur, d'un workspace géré ou d'une
 configuration hôte qui change la mémoire native, le Dreaming, les skills, les
 outils, l'affichage ou le rollback doit mettre à jour dans le même commit la
-section « Impact Exact De L'installation » du `README.md` et le `INSTALL.md` de
+référence `docs/installation_impact.md`, le résumé « Exact installation
+impact » du `README.md` s'il devient inexact, et le `INSTALL.md` de
 l'intégration concernée. Ne jamais annoncer qu'une capacité hôte est désactivée
 si le script ne l'applique pas ou si le contrôle de déploiement ne le vérifie
 pas réellement.

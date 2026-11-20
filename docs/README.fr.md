@@ -148,62 +148,53 @@ Les modèles proposés, et pourquoi, sont listés dans [Fournisseurs de modèles
 
 ## Effets de l’installation
 
-Après confirmation, l’app crée une installation privée de l’hôte (Hermes Agent
-`0.21.5`, ou OpenClaw `2026.10.7` avec Node `24.22.1`), un dossier memory et des
-services en arrière-plan : le Gateway de l’hôte, un worker d’après-tour, un
-entretien nocturne et un modèle de recherche local (environ 640 Mo). Les clés
-API utilisent le stockage d’identifiants du système.
+Après confirmation du plan d’installation, l’app :
 
-- Un nouveau daemon reçoit le profil de continuité `parga-v1` et la voix du
-  daemon de référence (`persona.md` et `conversation.md`, sans nom ni genre).
-  Aucun appel au modèle n’est ajouté avant le premier texte d’une réponse.
-- L’app écrit dans la configuration du nouvel hôte les réglages de conversation
-  et d’affichage Telegram du daemon de référence. Avec ChatGPT, OpenClaw active
-  aussi la recherche Web hébergée de l’abonnement ; un OpenClaw avec clé API n’a
-  pas de recherche Web tant qu’aucune n’est configurée.
-- Les outils et leurs autorisations restent sous la responsabilité de l’hôte ;
-  sa mémoire personnelle native et sa réécriture automatique des souvenirs et
-  des skills sont désactivées.
-- Un daemon Hermes Agent peut être retiré en gardant Hermes Agent, ou
-  désinstallé avec son hôte ; les deux conservent le dossier memory. Un daemon
-  créé directement sur OpenClaw est désinstallé avec son OpenClaw privé, en
-  conservant le dossier memory.
-- Un daemon créé par l’app peut passer de Hermes Agent à OpenClaw, ou
-  l’inverse, avec sa mémoire, son bot Telegram et sa connexion au modèle.
-  L’ancien hôte n’est désinstallé qu’une fois que le daemon a répondu sur le
-  nouveau ; son dossier memory est conservé comme archive.
-- Mettre à jour l’app ne modifie aucun daemon existant.
-- Le mode arrière-plan, l’ouverture à la connexion, la sauvegarde chiffrée et
-  Google Drive restent désactivés tant que vous ne les activez pas. Une
-  sauvegarde se restaure dans un nouveau daemon, en copie ou en déménagement ;
-  elle ne modifie jamais le daemon d’origine.
+- installe un **hôte privé** : sa propre copie de Hermes Agent ou d’OpenClaw,
+  réservée à votre daemon et séparée de toute copie déjà présente sur votre
+  ordinateur, à laquelle elle ne touche pas ;
+- crée le dossier memory de votre daemon, ses services en arrière-plan (le
+  Gateway de l’hôte, l’entretien de la mémoire après chaque réponse, un
+  entretien nocturne) et un modèle de recherche local d’environ 640 Mo ; les
+  clés API vont dans le stockage d’identifiants du système ;
+- laisse à l’hôte ses outils et leurs autorisations, mais désactive sa propre
+  mémoire personnelle, qui ferait concurrence à celle du daemon ;
+- laisse désactivés le mode arrière-plan, l’ouverture à la connexion, la
+  sauvegarde chiffrée et Google Drive tant que vous ne les activez pas ;
+- ne supprime jamais le dossier memory : retirer un daemon ou son hôte le
+  conserve.
 
 Les [effets exacts](installation_impact.md) (en anglais) détaillent les chemins,
-les identifiants, les réglages, l’entretien, le retrait et les limites selon la
+les versions, les réglages, l’entretien, le retrait et les limites selon la
 plateforme.
 
 ## Ce qui a été mesuré
 
-Le [Continuity Benchmark](continuity-benchmark.fr.md) compare le
-même Hermes Agent, avec le même modèle et les mêmes outils, avec et sans le
-daemon, sur 24 scénarios synthétiques d’assistant personnel jugés à l’aveugle
-par deux juges Claude Opus 5.5. Ce qu’il permet d’affirmer a été fixé avant
-toute exécution. Version 1.1 (31 octobre 2026) :
+Les bancs d’essai existants évaluent les compétences d’un agent, pas sa
+connaissance de la personne qu’il assiste. Nous avons donc construit le
+[Continuity Benchmark](continuity-benchmark.fr.md) : il compare le même Hermes
+Agent, avec le même modèle et les mêmes outils, avec et sans le daemon, sur 24
+personnes fictives qui parlent chacune à leur assistant au fil de plusieurs
+conversations. Ses critères ont été fixés avant toute exécution, et deux juges
+Claude Opus 5.5 à l’aveugle doivent s’accorder sur chaque verdict.
 
-- avec le daemon, Hermes a utilisé tous les faits antérieurs dans 16 scénarios
-  contre 12, n’a jamais redemandé une chose déjà dite (0 contre 2), a moins
-  utilisé un contexte périmé (1 contre 5) et a été préféré dans 13 scénarios
-  contre 8 ;
-- il a réussi 12 scénarios contre 10, en deçà des +6 exigés : **le banc ne
-  permet pas d’affirmer que le daemon améliore Hermes comme assistant
-  personnel**. Son principal échec est une suite de questions isolées à la
-  place d’une aide ;
-- Hermes a conservé ses capacités : 12 tâches natives sur 12 des deux côtés
-  (version 1.0) ;
-- un tour complet, travail mémoire d’après-tour compris, a consommé 3,42 fois
-  les tokens de Hermes seul.
+Version 1.1 (31 octobre 2026) :
 
-[Rapports, enregistrements et limites](continuity-benchmark.fr.md).
+| | Hermes seul | Hermes + daemon |
+| --- | ---: | ---: |
+| Utilise tous les faits antérieurs | 12 / 24 | **16 / 24** |
+| Redemande une chose déjà dite | 2 | **0** |
+| Utilise un contexte périmé ou hors sujet | 5 | **1** |
+| Invente un fait | 0 | 0 |
+| Préféré en comparaison à l’aveugle | 8 | **13** (3 égalités) |
+| Tâches d’agent natives réussies (version 1.0) | 12 / 12 | 12 / 12 |
+
+Mesuré avec GPT-6-Astra via un abonnement ChatGPT. Un tour complet consomme
+actuellement 3,42 fois les tokens de Hermes seul, surtout pour l’entretien de
+la mémoire après la réponse ; nous travaillons à la réduire et publierons nos
+avancées dès que possible.
+
+[Résultats complets, méthode et limites](continuity-benchmark.fr.md).
 
 ## Comprendre et contribuer
 

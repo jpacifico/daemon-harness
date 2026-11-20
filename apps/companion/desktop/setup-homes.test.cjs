@@ -172,6 +172,17 @@ test('first OpenClaw setup is resumable, named correctly and complete without He
   await fs.writeFile(path.join(attempt,'daemon-setup.json'),JSON.stringify({schema:'daemon.private-setup.v1',username:'Synthetic_Bot',user_id:'777001'}));
   assert.equal(await homes.summary(directory),'installed');
   await assert.rejects(homes.select(row.id),/cannot be resumed/);
+  // Its removal by the app hides the setup like a removed Hermes daemon; only
+  // a record bound to this profile counts, and a rolled-back removal keeps it.
+  const removal=status=>fs.writeFile(path.join(attempt,'companion-removal.json'),
+    JSON.stringify({schema:'daemon.companion-removal.v1',profile:path.join(attempt,'profile'),status,action:'uninstall'}));
+  await removal('running');assert.equal(await homes.summary(directory),'unreadable');
+  await removal('rolled_back');assert.equal(await homes.summary(directory),'installed');
+  await fs.writeFile(path.join(attempt,'companion-removal.json'),
+    JSON.stringify({schema:'daemon.companion-removal.v1',profile:path.join(directory,'elsewhere'),status:'done',action:'uninstall'}));
+  assert.equal(await homes.summary(directory),'installed');
+  await removal('done');assert.equal(await homes.summary(directory),'none');assert.deepEqual(await homes.list(),[]);
+  await fs.rm(path.join(attempt,'companion-removal.json'));
   await fs.writeFile(path.join(attempt,'daemon/.daemon-harness-installation.json'),'{}');
   assert.equal(await homes.summary(directory),'unreadable');
   await assert.rejects(fs.access(path.join(directory,'hosts/hermes')));

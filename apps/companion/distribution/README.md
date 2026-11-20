@@ -3,7 +3,7 @@
 Both permanent commands install the release named inside `install-macos.sh`
 and `install-windows.ps1` on `main`, on Mac ARM64 and Windows x64. Each script
 pins that release's tag and package digest; `channel.json` names the same
-release for apps that update themselves (r10 and later).
+release for apps that update themselves.
 Replacing or updating the app does not upgrade an existing daemon. Previous
 release assets and their exact rollback scripts are retained.
 
@@ -16,7 +16,9 @@ gh auth login --hostname github.com --web --git-protocol https
 
 No credential is pasted into the installation command or collected by Daemon Harness.
 The installation guide keeps the command-based route while the app is unsigned.
-Anonymous `curl` / `irm` cannot access private GitHub releases.
+Anonymous `curl` / `irm` cannot access private GitHub releases. Each script
+first downloads its package directly from the release, which works once the
+repository is public, then retries through the signed-in GitHub CLI.
 
 ## macOS, Apple Silicon
 
@@ -63,7 +65,7 @@ releases, because both values come from the same downloaded script.
 
 `main` is the public installation entry point. It must contain both installation
 scripts and `channel.json`. No version appears in the copyable commands. Apps
-from r10 also read `channel.json` on `main` to offer their own update; candidate
+also read `channel.json` on `main` to offer their own update; candidate
 builds read it on `companion-candidate` instead.
 GitHub's generic `latest` endpoint is deliberately unused: Companion is currently
 a prerelease, and unrelated releases also exist in this repository.

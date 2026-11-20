@@ -28,10 +28,9 @@ disposable test. Keep a backup of any memory you care about.
 | Add a host | Adds OpenClaw to a Hermes Agent daemon created by Companion, sharing its memory |
 | Add Hermes Agent to an OpenClaw daemon | Not yet available |
 | Attach a daemon to any existing host | Not yet available |
-| App updates | From r10, from the app (**Settings**); older apps rerun the download command once |
+| App updates | From the app (**Settings**), or by rerunning the download command |
 | Host or daemon updates | Daemon: **Update** in its page, for changes to how the app installs and runs it; an engine change still needs a new daemon from a backup. Host versions: not updated |
-| Remove a daemon | Hermes Agent daemons created by Companion, on Mac and Windows; memory is kept unless deletion is chosen and confirmed twice (it then goes to the Trash) |
-| Uninstall a completed OpenClaw-only daemon | Not yet available |
+| Remove a daemon | Daemons created by Companion on Hermes Agent, or directly on OpenClaw with their private OpenClaw, on Mac and Windows; memory is kept unless deletion is chosen and confirmed twice (it then goes to the Trash) |
 | Back up and move memory | Encrypted backup to a file or Google Drive, manual or daily; restore into a new daemon as a copy or a move |
 | Background mode | Menu bar or notification area icon when the window is closed; optional open at login |
 

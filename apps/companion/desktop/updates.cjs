@@ -71,7 +71,7 @@ function appLocation(platform, execPath) {
   return null;
 }
 
-// GitHub CLI serves private releases. Apps opened from the Finder or Start do
+// GitHub CLI is the fallback for releases the public cannot read. Apps opened from the Finder or Start do
 // not inherit the shell PATH, so the usual install folders are searched too.
 function ghCandidates(platform, env) {
   const win = platform === 'win32', paths = win ? path.win32 : path.posix;

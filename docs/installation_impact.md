@@ -12,12 +12,11 @@ The download command verifies a pinned package and installs the desktop app:
 - Mac: ~/Applications/Daemons Companion.app
 - Windows: %LOCALAPPDATA%\Programs\Daemons Companion
 
-From r10, the app checks for its own updates shortly after it opens and every
+The app checks for its own updates shortly after it opens and every
 six hours; **Settings > Check for updates** checks at once. It reads the
 release named by `apps/companion/distribution/channel.json` on `main`, verifies
 every downloaded file against its SHA-256, and replaces itself through the
 release's own install script, which keeps the previous app when anything fails.
-Apps older than r10 have no updater: rerun the download command once.
 
 Updating the app replaces only the app. It does not reinstall, upgrade or
 restart an existing daemon, move memory or reconnect accounts.

@@ -510,7 +510,7 @@ handle('open-link', async url => {
   else await shell.openExternal(url);
 });
 
-// GitHub CLI downloads private releases. The first one that answers is kept.
+// GitHub CLI is the fallback for releases the public cannot read. The first one that answers is kept.
 let ghPath = null;
 async function findGh() {
   const {execFile} = require('node:child_process');

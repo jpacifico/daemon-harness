@@ -1,4 +1,4 @@
-# Daemons Companion candidate. Windows PowerShell 5.1 and PowerShell 7.
+# Daemons Companion installer. Windows PowerShell 5.1 and PowerShell 7.
 # The complete script is parsed before the script block can execute.
     [CmdletBinding()]
     param(
@@ -17,7 +17,7 @@
     try {
         if ([Environment]::OSVersion.Platform -ne 'Win32NT') { throw 'This package requires Windows.' }
         $daemonArchitecture = if ($env:PROCESSOR_ARCHITEW6432) { $env:PROCESSOR_ARCHITEW6432 } else { $env:PROCESSOR_ARCHITECTURE }
-        if ($daemonArchitecture -ne 'AMD64') { throw 'This candidate requires Windows x64.' }
+        if ($daemonArchitecture -ne 'AMD64') { throw 'Daemons Companion requires Windows x64.' }
         if (-not $Destination) { $Destination = Join-Path $env:LOCALAPPDATA 'Programs\Daemons Companion' }
         if (-not [IO.Path]::IsPathRooted($Destination) -or $Destination -match '["\r\n]') { throw 'Invalid app destination.' }
         $Destination = [IO.Path]::GetFullPath($Destination).TrimEnd('\')
@@ -28,10 +28,24 @@
         if (-not $Package) {
             $Package = Join-Path $daemonScratch $daemonAsset
             Write-Host 'Downloading Daemons Companion (124 MB)...'
-            if (Get-Command gh -ErrorAction SilentlyContinue) {
+            # A public release downloads directly. A signed-in GitHub CLI also
+            # reaches a release the account can read but the public cannot.
+            [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+            $daemonProgress = $ProgressPreference
+            $daemonDirect = $true
+            try {
+                # Windows PowerShell 5.1 downloads far more slowly while it draws progress.
+                $ProgressPreference = 'SilentlyContinue'
+                Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/$daemonRepo/releases/download/$daemonTag/$daemonAsset" -OutFile $Package
+            } catch { $daemonDirect = $false }
+            finally { $ProgressPreference = $daemonProgress }
+            if (-not $daemonDirect) {
+                Remove-Item -LiteralPath $Package -Force -ErrorAction SilentlyContinue
+                $daemonGh = Get-Command gh -ErrorAction SilentlyContinue
+                if (-not $daemonGh) { throw 'Download failed. Check your internet connection, then run this command again.' }
                 $daemonDownload = [Diagnostics.Process]::new()
                 try {
-                    $daemonDownload.StartInfo.FileName = (Get-Command gh).Source
+                    $daemonDownload.StartInfo.FileName = $daemonGh.Source
                     $daemonDownload.StartInfo.Arguments = "release download $daemonTag --repo $daemonRepo --pattern $daemonAsset --output `"$Package`""
                     $daemonDownload.StartInfo.UseShellExecute = $false
                     $daemonDownload.StartInfo.CreateNoWindow = $true
@@ -44,16 +58,11 @@
                     $daemonDownload.WaitForExit()
                     $null = $daemonDownloadOutput.Result
                     Write-Progress -Activity 'Downloading Daemons Companion' -Completed
-                    if ($daemonDownload.ExitCode -ne 0) { throw "Download failed (exit $($daemonDownload.ExitCode)). Check your GitHub access with gh auth login. $($daemonDownloadError.Result.Trim())" }
+                    if ($daemonDownload.ExitCode -ne 0) { throw "Download failed. Check your internet connection, then run this command again. $($daemonDownloadError.Result.Trim())" }
                 } finally {
                     if (-not $daemonDownload.HasExited) { $daemonDownload.Kill(); $daemonDownload.WaitForExit() }
                     $daemonDownload.Dispose()
                 }
-            } else {
-                [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-                try {
-                    Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/$daemonRepo/releases/download/$daemonTag/$daemonAsset" -OutFile $Package
-                } catch { throw 'This candidate is private. Install GitHub CLI and run gh auth login, then retry.' }
             }
         }
         if (-not (Test-Path -LiteralPath $Package -PathType Leaf)) { throw 'Package must be a regular file.' }

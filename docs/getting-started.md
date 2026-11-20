@@ -87,11 +87,11 @@ Reopen Companion to see your daemons. Each unfinished installation has its own
 **Resume setup** action and diagnostic report. Viewing a completed daemon never
 reinstalls it.
 
-From r10, Companion updates itself: it checks shortly after opening and every
-six hours, and **Settings > Check for updates** checks at once. An app older
-than r10 has no updater: close it and rerun the same download command once.
+Companion updates itself: it checks shortly after opening and every six hours,
+and **Settings > Check for updates** checks at once. Rerunning the download
+command also replaces the app.
 Updating replaces the app, not your existing daemon or its memory.
-A scoped daemon-runtime update is offered when required before adding a host.
-General host and daemon updates are not yet available.
+When the app carries changes to how it installs and runs daemons, the daemon's
+page offers **Update**. Host versions are not updated.
 
 Next: [try the alpha and report useful feedback](alpha-testing.md).

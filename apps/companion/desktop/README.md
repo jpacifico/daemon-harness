@@ -35,9 +35,10 @@ checks both against their SHA-256 and each other. It then quits. A helper
 (`updater/`) that outlives the app runs that install script, which keeps the
 previous app on failure, and reopens the app. On Windows the app starts it
 attached and waits until it has handed off to a copy outside the app's job,
-which Electron kills on quit. Public URLs are tried first; GitHub CLI serves
-the private repository. Source runs, disk images and translocated copies do
-not update themselves. The repository is named only in `updates.cjs`.
+which Electron kills on quit. Public URLs are tried first; a signed-in GitHub
+CLI is the fallback for a release the public cannot read. Source runs, disk
+images and translocated copies do not update themselves. The repository is
+named only in `updates.cjs`.
 
 ```sh
 cd apps/companion/desktop

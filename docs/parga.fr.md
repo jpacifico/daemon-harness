@@ -10,10 +10,10 @@ l'origine de chaque fait.
 
 **PARGA** est la façon dont ces souvenirs sont rangés. Le nom reprend
 l'initiale des cinq dossiers : **Projects**, **Areas**, **Resources**,
-**Garden** et **Archives**. Ce classement s'inspire de plusieurs méthodes de
-gestion des connaissances personnelles, notamment PARA, IPCRA et le
-Zettelkasten, adaptées à un assistant qui tient votre mémoire à jour après
-chaque échange.
+**Garden** et **Archives**. Ce classement s'inspire notamment de PARA
+(Tiago Forte), d'IPCRA (Eliott Meunier) et du Zettelkasten, adaptés à un
+système agentique qui se charge de maintenir automatiquement votre mémoire sur
+le long terme.
 
 ## Pourquoi un classement
 
@@ -53,10 +53,11 @@ anglais ; le contenu des notes reste dans la langue de vos conversations.
 **Les autres dossiers rangent ce qui vous arrive ; Garden fait pousser ce que
 vous pensez.**
 
-`Projects`, `Areas`, `Resources` et `Archives` rangent votre vie : ce que vous
-poursuivez, ce qui dure, ce que vous gardez pour plus tard, ce qui est
-terminé. `Garden` range vos idées : un principe, une conviction, une méthode ou
-une leçon tirée de l'expérience, que vous avez formulés ou adoptés.
+`Garden` range vos idées : un principe, une conviction, une méthode ou une
+leçon tirée de l'expérience, que vous avez formulés ou adoptés. Comme dans un
+jardin, ce qu'on y plante pousse : la note s'enrichit chaque fois que vous
+revenez à l'idée ou l'appliquez ailleurs, et son historique garde vos nuances
+et vos changements d'avis.
 
 Une idée n'appartient pas à un seul sujet. Vous rénovez votre cuisine et vous
 apprenez qu'il vaut mieux tout mesurer deux fois avant de commander. Le
@@ -69,55 +70,29 @@ achat, longtemps après la fin du chantier. Rangée dans le projet, elle aurait
 autre partie de votre vie ? Si oui, elle va dans `Garden`. Si elle décrit une
 situation précise, elle va dans le dossier de cette situation.
 
-### Pourquoi « jardin »
+Ce qui n'y va pas :
 
-Un jardin n'est pas une boîte de rangement : ce qu'on y plante pousse. Chaque
-étape de la vie d'une note Garden correspond à ce que fait le daemon.
-
-| Au jardin | Dans Garden |
-| --- | --- |
-| On plante une graine. | Vous énoncez ou adoptez une idée. **MemoryAgent**, le jugement d'après-réponse qui entretient les souvenirs, crée une note qui dit ce qu'est l'idée, où elle s'applique, où elle cesse de s'appliquer et d'où elle vient dans la conversation. |
-| Elle pousse. | Vous y revenez ou l'appliquez à une autre situation : la note est complétée. Son historique garde chaque étape, ce qui montre comment l'idée a mûri et où elle a été mise à l'épreuve. |
-| On taille. | Vous la nuancez ou changez d'avis : la correction est notée, et l'ancienne version reste dans l'historique. |
-| Les racines s'étendent. | La note est reliée aux projets et aux domaines où l'idée est née ou a servi, avec une phrase qui dit pourquoi. |
-| On transplante. | L'idée devient elle-même un engagement, par exemple vous décidez de lancer le pilote qu'elle décrivait : la note passe dans `Projects`. Si elle inspire seulement un projet distinct, elle reste dans `Garden` et la note du nouveau projet y renvoie. |
-| On ne plante que ses propres graines. | Une idée suggérée par le daemon et que vous n'avez pas reprise n'est pas gardée. |
-
-Le jardin ne pousse pas tout seul : une note Garden évolue quand vous reparlez
-de l'idée. Le daemon ne la retravaille pas de lui-même entre deux
-conversations, et il n'invente pas d'idées pour remplir le dossier.
-
-### Ce qui n'y va pas
-
-- **Un fait de votre vie**, même important : il appartient au projet ou au
-  domaine concerné. « Ma sœur compte énormément pour moi » décrit une relation et va dans
-  `Areas` ; « une décision se prend mieux après une nuit de sommeil » est une
-  idée qui peut servir partout et va dans `Garden`.
-- **Une référence** (livre, article, vidéo) : elle va dans `Resources`. Une
+- **un fait de votre vie**, même important : il appartient au projet ou au
+  domaine concerné. « Ma sœur compte énormément pour moi » décrit une relation
+  et va dans `Areas` ; « une décision se prend mieux après une nuit de
+  sommeil » est une idée qui peut servir partout et va dans `Garden` ;
+- **une référence** (livre, article, vidéo) : elle va dans `Resources`. Une
   idée qui en vient et que vous adoptez peut avoir sa propre note Garden,
-  reliée à cette référence.
-- **Une idée du daemon** que vous n'avez pas reprise.
+  reliée à cette référence ;
+- **une idée du daemon** que vous n'avez pas reprise.
 
-### Comment une note Garden est retrouvée
-
-Comme tout souvenir, une note Garden est retrouvée par l'**index des
-souvenirs**, un moteur de recherche local qui compare le sens de la
-conversation à celui de chaque note, quel que soit son dossier. Un principe
-adopté au travail peut donc revenir dans une conversation sur l'organisation
-d'un événement familial. L'index ne fait que suggérer : le modèle ouvre la
-note avant de s'y appuyer.
-
-Garden est privé et n'est publié nulle part. En cela il diffère des *jardins
-numériques* (*digital gardens*), des sites personnels où les notes sont
-publiées au fil de leur croissance.
+Si l'idée devient elle-même un engagement, par exemple vous décidez de lancer
+le pilote qu'elle décrivait, la note passe dans `Projects`. Le daemon ne
+retravaille pas une note Garden de lui-même entre deux conversations, et il
+n'invente pas d'idées pour remplir le dossier.
 
 ## Un sujet, une note, des liens
 
 Chaque souvenir a **un seul emplacement**. Une personne impliquée dans deux
 projets garde une seule note, dans `Areas`, et chaque projet la cite par un
 lien. Les liens s'écrivent comme dans Obsidian, `[[Areas/Work/Nora]]`, suivis
-d'une phrase qui dit pourquoi les deux notes sont liées. MemoryAgent ne relie
-que des notes qui existent et n'ajoute pas de liens pour remplir un graphe.
+d'une phrase qui dit pourquoi les deux notes sont liées. **MemoryAgent**, le
+jugement d'après-réponse qui entretient les souvenirs, ne relie que des notes qui existent et n'ajoute pas de liens pour remplir un graphe.
 
 Le nom d'un dossier ne prouve rien. Appartenir au même foyer ne veut pas dire
 être présent aujourd'hui ; les goûts d'une personne restent attachés à cette

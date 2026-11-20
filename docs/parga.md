@@ -9,9 +9,9 @@ situation or an idea, with its history and where each fact comes from.
 
 **PARGA** is how these souvenirs are filed. The name takes the initials of the
 five folders: **Projects**, **Areas**, **Resources**, **Garden** and
-**Archives**. This filing draws on several personal knowledge methods,
-notably PARA, IPCRA and the Zettelkasten, adapted to an assistant that keeps
-your memory up to date after each exchange.
+**Archives**. This filing draws in particular on PARA (Tiago Forte), IPCRA
+(Eliott Meunier) and the Zettelkasten, adapted to an agentic system that takes care of
+maintaining your memory automatically over the long term.
 
 ## Why organize memory
 
@@ -48,10 +48,11 @@ the notes stays in the language of your conversations.
 
 **The other folders file what happens to you; Garden grows what you think.**
 
-`Projects`, `Areas`, `Resources` and `Archives` file your life: what you are
-pursuing, what lasts, what you keep for later, what is over. `Garden` files
-your ideas: a principle, a conviction, a method or a lesson learned from
-experience, that you formulated or adopted.
+`Garden` files your ideas: a principle, a conviction, a method or a lesson
+learned from experience, that you formulated or adopted. As in a garden, what
+you plant grows: the note is enriched each time you come back to the idea or
+apply it elsewhere, and its history keeps your refinements and changes of
+mind.
 
 An idea does not belong to a single subject. You renovate your kitchen and
 learn that it is better to measure everything twice before ordering. The
@@ -64,51 +65,28 @@ archived with it.
 part of your life? If so, it goes in `Garden`. If it describes a specific
 situation, it goes in that situation's folder.
 
-### Why "garden"
+What does not go in:
 
-A garden is not a storage box: what you plant there grows. Each stage in the
-life of a Garden note matches what the daemon does.
+- **a fact about your life**, however important: it belongs to the project or
+  area concerned. "My sister means a great deal to me" describes a
+  relationship and goes in `Areas`; "a decision is better made after a night's
+  sleep" is an idea that can serve anywhere and goes in `Garden`;
+- **a reference** (book, article, video): it goes in `Resources`. An idea from
+  it that you adopt can have its own Garden note, linked to that reference;
+- **an idea from the daemon** that you did not take up.
 
-| In a garden | In Garden |
-| --- | --- |
-| You plant a seed. | You state or adopt an idea. **MemoryAgent**, the after-reply judgment that maintains souvenirs, creates a note saying what the idea is, where it applies, where it stops applying and where in the conversation it comes from. |
-| It grows. | You come back to it or apply it to another situation: the note is completed. Its history keeps each step, showing how the idea matured and where it was put to the test. |
-| You prune. | You refine it or change your mind: the correction is recorded, and the earlier version stays in the history. |
-| The roots spread. | The note is linked to the projects and areas where the idea arose or was used, with a sentence saying why. |
-| You transplant. | The idea itself becomes a commitment, for example you decide to run the pilot it described: the note moves to `Projects`. If it only inspires a separate project, it stays in `Garden` and the new project's note links to it. |
-| You only plant your own seeds. | An idea the daemon suggested and you did not take up is not kept. |
-
-The garden does not grow on its own: a Garden note changes when you talk about
-the idea again. The daemon does not rework it by itself between
-conversations, and it does not invent ideas to fill the folder.
-
-### What does not go in
-
-- **A fact about your life**, however important: it belongs to the project or
-  area concerned. "My sister means a great deal to me" describes a relationship and goes in
-  `Areas`; "a decision is better made after a night's sleep" is an idea that
-  can serve anywhere and goes in `Garden`.
-- **A reference** (book, article, video): it goes in `Resources`. An idea from
-  it that you adopt can have its own Garden note, linked to that reference.
-- **An idea from the daemon** that you did not take up.
-
-### How a Garden note is found
-
-Like every souvenir, a Garden note is found by the **souvenir index**, a local
-search engine that compares the meaning of the conversation with the meaning
-of each note, whatever its folder. A principle adopted at work can therefore
-come up in a conversation about organizing a family event. The index only
-suggests: the model opens the note before relying on it.
-
-Garden is private and is not published anywhere. In that it differs from
-*digital gardens*, personal websites where notes are published as they grow.
+If the idea itself becomes a commitment, for example you decide to run the
+pilot it described, the note moves to `Projects`. The daemon does not rework a
+Garden note by itself between conversations, and it does not invent ideas to
+fill the folder.
 
 ## One subject, one note, links
 
 Each souvenir has **one location**. A person involved in two projects keeps a
 single note, in `Areas`, and each project refers to it with a link. Links are
 written as in Obsidian, `[[Areas/Work/Nora]]`, followed by a sentence saying
-why the two notes are connected. MemoryAgent links only notes that exist and
+why the two notes are connected. **MemoryAgent**, the after-reply judgment
+that maintains souvenirs, links only notes that exist and
 does not add links to fill a graph.
 
 A folder name proves nothing. Belonging to the same household does not mean

@@ -216,7 +216,7 @@ est entretenue. L’[architecture](architecture.fr.md) décrit en détail chaque
 composant, chaque étape d’un tour et chaque règle.
 Les termes internes sont définis dans le [glossaire](glossary.md).
 [PARGA : le classement de la mémoire](parga.fr.md) présente les cinq dossiers
-de la mémoire et leurs inspirations (PARA, IPCRA, Zettelkasten).
+de la mémoire.
 Le [guide développeur de la mémoire](memory_structure_developer_guide.md)
 en détaille les formats et le code.
 

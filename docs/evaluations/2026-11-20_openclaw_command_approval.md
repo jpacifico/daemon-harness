@@ -89,4 +89,79 @@ reported as observed, without a comparison claim.
 
 ## Results
 
-Pending.
+Trial on macOS, 20 November 2026. Build of commit `55d70de`, run
+unpackaged with an isolated data folder. One throwaway daemon on OpenClaw
+`2026.10.7`, ChatGPT subscription, model `gpt-6-astra`, one throwaway Telegram
+bot. The owner typed every message and answered every approval request.
+
+| Criterion | Result |
+| --- | --- |
+| 1. Configuration | Pass. `tools.exec.mode: ask`; `execApprovals` enabled, direct messages, one approver equal to the owner in `allowFrom`. `exec-policy show`: `allowlist · ask on miss · fallback deny` |
+| 2. Approval asked | Pass (probe A) |
+| 3. Approved | Pass (probe A) |
+| 4. Refused | Pass (probe B) |
+| 5. No answer | Pass with a reservation (probe C): the Mac slept during the wait |
+| 6. Ordinary conversation | Pass with a reservation: no approval request, no tool call, all answered; the after-turn worker failed transiently, then recovered |
+| 7. Other daemons untouched | Pass. Every pre-existing service definition byte-identical; same processes running before and after; the only additions were the trial daemon's five services, removed at the end |
+| 8. Suites | Python 3.12: 3229 passed, 25 skipped; desktop 167/167. CI not run yet |
+
+### Timeline of the command probes
+
+Times are local, from the gateway log and the session database (tool names and
+statuses only).
+
+| | Probe A (accepted) | Probe B (refused) | Probe C (no answer) |
+| --- | --- | --- | --- |
+| `exec` call | 17:19:23.8 | 17:21:08 | 17:23:02 |
+| Approval request sent | 17:19:26.6 | 17:21:12.1 | 17:23:04.1 |
+| Owner's answer | 17:19:40.4 | 17:21:13.6 | none |
+| Command | ran; probe file created 17:19:41 | not run: `failed`, no exit code, 0 ms | not run: `failed`, no exit code, 0 ms, at 17:57:43 |
+| Probe file | present | absent | absent |
+| Reply delivered | 17:19:45.6 | 17:21:20.2 | not delivered (below) |
+
+After probe B, the next message was answered in 6.5 s without any tool call.
+
+Probe C: the Mac went to sleep with its lid closed at 17:48:12, before the
+30-minute expiry (17:53:04). OpenClaw settled the request at the first wake,
+17:57:43, 34.7 minutes after it was sent; the command was not run. The model
+reply that followed was cut during a few-second wake (`stopReason: error`, no
+content) and its delivery failed at 18:19 while the network came back. Whether
+a reply after an expiry is delivered on an awake computer was not observed.
+
+### Ordinary conversation
+
+| Message | Received → reply sent | Composition (received → context assembled) | Tool calls | Approval requests |
+| --- | --- | --- | --- | --- |
+| Plain message | 13.7 s | 1.6 s | 0 | 0 |
+| Question about the first message | 3.5 s | 0.9 s | 0 | 0 |
+| Web search question | 10.9 s | 0.6 s | 0 | 0 |
+
+The subscription's hosted web search runs on the provider's side and leaves no
+tool call in the session, so whether a search ran is not visible.
+
+After-turn worker: the first turn completed; the second and third failed
+four times each within seconds (`RuntimeError` in the memory step), then
+completed on the worker's later retries (17:16 and 17:17); all turns,
+including the probes, completed. During installation, the scene step had
+received `429 Too Many Requests` from the ChatGPT backend three times, and
+that scene job was quarantined. The worker records only the error type, so the
+cause of the later `RuntimeError` is not established. These steps run through
+the daemon's private Codex, not OpenClaw's `exec` tool.
+
+## Observations outside the change
+
+- **Leftover card after removing an OpenClaw daemon.** After the trial
+  daemon was uninstalled with its OpenClaw, the app kept showing a card
+  "Installed files retained" with no action. The setup list read the removal
+  record only for daemons created on Hermes Agent; OpenClaw daemon removal,
+  added on 28 October 2026, writes the same record. Fixed separately on branch
+  `companion/openclaw-removal-card`.
+- **Sleep.** OpenClaw's approval expiry and the reply after it depend on the
+  computer being awake; a sleeping Mac delays both.
+- **Approval scope.** The approval covers OpenClaw's `exec` tool. File tools of
+  the `coding` profile are a separate permission and were not exercised.
+
+## Decision
+
+The exit criteria pass, with the reservations above. The change is ready for
+review and merge; Windows is covered by unit tests only.

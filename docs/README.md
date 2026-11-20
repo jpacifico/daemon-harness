@@ -11,7 +11,7 @@ records. Technical detail belongs here; terms are introduced before use.
 | Install the app and send a first message | [Getting started](getting-started.md), [installation en français](companion_installation.md) |
 | Understand daemon, host and background work | [How it works](how-it-works.md), [the daemon at a glance](overview.md) |
 | Open and manage memory in Obsidian | [Your memory](memory.md) |
-| Understand how memory is organized | [PARGA: the five folders and their inspirations](parga.md) |
+| Understand how memory is organized | [PARGA: the five folders](parga.md) |
 | Know what an installation changes | [Exact installation impact](installation_impact.md) |
 | Test the alpha and report a failure | [Alpha checklist and limits](alpha-testing.md) |
 

@@ -52,7 +52,7 @@ The folder structure is inspired by PARA, with influences from IPCRA and linked
 note practices such as Zettelkasten. Garden keeps your ideas apart from
 the facts of your life and from reference material, so they can grow and serve
 elsewhere. [PARGA: how memory is organized](parga.md) explains each
-folder and these inspirations. The [developer guide](memory_structure_developer_guide.md)
+folder. The [developer guide](memory_structure_developer_guide.md)
 explains the design and its implementation limits.
 
 ## What the daemon maintains

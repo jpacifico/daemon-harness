@@ -10,9 +10,10 @@ l'origine de chaque fait.
 
 **PARGA** est la façon dont ces souvenirs sont rangés. Le nom reprend
 l'initiale des cinq dossiers : **Projects**, **Areas**, **Resources**,
-**Garden** et **Archives**. Quatre viennent de la méthode PARA de Tiago Forte.
-Le cinquième, Garden, est le jardin de vos idées, inspiré des principes du
-Zettelkasten.
+**Garden** et **Archives**. Ce classement s'inspire de plusieurs méthodes de
+gestion des connaissances personnelles, notamment PARA, IPCRA et le
+Zettelkasten, adaptées à un assistant qui tient votre mémoire à jour après
+chaque échange.
 
 ## Pourquoi un classement
 
@@ -249,122 +250,6 @@ serait perdu sans elle :
 Une information ambiguë reste donc une question ouverte, et une panne reste
 un travail à reprendre ; ni l'une ni l'autre ne devient un fait inventé pour
 être rangé.
-
-## D'où vient PARGA
-
-| Ce que PARGA applique | Source | Comment |
-| --- | --- | --- |
-| Ranger selon l'usage plutôt que par thème | PARA, IPCRA | Les dossiers `Projects`, `Areas`, `Resources`, `Archives` |
-| Les rôles comme porte d'entrée | IPCRA | Les rôles sont rangés dans `Areas` |
-| Un jardin d'idées à côté des dossiers d'action | Eliott Meunier | `Garden` |
-| Une idée par note, séparée de son origine | Zettelkasten | `Garden` |
-| Des liens qui disent leur raison | Zettelkasten | Une phrase après chaque lien |
-| Un identifiant indépendant du rangement | Zettelkasten | `memory_id`, inchangé par un renommage ou un déplacement |
-| La source gardée avec la note | Zettelkasten | L'origine de chaque fait dans la conversation, avec sa date |
-
-### PARA, de Tiago Forte
-
-[PARA](https://fortelabs.com/blog/para/) range toute information en quatre
-catégories, selon son utilité pour l'action (*organize by actionability*) :
-les **projets**, efforts à court terme vers un objectif ; les **domaines**
-(*areas*), parties du travail et de la vie qui demandent une attention
-continue, comme la santé, les finances ou la maison ; les **ressources**,
-sujets d'intérêt ; les **archives**, éléments devenus inactifs des trois
-autres.
-
-PARGA garde ce critère et ces quatre dossiers, avec trois différences :
-
-- **Areas** accueille aussi des notes dont le sujet n'est pas une
-  responsabilité : une personne, une relation, une préférence, une situation
-  que vous traversez sans l'avoir choisie. La nature du sujet est une
-  propriété (`kind`), pas un dossier.
-- **Resources** accueille des références précises avec la raison de leur
-  conservation, plutôt que des sujets d'intérêt.
-- **Qui range.** Dans PARA, c'est vous qui rangez et qui jugez qu'une chose est
-  devenue inactive. Dans PARGA, un assistant range après chaque échange et ne
-  peut pas déduire d'un silence qu'une chose est finie : un déplacement exige
-  une parole de votre part. C'est aussi pourquoi chaque note porte des dates et
-  des sources.
-
-### IPCRA et le Garden, d'Eliott Meunier
-
-Dans [une vidéo sur l'organisation des connaissances personnelles](https://eliottmeunier.com/youtube-lzmxl3cfzn8/),
-Eliott Meunier présente deux organisations complémentaires et la façon dont il
-les combine.
-
-**IPCRA** (*Inbox*, *Projets*, *Casquettes*, *Ressources*, *Archives*) trie par
-utilité, pas par thème. Pour chaque information, la question est : dans quel
-contexte voudrai-je retomber dessus ?
-
-- tout arrive d'abord dans l'*Inbox* ;
-- si l'information peut servir un projet actuel ou futur, elle va dans ce
-  projet, où les idées s'accumulent jusqu'à sa réalisation ;
-- sinon, si elle concerne l'un de vos rôles, les *casquettes* (au sens de
-  « porter plusieurs casquettes »), par exemple vos proches, elle va avec ce
-  rôle ;
-- sinon, en dernier recours, elle va dans *Ressources*, rangées par thème :
-  une connaissance inutilisable maintenant mais qui servira plus tard ;
-- ce qui n'est plus actif va dans *Archives*.
-
-Le **Zettelkasten**, qu'il recommande pour la créativité et la recherche,
-découpe la connaissance en notes permanentes, une note par concept, reliées
-par le contexte, par l'exemple et par la logique : une note en éclaire une
-autre, l'illustre, la complète ou la contredit.
-
-Il recommande d'utiliser les deux dans le même coffre Obsidian : IPCRA pour
-les projets et les fichiers, et un **Garden** qui contient les notes
-Zettelkasten.
-
-PARGA fait la même combinaison. Il reprend la question d'IPCRA comme règle de
-rangement, range les rôles dans `Areas` plutôt que dans un dossier à part, et
-ne garde pas la boîte de réception, pour les raisons données plus haut. Son
-`Garden` contient les idées, selon les principes du Zettelkasten décrits
-ci-dessous.
-
-### Zettelkasten, les principes de Garden
-
-Un *Zettelkasten* (« boîte à fiches » en allemand) est une collection de notes
-reliées entre elles. Son exemple le plus connu est celui du sociologue
-allemand Niklas Luhmann (1927-1998), professeur à l'université de Bielefeld :
-environ 90 000 fiches écrites du début des années 1950 à la fin des années
-1990, aujourd'hui conservées et numérisées par le
-[Niklas Luhmann-Archiv](https://niklas-luhmann-archiv.de/).
-L'[introduction de Sascha Fast sur zettelkasten.de](https://zettelkasten.de/introduction/)
-expose les principes de la méthode, notamment :
-
-- l'**atomicité** : une note contient une seule unité de connaissance ;
-- un **identifiant unique** par note, pour pouvoir la relier ; l'endroit où
-  la note est placée compte moins que la possibilité d'y renvoyer ;
-- des **liens dont la raison est écrite** : un lien non expliqué n'apprend
-  rien à qui le relit ;
-- un texte écrit **avec ses propres mots**, avec les **sources** à la fin ;
-- des **notes de structure**, qui rassemblent des liens vers d'autres notes à
-  la manière d'une table des matières.
-
-`Garden` est l'endroit où PARGA applique ces principes. Une note Garden
-contient une seule idée, détachée du projet d'où elle vient et reliée par une
-phrase aux endroits où elle s'applique : c'est ainsi que le Zettelkasten
-sépare une idée de sa source et permet de la réutiliser. Le `memory_id` joue
-le rôle de l'identifiant : il ne dépend pas de l'emplacement de la note et
-survit à un déplacement.
-
-PARGA s'écarte de la méthode sur quatre points :
-
-- **L'atomicité ne vaut que pour Garden.** Les autres dossiers gardent une
-  note par sujet avec toute son histoire, car une histoire personnelle
-  découpée en une note par fait perd sa continuité.
-- **Les dossiers suivent PARA.** Un Zettelkasten s'appuie sur les liens et les
-  notes de structure plus que sur une hiérarchie de catégories. PARGA garde
-  des dossiers, parce qu'ils disent à quoi sert une note et aident à se
-  retrouver dans Obsidian.
-- **Celui qui écrit n'est pas celui qui pense.** Dans un Zettelkasten, vous
-  écrivez vos propres pensées avec vos propres mots. Dans PARGA, c'est
-  MemoryAgent qui écrit les notes. Ses règles remplacent cette discipline :
-  seule une idée que vous avez formulée ou adoptée entre dans Garden, et la
-  note indique d'où elle vient dans la conversation.
-- **Ni notes de structure, ni numérotation de Luhmann.** Les portes d'entrée
-  sont les dossiers, les propriétés (`subjects`, `facets`, `aliases`) et
-  l'index des souvenirs.
 
 ## Pour aller plus loin
 

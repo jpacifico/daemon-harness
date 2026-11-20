@@ -9,8 +9,9 @@ situation or an idea, with its history and where each fact comes from.
 
 **PARGA** is how these souvenirs are filed. The name takes the initials of the
 five folders: **Projects**, **Areas**, **Resources**, **Garden** and
-**Archives**. Four come from Tiago Forte's PARA method. The fifth, Garden,
-is the garden of your ideas, inspired by the principles of the Zettelkasten.
+**Archives**. This filing draws on several personal knowledge methods,
+notably PARA, IPCRA and the Zettelkasten, adapted to an assistant that keeps
+your memory up to date after each exchange.
 
 ## Why organize memory
 
@@ -237,113 +238,6 @@ without it:
 
 So an ambiguous piece of information remains an open question, and a failure
 remains work to resume; neither becomes an invented fact just to be filed.
-
-## Where PARGA comes from
-
-| What PARGA applies | Source | How |
-| --- | --- | --- |
-| Filing by use rather than by theme | PARA, IPCRA | The folders `Projects`, `Areas`, `Resources`, `Archives` |
-| Roles as a way into information | IPCRA | Roles are filed in `Areas` |
-| A garden of ideas next to the folders for action | Eliott Meunier | `Garden` |
-| One idea per note, separate from where it came from | Zettelkasten | `Garden` |
-| Links that state their reason | Zettelkasten | A sentence after each link |
-| An identifier independent of where the note is filed | Zettelkasten | `memory_id`, unchanged by renames and moves |
-| The source kept with the note | Zettelkasten | Where each fact comes from in the conversation, with its date |
-
-### PARA, by Tiago Forte
-
-[PARA](https://fortelabs.com/blog/para/) files all information into four
-categories, according to its usefulness for action (*organize by
-actionability*): **projects**, short-term efforts toward a goal; **areas**,
-parts of work and life that require ongoing attention, such as health,
-finances or home; **resources**, topics of interest; **archives**, inactive
-items from the other three.
-
-PARGA keeps this criterion and these four folders, with three differences:
-
-- **Areas** also hold notes whose subject is not a responsibility: a person, a
-  relationship, a preference, a situation you are going through without having
-  chosen it. The nature of the subject is a property (`kind`), not a folder.
-- **Resources** hold specific references with the reason they are kept, rather
-  than topics of interest.
-- **Who files.** In PARA, you file and you decide what has become inactive. In
-  PARGA, an assistant files after each exchange and cannot infer that
-  something is over from silence: a move requires something you said. This is
-  also why each note carries dates and sources.
-
-### IPCRA and the Garden, by Eliott Meunier
-
-In [a video on how to organize personal knowledge](https://eliottmeunier.com/youtube-lzmxl3cfzn8/)
-(in French), Eliott Meunier presents two complementary organizations and how
-he combines them.
-
-**IPCRA** (*Inbox*, *Projets*, *Casquettes*, *Ressources*, *Archives*) sorts
-by usefulness rather than by theme. For each piece of information, the
-question is in which context you will want to come across it again:
-
-- everything first arrives in the *Inbox*;
-- if it can serve a current or future project, it goes into that project,
-  where ideas accumulate until the project is carried out;
-- otherwise, if it concerns one of your roles, the *casquettes* ("hats", as
-  in wearing several hats), for example your family, it goes with that role;
-- otherwise, as a last resort, it goes into *Ressources*, sorted by theme:
-  knowledge that cannot be used now but will be later;
-- what is no longer active goes into *Archives*.
-
-**Zettelkasten**, which he recommends for creativity and research, breaks
-knowledge down into permanent notes, one note per concept, linked by context,
-by example and by logic: one note sheds light on another, illustrates it,
-completes it or contradicts it.
-
-He recommends using both in the same Obsidian vault: IPCRA for projects and
-files, and a **Garden** that holds the Zettelkasten notes.
-
-PARGA makes the same combination. It takes IPCRA's question as its filing
-rule, files roles in `Areas` rather than in a separate folder, and does not
-keep the inbox, for the reasons given above. Its `Garden` holds ideas,
-following the Zettelkasten principles described below.
-
-### Zettelkasten, the principles behind Garden
-
-A *Zettelkasten* (German for "slip box") is a collection of linked notes. Its
-best-known example is that of the German sociologist Niklas Luhmann
-(1927–1998), professor at Bielefeld University: about 90,000 slips written from
-the early 1950s to the late 1990s, now kept and digitized by the
-[Niklas Luhmann-Archiv](https://niklas-luhmann-archiv.de/). The
-[introduction by Sascha Fast on zettelkasten.de](https://zettelkasten.de/introduction/)
-sets out the principles of the method, in particular:
-
-- **atomicity**: one note holds one unit of knowledge;
-- a **unique identifier** for each note, so it can be linked; where the note
-  is placed matters less than being able to link to it;
-- **links whose reason is stated**: an unexplained link teaches nothing to
-  whoever rereads it;
-- a body written **in your own words**, with the **sources** at the end;
-- **structure notes**, which gather links to other notes like a table of
-  contents.
-
-`Garden` is where PARGA applies these principles. A Garden note holds one idea,
-not tied to the project it came from, and linked with a sentence to the places
-where it applies, which is how the Zettelkasten separates an idea from its
-source and lets it be reused. The `memory_id` plays the role of the identifier:
-it does not depend on the note's location and survives a move.
-
-PARGA departs from the method on four points:
-
-- **Atomicity applies only to Garden.** The other folders keep one note per
-  subject with its whole story, because a personal story cut into one note
-  per fact loses its continuity.
-- **The folders follow PARA.** A Zettelkasten relies on links and structure
-  notes more than on a hierarchy of categories. PARGA keeps folders, because they say what a note is used
-  for and help you find your way in Obsidian.
-- **The writer is not the thinker.** In a Zettelkasten you write your own
-  thoughts in your own words. In PARGA, MemoryAgent writes the notes. Its
-  rules replace that discipline: only an idea you formulated or adopted
-  enters Garden, and the note records where it comes from in the
-  conversation.
-- **No structure notes and no Luhmann numbering.** Entry points are the
-  folders, the properties (`subjects`, `facets`, `aliases`) and the souvenir
-  index.
 
 ## Further reading
 

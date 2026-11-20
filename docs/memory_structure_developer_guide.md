@@ -54,52 +54,31 @@ La structure répond à quatre questions différentes :
 Le rangement facilite l'accès. Il ne suffit pas, à lui seul, à garantir que
 la voix choisira le bon souvenir ou interprétera correctement une allusion.
 
-## 2. Les influences et les adaptations
+## 2. Les inspirations et les choix propres
 
-### PARA de Tiago Forte
+Le classement s'inspire de plusieurs méthodes de gestion des connaissances
+personnelles, notamment PARA, IPCRA et le Zettelkasten, sans en suivre aucune
+à la lettre. Ses choix viennent des besoins d'un assistant qui entretient la
+mémoire après chaque échange :
 
-PARA distingue les projets orientés vers un résultat, les responsabilités
-durables, les ressources et les éléments devenus inactifs. Son critère
-d'organisation est l'utilité pour l'action, plutôt qu'une encyclopédie de
-thèmes. C'est l'origine des quatre rubriques Projects, Areas, Resources et
-Archives. [Présentation de Tiago Forte](https://fortelabs.com/blog/para/).
+- les rubriques Projects, Areas, Resources et Archives rangent selon l'utilité
+  pour l'action plutôt que par thème ;
+- Areas conserve aussi des relations, des préférences et des situations
+  subies, sans les transformer en projets ; les rôles y sont rangés et ne
+  créent pas une sixième rubrique ;
+- il n'y a pas d'Inbox visible à trier, car la capture des paroles et la
+  reprise des traitements possèdent déjà leurs mécanismes distincts, décrits
+  plus bas ;
+- Garden distingue les idées et enseignements réutilisables des références
+  rangées dans Resources, et relie une idée aux contextes où elle sert par des
+  liens expliqués ;
+- une histoire personnelle reste une unité cohérente : on ne la découpe pas en
+  une fiche par phrase ;
+- le daemon ne produit pas d'idées personnelles à la place de l'utilisateur
+  pour remplir Garden.
 
-Daemon Harness reprend ces entrées, mais doit aussi conserver des relations, des
-préférences et des situations subies, sans les transformer en projets. Son
-entretien automatisé exige en outre des dates, une provenance et des
-protections d'écriture que le seul classement PARA ne définit pas.
-
-### IPCRA et Eliott Meunier
-
-IPCRA organise l'information en Inbox, Projets, Casquettes, Ressources et
-Archives, avec une attention portée à l'usage futur de l'information. Les
-casquettes rendent explicites les rôles dans lesquels on aura besoin de
-contexte. [Présentation d'Eliott Meunier, passages IPCRA](https://eliottmeunier.com/youtube-lzmxl3cfzn8/).
-
-Cette influence aide à penser les domaines durables et les pages de contexte
-professionnelles ou personnelles. Ici, les rôles relèvent d'Areas : ils ne
-créent pas une sixième rubrique. Le prototype n'adopte pas d'Inbox visible à
-trier, car la capture des paroles et la reprise des traitements possèdent déjà
-leurs mécanismes distincts, décrits plus bas.
-
-### Zettelkasten et Garden
-
-Zettelkasten met l'accent sur les notes reliées, le sens explicite des liens
-et les notes de structure qui donnent accès à un ensemble de connaissances.
-Daemon Harness en retient les liens expliqués et la réutilisation d'une idée dans
-plusieurs contextes. [Introduction de Sascha Fast](https://zettelkasten.de/introduction/).
-
-Garden distingue les idées et enseignements réutilisables des références
-rangées dans Resources. C'est un choix propre au projet, inspiré des pratiques
-de notes liées ; ce n'est ni une rubrique du PARA original, ni une extension
-obligatoire d'IPCRA. Une histoire personnelle reste une unité cohérente : on
-ne la découpe pas en une fiche par phrase. Le daemon ne doit pas produire des
-idées personnelles à la place de l'utilisateur pour remplir Garden.
-
-**Le modèle retenu associe donc un rangement proche de PARA, des rôles et
-contextes éclairés par IPCRA, et des fiches liées inspirées de Zettelkasten.**
 L'identité stable, les sources exactes et la révision après conversation sont
-les contrats propres à Daemon Harness, pas des promesses de ces méthodes.
+des contrats propres à Daemon Harness, pas des promesses de ces méthodes.
 
 ## 3. L'arborescence réelle
 

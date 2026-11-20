@@ -55,18 +55,32 @@ daemon's native settings:
     "statusReactions": {"enabled": false}
   },
   "session": {"dmScope": "per-channel-peer"},
-  "tools": {"profile": "coding"},
+  "tools": {"profile": "coding", "exec": {"mode": "ask"}},
   "channels": {
     "telegram": {
       "streaming": {
         "mode": "progress",
         "preview": {"toolProgress": true, "commandText": "status"},
         "progress": {"commentary": true, "label": false}
+      },
+      "execApprovals": {
+        "enabled": true,
+        "approvers": ["<owner Telegram user id>"],
+        "target": "dm"
       }
     }
   }
 }
 ```
+
+`tools.exec.mode: "ask"` runs allowed commands directly and sends any other
+host command to the owner for approval in a Telegram direct message. OpenClaw
+does not take approvers from `allowFrom`, so the owner's numeric user id is
+named again. Without an answer, OpenClaw's default fallback refuses the
+command. Without these values, OpenClaw `2026.10.7` runs host commands without
+approval (`openclaw exec-policy show` reports `full`, no approval prompts).
+Daemons created before this setting keep their configuration; their owner can
+add these two values to apply it.
 
 Without them, OpenClaw's defaults (measured on `2026.9.1-beta.1`) run a
 heartbeat turn every 30 minutes (API key) or hour (OAuth), share one main

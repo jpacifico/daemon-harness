@@ -157,8 +157,11 @@ When you confirm the setup plan, the app:
   gateway, memory upkeep after each reply, a nightly maintenance job) and a
   local search model of about 640 MB; API keys go to your operating system's
   credential store;
-- leaves the host its tools and permissions, but turns off the host's own
-  personal memory, which would compete with the daemon's;
+- leaves the host its tools, but turns off the host's own personal memory,
+  which would compete with the daemon's;
+- makes the host ask your approval in your Telegram conversation before it runs
+  a command on your computer: on OpenClaw, any command you have not allowed
+  yet; on Hermes Agent, commands it detects as dangerous;
 - keeps background mode, open at login, encrypted backups and Google Drive off
   until you turn them on;
 - never deletes the memory folder: removing a daemon or its host keeps it.

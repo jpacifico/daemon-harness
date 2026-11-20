@@ -9,11 +9,8 @@ situation or an idea, with its history and where each fact comes from.
 
 **PARGA** is how these souvenirs are filed. The name takes the initials of the
 five folders: **Projects**, **Areas**, **Resources**, **Garden** and
-**Archives**. This filing draws on personal knowledge management methods:
-Tiago Forte's PARA and IPCRA, as presented by Eliott Meunier, for filing
-information by use rather than by theme; the Zettelkasten for linking ideas to
-one another. PARGA adapts them to an assistant that keeps your memory up to
-date after each exchange.
+**Archives**. This filing draws in particular on PARA (Tiago Forte), IPCRA
+(Eliott Meunier) and the Zettelkasten.
 
 ## Why organize memory
 

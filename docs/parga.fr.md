@@ -10,11 +10,8 @@ l'origine de chaque fait.
 
 **PARGA** est la façon dont ces souvenirs sont rangés. Le nom reprend
 l'initiale des cinq dossiers : **Projects**, **Areas**, **Resources**,
-**Garden** et **Archives**. Ce classement s'inspire de méthodes
-d'organisation des connaissances personnelles : PARA, de Tiago Forte, et IPCRA,
-présentée par Eliott Meunier, pour ranger l'information selon son usage plutôt
-que par thème ; le Zettelkasten pour relier les idées entre elles. PARGA les
-adapte à un assistant qui tient votre mémoire à jour après chaque échange.
+**Garden** et **Archives**. Ce classement s'inspire notamment de PARA
+(Tiago Forte), d'IPCRA (Eliott Meunier) et du Zettelkasten.
 
 ## Pourquoi un classement
 

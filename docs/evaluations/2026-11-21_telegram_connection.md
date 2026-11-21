@@ -118,7 +118,8 @@ Run on 21 November 2026 on macOS, with the owner's throwaway Hermes daemon
 ### Suites
 
 At `316c9ca`: Python 3.12 full suite 3250 passed, 25 skipped; desktop tests
-174 passed; lint passed. CI: pending.
+174 passed; lint passed. CI (`canonical-runtime`) passed on the pull
+request.
 
 ### Limits
 
@@ -134,4 +135,6 @@ At `316c9ca`: Python 3.12 full suite 3250 passed, 25 skipped; desktop tests
 
 ### Decision
 
-Pending the suites and CI.
+Merged on `main` (#25), for the next Companion release. Daemons created
+before receive the 120 s deadline through **Update**; a daemon not managed by
+the app needs the line added to its Hermes config.

@@ -7,25 +7,18 @@ release for apps that update themselves.
 Replacing or updating the app does not upgrade an existing daemon. Previous
 release assets and their exact rollback scripts are retained.
 
-The repository is private. Install [GitHub CLI](https://cli.github.com/) once
-and connect an account that can read this repository:
-
-```sh
-gh auth login --hostname github.com --web --git-protocol https
-```
-
-No credential is pasted into the installation command or collected by Daemon Harness.
-The installation guide keeps the command-based route while the app is unsigned.
-Anonymous `curl` / `irm` cannot access private GitHub releases. Each script
-first downloads its package directly from the release, which works once the
-repository is public, then retries through the signed-in GitHub CLI.
+No account or credential is needed, pasted into the command or collected by
+Daemon Harness. The installation guide keeps the command-based route while the app is
+unsigned. Each script downloads its package directly from the release. If that
+fails and a signed-in [GitHub CLI](https://cli.github.com/) is available, the
+script retries through it, which also reaches a release the public cannot read.
 
 ## macOS, Apple Silicon
 
 Paste this single command into Terminal, without `sudo`:
 
 ```sh
-(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
+(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; curl --proto '=https' --tlsv1.2 -fsSL 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-macos.sh' -o "$daemons_script"; sh "$daemons_script")
 ```
 
 It downloads and verifies the DMG, checks the application signature and bundle
@@ -39,7 +32,7 @@ again. No personal daemon, vault, credential or service is moved or restarted.
 Paste into **PowerShell**, in your normal session:
 
 ```powershell
-$daemonsScript = gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; & ([scriptblock]::Create((Invoke-RestMethod -UseBasicParsing -ErrorAction Stop 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-windows.ps1')))
 ```
 
 The script verifies the EXE, runs the existing per-user NSIS installer, then
@@ -56,10 +49,10 @@ Add a host adds OpenClaw to an existing Hermes Agent daemon.
 
 ## Permanent commands and release publication
 
-Both commands fetch the complete installer from `main` using GitHub's
-[repository contents API](https://docs.github.com/en/rest/repos/contents#get-repository-content),
-then execute it only if the download succeeded. The private repository uses the
-existing GitHub CLI session. Each script still names one immutable release and
+Both commands fetch the complete installer from `main` on
+`raw.githubusercontent.com`, then execute it only if the download succeeded:
+the macOS command writes it to a temporary file first, and the Windows command
+fails before running anything when the download fails. Each script names one immutable release and
 pins its package SHA-256. A new download cannot mix a tag and digest from two
 releases, because both values come from the same downloaded script.
 

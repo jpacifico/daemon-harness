@@ -19,7 +19,6 @@ You need:
 - A supported ChatGPT account, or an OpenAI or Anthropic API key.
   An API key is a credential supplied by the model provider. Access and usage
   charges depend on that provider and account.
-- Access to the GitHub repository while the alpha remains private.
 
 Your computer runs the assistant. It must be awake and connected for replies
 and background work. Windows tasks run in your signed-in user session.

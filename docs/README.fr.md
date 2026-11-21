@@ -87,48 +87,32 @@ Elle permet de :
   ordinateur.
 
 Ces commandes conviennent aux **Mac Apple Silicon** et à **Windows x64**.
-Elles restent identiques et téléchargent la version **alpha actuellement publiée**,
-y compris lorsqu’elle porte le statut de préversion sur GitHub.
-Le dépôt demande actuellement un compte GitHub autorisé.
-
-### Préparer GitHub CLI une seule fois
-
-Sur Mac, suivre les [instructions macOS](https://github.com/cli/cli/blob/trunk/docs/install_macos.md).
-Sur Windows, exécuter dans PowerShell :
-
-~~~powershell
-winget install --id GitHub.cli --source winget
-~~~
-
-Sur Windows, fermer toutes les fenêtres PowerShell / Windows Terminal,
-puis rouvrir PowerShell depuis Démarrer. Vérifier `gh --version`.
-Sur Mac comme sur Windows, connecter le compte autorisé :
-
-~~~sh
-gh auth login --hostname github.com --web --git-protocol https
-~~~
+Aucun compte n’est nécessaire. Chaque exécution télécharge la version **alpha
+actuellement publiée**, vérifie son empreinte SHA-256 par rapport à celle que
+fixe le script, l’installe puis l’ouvre. Les commandes ne changent jamais :
+aucun numéro de version à modifier.
 
 ### Mac — Terminal
 
 ~~~sh
-(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-macos.sh?ref=main' -H 'Accept: application/vnd.github.raw+json' > "$daemons_script"; sh "$daemons_script")
+(set -e; daemons_script=$(mktemp); trap 'rm -f "$daemons_script"' EXIT; curl --proto '=https' --tlsv1.2 -fsSL 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-macos.sh' -o "$daemons_script"; sh "$daemons_script")
 ~~~
 
 ### Windows — PowerShell
 
 ~~~powershell
-$daemonsScript = gh api 'repos/jpacifico/daemon-harness/contents/apps/companion/distribution/install-windows.ps1?ref=main' -H 'Accept: application/vnd.github.raw+json'; if ($LASTEXITCODE -eq 0) { & ([scriptblock]::Create(($daemonsScript -join "`n"))) }
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; & ([scriptblock]::Create((Invoke-RestMethod -UseBasicParsing -ErrorAction Stop 'https://raw.githubusercontent.com/jpacifico/daemon-harness/main/apps/companion/distribution/install-windows.ps1')))
 ~~~
 
 Fermez l’app avant de relancer la commande pour la remplacer.
-À partir de r10, l’app se met aussi à jour elle-même : **Réglages > Rechercher une
+L’app se met aussi à jour elle-même : **Réglages > Rechercher une
 mise à jour**. Remplacer ou mettre à jour l’app ne réinstalle ni ne met à
 niveau votre daemon existant. Quand l’app apporte des changements à la façon
 dont elle installe et fait fonctionner les daemons, la page du daemon propose
 **Mettre à jour** ; voir l’[impact de l’installation](installation_impact.md#updating-a-daemon).
 Les paquets ne disposent pas encore de signatures de distribution reconnues.
 Le [guide d’installation](companion_installation.md) explique les difficultés
-connues et les solutions si `gh` n’est pas reconnu.
+connues et leurs solutions.
 
 ## Commencer
 

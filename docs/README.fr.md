@@ -69,6 +69,11 @@ Votre mémoire vous appartient. Elle reste sur votre ordinateur, dans des
 fichiers Markdown que vous pouvez lire et modifier directement ou dans
 [Obsidian](https://obsidian.md). [Votre mémoire et Obsidian](memory.md) (en anglais).
 
+Le stockage local ne signifie pas que le modèle s’exécute sur votre ordinateur :
+le contexte pertinent est transmis au fournisseur de modèle choisi.
+
+## Installer l’app
+
 **Version alpha, à utiliser avec prudence.** Daemon Harness est en développement
 actif : attendez-vous à des bugs, à des changements incompatibles et à des
 aspects encore bruts. Le projet n’a pas fait l’objet d’un audit de sécurité
@@ -78,11 +83,6 @@ son hôte : essayez-le sur un ordinateur et des comptes que vous acceptez
 d’utiliser pour des tests, sauvegardez toute mémoire à laquelle vous tenez et
 évitez de lui confier des informations sensibles. Consultez les
 [capacités et limites](alpha-testing.md) avant de l’essayer.
-
-Le stockage local ne signifie pas que le modèle s’exécute sur votre ordinateur :
-le contexte pertinent est transmis au fournisseur de modèle choisi.
-
-## Installer l’app
 
 L’app **Daemons Companion** installe et gère vos daemons sur votre ordinateur.
 Elle permet de :

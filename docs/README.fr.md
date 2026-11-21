@@ -74,16 +74,6 @@ le contexte pertinent est transmis au fournisseur de modèle choisi.
 
 ## Installer l’app
 
-**Version alpha, à utiliser avec prudence.** Daemon Harness est en développement
-actif : attendez-vous à des bugs, à des changements incompatibles et à des
-aspects encore bruts. Le projet n’a pas fait l’objet d’un audit de sécurité
-indépendant, et l’app n’est pas encore signée. Votre daemon fonctionne sur
-votre ordinateur, avec votre compte de modèle, et peut y utiliser les outils de
-son hôte : essayez-le sur un ordinateur et des comptes que vous acceptez
-d’utiliser pour des tests, sauvegardez toute mémoire à laquelle vous tenez et
-évitez de lui confier des informations sensibles. Consultez les
-[capacités et limites](alpha-testing.md) avant de l’essayer.
-
 L’app **Daemons Companion** installe et gère vos daemons sur votre ordinateur.
 Elle permet de :
 
@@ -122,6 +112,16 @@ dont elle installe et fait fonctionner les daemons, la page du daemon propose
 Les paquets ne disposent pas encore de signatures de distribution reconnues.
 Le [guide d’installation](companion_installation.md) explique les difficultés
 connues et leurs solutions.
+
+**Version alpha, à utiliser avec prudence.** Daemon Harness est en développement
+actif : attendez-vous à des bugs, à des changements incompatibles et à des
+aspects encore bruts. Le projet n’a pas fait l’objet d’un audit de sécurité
+indépendant, et l’app n’est pas encore signée. Votre daemon fonctionne sur
+votre ordinateur, avec votre compte de modèle, et peut y utiliser les outils de
+son hôte : essayez-le sur un ordinateur et des comptes que vous acceptez
+d’utiliser pour des tests, sauvegardez toute mémoire à laquelle vous tenez et
+évitez de lui confier des informations sensibles. Consultez les
+[capacités et limites](alpha-testing.md) avant de l’essayer.
 
 ## Commencer
 

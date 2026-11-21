@@ -73,14 +73,6 @@ your chosen model provider.
 <a id="télécharger-manuellement"></a>
 <a id="installer-depuis-terminal-ou-powershell"></a>
 
-**Alpha software, use with care.** Daemon Harness is under active development:
-expect bugs, breaking changes and rough edges. It has not had an independent
-security audit, and the app is not yet signed. Your daemon runs on your
-computer with your model account and can use its host's tools there, so try it
-on a computer and accounts you are comfortable testing with, keep a backup of
-any memory you care about, and avoid giving it sensitive information. See
-[available features and limits](docs/alpha-testing.md) before trying it.
-
 The **Daemons Companion** app installs and manages your daemons on your
 computer. With it, you can:
 
@@ -116,6 +108,14 @@ page offers **Update**; see [installation impact](docs/installation_impact.md#up
 The packages do not yet have recognized distribution signatures.
 See the [installation guide](docs/companion_installation.md) for platform
 prompts and troubleshooting.
+
+**Alpha software, use with care.** Daemon Harness is under active development:
+expect bugs, breaking changes and rough edges. It has not had an independent
+security audit, and the app is not yet signed. Your daemon runs on your
+computer with your model account and can use its host's tools there, so try it
+on a computer and accounts you are comfortable testing with, keep a backup of
+any memory you care about, and avoid giving it sensitive information. See
+[available features and limits](docs/alpha-testing.md) before trying it.
 
 ## Set up your daemon
 

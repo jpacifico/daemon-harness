@@ -31,8 +31,11 @@ a daemon the app created, and for an existing installation whose host
 controls were enabled. A restart does not help
 when Telegram rejects the bot token or another program uses the same bot; the
 page names that cause instead. A Gateway that started less than two minutes ago
-is shown as still connecting. On OpenClaw, the card shows the result of the
-last health check.
+is shown as still connecting. The daemons page reads this state again every
+30 seconds. After **Restart the daemon**, the card says the daemon is
+restarting, then connecting to Telegram, then reconnected. On OpenClaw, the
+card shows the last health check, and the gateway is asked again after a
+restart.
 
 The worker heartbeat must be younger than 15 seconds. Model results older than
 24 hours, maintenance older than 48 hours, or pending work older than five

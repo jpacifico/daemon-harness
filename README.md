@@ -64,9 +64,16 @@ Your memory belongs to you. It stays on your computer, in Markdown files you
 can read and edit directly or in [Obsidian](https://obsidian.md).
 [Memory and Obsidian](docs/memory.md).
 
-This is an **alpha**. See [available features and limits](docs/alpha-testing.md)
-before trying it. Local storage does not mean local model inference:
-relevant context is sent to your chosen model provider.
+**Alpha software, use with care.** Daemon Harness is under active development:
+expect bugs, breaking changes and rough edges. It has not had an independent
+security audit, and the app is not yet signed. Your daemon runs on your
+computer with your model account and can use its host's tools there, so try it
+on a computer and accounts you are comfortable testing with, keep a backup of
+any memory you care about, and avoid giving it sensitive information. See
+[available features and limits](docs/alpha-testing.md) before trying it.
+
+Local storage does not mean local model inference: relevant context is sent to
+your chosen model provider.
 
 ## Install the app
 

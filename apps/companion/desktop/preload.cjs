@@ -4,6 +4,7 @@ contextBridge.exposeInMainWorld('companion', Object.freeze({
   startHostAddition: id => ipcRenderer.invoke('host-add-start',id),
   health: id => ipcRenderer.invoke('daemon-health',id),
   channels: () => ipcRenderer.invoke('daemon-channels'),
+  restartDaemon: id => ipcRenderer.invoke('daemon-restart',id),
   diagnostic: id => ipcRenderer.invoke('setup-diagnostic',id),
   exportDiagnostic: (kind,id,key=null) => ipcRenderer.invoke('export-diagnostic',kind,id,key),
   openHostInterface: id => ipcRenderer.invoke('host-interface-open',id),

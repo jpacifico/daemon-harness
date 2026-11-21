@@ -80,7 +80,7 @@ function ownPage(event) {
 }
 const mutations = new Set(['host-interface-open','instances-action','removal-review','removal-apply','daemon-save',
   'setup-start','setup-new','setup-discard-review','setup-discard-apply','host-add-start','update-install',
-  'memory-backup','setup-restore','backup-drive','backup-automatic','google-disconnect','provider-change','provider-switch-start','host-change-start','daemon-update-start']);
+  'memory-backup','setup-restore','backup-drive','backup-automatic','google-disconnect','provider-change','provider-switch-start','host-change-start','daemon-update-start','daemon-restart']);
 let mutationBusy = false;
 function handle(channel, callback) {
   ipcMain.handle(channel, async (event, ...args) => {
@@ -167,6 +167,12 @@ async function openclawChannel(id) {
 }
 // Each daemon card shows a Telegram problem without opening its health page:
 // Hermes from its state file (instant), OpenClaw from its last health report.
+// "Restart the daemon" when its host is not connected to Telegram: the same
+// gateway restart the app does after a model change, without a confirmation.
+handle('daemon-restart', async id => {
+  if(backend.active||backend.settingsBusy)throw new Error('Finish or stop setup before managing another instance.');
+  try {return await instances.restartGateway(id);}catch{throw new Error('daemons.restart-failed');}
+});
 handle('daemon-channels', async () => {
   const result={};
   for(const row of instances.rows.values()) {

@@ -160,7 +160,7 @@ async function collect(row,{channel=null}={}) {
       events:c.key==='queue'?related.slice(0,8).map(safeJob):e?c.key==='model'?[{stage:e.stage,status:e.status,at:e.at,...(e.error?{error:e.error}:{}),...(e.reason?{reason:e.reason}:{})}]:e.events:[],
       limited:(limited||metadataReads>32)&&['queue','after-turn'].includes(c.key),
       guidance:c.key==='host'&&row.managed&&!row.problem&&row.state==='stopped'?'start-host'
-        :c.key==='conversation'&&c.detail==='channel-disconnected'?(row.managed?'restart-host':'support')
+        :c.key==='conversation'&&c.detail==='channel-disconnected'?(row.restartable?'restart-host':'support')
         :c.key==='conversation'&&c.detail==='channel-token-rejected'?'bot-token'
         :c.key==='conversation'&&c.detail==='channel-conflict'?'bot-conflict'
         :c.key==='conversation'?'conversation':recovery==='scheduled'||recovery==='running'?'wait':c.status==='action'?'support':'inspect'};

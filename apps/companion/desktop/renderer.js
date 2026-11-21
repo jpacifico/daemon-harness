@@ -283,7 +283,7 @@ function render() {
   document.querySelectorAll('[data-health-export]').forEach(el=>el.addEventListener('click',()=>reportAction('report-export',el.dataset.healthExport||null)));
   document.querySelectorAll('[data-health-detail]').forEach(el=>el.addEventListener('toggle',()=>{if(el.open)reportState.expanded.add(el.dataset.healthDetail);else reportState.expanded.delete(el.dataset.healthDetail);}));
   document.querySelector('[data-health-start]')?.addEventListener('click',async()=>{reportState.busy=true;state.error='';render();try{await window.companion.instanceAction(reportState.id,'start');await loadReport();}catch(e){state.error=e.message;}finally{reportState.busy=false;render();}});
-  document.querySelector('[data-health-restart]')?.addEventListener('click',async()=>{reportState.busy=true;state.error='';render();try{await window.companion.instanceAction(reportState.id,'restart');await loadReport();}catch(e){state.error=e.message;}finally{reportState.busy=false;render();}});
+  document.querySelector('[data-health-restart]')?.addEventListener('click',async()=>{reportState.busy=true;state.error='';render();try{await restartRow(reportState.id);await loadReport();}catch(e){state.error=e.message;}finally{reportState.busy=false;render();}});
   document.querySelectorAll('[data-host-interface]').forEach(el=>el.addEventListener('click',async()=>{
     if(hostInterfaceState.busy)return;
     const id=el.dataset.hostInterface;Object.assign(hostInterfaceState,{id,busy:true,message:''});render();
@@ -307,6 +307,7 @@ function render() {
   document.querySelectorAll('[data-daemon-field],[data-daemon-pronouns-custom]').forEach(element=>element.addEventListener('input',daemonEdited));
   document.querySelector('#daemon-form')?.addEventListener('submit',event=>{event.preventDefault();saveDaemon();});
   document.querySelectorAll('[data-instance-action]').forEach(element=>element.addEventListener('click',()=>instanceAction(element.dataset.instance,element.dataset.instanceAction)));
+  document.querySelectorAll('[data-daemon-restart]').forEach(element=>element.addEventListener('click',()=>restartDaemon(element.dataset.daemonRestart)));
   document.querySelectorAll('[data-instance-open]').forEach(element=>element.addEventListener('click',()=>window.companion.instanceOpen(element.dataset.instance,element.dataset.instanceOpen).catch(showError)));
   document.querySelectorAll('[data-link]').forEach(element => element.addEventListener('click', () => window.companion.openLink(state.links[Number(element.dataset.link)]).catch(showError)));
   document.querySelectorAll('[data-project-link]').forEach(element => element.addEventListener('click', () => window.companion.projectLink(element.dataset.projectLink).catch(showError)));
@@ -497,7 +498,7 @@ function daemonCard(group) {
   // A Telegram problem reported by the host (main.cjs daemon-channels).
   const channel=rows.map(r=>({r,state:state.channels?.[r.id]})).find(x=>['disconnected','token-rejected','conflict'].includes(x.state));
   const alert=channel?`<div class="daemon-alert" data-daemon-alert="${channel.r.id}"><p>${locale.t('daemons.channel.'+channel.state,language)}</p>
-      ${channel.state==='disconnected'&&channel.r.managed?`<button class="button primary" data-instance="${channel.r.id}" data-instance-action="restart" ${disabled?'disabled':''}>${locale.t('health.v2.restart',language)}</button>`:''}</div>`:'';
+      ${channel.state==='disconnected'&&channel.r.restartable?`<button class="button primary" data-daemon-restart="${channel.r.id}" ${disabled?'disabled':''}>${locale.t('health.v2.restart',language)}</button>`:''}</div>`:'';
   return `<article class="card daemon-card" data-daemon-card="${group.id}"><h2 class="daemon-title" data-original>${escape(name)}</h2>
     <p class="daemon-hosts"><span>${rows.length>1?'Hosts':'Host'}</span>: <span data-original>${rows.map(hostName).join(' · ')}</span></p>${alert}
     <div class="daemon-card-actions">${rows.length===1?manage(first)+health(first):`<details class="host-choices"><summary>Manage</summary><div>${rows.map(manage).join('')}</div></details><details class="host-choices"><summary>Health</summary><div>${rows.map(health).join('')}</div></details>`}
@@ -545,6 +546,18 @@ async function refreshChannels() {
 async function refreshInstances(add=false) {
   if(state.instanceBusy)return;state.instanceBusy=true;state.error='';render();
   try {state.inventory=await (add?window.companion.addInstance():window.companion.instances());await refreshChannels();}
+  catch(error){showError(error);}finally{state.instanceBusy=false;render();}
+}
+// A daemon whose host controls were enabled keeps the confirmed instance action;
+// one the app created restarts like after a model change (main.cjs daemon-restart).
+async function restartRow(id) {
+  const row=state.inventory?.instances.find(r=>r.id===id);
+  if(row?.managed)return window.companion.instanceAction(id,'restart');
+  try{return await window.companion.restartDaemon(id);}catch{throw new Error(locale.t('daemons.restart-failed',language));}
+}
+async function restartDaemon(id) {
+  if(state.instanceBusy)return;state.instanceBusy=true;state.error='';render();
+  try{await restartRow(id);state.inventory=await window.companion.instances();await refreshChannels();}
   catch(error){showError(error);}finally{state.instanceBusy=false;render();}
 }
 async function instanceAction(id,action) {
@@ -1002,13 +1015,13 @@ async function refreshStarted() {
 const HEALTH_AREAS=[['reply',['host','plugin','model','conversation']],['memory',['memory','after-turn','worker','queue','search']],['night',['dreaming','rem']]];
 function healthArea(r,name,keys) {
   const checks=Object.fromEntries(r.checks.filter(c=>keys.includes(c.key)).map(c=>[c.key,c])),bad=c=>c&&['action','issue'].includes(c.status);
-  const row=state.inventory?.instances.find(i=>i.id===reportState.id),managed=Boolean(row?.managed);
+  const row=state.inventory?.instances.find(i=>i.id===reportState.id),managed=Boolean(row?.managed),restartable=Boolean(row?.restartable);
   if(name==='reply'){
     if(checks.host?.diagnostic?.guidance==='start-host')return {state:'problem',text:'health.v2.reply.stopped',actions:['start']};
     if(bad(checks.host))return {state:'problem',text:'health.v2.reply.host',actions:['export']};
     // The host's own report of its Telegram connection (health.cjs).
     const channel=checks.conversation?.detail;
-    if(channel==='channel-disconnected')return {state:'problem',text:'health.v2.reply.telegram',actions:managed?['restart','export']:['export']};
+    if(channel==='channel-disconnected')return {state:'problem',text:'health.v2.reply.telegram',actions:restartable?['restart','export']:['export']};
     if(channel==='channel-token-rejected')return {state:'problem',text:'health.v2.reply.token',actions:['export']};
     if(channel==='channel-conflict')return {state:'problem',text:'health.v2.reply.conflict',actions:['export']};
     if(channel==='channel-connecting')return {state:'waiting',text:'health.v2.reply.connecting'};

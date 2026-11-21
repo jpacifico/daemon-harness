@@ -26,7 +26,9 @@ A new daemon normally has no Dreaming or REM history yet.
 
 When a running host is not connected to Telegram, the health page and the
 daemon's card say so and offer **Restart the daemon**: the host starts again
-and reconnects, without changing memory or settings. A restart does not help
+and reconnects, without changing memory or settings. The button is offered for
+a daemon the app created, and for an existing installation whose host
+controls were enabled. A restart does not help
 when Telegram rejects the bot token or another program uses the same bot; the
 page names that cause instead. A Gateway that started less than two minutes ago
 is shown as still connecting. On OpenClaw, the card shows the result of the

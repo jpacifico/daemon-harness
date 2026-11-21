@@ -56,7 +56,7 @@ test('an invalid stopped Gateway never offers Start',async t=>{const f=await fix
 // Hermes Agent's own record of its Telegram connection (gateway_state.json).
 const START=179528178014;
 async function hermesGateway(f,platforms,{age=0,startedAgo=600000,pid=4242,owner=4242}={}) {
-  const profile=path.join(f.root,'profile');f.row.profile=profile;f.row.managed=true;
+  const profile=path.join(f.root,'profile');f.row.profile=profile;f.row.restartable=true;
   await f.write(path.join(profile,'gateway.pid'),{pid:owner,kind:'hermes-gateway'});
   const started=new Date(Date.now()-startedAgo);await fs.utimes(path.join(profile,'gateway.pid'),started,started);
   // Entries are stamped by the running process unless a test names another writer.
@@ -79,7 +79,8 @@ test('a running Hermes gateway without its Telegram platform asks for a restart'
   const f=await fixture(t);await hermesGateway(f,{});
   const c=check(await collect(f.row),'conversation');
   assert.equal(c.detail,'channel-disconnected');assert.equal(c.status,'issue');assert.equal(c.diagnostic.guidance,'restart-host');
-  f.row.managed=false;assert.equal(check(await collect(f.row),'conversation').diagnostic.guidance,'support');
+  // Only a daemon the app may restart is offered the button, created by it or with host controls enabled.
+  f.row.restartable=false;f.row.managed=true;assert.equal(check(await collect(f.row),'conversation').diagnostic.guidance,'support');
 });
 test('a fresh Hermes gateway is still connecting, a connected one is ok',async t=>{
   const f=await fixture(t);await hermesGateway(f,{},{startedAgo:30000});
@@ -105,7 +106,7 @@ test('a stale, foreign or stopped Hermes record proves nothing about Telegram',a
   f.row.state='running';f.row.binding={user_id:'12345',platform:'openclaw'};assert.equal(check(await collect(f.row),'conversation').detail,'channel-not-tested');
 });
 test('OpenClaw supplies its gateway answer; unknown states are ignored',async t=>{
-  const f=await fixture(t);f.row.host='openclaw';f.row.managed=true;
+  const f=await fixture(t);f.row.host='openclaw';f.row.restartable=true;
   assert.equal(check(await collect(f.row,{channel:{state:'token-rejected',at:null}}),'conversation').detail,'channel-token-rejected');
   assert.equal(check(await collect(f.row,{channel:{state:'disconnected',at:null}}),'conversation').diagnostic.guidance,'restart-host');
   assert.equal(check(await collect(f.row,{channel:{state:'surprise'}}),'conversation').detail,'channel-not-tested');

@@ -201,6 +201,8 @@ class Instances {
     const id=hash(host+':'+profile).slice(0,24);
     const row={id,host,profile,daemon,binding,service,managed,problem,removal,serviceProblem:matches.length>1?'ambiguous':!service?'unavailable':record?.grant&&!managed?'changed':'',
       state:service?.state||'unknown',connected:Boolean(record?.grant),manual:Boolean(record)};
+    // A daemon the app created (under its base) or whose host controls were enabled.
+    row.restartable=Boolean(service&&!problem&&!row.serviceProblem&&(managed||within(this.base,profile)));
     const sourceRoot=daemon?.source?path.dirname(daemon.source):null;
     const healthEnv={...selected,...await envFile(absolute(service?.env?.DAEMON_CORE_ENV_FILE,this.home)),...service?.env};
     const stateRoot=absolute(healthEnv.DAEMON_CORE_STATE_ROOT,this.home);
@@ -229,7 +231,7 @@ class Instances {
     for(const x of candidates.slice(0,512))await this.profile(x.host,x.profile,snapshot.items);
     const rows=[...this.rows.values()];
     const missing=this.records.filter(x=>!rows.some(r=>r.profile===x.profile&&r.host===x.host)).length;
-    return {instances:rows.map(r=>({id:r.id,host:r.host,profile:r.profile,state:r.state,managed:r.managed,connected:r.connected,registered:r.manual,problem:r.problem,
+    return {instances:rows.map(r=>({id:r.id,host:r.host,profile:r.profile,state:r.state,managed:r.managed,restartable:r.restartable,connected:r.connected,registered:r.manual,problem:r.problem,
       removal:r.removal,removalSupported:['darwin','win32'].includes(this.platform)&&within(this.base,r.profile)&&(r.host==='hermes'||ownOpenClaw(this.base,r.profile)),
       serviceProblem:r.serviceProblem,canConnect:Boolean(r.service)&&!r.problem,
       daemon:r.daemon?{...r.daemon,sharedWith:rows.filter(x=>x.id!==r.id&&r.daemon.id&&x.daemon?.id===r.daemon.id).map(x=>x.id)}:null})),
@@ -278,7 +280,7 @@ class Instances {
     this.busy=true;
     try {
       await this.refresh();const r=this.rows.get(id);
-      if(!r?.service||r.problem||r.serviceProblem||!(r.managed||within(this.base,r.profile)))throw new Error('provider.restart-failed');
+      if(!r?.restartable)throw new Error('provider.restart-failed');
       if(r.state!=='running')return false;
       await this.services.control(r.service,'restart');
       for(let n=0;n<40;n++){const observation=await this.refresh();if(observation.instances.find(x=>x.id===id)?.state==='running')return true;await new Promise(r=>setTimeout(r,250));}

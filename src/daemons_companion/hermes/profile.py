@@ -49,7 +49,17 @@ HERMES_CONFIG_VALUES: tuple[tuple[str, object], ...] = (
     ("display.platforms.telegram.streaming", True),
     ("display.tool_preview_length", 0),
     ("display.busy_ack_detail", True),
+    # Hermes gives each platform plugin 10 s to import and register by
+    # default. After a slow boot the Telegram plugin overran it: the gateway
+    # then ran without Telegram until restarted. A wider deadline keeps one
+    # slow start from leaving the daemon unreachable.
+    ("plugins.load_timeout_seconds", 120),
 )
+
+# Settings added after daemons already existed. A daemon created before one of
+# them lacks it until its runtime update writes it, so the check before an
+# update accepts it missing; any other value is a change and is refused.
+HERMES_LATER_CONFIG_KEYS: frozenset[str] = frozenset({"plugins.load_timeout_seconds"})
 
 _ENV_KEYS = (
     "DAEMON_CORE_SRC",
@@ -206,10 +216,20 @@ class HermesProfileAdapter:
 
     def verify(self, step: PlanStep) -> None:
         self._validate_step(step)
+        self._verify_applied(later_may_be_missing=False)
+
+    def verify_before_update(self) -> None:
+        """The profile an earlier installation wrote: settings added since may be missing."""
+        self._verify_applied(later_may_be_missing=True)
+
+    def _verify_applied(self, *, later_may_be_missing: bool) -> None:
         self._validate_layout()
         config = _load_yaml_mapping(self.layout.config_path)
         for dotted, expected in HERMES_CONFIG_VALUES:
-            if _mapping_value(config, dotted) != expected:
+            value = _mapping_value(config, dotted)
+            if later_may_be_missing and dotted in HERMES_LATER_CONFIG_KEYS and value is _MISSING:
+                continue
+            if value != expected:
                 raise RuntimeError(f"Hermes setting was not applied: {dotted}")
         env = _read_env_values(self.layout.env_path)
         for key, expected in self._environment_values().items():
@@ -403,21 +423,45 @@ def create_disposable_profile_marker(hermes_home: Path) -> None:
     )
 
 
-def _patch_hermes_config(content: bytes) -> bytes:
+def _patch_hermes_config(
+    content: bytes,
+    values: tuple[tuple[str, object], ...] = HERMES_CONFIG_VALUES,
+) -> bytes:
     try:
         text = content.decode("utf-8")
     except UnicodeDecodeError as error:
         raise ValueError("Hermes config must be UTF-8.") from error
     result = text
-    for dotted, value in HERMES_CONFIG_VALUES:
+    for dotted, value in values:
         result = _set_yaml_scalar(result, dotted, _render_yaml_scalar(value))
     parsed = _safe_load_yaml(result) if result.strip() else {}
     if not isinstance(parsed, dict):
         raise ValueError("Hermes config must be a YAML mapping.")
-    for dotted, expected in HERMES_CONFIG_VALUES:
+    for dotted, expected in values:
         if _mapping_value(parsed, dotted) != expected:
             raise ValueError(f"Hermes config patch failed for {dotted}.")
     return result.encode("utf-8")
+
+
+def hermes_config_current(content: bytes) -> bool:
+    """True when the config holds exactly what an installation writes.
+
+    A setting added after the daemon was created may be missing: its runtime
+    update writes it. Present with another value, it is a change.
+    """
+    try:
+        text = content.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise ValueError("Hermes config must be UTF-8.") from error
+    parsed = _safe_load_yaml(text) if text.strip() else {}
+    if not isinstance(parsed, dict):
+        raise ValueError("Hermes config must be a YAML mapping.")
+    values = tuple(
+        (dotted, value)
+        for dotted, value in HERMES_CONFIG_VALUES
+        if not (dotted in HERMES_LATER_CONFIG_KEYS and _mapping_value(parsed, dotted) is _MISSING)
+    )
+    return _patch_hermes_config(content, values) == content
 
 
 def _set_yaml_scalar(text: str, dotted: str, rendered: str) -> str:
@@ -937,6 +981,8 @@ def _validate_mode(value: object) -> None:
 __all__ = [
     "DISPOSABLE_PROFILE_MARKER",
     "HERMES_CONFIG_VALUES",
+    "HERMES_LATER_CONFIG_KEYS",
+    "hermes_config_current",
     "HERMES_PROFILE_STEP",
     "HermesProfileAdapter",
     "HermesProfileLayout",

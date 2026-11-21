@@ -6314,5 +6314,77 @@
     "en": "The update is finished. {name}'s services restarted and were checked.",
     "fr": "La mise à jour est terminée. Les services de {name} ont redémarré et ont été vérifiés.",
     "template": true
+  },
+  "health.detail.channel-connected": {
+    "en": "The host reports that it is connected to Telegram.",
+    "fr": "L’hôte indique qu’il est connecté à Telegram."
+  },
+  "health.detail.channel-connecting": {
+    "en": "The host is connecting to Telegram.",
+    "fr": "L’hôte se connecte à Telegram."
+  },
+  "health.detail.channel-disconnected": {
+    "en": "The host is running but is not connected to Telegram: it does not receive your messages.",
+    "fr": "L’hôte fonctionne mais n’est pas connecté à Telegram : il ne reçoit pas vos messages."
+  },
+  "health.detail.channel-token-rejected": {
+    "en": "Telegram rejects the bot token: the bot was revoked or its token changed.",
+    "fr": "Telegram refuse le jeton du bot : le bot a été révoqué ou son jeton a changé."
+  },
+  "health.detail.channel-conflict": {
+    "en": "Another program receives this bot's messages: Telegram delivers them to only one program at a time.",
+    "fr": "Un autre programme reçoit les messages de ce bot : Telegram ne les remet qu’à un seul programme à la fois."
+  },
+  "health.guidance.restart-host": {
+    "en": "Restart the daemon: its host starts again and reconnects to Telegram. Your memory and settings are not changed.",
+    "fr": "Redémarrez le daemon : son hôte redémarre et se reconnecte à Telegram. Votre mémoire et vos réglages ne changent pas."
+  },
+  "health.guidance.bot-token": {
+    "en": "A restart will not help. Create a new token for this bot with @BotFather. The app cannot replace a bot token yet.",
+    "fr": "Un redémarrage n’y changera rien. Créez un nouveau jeton pour ce bot avec @BotFather. L’app ne permet pas encore de remplacer le jeton d’un bot."
+  },
+  "health.guidance.bot-conflict": {
+    "en": "Stop the other program or daemon that uses this bot, then refresh.",
+    "fr": "Arrêtez l’autre programme ou daemon qui utilise ce bot, puis actualisez."
+  },
+  "health.v2.reply.telegram.title": {
+    "en": "{name} is not connected to Telegram.",
+    "fr": "{name} n’est pas connecté à Telegram."
+  },
+  "health.v2.reply.telegram": {
+    "en": "It is running but no longer receives your messages. Restarting it reconnects it.",
+    "fr": "Il fonctionne mais ne reçoit plus vos messages. Le redémarrer le reconnecte."
+  },
+  "health.v2.reply.token.title": {
+    "en": "Telegram rejects {name}'s bot.",
+    "fr": "Telegram refuse le bot de {name}."
+  },
+  "health.v2.reply.token": {
+    "en": "Telegram no longer accepts this bot's token, so a restart will not help. Create a new token with @BotFather; the app cannot replace it yet.",
+    "fr": "Telegram n’accepte plus le jeton de ce bot : un redémarrage n’y changera rien. Créez un nouveau jeton avec @BotFather ; l’app ne permet pas encore de le remplacer."
+  },
+  "health.v2.reply.conflict.title": {
+    "en": "Another program uses {name}'s bot.",
+    "fr": "Un autre programme utilise le bot de {name}."
+  },
+  "health.v2.reply.conflict": {
+    "en": "Telegram delivers a bot's messages to only one program at a time. Stop the other program or daemon that uses this bot.",
+    "fr": "Telegram ne remet les messages d’un bot qu’à un seul programme à la fois. Arrêtez l’autre programme ou daemon qui utilise ce bot."
+  },
+  "health.v2.reply.connecting": {
+    "en": "Connecting to Telegram.",
+    "fr": "Connexion à Telegram en cours."
+  },
+  "daemons.channel.disconnected": {
+    "en": "Not connected to Telegram: it does not receive your messages. Restarting it reconnects it.",
+    "fr": "Non connecté à Telegram : il ne reçoit pas vos messages. Le redémarrer le reconnecte."
+  },
+  "daemons.channel.token-rejected": {
+    "en": "Telegram rejects this daemon's bot token. See its health page.",
+    "fr": "Telegram refuse le jeton du bot de ce daemon. Voir sa page de santé."
+  },
+  "daemons.channel.conflict": {
+    "en": "Another program uses this daemon's bot. See its health page.",
+    "fr": "Un autre programme utilise le bot de ce daemon. Voir sa page de santé."
   }
 }

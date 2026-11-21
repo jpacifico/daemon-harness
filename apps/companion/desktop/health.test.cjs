@@ -52,3 +52,46 @@ test('invalid and symlinked job data never supplies a cause or recovery state',a
 test('a skipped cycle never counts as a successful update',async t=>{const f=await fixture(t);await receipts(f,'skipped');assert.equal(check(await collect(f.row),'after-turn').status,'unknown');});
 
 test('an invalid stopped Gateway never offers Start',async t=>{const f=await fixture(t);Object.assign(f.row,{managed:true,state:'stopped',problem:'unreadable'});const c=check(await collect(f.row),'host');assert.equal(c.status,'issue');assert.notEqual(c.diagnostic.guidance,'start-host');});
+
+// Hermes Agent's own record of its Telegram connection (gateway_state.json).
+async function hermesGateway(f,platforms,{age=0,startedAgo=600000,pid=4242,owner=4242}={}) {
+  const profile=path.join(f.root,'profile');f.row.profile=profile;f.row.managed=true;
+  await f.write(path.join(profile,'gateway.pid'),{pid:owner,kind:'hermes-gateway'});
+  const started=new Date(Date.now()-startedAgo);await fs.utimes(path.join(profile,'gateway.pid'),started,started);
+  await f.write(path.join(profile,'gateway_state.json'),{pid,kind:'hermes-gateway',gateway_state:'running',platforms,updated_at:new Date(Date.now()-age).toISOString()});
+}
+test('a running Hermes gateway without its Telegram platform asks for a restart',async t=>{
+  const f=await fixture(t);await hermesGateway(f,{});
+  const c=check(await collect(f.row),'conversation');
+  assert.equal(c.detail,'channel-disconnected');assert.equal(c.status,'issue');assert.equal(c.diagnostic.guidance,'restart-host');
+  f.row.managed=false;assert.equal(check(await collect(f.row),'conversation').diagnostic.guidance,'support');
+});
+test('a fresh Hermes gateway is still connecting, a connected one is ok',async t=>{
+  const f=await fixture(t);await hermesGateway(f,{},{startedAgo:30000});
+  assert.equal(check(await collect(f.row),'conversation').detail,'channel-connecting');
+  await hermesGateway(f,{telegram:{state:'connected',updated_at:new Date().toISOString()}});
+  const c=check(await collect(f.row),'conversation');assert.equal(c.status,'ok');assert.equal(c.detail,'channel-connected');
+  await hermesGateway(f,{telegram:{state:'retrying',error_code:'telegram_network_error'}});
+  assert.equal(check(await collect(f.row),'conversation').detail,'channel-connecting');
+});
+test('a rejected token and a second poller are named, not restarted',async t=>{
+  const f=await fixture(t);
+  await hermesGateway(f,{telegram:{state:'fatal',error_code:'telegram_auth_error',error_message:'secret-detail'}});
+  let c=check(await collect(f.row),'conversation');assert.equal(c.detail,'channel-token-rejected');assert.equal(c.diagnostic.guidance,'bot-token');
+  assert(!JSON.stringify(c).includes('secret-detail'));
+  await hermesGateway(f,{telegram:{state:'fatal',error_code:'telegram_polling_conflict'}});
+  c=check(await collect(f.row),'conversation');assert.equal(c.detail,'channel-conflict');assert.equal(c.diagnostic.guidance,'bot-conflict');
+});
+test('a stale, foreign or stopped Hermes record proves nothing about Telegram',async t=>{
+  const f=await fixture(t);
+  await hermesGateway(f,{},{age:20*60000});assert.equal(check(await collect(f.row),'conversation').detail,'channel-not-tested');
+  await hermesGateway(f,{},{owner:999});assert.equal(check(await collect(f.row),'conversation').detail,'channel-not-tested');
+  await hermesGateway(f,{});f.row.state='stopped';assert.equal(check(await collect(f.row),'conversation').detail,'channel-not-tested');
+  f.row.state='running';f.row.binding={user_id:'12345',platform:'openclaw'};assert.equal(check(await collect(f.row),'conversation').detail,'channel-not-tested');
+});
+test('OpenClaw supplies its gateway answer; unknown states are ignored',async t=>{
+  const f=await fixture(t);f.row.host='openclaw';f.row.managed=true;
+  assert.equal(check(await collect(f.row,{channel:{state:'token-rejected',at:null}}),'conversation').detail,'channel-token-rejected');
+  assert.equal(check(await collect(f.row,{channel:{state:'disconnected',at:null}}),'conversation').diagnostic.guidance,'restart-host');
+  assert.equal(check(await collect(f.row,{channel:{state:'surprise'}}),'conversation').detail,'channel-not-tested');
+});

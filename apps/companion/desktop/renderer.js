@@ -494,8 +494,12 @@ function daemonCard(group) {
   const setups=(state.inventory?.setups||[]).filter(x=>rows.some(r=>r.id===x.instanceId)&&x.hasDiagnostic);
   // The app adds OpenClaw to a Hermes daemon; other combinations are not offered.
   const addable=rows.some(r=>r.host==='openclaw')?null:rows.find(r=>r.host==='hermes');
+  // A Telegram problem reported by the host (main.cjs daemon-channels).
+  const channel=rows.map(r=>({r,state:state.channels?.[r.id]})).find(x=>['disconnected','token-rejected','conflict'].includes(x.state));
+  const alert=channel?`<div class="daemon-alert" data-daemon-alert="${channel.r.id}"><p>${locale.t('daemons.channel.'+channel.state,language)}</p>
+      ${channel.state==='disconnected'&&channel.r.managed?`<button class="button primary" data-instance="${channel.r.id}" data-instance-action="restart" ${disabled?'disabled':''}>${locale.t('health.v2.restart',language)}</button>`:''}</div>`:'';
   return `<article class="card daemon-card" data-daemon-card="${group.id}"><h2 class="daemon-title" data-original>${escape(name)}</h2>
-    <p class="daemon-hosts"><span>${rows.length>1?'Hosts':'Host'}</span>: <span data-original>${rows.map(hostName).join(' · ')}</span></p>
+    <p class="daemon-hosts"><span>${rows.length>1?'Hosts':'Host'}</span>: <span data-original>${rows.map(hostName).join(' · ')}</span></p>${alert}
     <div class="daemon-card-actions">${rows.length===1?manage(first)+health(first):`<details class="host-choices"><summary>Manage</summary><div>${rows.map(manage).join('')}</div></details><details class="host-choices"><summary>Health</summary><div>${rows.map(health).join('')}</div></details>`}
       ${addable?`<button class="text-button" data-host-add="${addable.id}" ${disabled?'disabled':''}>Add a host…</button>`:''}
       ${first.daemon.memory?`<button class="text-button" data-instance="${first.id}" data-instance-open="memory">Open memory ↗</button>`:''}</div>
@@ -535,14 +539,17 @@ async function resumeSetup(id) {
   if(state.active||state.instanceBusy)return;
   state.resumeId=id;await action('start');
 }
+async function refreshChannels() {
+  try {state.channels=await window.companion.channels();}catch{state.channels={};}
+}
 async function refreshInstances(add=false) {
   if(state.instanceBusy)return;state.instanceBusy=true;state.error='';render();
-  try {state.inventory=await (add?window.companion.addInstance():window.companion.instances());}
+  try {state.inventory=await (add?window.companion.addInstance():window.companion.instances());await refreshChannels();}
   catch(error){showError(error);}finally{state.instanceBusy=false;render();}
 }
 async function instanceAction(id,action) {
   if(state.instanceBusy)return;state.instanceBusy=true;state.error='';render();
-  try{await window.companion.instanceAction(id,action);state.inventory=await window.companion.instances();}
+  try{await window.companion.instanceAction(id,action);state.inventory=await window.companion.instances();await refreshChannels();}
   catch(error){showError(error);}finally{state.instanceBusy=false;render();}
 }
 
@@ -999,6 +1006,12 @@ function healthArea(r,name,keys) {
   if(name==='reply'){
     if(checks.host?.diagnostic?.guidance==='start-host')return {state:'problem',text:'health.v2.reply.stopped',actions:['start']};
     if(bad(checks.host))return {state:'problem',text:'health.v2.reply.host',actions:['export']};
+    // The host's own report of its Telegram connection (health.cjs).
+    const channel=checks.conversation?.detail;
+    if(channel==='channel-disconnected')return {state:'problem',text:'health.v2.reply.telegram',actions:managed?['restart','export']:['export']};
+    if(channel==='channel-token-rejected')return {state:'problem',text:'health.v2.reply.token',actions:['export']};
+    if(channel==='channel-conflict')return {state:'problem',text:'health.v2.reply.conflict',actions:['export']};
+    if(channel==='channel-connecting')return {state:'waiting',text:'health.v2.reply.connecting'};
     if(bad(checks.model))return {state:'problem',text:'health.v2.reply.model',actions:['telegram','export']};
     return {state:'ok',text:checks.model?.at?'health.v2.reply.ok':'health.v2.reply.new',at:checks.model?.at};
   }

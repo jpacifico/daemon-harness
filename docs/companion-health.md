@@ -17,12 +17,20 @@ A new daemon normally has no Dreaming or REM history yet.
 | Daemon integration | Whether a matching conversation receipt records use of this memory and runtime. |
 | Memory folder | Whether the configured folder is accessible. No notes are opened or changed. |
 | Model response | The latest recorded generation result, without making a new provider request. |
-| Conversation channel | Whether an account was identified. Delivery remains unverified without a channel test. |
+| Conversation channel | Whether the host reports a connection to Telegram: Hermes Agent from its own state file, OpenClaw from its gateway's health answer. Delivery of a given message is not tested. |
 | Memory after conversations | The latest recorded after-turn cycle result. |
 | Memory worker | Whether a matching worker heartbeat is current. |
 | Pending memory work | Pending, running and failed jobs for the selected account and host. Only bounded structural job metadata is retained. |
 | Dreaming and REM | The latest recorded maintenance verdicts for the account. |
 | Memory search | Explicitly unverified: opening this screen does not execute a search query. |
+
+When a running host is not connected to Telegram, the health page and the
+daemon's card say so and offer **Restart the daemon**: the host starts again
+and reconnects, without changing memory or settings. A restart does not help
+when Telegram rejects the bot token or another program uses the same bot; the
+page names that cause instead. A Gateway that started less than two minutes ago
+is shown as still connecting. On OpenClaw, the card shows the result of the
+last health check.
 
 The worker heartbeat must be younger than 15 seconds. Model results older than
 24 hours, maintenance older than 48 hours, or pending work older than five

@@ -414,3 +414,67 @@ def test_health_uses_non_destructive_process_query(setup, monkeypatch):
     )
     assert upgrade.health() is False
     assert queried == [777777]
+
+
+def _without_load_timeout(initial):
+    """Write the profile exactly as an installation before the plugin load deadline did."""
+    from daemons_companion.hermes.profile import (
+        HERMES_CONFIG_VALUES,
+        HERMES_LATER_CONFIG_KEYS,
+        _patch_hermes_config,
+    )
+
+    config = initial.host.profile / "config.yaml"
+    earlier = tuple(v for v in HERMES_CONFIG_VALUES if v[0] not in HERMES_LATER_CONFIG_KEYS)
+    text = config.read_text()
+    assert "load_timeout_seconds: 120" in text
+    # The current file minus the later setting, then re-applied as the earlier release did.
+    lines = [line for line in text.splitlines(keepends=True) if "load_timeout_seconds" not in line]
+    stripped = "".join(lines)
+    if "plugins:\n" in stripped and not any(
+        line.startswith("  ") for line in stripped.split("plugins:\n", 1)[1].splitlines()[:1]
+    ):
+        stripped = stripped.replace("plugins:\n", "", 1)
+    earlier_config = _patch_hermes_config(stripped.encode(), earlier)
+    config.write_bytes(earlier_config)
+    return config, earlier_config
+
+
+def test_update_adds_the_plugin_load_deadline_to_an_earlier_profile(setup):
+    factory, initial, scheduler, memory, _, _ = setup
+    config, earlier = _without_load_timeout(initial)
+    upgrade = factory()
+    review = upgrade.review()
+    assert review["status"] == "review"
+    assert upgrade.run(review["revision"])["status"] == "committed"
+    import yaml
+
+    assert yaml.safe_load(config.read_text())["plugins"]["load_timeout_seconds"] == 120
+    assert memory.read_text() == "Synthetic canonical memory remains exact.\n"
+
+
+@pytest.mark.parametrize("phase", CODES)
+def test_failed_update_restores_the_earlier_profile_without_the_deadline(setup, phase):
+    factory, initial, scheduler, _, _, _ = setup
+    config, earlier = _without_load_timeout(initial)
+    saved = dict(scheduler.values)
+
+    def fail(step):
+        if step == phase:
+            raise RuntimeError("Synthetic failure")
+
+    upgrade = factory(hook=fail)
+    assert upgrade.run(upgrade.review()["revision"])["status"] == "rolled_back"
+    assert config.read_bytes() == earlier
+    assert scheduler.values == saved
+
+
+def test_a_changed_plugin_load_deadline_is_refused_before_services(setup):
+    factory, initial, scheduler, _, _, _ = setup
+    config = initial.host.profile / "config.yaml"
+    config.write_text(config.read_text().replace("load_timeout_seconds: 120", "load_timeout_seconds: 30"))
+    saved = dict(scheduler.values)
+    # The same refusal as any other changed installation setting.
+    with pytest.raises((ValueError, RuntimeError), match="load_timeout_seconds|migration"):
+        factory().review()
+    assert scheduler.values == saved

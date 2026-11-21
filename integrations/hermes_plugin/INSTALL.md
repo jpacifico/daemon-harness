@@ -16,8 +16,9 @@ records the `parga-v1` continuity profile. It also writes the reference daemon's
 conversation settings in the private `config.yaml`: `web.search_backend: ddgs`,
 `agent.reasoning_effort: medium`, `display.show_reasoning: false`,
 `approvals.mode: manual`, Telegram response streaming,
-`display.tool_preview_length: 0` and `display.busy_ack_detail: true`. Removal
-restores the previous values.
+`display.tool_preview_length: 0`, `display.busy_ack_detail: true` and
+`plugins.load_timeout_seconds: 120`, so that a slow boot does not leave the
+gateway without its Telegram plugin. Removal restores the previous values.
 
 The new memory receives the reference voice (`persona.md`, `conversation.md`)
 and a first-meeting marker. While the welcome is open, the voice plugin hands

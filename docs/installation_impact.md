@@ -39,7 +39,9 @@ answer on Telegram in the meantime. If any step fails, the previous copy,
 profile and services are restored exactly; an interrupted update is offered
 for restoration the next time the page opens. On OpenClaw, the profile then
 loads the plugin from the new copy only; the previous copy is kept on disk for
-that restoration.
+that restoration. On Hermes Agent, the update also adds a host setting
+introduced after the daemon was created, such as
+`plugins.load_timeout_seconds: 120`; rollback restores the previous file.
 
 The page explains instead why a daemon cannot be updated:
 
@@ -153,10 +155,13 @@ Removal restores the previous values.
 
 **Hermes Agent**: `web.search_backend: ddgs` (searches run as visible Hermes
 tools instead of hidden model-native search), `agent.reasoning_effort: medium`,
-`display.show_reasoning: false`, `approvals.mode: manual`, and the Telegram
+`display.show_reasoning: false`, `approvals.mode: manual`, the Telegram
 display values the gateway does not infer from defaults
 (`display.platforms.telegram.streaming: true`, `display.tool_preview_length: 0`,
-`display.busy_ack_detail: true`).
+`display.busy_ack_detail: true`), and `plugins.load_timeout_seconds: 120`.
+Hermes otherwise gives each messaging plugin 10 seconds to load: after a slow
+boot, the Telegram plugin can overrun it, and the gateway then keeps running
+without Telegram until it is restarted.
 
 **OpenClaw**: Telegram `progress` streaming with tool progress, status command
 text and the voice's brief commentary, without a progress label; automatic

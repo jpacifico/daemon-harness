@@ -614,3 +614,22 @@ def test_private_hermes_receives_reference_conversation_settings():
     assert values["display.platforms.telegram.streaming"] is True
     assert values["display.tool_preview_length"] == 0
     assert values["display.busy_ack_detail"] is True
+    # A slow boot must not leave the gateway without its Telegram plugin.
+    assert values["plugins.load_timeout_seconds"] == 120
+
+
+def test_config_from_an_earlier_installation_is_current_without_later_settings():
+    from daemons_companion.hermes.profile import (
+        HERMES_LATER_CONFIG_KEYS,
+        _patch_hermes_config,
+        hermes_config_current,
+    )
+
+    earlier = _patch_hermes_config(
+        b"", tuple(v for v in HERMES_CONFIG_VALUES if v[0] not in HERMES_LATER_CONFIG_KEYS)
+    )
+    current = _patch_hermes_config(b"")
+    assert hermes_config_current(earlier)
+    assert hermes_config_current(current)
+    assert not hermes_config_current(current.replace(b"load_timeout_seconds: 120", b"load_timeout_seconds: 5"))
+    assert not hermes_config_current(earlier.replace(b"manual", b"off"))

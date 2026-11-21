@@ -107,10 +107,12 @@ def fixture(root, *, scheduler=None, namespace=None, plugin_copies=None):
     step = PlanStep(HERMES_PROFILE_STEP, "synthetic", ())
     adapter.snapshot(step, snapshot)
     adapter.apply(step)
-    with (profile / "config.yaml").open("a") as out:
-        out.write(
-            "\nplugins:\n  enabled:\n    - daemon_core\n    - daemon_voice\n    - unrelated\n  disabled: []\n"
-        )
+    # Hermes enables plugins inside the existing `plugins` mapping, which the
+    # profile already holds for its load deadline.
+    config = (profile / "config.yaml").read_text()
+    listed = "  enabled:\n    - daemon_core\n    - daemon_voice\n    - unrelated\n  disabled: []\n"
+    assert config.count("\nplugins:\n") == 1
+    (profile / "config.yaml").write_text(config.replace("\nplugins:\n", "\nplugins:\n" + listed, 1))
     source = attempt / "source"
     source.mkdir()
     executable = source / ("worker.exe" if os.name == "nt" else "worker")

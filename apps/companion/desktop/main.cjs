@@ -155,8 +155,34 @@ function readSetupDiagnostic(directory) {
   return new (require('./diagnostics.cjs').Diagnostics)(path.join(directory,'diagnostics')).read();
 }
 handle('instances-refresh', () => inventoryWithSetups());
+// OpenClaw keeps its Telegram state in its running gateway: the daemon's own
+// health query answers it (hosts/channel_status.py). Hermes writes it to a file.
+async function openclawChannel(id) {
+  if(smoke||backend.active||backend.settingsBusy)return null;
+  const row=await ownedDaemon(id);
+  if(!row||row.host!=='openclaw'||row.state!=='running')return null;
+  try {const result=await backend.daemonSettings({operation:'channel-status',source_profile:row.profile,base:instances.base},'attachment');
+    return ['connected','connecting','disconnected','token-rejected'].includes(result?.telegram)?{state:result.telegram,at:null}:null;}
+  catch {return null;}
+}
+// Each daemon card shows a Telegram problem without opening its health page:
+// Hermes from its state file (instant), OpenClaw from its last health report.
+handle('daemon-channels', async () => {
+  const result={};
+  for(const row of instances.rows.values()) {
+    if(!row.daemon)continue;
+    try {
+      if(row.host==='hermes'){const c=await require('./health.cjs').hermesChannel(row);if(c)result[row.id]=c.state;}
+      else {const detail=healthReports.get(row.id)?.checks?.find(c=>c.key==='conversation')?.detail;
+        const state={'channel-disconnected':'disconnected','channel-token-rejected':'token-rejected','channel-conflict':'conflict','channel-connected':'connected'}[detail];
+        if(state)result[row.id]=state;}
+    } catch {/* No report: the card shows nothing. */}
+  }
+  return result;
+});
 handle('daemon-health', async id => {
-  const report=await instances.health(id);if(healthReports.size>=128)healthReports.clear();healthReports.set(id,report);return report;
+  const channel=await openclawChannel(id);
+  const report=await instances.health(id,{channel});if(healthReports.size>=128)healthReports.clear();healthReports.set(id,report);return report;
 });
 handle('setup-diagnostic', id => setupDiagnostic(id));
 let discardReview=null;

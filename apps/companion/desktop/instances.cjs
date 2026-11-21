@@ -285,11 +285,11 @@ class Instances {
       throw new Error('provider.restart-failed');
     }finally{this.busy=false;}
   }
-  async health(id) {
+  async health(id,evidence={}) {
     if(this.busy)throw new Error('An instance action is already running.');
     this.busy=true;
     try {await this.refresh();const row=this.rows.get(id);if(!row)throw new Error('Refresh the instance list first.');
-      return await require('./health.cjs').collect(row);
+      return await require('./health.cjs').collect(row,evidence);
     } finally {this.busy=false;}
   }
   async daemonContext(id) {

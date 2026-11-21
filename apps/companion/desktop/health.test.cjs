@@ -54,12 +54,27 @@ test('a skipped cycle never counts as a successful update',async t=>{const f=awa
 test('an invalid stopped Gateway never offers Start',async t=>{const f=await fixture(t);Object.assign(f.row,{managed:true,state:'stopped',problem:'unreadable'});const c=check(await collect(f.row),'host');assert.equal(c.status,'issue');assert.notEqual(c.diagnostic.guidance,'start-host');});
 
 // Hermes Agent's own record of its Telegram connection (gateway_state.json).
+const START=179528178014;
 async function hermesGateway(f,platforms,{age=0,startedAgo=600000,pid=4242,owner=4242}={}) {
   const profile=path.join(f.root,'profile');f.row.profile=profile;f.row.managed=true;
   await f.write(path.join(profile,'gateway.pid'),{pid:owner,kind:'hermes-gateway'});
   const started=new Date(Date.now()-startedAgo);await fs.utimes(path.join(profile,'gateway.pid'),started,started);
-  await f.write(path.join(profile,'gateway_state.json'),{pid,kind:'hermes-gateway',gateway_state:'running',platforms,updated_at:new Date(Date.now()-age).toISOString()});
+  // Entries are stamped by the running process unless a test names another writer.
+  const stamped=Object.fromEntries(Object.entries(platforms).map(([k,v])=>[k,{writer_pid:pid,writer_start_time:START,...v}]));
+  await f.write(path.join(profile,'gateway_state.json'),{pid,start_time:START,kind:'hermes-gateway',gateway_state:'running',platforms:stamped,updated_at:new Date(Date.now()-age).toISOString()});
 }
+test('a Telegram entry left by the previous Hermes process is not the current connection',async t=>{
+  const f=await fixture(t);
+  const previous={state:'connected',writer_pid:4100,writer_start_time:START-5000};
+  await hermesGateway(f,{telegram:previous},{startedAgo:30000});
+  assert.equal(check(await collect(f.row),'conversation').detail,'channel-connecting');
+  await hermesGateway(f,{telegram:previous});
+  assert.equal(check(await collect(f.row),'conversation').detail,'channel-disconnected');
+  await hermesGateway(f,{telegram:{state:'connected',writer_start_time:START-5000}});
+  assert.equal(check(await collect(f.row),'conversation').detail,'channel-disconnected');
+  await hermesGateway(f,{telegram:{state:'connected'}});
+  assert.equal(check(await collect(f.row),'conversation').detail,'channel-connected');
+});
 test('a running Hermes gateway without its Telegram platform asks for a restart',async t=>{
   const f=await fixture(t);await hermesGateway(f,{});
   const c=check(await collect(f.row),'conversation');

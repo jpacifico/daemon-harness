@@ -71,8 +71,12 @@ async function hermesChannel(row,now=Date.now()) {
   const updated=Date.parse(state.updated_at);
   if(!Number.isFinite(updated)||now-updated>STATE_FRESH_MS)return null;
   let started=null;try{started=(await fs.stat(path.join(row.profile,'gateway.pid'))).mtimeMs;}catch{return null;}
-  const t=state.platforms&&typeof state.platforms==='object'?state.platforms.telegram:null;
-  if(t&&typeof t==='object'){
+  // Hermes keeps platform entries across restarts; only one stamped by the
+  // running process describes its connection, as in Hermes's own status page.
+  const entry=state.platforms&&typeof state.platforms==='object'?state.platforms.telegram:null;
+  const t=entry&&typeof entry==='object'&&Number.isInteger(state.start_time)
+    &&entry.writer_pid===state.pid&&entry.writer_start_time===state.start_time?entry:null;
+  if(t){
     const at=time(t.updated_at);
     if(t.state==='connected')return {state:'connected',at};
     if(t.error_code==='telegram_auth_error')return {state:'token-rejected',at};

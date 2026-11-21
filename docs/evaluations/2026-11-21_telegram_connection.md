@@ -1,7 +1,7 @@
 # Keeping daemons on Telegram after a slow boot
 
 Date: 21 November 2026. Branch `companion/telegram-connection`, from `main`
-at `7fd1430`, code commit `4666041`.
+at `7fd1430`; code commit `4666041`, trial fixes up to `316c9ca`.
 
 ## Terms
 
@@ -34,6 +34,9 @@ reported the conversation channel as "not tested".
 - Health page and daemon card: "not connected to Telegram" with **Restart the
   daemon**; a rejected bot token or a bot used by another program is named,
   without a restart.
+- The daemons page reads the Telegram state again on its own, and the card
+  follows a restart until the host reports Telegram again (added during the
+  trial).
 
 ## Exit criteria (fixed before the trial)
 
@@ -77,4 +80,58 @@ Windows (unit tests only).
 
 ## Results
 
-Pending.
+Run on 21 November 2026 on macOS, with the owner's throwaway Hermes daemon
+(`test2`), ChatGPT subscription and throwaway bot. Times are local.
+
+| Criterion | Result | Evidence |
+| --- | --- | --- |
+| 1. Baseline | Passed | Created with 0.11.18; Hermes state `connected`; no `load_timeout_seconds` in the config; the owner saw a reply. |
+| 2. Update adds the setting | Passed | Update transaction `committed` at 18:22; the config diff against the copy taken before is exactly `+  load_timeout_seconds: 120`; the daemon runs the new runtime release; the owner saw a reply. |
+| 3. Connected is shown | Passed | The owner saw "connected to Telegram" on the health page and no alert on the card. |
+| 4. The failure is shown | Passed after fixes | Deadline set to `0.001`, gateway restarted at 18:31:54; Hermes logged `No adapter available for telegram` at 18:31:59 and kept running, as on 20 November. The alert and the health-page text appeared; three defects were found and fixed on the way (below). Repeated at 18:56:22 on the final build. |
+| 5. Restart recovers | Passed | With 120 restored byte for byte, **Restart the daemon** on the card restarted the gateway at 19:05:12; Hermes logged `telegram connected` at 19:05:24. The card showed restarting, connecting, then reconnected; the owner saw a reply. |
+| 6. Other daemons untouched | Passed | The 15 service definitions hashed before the trial are identical; every service of the owner runs with the same process as before. |
+| 7. Suites | See below | |
+
+### Defects found during the trial, fixed on the branch
+
+1. **A Telegram entry left by the previous process counted as current**
+   (`0a5a566`). Hermes keeps platform entries across restarts; the entry read
+   after the forced failure was written by the gateway that had been stopped.
+   With a gateway killed while connected, the card could have kept saying
+   "connected". Only an entry stamped by the running process (`writer_pid`,
+   `writer_start_time`) now counts, as in Hermes's own status page.
+2. **No Restart button for daemons the app created** (`376b133`). The button
+   required host controls enabled through the instance registry, which only
+   existing installations added to the app have. One rule now covers both;
+   a created daemon restarts like after a model change.
+3. **A restart was not visible, and cards went stale** (`1971bee`, asked by
+   the owner). The card now follows the restart, and the daemons page reads
+   the Telegram state again every 30 seconds (every 5 seconds after a
+   restart), redrawing only on a change.
+4. **No reading while the window was covered** (`316c9ca`). macOS reports a
+   covered window's page as hidden; the reading skipped it, so the alert did
+   not appear until the window came to the front. The reading no longer
+   depends on visibility. The final build showed the alert at launch; the
+   covered-window case itself was not observed again after this fix.
+
+### Suites
+
+At `316c9ca`: Python 3.12 full suite 3250 passed, 25 skipped; desktop tests
+174 passed; lint passed. CI: pending.
+
+### Limits
+
+- Contrary to the protocol, the trial builds also listed the owner's real
+  daemons: discovery reads the Mac's services and the app's shared registry,
+  not only the trial folder. Nothing was done on those cards; their state
+  files were only read. The registry, empty before the trial, was rewritten
+  empty by the removal.
+- Not covered live: OpenClaw (unit tests only, including the check after a
+  restart), a rejected token, a bot used by another program, Windows.
+- The 120 s deadline is reached only on a slow boot; the trial forced the
+  failure with a tiny deadline rather than a real slow boot.
+
+### Decision
+
+Pending the suites and CI.

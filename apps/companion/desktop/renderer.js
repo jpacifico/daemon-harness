@@ -584,15 +584,17 @@ function settleRestarts(now=Date.now()) {
   }
 }
 // The daemons page reads the hosts' Telegram state again on its own: every
-// 5 seconds while a restart is followed, every 30 seconds otherwise. It
-// redraws only when something changed, so an open section stays open.
+// 5 seconds while a restart is followed, every 30 seconds otherwise, also
+// while the window is covered (macOS then reports the page as hidden), so the
+// card is current when the window comes back. It redraws only when something
+// changed, so an open section stays open.
 function scheduleChannels() {
   clearTimeout(channelTimer);
   channelTimer=setTimeout(watchChannels,Object.values(restarts).some(r=>r.phase!=='restarting')?5000:30000);
 }
 async function watchChannels() {
   try {
-    if(state.page!=='instances'||state.instanceBusy||state.active||document.hidden)return;
+    if(state.page!=='instances'||state.instanceBusy||state.active)return;
     const now=Date.now(),openclaw=new Set((state.inventory?.instances||[]).filter(r=>r.host==='openclaw').map(r=>r.id));
     const live=Object.entries(restarts).filter(([id,r])=>r.phase==='connecting'&&openclaw.has(id)&&now-r.checked>=OPENCLAW_RECHECK_MS).map(([id])=>id);
     for(const id of live)restarts[id].checked=now;

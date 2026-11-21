@@ -59,7 +59,37 @@ async function receiptEvidence(root,memory,source,binding) {
     return result;
   }catch{return {};}
 }
-async function collect(row) {
+// Hermes Agent writes each messaging platform's state to its gateway_state.json
+// and refreshes the file about every minute. A Telegram platform missing there
+// never started: after a slow boot its plugin can overrun Hermes's load deadline,
+// leaving a running gateway that no longer listens to Telegram.
+const CHANNEL_GRACE_MS=120000,STATE_FRESH_MS=600000;
+async function hermesChannel(row,now=Date.now()) {
+  if(row.host!=='hermes'||row.binding?.platform!=='telegram'||!row.profile||row.state!=='running')return null;
+  const state=await json(path.join(row.profile,'gateway_state.json')),owner=await json(path.join(row.profile,'gateway.pid'));
+  if(state?.kind!=='hermes-gateway'||state.gateway_state!=='running'||!Number.isInteger(state.pid)||owner?.pid!==state.pid)return null;
+  const updated=Date.parse(state.updated_at);
+  if(!Number.isFinite(updated)||now-updated>STATE_FRESH_MS)return null;
+  let started=null;try{started=(await fs.stat(path.join(row.profile,'gateway.pid'))).mtimeMs;}catch{return null;}
+  // Hermes keeps platform entries across restarts; only one stamped by the
+  // running process describes its connection, as in Hermes's own status page.
+  const entry=state.platforms&&typeof state.platforms==='object'?state.platforms.telegram:null;
+  const t=entry&&typeof entry==='object'&&Number.isInteger(state.start_time)
+    &&entry.writer_pid===state.pid&&entry.writer_start_time===state.start_time?entry:null;
+  if(t){
+    const at=time(t.updated_at);
+    if(t.state==='connected')return {state:'connected',at};
+    if(t.error_code==='telegram_auth_error')return {state:'token-rejected',at};
+    if(t.error_code==='telegram_polling_conflict')return {state:'conflict',at};
+    // Hermes retries network failures itself.
+    if(['connecting','retrying'].includes(t.state))return {state:'connecting',at};
+    return {state:'disconnected',at};
+  }
+  return now-started<CHANNEL_GRACE_MS?{state:'connecting',at:null}:{state:'disconnected',at:new Date(started).toISOString()};
+}
+const CHANNEL_CHECKS={connected:['ok','channel-connected'],connecting:['recovering','channel-connecting'],
+  disconnected:['action','channel-disconnected'],'token-rejected':['action','channel-token-rejected'],conflict:['action','channel-conflict']};
+async function collect(row,{channel=null}={}) {
   const now=new Date().toISOString(),checks=[];
   const add=(key,status,detail,at=null,extra={})=>checks.push({key,status,detail,at,...extra});
   add('host',row.problem?'action':row.state==='running'?'ok':row.state==='stopped'?'check':'unknown',
@@ -75,7 +105,10 @@ async function collect(row) {
     add(key,e?(e.status==='skipped'?'unknown':e.status==='failed'||e.degraded?'action':Date.now()-Date.parse(e.at)>86400000?'check':'ok'):'unknown',
       e?(e.status==='skipped'?'operation-incomplete':e.status==='failed'||e.degraded?'latest-operation-failed':'last-success'):'no-receipt',e?.at||null);
   }
-  add('conversation','unknown',row.binding?'channel-not-tested':'channel-unidentified');
+  // The host's own report of its Telegram connection; OpenClaw's arrives from its gateway query.
+  const telegram=channel&&CHANNEL_CHECKS[channel.state]?channel:await hermesChannel(row);
+  if(telegram&&CHANNEL_CHECKS[telegram.state])add('conversation',...CHANNEL_CHECKS[telegram.state],telegram.at||now);
+  else add('conversation','unknown',row.binding?'channel-not-tested':'channel-unidentified');
   const heartbeat=locations.spool?await json(path.join(locations.spool,'service.json')):null;
   const beat=time(heartbeat?.heartbeat_at);
   const good=heartbeat?.schema==='daemon.after-turn-service.v1'&&heartbeat.memory_root_ref===ref(memory||'')&&heartbeat.status==='running'&&Number.isInteger(heartbeat.worker_count)&&heartbeat.worker_count>=2&&heartbeat.worker_errors===0&&beat&&Math.abs(Date.now()-Date.parse(beat))<15000;
@@ -126,7 +159,11 @@ async function collect(row) {
       lastSuccessAt:maintenance[c.key]?.lastSuccessAt||receipt.lastSuccess?.[c.key==='model'?'response':c.key==='after-turn'?'cycle':'']||null,
       events:c.key==='queue'?related.slice(0,8).map(safeJob):e?c.key==='model'?[{stage:e.stage,status:e.status,at:e.at,...(e.error?{error:e.error}:{}),...(e.reason?{reason:e.reason}:{})}]:e.events:[],
       limited:(limited||metadataReads>32)&&['queue','after-turn'].includes(c.key),
-      guidance:c.key==='host'&&row.managed&&!row.problem&&row.state==='stopped'?'start-host':c.key==='conversation'?'conversation':recovery==='scheduled'||recovery==='running'?'wait':c.status==='action'?'support':'inspect'};
+      guidance:c.key==='host'&&row.managed&&!row.problem&&row.state==='stopped'?'start-host'
+        :c.key==='conversation'&&c.detail==='channel-disconnected'?(row.restartable?'restart-host':'support')
+        :c.key==='conversation'&&c.detail==='channel-token-rejected'?'bot-token'
+        :c.key==='conversation'&&c.detail==='channel-conflict'?'bot-conflict'
+        :c.key==='conversation'?'conversation':recovery==='scheduled'||recovery==='running'?'wait':c.status==='action'?'support':'inspect'};
     if(c.status==='action')c.status='issue';
     if(['after-turn','queue'].includes(c.key)&&['scheduled','running'].includes(recovery)&&c.status!=='ok')c.status='recovering';
     if(c.diagnostic.guidance==='start-host')c.status='action';
@@ -139,4 +176,4 @@ function focusedReport(report,key) {
   if(!check)throw new Error('Unknown health check.');
   return {schema:'daemon.health-diagnostic.v1',host:report.host,checkedAt:report.checkedAt,status:check.status,checks:[check]};
 }
-module.exports={collect,receiptEvidence,focusedReport};
+module.exports={collect,receiptEvidence,focusedReport,hermesChannel};

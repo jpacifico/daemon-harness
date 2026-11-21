@@ -183,6 +183,10 @@ def execute(request):
         from daemons_companion.runtime.upgrade import dispatch
 
         return dispatch(request)
+    if request.get("operation") == "channel-status":
+        from daemons_companion.hosts.channel_status import dispatch
+
+        return dispatch(request)
     if str(request.get("operation", "")).startswith("create-"):
         from daemons_companion.hosts.creation import dispatch
 

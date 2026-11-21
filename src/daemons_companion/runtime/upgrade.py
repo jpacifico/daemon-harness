@@ -32,7 +32,7 @@ from daemons_companion.hermes.composition import HermesCompositionLayout
 from daemons_companion.hermes.profile import (
     HermesProfileAdapter,
     HermesProfileLayout,
-    _patch_hermes_config,
+    hermes_config_current,
 )
 from daemons_companion.hermes.ready_composition import _services_layout
 from daemons_companion.runtime.services import (
@@ -310,13 +310,13 @@ class Upgrade:
     def check_profile(self):
         """The host profile is exactly what this daemon's installation wrote."""
         try:
-            self.profile_adapter().verify(
-                PlanStep("hermes-profile", "Check source profile", ())
-            )
+            # Settings added since this daemon was created may be missing:
+            # the update writes them, and rollback restores the config.
+            self.profile_adapter().verify_before_update()
         except ValueError as error:
             raise UpgradeRefused("hermes-profile", "The source Hermes profile changed.") from error
         config = checked_file(self.host.profile / "config.yaml", 1048576)
-        if _patch_hermes_config(config) != config:
+        if not hermes_config_current(config):
             raise UpgradeRefused("host-config", "Host configuration requires a separate migration.")
 
     def host_probe(self):

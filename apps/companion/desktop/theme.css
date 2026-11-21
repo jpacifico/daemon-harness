@@ -278,6 +278,10 @@ h1[data-original] { overflow-wrap: anywhere; }
 .daemons-definition { max-width: 680px; font-size: 13px; margin-bottom: 26px; }
 .daemon-title { font-size: 25px; font-weight: 620; letter-spacing: -.5px; margin: 0 0 6px; overflow-wrap: anywhere; }
 .daemon-hosts { color: var(--muted); font-size: 13px; margin: 0 0 18px; }
+.daemon-alert { border: 1px solid var(--error); box-shadow: inset 3px 0 0 var(--error); border-radius: 8px; padding: 10px 12px; margin: -6px 0 16px; }
+.daemon-alert p { margin: 0 0 8px; color: var(--error); font-size: 13px; }
+.daemon-alert p:last-child { margin-bottom: 0; }
+.daemon-restart { display: flex; align-items: center; gap: 8px; margin: -6px 0 16px; color: var(--muted); font-size: 13px; }
 .daemon-card-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin: 12px 0; }
 .host-details { font-size: 12px; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 14px; }
 .host-details summary, .host-choices summary { cursor: pointer; color: var(--muted); }

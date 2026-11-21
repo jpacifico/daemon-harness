@@ -215,7 +215,7 @@ class Backend {
     if(this.active || this.settingsBusy)throw new Error('Finish or stop setup before managing another instance.');
     this.settingsBusy=true;
     let finished; this.settingsStopped=new Promise(resolve=>{finished=resolve;});
-    const diagnostic=removal==='attachment'&&request.source_profile&&!['upgrade-status','upgrade-check','create-status'].includes(request.operation)?this.hostDiagnostic(request.source_profile):null;
+    const diagnostic=removal==='attachment'&&request.source_profile&&!['upgrade-status','upgrade-check','create-status','channel-status'].includes(request.operation)?this.hostDiagnostic(request.source_profile):null;
     if(diagnostic){diagnostic.begin();diagnostic.record({phase:'installation',operation:request.operation,status:'started'});}
     try {
       if(!this.settingsRuntime)this.settingsRuntime=await this.prepare(new AbortController().signal,{settingsOnly:true});

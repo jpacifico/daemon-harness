@@ -19,6 +19,18 @@ test('explicit management persists; cancellation, stop and restart affect only c
  const reopened=new Instances({...f,environment:{}});await reopened.load();assert((await reopened.refresh()).instances.find(x=>x.id===id).managed);
  await reopened.change(id,'forget',async()=>true);assert(!(await reopened.refresh()).instances.find(x=>x.id===id).managed);assert.deepEqual(await snapshot(f.home),before);
 });
+test('a daemon the app created restarts without host controls; an external one needs them',async t=>{
+ const f=await setup(t);const rows=(await f.instance.refresh()).instances;
+ const owned=rows.find(x=>x.profile.startsWith(f.base)),external=rows.find(x=>x.profile===f.hermes);
+ assert.equal(owned.restartable,true);assert.equal(owned.managed,false);assert.equal(external.restartable,false);
+ await assert.rejects(f.instance.restartGateway(external.id),/provider.restart-failed/);assert.deepEqual(f.services.calls,[]);
+ assert.equal(await f.instance.restartGateway(owned.id),true);
+ assert.deepEqual(f.services.calls,[{label:'com.daemonharness.test.'+'b'.repeat(32)+'.hermes-gateway',action:'restart'}]);
+ await f.instance.change(external.id,'connect',async()=>true);
+ assert.equal((await f.instance.refresh()).instances.find(x=>x.id===external.id).restartable,true);
+ f.services.items.push({...f.services.items[3],label:f.services.items[3].label.replace('hermes-gateway','other.hermes-gateway')});
+ assert.equal((await f.instance.refresh()).instances.find(x=>x.id===owned.id).restartable,false);
+});
 test('ambiguous services, changed definition and stale confirmation refuse actions',async t=>{
  const f=await setup(t);const id=(await f.instance.refresh()).instances.find(x=>x.profile===f.hermes).id;
  await f.instance.change(id,'connect',async()=>true);

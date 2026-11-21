@@ -80,7 +80,7 @@ function ownPage(event) {
 }
 const mutations = new Set(['host-interface-open','instances-action','removal-review','removal-apply','daemon-save',
   'setup-start','setup-new','setup-discard-review','setup-discard-apply','host-add-start','update-install',
-  'memory-backup','setup-restore','backup-drive','backup-automatic','google-disconnect','provider-change','provider-switch-start','host-change-start','daemon-update-start']);
+  'memory-backup','setup-restore','backup-drive','backup-automatic','google-disconnect','provider-change','provider-switch-start','host-change-start','daemon-update-start','daemon-restart']);
 let mutationBusy = false;
 function handle(channel, callback) {
   ipcMain.handle(channel, async (event, ...args) => {
@@ -155,8 +155,48 @@ function readSetupDiagnostic(directory) {
   return new (require('./diagnostics.cjs').Diagnostics)(path.join(directory,'diagnostics')).read();
 }
 handle('instances-refresh', () => inventoryWithSetups());
+// OpenClaw keeps its Telegram state in its running gateway: the daemon's own
+// health query answers it (hosts/channel_status.py). Hermes writes it to a file.
+async function openclawChannel(id) {
+  if(smoke||backend.active||backend.settingsBusy)return null;
+  const row=await ownedDaemon(id);
+  if(!row||row.host!=='openclaw'||row.state!=='running')return null;
+  try {const result=await backend.daemonSettings({operation:'channel-status',source_profile:row.profile,base:instances.base},'attachment');
+    return ['connected','connecting','disconnected','token-rejected'].includes(result?.telegram)?{state:result.telegram,at:null}:null;}
+  catch {return null;}
+}
+// OpenClaw's last answer per daemon, from its health page or a check after a
+// restart; a restart forgets it, since it described the previous gateway.
+const openclawChannels=new Map();
+// "Restart the daemon" when its host is not connected to Telegram: the same
+// gateway restart the app does after a model change, without a confirmation.
+handle('daemon-restart', async id => {
+  if(backend.active||backend.settingsBusy)throw new Error('Finish or stop setup before managing another instance.');
+  openclawChannels.delete(id);
+  try {return await instances.restartGateway(id);}catch{throw new Error('daemons.restart-failed');}
+});
+// Each daemon card shows its Telegram state without opening its health page:
+// Hermes from its state file (instant), OpenClaw from its last answer. The ids
+// in `live` (OpenClaw daemons just restarted) are asked again; the query holds
+// the app's settings commands, so the page asks rarely (renderer.js).
+handle('daemon-channels', async (live=[]) => {
+  const fresh=new Set(Array.isArray(live)?live.filter(x=>typeof x==='string').slice(0,16):[]);
+  const result={};
+  for(const row of instances.rows.values()) {
+    if(!row.daemon)continue;
+    try {
+      if(row.host==='hermes'){const c=await require('./health.cjs').hermesChannel(row);if(c)result[row.id]=c.state;continue;}
+      if(fresh.has(row.id)){const c=await openclawChannel(row.id);if(c)openclawChannels.set(row.id,c.state);}
+      const state=openclawChannels.get(row.id);
+      if(['connected','connecting','disconnected','token-rejected','conflict'].includes(state))result[row.id]=state;
+    } catch {/* No answer: the card shows nothing. */}
+  }
+  return result;
+});
 handle('daemon-health', async id => {
-  const report=await instances.health(id);if(healthReports.size>=128)healthReports.clear();healthReports.set(id,report);return report;
+  const channel=await openclawChannel(id);
+  if(channel)openclawChannels.set(id,channel.state);else openclawChannels.delete(id);
+  const report=await instances.health(id,{channel});if(healthReports.size>=128)healthReports.clear();healthReports.set(id,report);return report;
 });
 handle('setup-diagnostic', id => setupDiagnostic(id));
 let discardReview=null;
@@ -218,6 +258,7 @@ handle('instances-add', async () => {
 });
 handle('instances-action', async (id, action) => {
   if(backend.active||backend.settingsBusy)throw new Error('Finish or stop setup before managing another instance.');
+  if(['start','stop','restart'].includes(action))openclawChannels.delete(id);
   return instances.change(id,action,async row => {
     const answer = await dialog.showMessageBox(window,{type:'question',
       message:locale.t('instances.confirm.'+action,preferences.language),

@@ -3,7 +3,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('companion', Object.freeze({
   startHostAddition: id => ipcRenderer.invoke('host-add-start',id),
   health: id => ipcRenderer.invoke('daemon-health',id),
-  channels: () => ipcRenderer.invoke('daemon-channels'),
+  channels: live => ipcRenderer.invoke('daemon-channels',Array.isArray(live)?live:[]),
   restartDaemon: id => ipcRenderer.invoke('daemon-restart',id),
   diagnostic: id => ipcRenderer.invoke('setup-diagnostic',id),
   exportDiagnostic: (kind,id,key=null) => ipcRenderer.invoke('export-diagnostic',kind,id,key),

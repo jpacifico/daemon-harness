@@ -25,6 +25,8 @@ async function refreshGoogle(id=null){try{const value=await window.companion.bac
 const hostAdditionState={id:null};
 const removalState={plan:null,busy:false,name:'',message:'',id:null,action:null,failure:null,deleteMemory:false};
 const state = { page: 'instances', active: false, phase: 'host', prompt: null, messages: [], guidance: [], links: [], activity: '', error: '', result: null, overview: null, inventory:null, instanceBusy:false, savedSetup:'none', setupStarted:false, operation:null, daemon:null, daemonDraft:null, daemonBusy:false, daemonMessage:'', daemonPronounChoice:null, daemonCustomPronouns:'', daemonPreferencesOpen:null };
+// Restart progress per host row, shown on daemon cards (restartWithStatus).
+let restarts={},channelTimer=null;
 const phases = ['host', 'identity', 'model', 'telegram', 'installation', 'conversation'];
 const labels = { host: 'Getting started', identity: 'You and your daemon', model: 'Model access', review: 'Review', telegram: 'Telegram', installation: 'Installation', conversation: 'First conversation' };
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -283,7 +285,7 @@ function render() {
   document.querySelectorAll('[data-health-export]').forEach(el=>el.addEventListener('click',()=>reportAction('report-export',el.dataset.healthExport||null)));
   document.querySelectorAll('[data-health-detail]').forEach(el=>el.addEventListener('toggle',()=>{if(el.open)reportState.expanded.add(el.dataset.healthDetail);else reportState.expanded.delete(el.dataset.healthDetail);}));
   document.querySelector('[data-health-start]')?.addEventListener('click',async()=>{reportState.busy=true;state.error='';render();try{await window.companion.instanceAction(reportState.id,'start');await loadReport();}catch(e){state.error=e.message;}finally{reportState.busy=false;render();}});
-  document.querySelector('[data-health-restart]')?.addEventListener('click',async()=>{reportState.busy=true;state.error='';render();try{await restartRow(reportState.id);await loadReport();}catch(e){state.error=e.message;}finally{reportState.busy=false;render();}});
+  document.querySelector('[data-health-restart]')?.addEventListener('click',async()=>{reportState.busy=true;state.error='';render();try{await restartWithStatus(reportState.id);await loadReport();scheduleChannels();}catch(e){state.error=e.message;}finally{reportState.busy=false;render();}});
   document.querySelectorAll('[data-host-interface]').forEach(el=>el.addEventListener('click',async()=>{
     if(hostInterfaceState.busy)return;
     const id=el.dataset.hostInterface;Object.assign(hostInterfaceState,{id,busy:true,message:''});render();
@@ -496,11 +498,13 @@ function daemonCard(group) {
   // The app adds OpenClaw to a Hermes daemon; other combinations are not offered.
   const addable=rows.some(r=>r.host==='openclaw')?null:rows.find(r=>r.host==='hermes');
   // A Telegram problem reported by the host (main.cjs daemon-channels).
-  const channel=rows.map(r=>({r,state:state.channels?.[r.id]})).find(x=>['disconnected','token-rejected','conflict'].includes(x.state));
+  const restart=rows.map(r=>restarts[r.id]).find(Boolean);
+  const channel=restart?null:rows.map(r=>({r,state:state.channels?.[r.id]})).find(x=>['disconnected','token-rejected','conflict'].includes(x.state));
+  const progress=restart?`<p class="daemon-restart" role="status">${restart.phase==='restarting'?'<span class="spinner" aria-hidden="true"></span>':''}${escape(locale.t('daemons.restart.'+restart.phase,language))}</p>`:'';
   const alert=channel?`<div class="daemon-alert" data-daemon-alert="${channel.r.id}"><p>${locale.t('daemons.channel.'+channel.state,language)}</p>
       ${channel.state==='disconnected'&&channel.r.restartable?`<button class="button primary" data-daemon-restart="${channel.r.id}" ${disabled?'disabled':''}>${locale.t('health.v2.restart',language)}</button>`:''}</div>`:'';
   return `<article class="card daemon-card" data-daemon-card="${group.id}"><h2 class="daemon-title" data-original>${escape(name)}</h2>
-    <p class="daemon-hosts"><span>${rows.length>1?'Hosts':'Host'}</span>: <span data-original>${rows.map(hostName).join(' · ')}</span></p>${alert}
+    <p class="daemon-hosts"><span>${rows.length>1?'Hosts':'Host'}</span>: <span data-original>${rows.map(hostName).join(' · ')}</span></p>${progress}${alert}
     <div class="daemon-card-actions">${rows.length===1?manage(first)+health(first):`<details class="host-choices"><summary>Manage</summary><div>${rows.map(manage).join('')}</div></details><details class="host-choices"><summary>Health</summary><div>${rows.map(health).join('')}</div></details>`}
       ${addable?`<button class="text-button" data-host-add="${addable.id}" ${disabled?'disabled':''}>Add a host…</button>`:''}
       ${first.daemon.memory?`<button class="text-button" data-instance="${first.id}" data-instance-open="memory">Open memory ↗</button>`:''}</div>
@@ -542,6 +546,7 @@ async function resumeSetup(id) {
 }
 async function refreshChannels() {
   try {state.channels=await window.companion.channels();}catch{state.channels={};}
+  settleRestarts();
 }
 async function refreshInstances(add=false) {
   if(state.instanceBusy)return;state.instanceBusy=true;state.error='';render();
@@ -555,11 +560,49 @@ async function restartRow(id) {
   if(row?.managed)return window.companion.instanceAction(id,'restart');
   try{return await window.companion.restartDaemon(id);}catch{throw new Error(locale.t('daemons.restart-failed',language));}
 }
+// What a card says after Restart the daemon: restarting, then connecting until
+// the host reports Telegram, then "reconnected" for a minute. A problem the
+// host reports once the restart has settled brings the alert back.
+const RESTART_SETTLE_MS=15000,RESTART_WATCH_MS=150000,RECONNECTED_MS=60000,OPENCLAW_RECHECK_MS=30000;
+async function restartWithStatus(id) {
+  restarts[id]={phase:'restarting',at:Date.now()};render();
+  try{await restartRow(id);restarts[id]={phase:'connecting',at:Date.now(),checked:Date.now()};}
+  catch(error){delete restarts[id];throw error;}
+}
 async function restartDaemon(id) {
   if(state.instanceBusy)return;state.instanceBusy=true;state.error='';render();
-  try{await restartRow(id);state.inventory=await window.companion.instances();await refreshChannels();}
-  catch(error){showError(error);}finally{state.instanceBusy=false;render();}
+  try{await restartWithStatus(id);state.inventory=await window.companion.instances();await refreshChannels();}
+  catch(error){showError(error);}finally{state.instanceBusy=false;render();scheduleChannels();}
 }
+function settleRestarts(now=Date.now()) {
+  for(const [id,r] of Object.entries(restarts)) {
+    const channel=state.channels?.[id];
+    if(r.phase==='connecting'){
+      if(channel==='connected')restarts[id]={phase:'connected',at:now};
+      else if(now-r.at>RESTART_WATCH_MS||(now-r.at>RESTART_SETTLE_MS&&['disconnected','token-rejected','conflict'].includes(channel)))delete restarts[id];
+    } else if(r.phase==='connected'&&now-r.at>RECONNECTED_MS)delete restarts[id];
+  }
+}
+// The daemons page reads the hosts' Telegram state again on its own: every
+// 5 seconds while a restart is followed, every 30 seconds otherwise. It
+// redraws only when something changed, so an open section stays open.
+function scheduleChannels() {
+  clearTimeout(channelTimer);
+  channelTimer=setTimeout(watchChannels,Object.values(restarts).some(r=>r.phase!=='restarting')?5000:30000);
+}
+async function watchChannels() {
+  try {
+    if(state.page!=='instances'||state.instanceBusy||state.active||document.hidden)return;
+    const now=Date.now(),openclaw=new Set((state.inventory?.instances||[]).filter(r=>r.host==='openclaw').map(r=>r.id));
+    const live=Object.entries(restarts).filter(([id,r])=>r.phase==='connecting'&&openclaw.has(id)&&now-r.checked>=OPENCLAW_RECHECK_MS).map(([id])=>id);
+    for(const id of live)restarts[id].checked=now;
+    const before=JSON.stringify([state.channels,restarts]);
+    try {state.channels=await window.companion.channels(live);}catch{return;}
+    settleRestarts();
+    if(JSON.stringify([state.channels,restarts])!==before&&state.page==='instances'&&!state.instanceBusy)render();
+  } finally {scheduleChannels();}
+}
+scheduleChannels();
 async function instanceAction(id,action) {
   if(state.instanceBusy)return;state.instanceBusy=true;state.error='';render();
   try{await window.companion.instanceAction(id,action);state.inventory=await window.companion.instances();await refreshChannels();}

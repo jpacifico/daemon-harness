@@ -73,7 +73,7 @@ test('explicit cancellation of native sign-in is not reported as an association 
 
 test('ChatGPT progress and bounded native catalogue pass the subprocess boundary',async()=>{
  const {settingsCommand}=require('./backend.cjs');const events=[];
- const catalog={status:'ready',raw_catalog_observed:false,native_count:2,excluded_count:1,models:['gpt-6-astra','gpt-6.1-sol'].map((id,i)=>({id,status:i===1?'offered':'absent-native'}))};
+ const catalog={status:'ready',raw_catalog_observed:false,native_count:2,excluded_count:1,models:['gpt-6.2-astra','gpt-6.2-sol','gpt-6-astra'].map((id,i)=>({id,status:i===1?'offered':'absent-native'}))};
  const lines=[{stage:'waiting'},{stage:'secret'},{stage:'catalog'},{catalog},{stage:'catalog',token:'secret'}].map(v=>'DAEMONS_CHATGPT '+JSON.stringify(v)+'\n').join('');
  const code=`process.stdin.resume();process.stdin.on('end',()=>{process.stderr.write(${JSON.stringify(lines)});process.stdout.write(JSON.stringify({ok:true,result:{revision:'test',phase:'model'}}));});`;
  await settingsCommand(process.execPath,['-e',code],{},{},'attachment',{child(){},event:e=>events.push(e)});

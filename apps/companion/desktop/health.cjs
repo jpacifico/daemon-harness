@@ -25,35 +25,41 @@ function evidence(e) {
     ...(errors.has(e.details?.error_type)?{error:e.details.error_type}:{}),
     degraded:e.details?.degraded===true};
 }
-async function receiptEvidence(root,memory,source,binding) {
-  if(!root||!binding)return {};
+// One directory or several: an OpenClaw daemon's live service and its memory
+// worker write the same turn to different directories; a turn is read whole.
+async function receiptEvidence(roots,memory,source,binding) {
+  roots=(Array.isArray(roots)?roots:[roots]).filter(Boolean);
+  if(!roots.length||!binding)return {};
   try {
-    if(!await direct(root))return {};
-    const candidates=[];const directory=await fs.opendir(root);let visited=0;
-    for await(const entry of directory) {if(++visited>2000)break;if(!entry.isFile()||!entry.name.endsWith('.jsonl'))continue;const s=await fs.lstat(path.join(root,entry.name));candidates.push({name:entry.name,at:s.mtimeMs});}
-    const names=candidates.sort((a,b)=>b.at-a.at).slice(0,32).map(x=>x.name);
+    const candidates=[];
+    for(const root of roots) {
+      if(!await direct(root).catch(()=>false))continue; // A missing directory is not read.
+      const directory=await fs.opendir(root);let visited=0;
+      for await(const entry of directory) {if(++visited>2000)break;if(!entry.isFile()||!entry.name.endsWith('.jsonl'))continue;const file=path.join(root,entry.name);const s=await fs.lstat(file);candidates.push({file,at:s.mtimeMs});}
+    }
+    const files=candidates.sort((a,b)=>b.at-a.at).slice(0,32).map(x=>x.file);
     const result={lastSuccess:{}};
-    for(const name of names) {
-      const turns=new Map();
-      for(const e of await lines(path.join(root,name))) {
+    const turns=new Map();
+    for(const file of files) {
+      for(const e of await lines(file)) {
         if(e.schema!=='daemon.continuity-receipt.event.v1'||typeof e.turn_id!=='string')continue;
         const t=turns.get(e.turn_id)||{identity:{},events:[]};
         if(e.identity&&typeof e.identity==='object')Object.assign(t.identity,e.identity);
         t.events.push(e);turns.set(e.turn_id,t);
       }
-      for(const t of turns.values()) {
-        if(t.identity.user_ref!==ref(binding.user_id)||t.identity.platform!==binding.platform||t.identity.memory_root_ref!==ref(memory||'')||t.identity.source_root_ref!==ref(source?path.dirname(source):''))continue;
-        const latest={};
-        for(const raw of t.events) {const e=evidence(raw);if(e&&(!latest[e.stage]||e.at>=latest[e.stage].at))latest[e.stage]=e;}
-        for(const e of t.events.map(evidence).filter(Boolean)) {
-          if(e.status==='completed'&&!e.degraded&&(!result.lastSuccess[e.stage]||e.at>result.lastSuccess[e.stage]))result.lastSuccess[e.stage]=e.at;
-        }
-        for(const e of Object.values(latest)) {
-          if(!['completed','failed','skipped'].includes(e.status))continue;
-          if(result[e.stage]?.at>e.at)continue;
-          result[e.stage]={...e,turnId:t.events[0].turn_id,
-            events:Object.values(latest).filter(x=>x.status==='failed'||x.degraded).sort((a,b)=>a.at.localeCompare(b.at)).slice(-8)};
-        }
+    }
+    for(const t of turns.values()) {
+      if(t.identity.user_ref!==ref(binding.user_id)||t.identity.platform!==binding.platform||t.identity.memory_root_ref!==ref(memory||'')||t.identity.source_root_ref!==ref(source?path.dirname(source):''))continue;
+      const latest={};
+      for(const raw of t.events) {const e=evidence(raw);if(e&&(!latest[e.stage]||e.at>=latest[e.stage].at))latest[e.stage]=e;}
+      for(const e of t.events.map(evidence).filter(Boolean)) {
+        if(e.status==='completed'&&!e.degraded&&(!result.lastSuccess[e.stage]||e.at>result.lastSuccess[e.stage]))result.lastSuccess[e.stage]=e.at;
+      }
+      for(const e of Object.values(latest)) {
+        if(!['completed','failed','skipped'].includes(e.status))continue;
+        if(result[e.stage]?.at>e.at)continue;
+        result[e.stage]={...e,turnId:t.events[0].turn_id,
+          events:Object.values(latest).filter(x=>x.status==='failed'||x.degraded).sort((a,b)=>a.at.localeCompare(b.at)).slice(-8)};
       }
     }
     return result;
@@ -98,7 +104,7 @@ async function collect(row,{channel=null}={}) {
   let accessible=false;
   if(memory)try{accessible=await direct(memory)&&(await fs.stat(memory)).isDirectory();await fs.access(memory,fs.constants.R_OK|fs.constants.X_OK);}catch{accessible=false;}
   add('memory',memory?(accessible?'ok':'action'):'unknown',accessible?'folder-readable':'folder-unavailable',now);
-  const receipt=await receiptEvidence(locations.receipts,memory,row.daemon?.source,row.binding);
+  const receipt=await receiptEvidence(locations.receiptDirs||locations.receipts,memory,row.daemon?.source,row.binding);
   add('plugin',receipt.response?'ok':'unknown',receipt.response?'receipt-observed':row.daemon?'plugin-configured':'plugin-unverified',receipt.response?.at||null);
   for(const [key,stage] of [['model','response'],['after-turn','cycle']]) {
     const e=receipt[stage];

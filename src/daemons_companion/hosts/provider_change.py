@@ -7,6 +7,11 @@ are then stopped once its memory work is done, its settings switched
 (desktop/provider_settings.py) and its services restarted. The previous
 settings are kept until the person has seen the daemon answer on Telegram;
 going back, an error or an unfinished session restores them exactly.
+
+A daemon on the ChatGPT subscription can also change its model the same way
+(``model_only``): its sign-ins are reused, the current private Codex is
+installed when the daemon has an older one, and the models offered are those
+its account and its host list.
 """
 
 from __future__ import annotations
@@ -43,12 +48,14 @@ class Connection:
     codex: Path | None = None
 
 
-def run(ui, profile: Path, base: Path, name: str, context) -> bool:
+def run(ui, profile: Path, base: Path, name: str, context, *, model_only: bool = False) -> bool:
     """True once the daemon answered on its new provider and the change was kept."""
     daemon = OwnedDaemon(profile)
     info = daemon.describe()
     if info["pending"]:
         raise ProviderSettingsError("provider.pending")
+    if model_only:
+        return _change_model(ui, daemon, base, info, name, context)
     if not info["switchable"]:
         raise ProviderSettingsError("provider.unsupported")
     connection = _connect(ui, daemon, info, name, context)
@@ -61,6 +68,34 @@ def run(ui, profile: Path, base: Path, name: str, context) -> bool:
         raise Quit()
     switched_at = _switch(ui, daemon, base, connection, info["revision"])
     return _conclude(ui, daemon, base, name, provider, switched_at)
+
+
+def _change_model(ui, daemon, base, info, name, context) -> bool:
+    import json
+    from daemons_companion.openclaw.host_install import checked_file
+
+    if not info.get("model_changeable"):
+        raise ProviderSettingsError("provider.unsupported")
+    current = model_label(info["model"])
+    ui.phase("model")
+    ui.say(f"{name} uses ChatGPT with {current}. Its memory, its identity and its Telegram bot stay the same; "
+           "only the model changes. Nothing changes before you confirm.")
+    connection = _subscription(ui, daemon, context, signed_in=True)
+    codex = json.loads(checked_file(daemon.private_connection, 8192)).get("codex")
+    if connection.model == info["model"] and str(connection.codex) == codex:
+        ui.say(f"{name} already uses {current}. Nothing was changed.")
+        return False
+    chosen = model_label(connection.model)
+    if ui.choose(f"Change {name}'s model to {chosen}?", (f"Change to {chosen}", "Cancel")) != 0:
+        raise Quit()
+    switched_at = _switch(ui, daemon, base, connection, info["revision"])
+    return _conclude(ui, daemon, base, name, chosen, switched_at, previous=current)
+
+
+def model_label(identifier: str) -> str:
+    from daemons_companion.setup.model_selection import SUPPORTED_MODELS
+
+    return next((m.label for m in SUPPORTED_MODELS if m.identifier == identifier), identifier)
 
 
 # Connection --------------------------------------------------------------
@@ -107,12 +142,13 @@ def _api(ui, host, kind) -> Connection:
     return Connection(kind, model, key=owner.api_connection.key)
 
 
-def _subscription(ui, daemon, context) -> Connection:
+def _subscription(ui, daemon, context, *, signed_in: bool = False) -> Connection:
     if daemon.openclaw:
         from daemons_companion.openclaw.gateway import host_for
         from daemons_companion.openclaw.subscription import first_connection
 
-        codex, model = first_connection(host_for(daemon.scope), ui, {})
+        codex, model = first_connection(host_for(daemon.scope), ui, {},
+                                        current=daemon.provider()["model"] if signed_in else "")
         return Connection(SUBSCRIPTION, model, codex=codex)
     from daemons_companion.runtime.host_install import HostInstallLayout
     from daemons_companion.setup.codex_install import install_private_codex
@@ -124,11 +160,13 @@ def _subscription(ui, daemon, context) -> Connection:
     layout.validate()
     if layout.profile != daemon.scope.profile:
         raise ProviderSettingsError("provider.unsupported")
-    ui.say("Connect your ChatGPT account in the browser. No API key is needed.")
-    ui.say("Hermes and the daemon keep separate native sessions, so two sign-ins may be needed: "
-           "the first in your browser, the second with a code shown here. Complete both to continue.")
-    if hasattr(ui, "emit"):
-        ui.emit("connection-start")
+    if not signed_in:
+        # A model change reuses both sign-ins; sign_in() asks only for a missing one.
+        ui.say("Connect your ChatGPT account in the browser. No API key is needed.")
+        ui.say("Hermes and the daemon keep separate native sessions, so two sign-ins may be needed: "
+               "the first in your browser, the second with a code shown here. Complete both to continue.")
+        if hasattr(ui, "emit"):
+            ui.emit("connection-start")
     with ui.activity("Preparing ChatGPT access...") as progress:
         codex = install_private_codex(layout, progress)
     runner = getattr(ui, "subscription_runner", None)
@@ -138,7 +176,8 @@ def _subscription(ui, daemon, context) -> Connection:
         raise RuntimeError("Both native ChatGPT sign-ins must be confirmed before continuing.")
     ui.say("ChatGPT sign-ins are confirmed.")
     bridge = context.bundle_root / "integrations/hermes_plugin/companion_models.py"
-    model = select_model(ui, lambda: operation.model_choices(bridge), "")
+    current = daemon.provider()["model"] if signed_in else ""
+    model = select_model(ui, lambda: operation.model_choices(bridge), current)
     return Connection(SUBSCRIPTION, model, codex=codex)
 
 
@@ -195,12 +234,12 @@ def _switch(ui, daemon, base, connection, revision) -> float:
 
 def _answered(daemon, since: float) -> bool:
     import json
-    from daemons_companion.hermes.first_install import first_exchange
+    from daemons_companion.hermes.first_install import daemon_receipt_dirs, first_exchange
     from daemons_companion.openclaw.host_install import checked_file
 
     user = json.loads(checked_file(daemon.private_connection, 8192))["user_id"]
-    receipts, platform = ((daemon.scope.home / "data/state/continuity/shared", "openclaw") if daemon.openclaw
-                          else (daemon.scope.home / "data/state/receipts", "telegram"))
+    receipts = daemon_receipt_dirs(daemon.scope.home / "data/state")
+    platform = "openclaw" if daemon.openclaw else "telegram"
     deadline = time.monotonic() + FIRST_REPLY_SECONDS
     while True:
         if first_exchange(receipts, since=since, user_id=user, platform=platform):
@@ -210,9 +249,9 @@ def _answered(daemon, since: float) -> bool:
         time.sleep(1)
 
 
-def _conclude(ui, daemon, base, name, provider, switched_at) -> bool:
+def _conclude(ui, daemon, base, name, provider, switched_at, *, previous: str | None = None) -> bool:
     scheduler = service_scheduler(daemon.scope.profile, base).scheduler
-    previous = PROVIDER_NAMES.get(_previous_kind(daemon), "its previous provider")
+    previous = previous or PROVIDER_NAMES.get(_previous_kind(daemon), "its previous provider")
     ui.phase("conversation")
     ui.say(f"{name} now uses {provider}. Send it a message on Telegram, in the same conversation as before.")
     while True:

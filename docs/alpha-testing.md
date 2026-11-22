@@ -34,8 +34,8 @@ disposable test. Keep a backup of any memory you care about.
 | Back up and move memory | Encrypted backup to a file or Google Drive, manual or daily; restore into a new daemon as a copy or a move |
 | Background mode | Menu bar or notification area icon when the window is closed; optional open at login |
 
-Unfinished new installations can be deleted on both systems while keeping
-memory. r10 was qualified on macOS with automated suites, live isolated daemons
+Unfinished new installations can be deleted on both systems; their memory is
+kept unless deletion is chosen and confirmed twice. r10 was qualified on macOS with automated suites, live isolated daemons
 on both hosts and the regression screen of the quality recipe. On Windows, the
 maintainer confirmed the in-app update and a complete new OpenClaw daemon with the
 c25 and c26 candidates, whose code r10 ships.

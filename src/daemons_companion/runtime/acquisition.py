@@ -69,10 +69,11 @@ _RELEASES = {
         ),
     ),
     "openclaw": HostRelease(
-        "openclaw", "2026.10.7", "npm:openclaw@2026.10.7",
-        "https://registry.npmjs.org/openclaw/-/openclaw-2026.10.7.tgz",
-        "45dc6dadab3ca4e5286262226d6b61554309435a5e83b5d25c803a3a12ef2f81", 103494479,
-        ("2026.10.7", "2026.9.1-beta.1"),
+        "openclaw", "2026.11.6", "npm:openclaw@2026.11.6",
+        "https://registry.npmjs.org/openclaw/-/openclaw-2026.11.6.tgz",
+        "0ad54c943c7365ff78cdb0c317c2cd73fd6af9df404da02c7cde9787ea3322ad", 118651532,
+        # Daemons created earlier keep the release they were installed with.
+        ("2026.11.6", "2026.10.7", "2026.9.1-beta.1"),
         (
             "Use the exact qualified package, not the latest npm release.",
             "A compatible private Node runtime and dependency installation still need qualification.",

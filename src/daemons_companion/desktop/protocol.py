@@ -477,14 +477,18 @@ def serve_provider_change(ui, request, owner):
 
     profile = base = None
     try:
+        model_only = isinstance(request, dict) and request.get("model_only") is True
+        paths = {k: v for k, v in request.items() if k != "model_only"} if isinstance(request, dict) else None
         if (
-            not isinstance(request, dict)
-            or set(request) != {"profile", "base", "name"}
-            or not all(isinstance(v, str) and v for v in request.values())
+            paths is None
+            or set(paths) != {"profile", "base", "name"}
+            or not all(isinstance(v, str) and v for v in paths.values())
+            or set(request) - {"profile", "base", "name", "model_only"}
+            or request.get("model_only", True) is not True
         ):
             raise ValueError("Invalid provider change request.")
         profile, base = Path(request["profile"]), Path(request["base"])
-        kept = run(ui, profile, base, safe_text(request["name"])[:80], owner.context)
+        kept = run(ui, profile, base, safe_text(request["name"])[:80], owner.context, model_only=model_only)
         if kept:
             ui.emit("finished", result="installed")
         else:

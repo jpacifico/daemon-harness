@@ -111,3 +111,19 @@ test('OpenClaw supplies its gateway answer; unknown states are ignored',async t=
   assert.equal(check(await collect(f.row,{channel:{state:'disconnected',at:null}}),'conversation').diagnostic.guidance,'restart-host');
   assert.equal(check(await collect(f.row,{channel:{state:'surprise'}}),'conversation').detail,'channel-not-tested');
 });
+test('an OpenClaw turn split between its live service and memory worker directories is read whole',async t=>{
+  const {receiptEvidence}=require('./health.cjs');const f=await fixture(t);const at=new Date().toISOString();
+  const live=path.join(f.root,'state/continuity/shared'),worker=path.join(f.root,'state/receipts');
+  const identity={user_ref:ref('12345'),platform:'openclaw',memory_root_ref:ref(f.row.daemon.runtime),source_root_ref:ref(path.dirname(f.row.daemon.source))};
+  const line=(stage,extra={})=>JSON.stringify({schema:'daemon.continuity-receipt.event.v1',turn_id:'turn',stage,status:'completed',at,...extra});
+  await f.write(path.join(live,'continuity_receipts.jsonl'),line('response',{identity}));
+  await f.write(path.join(worker,'continuity_receipts.jsonl'),[line('l0'),line('cycle')].join('\n'));
+  const binding={user_id:'12345',platform:'openclaw'};
+  const one=await receiptEvidence(live,f.row.daemon.runtime,f.row.daemon.source,binding);
+  assert.ok(one.response&&!one.cycle);
+  const both=await receiptEvidence([worker,live,path.join(f.root,'absent')],f.row.daemon.runtime,f.row.daemon.source,binding);
+  assert.ok(both.response&&both.l0&&both.cycle);
+  assert.equal(both.cycle.turnId,'turn');
+  const other=await receiptEvidence([worker,live],f.row.daemon.runtime,f.row.daemon.source,{user_id:'999',platform:'openclaw'});
+  assert.ok(!other.response&&!other.cycle);
+});

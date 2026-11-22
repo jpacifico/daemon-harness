@@ -202,6 +202,7 @@ def _run(owner, ui):
     )
     from daemons_companion.hermes.first_install import (
         initialize_private_memory,
+        daemon_receipt_dirs,
         first_exchange,
     )
     from daemons_companion.runtime.services import (
@@ -533,7 +534,7 @@ connection_record
         deadline = time.monotonic() + 300
         while time.monotonic() < deadline:
             if first_exchange(
-                layout.runtime.state_root / "continuity/shared",
+                daemon_receipt_dirs(layout.runtime.state_root),
                 since=started,
                 user_id=user_id,
                 platform="openclaw",

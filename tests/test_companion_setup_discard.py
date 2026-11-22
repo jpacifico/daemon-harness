@@ -81,6 +81,60 @@ class DiscardTests(unittest.TestCase):
         self.assertEqual(json.loads((self.root / MARKER).read_text())["status"], "done")
         self.assertTrue((self.attempt / "owner.json").is_file())
 
+    def test_created_memory_is_offered_and_checked_after_discard(self):
+        review = self.operation.inspect()
+        self.assertTrue(review["memoryDeletable"])
+        self.assertEqual((review["memoryFiles"], review["memoryBytes"]), (1, 24))
+        with self.assertRaisesRegex(Refused, "changed"):
+            self.operation.memory_check(review["revision"])  # Not discarded yet.
+        self.operation.apply(review["revision"])
+        with self.assertRaisesRegex(Refused, "changed"):
+            self.operation.memory_check("0" * 64)
+        checked = self.operation.memory_check(review["revision"])
+        self.assertEqual(checked["memory"], [str(self.memory)])
+        # The check never deletes: the app moves the folder to the trash.
+        self.assertTrue((self.memory / "exact.md").is_file())
+
+    def test_memory_chosen_elsewhere_is_never_offered(self):
+        elsewhere = self.base / "chosen-memory"
+        elsewhere.mkdir()
+        (self.attempt / "profile").mkdir()
+        (self.attempt / "profile/.env").write_text(f"DAEMON_CORE_MEMORY_ROOT={elsewhere}\n")
+        review = self.operation.inspect()
+        self.assertFalse(review["memoryDeletable"])
+        self.operation.apply(review["revision"])
+        with self.assertRaisesRegex(Refused, "changed"):
+            self.operation.memory_check(review["revision"])
+
+    def test_no_memory_offers_nothing(self):
+        (self.memory / "exact.md").unlink()
+        self.memory.rmdir()
+        review = self.operation.inspect()
+        self.assertFalse(review["memoryDeletable"])
+
+    def test_memory_check_refuses_a_running_process_or_replaced_vault(self):
+        review = self.operation.inspect()
+        self.operation.apply(review["revision"])
+        self.operation.processes = lambda: str(self.root) + "/hosts/hermes/x"
+        with self.assertRaisesRegex(Refused, "running"):
+            self.operation.memory_check(review["revision"])
+        self.operation.processes = lambda: ""
+        moved = self.memory.with_name("moved")
+        self.memory.rename(moved)
+        self.memory.symlink_to(moved)
+        with self.assertRaisesRegex(Refused, "unsafe"):
+            self.operation.memory_check(review["revision"])
+
+    def test_memory_check_refuses_a_service_naming_it(self):
+        review = self.operation.inspect()
+        self.operation.apply(review["revision"])
+        agents = self.base / "LaunchAgents"
+        agents.mkdir(exist_ok=True)
+        (agents / "other.plist").write_bytes(plistlib.dumps(
+            {"Label": "other", "ProgramArguments": ["/bin/true", str(self.memory)]}))
+        with self.assertRaisesRegex(Refused, "shared"):
+            self.operation.memory_check(review["revision"])
+
     def test_root_before_host_acquisition(self):
         root = self.base / "instance-DEF456"
         root.mkdir()

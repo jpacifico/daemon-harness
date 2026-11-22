@@ -177,6 +177,13 @@ def yaml_restore(content, before):
             start = text.rfind("\n", 0, key.start_mark.index) + 1
             end = text.find("\n", node.end_mark.index)
             changes.append((start, len(text) if end < 0 else end + 1, ""))
+        elif isinstance(node, (yaml.SequenceNode, yaml.MappingNode)) and not node.flow_style:
+            # A block collection can sit at its key's own indentation (YAML's
+            # indentless list, as yaml.safe_dump writes it after a provider
+            # change): its flow replacement goes on the key's line.
+            start, end = key.end_mark.index, node.end_mark.index
+            tail = re.search(r"\s*$", text[start:end]).group()
+            changes.append((start, end, ": " + json.dumps(value, ensure_ascii=False) + tail))
         else:
             start, end = node.start_mark.index, node.end_mark.index
             tail = (

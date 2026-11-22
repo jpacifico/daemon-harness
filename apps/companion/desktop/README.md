@@ -378,8 +378,11 @@ No daemon, memory or account is needed to regenerate the icons.
 Companion can delete an unfinished app-owned Hermes Agent setup after a separate
 confirmation. It removes the attempt's private programs, downloads and verified
 background services, then hides the incomplete card. Active setup must stop first.
-Memory, profiles, saved local sign-ins and diagnostic/recovery records are retained;
-the confirmation shows their folder. Telegram bots and provider accounts remain.
+Profiles, saved local sign-ins and diagnostic/recovery records are retained;
+the confirmation shows their folder. Memory is retained unless the owner also
+chooses to delete it: offered only for the memory Companion created inside the
+attempt, confirmed a second time, checked again after the cleanup, then moved
+to the Trash. Telegram bots and provider accounts remain.
 Completed installs use the existing uninstall flow. Unverified ownership, shared
 services, changed plans or active processes block deletion; partial cleanup keeps
 a retry card and a sanitized diagnostic. Other hosts and daemons are unchanged.

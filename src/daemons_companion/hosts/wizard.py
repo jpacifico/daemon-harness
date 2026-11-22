@@ -229,7 +229,7 @@ def _attach(source_profile, base, host):
 
 
 def _first_message(ui, binding, bot, name):
-    from daemons_companion.hermes.first_install import first_exchange
+    from daemons_companion.hermes.first_install import daemon_receipt_dirs, first_exchange
 
     started = time.time()
     ui.phase("conversation")
@@ -244,7 +244,7 @@ def _first_message(ui, binding, bot, name):
         deadline = time.monotonic() + 300
         while time.monotonic() < deadline:
             if first_exchange(
-                binding.state / "continuity/shared",
+                daemon_receipt_dirs(binding.state),
                 since=started,
                 user_id=binding.user_id,
                 platform="openclaw",

@@ -46,17 +46,18 @@ def test_absent_invalid_or_oversized_catalog_never_becomes_a_static_list(payload
         parse_catalog(payload)
 
 
-def models(count=3):
-    ids = ('gpt-6-astra', 'gpt-6.1-sol', 'gpt-5.6-terra')
+def models(count=5):
+    ids = ('gpt-6.2-astra', 'gpt-6.2-sol', 'gpt-6-astra', 'gpt-6.1-sol', 'gpt-5.6-terra')
     return tuple(ModelChoice(identifier, 'Remote label') for identifier in ids[:count])
 
 
-@pytest.mark.parametrize('choice,expected', [(0, 'gpt-6-astra'), (1, 'gpt-6.1-sol')])
+@pytest.mark.parametrize('choice,expected', [(0, 'gpt-6.2-astra'), (1, 'gpt-6.2-sol'), (2, 'gpt-6-astra')])
 def test_picker_limits_and_orders_supported_models_with_requested_guidance(choice, expected):
     class UI(FakeUI):
         def choose(self, title, options, *, default=0):
-            # GPT-5.6-Terra was withdrawn on 2026-10-29 even when the account lists it.
-            assert options == ('Astra — Recommended', 'GPT-6.1-Sol', 'Refresh model list')
+            # GPT-5.6-Terra (withdrawn 2026-10-29) and GPT-6.1 Sol (retired 2026-11-22)
+            # are never offered, even when the account lists them.
+            assert options == ('GPT-6.2 Astra — Recommended', 'GPT-6.2 Sol', 'GPT-6 Astra', 'Refresh model list')
             assert default == 0
             return super().choose(title, options, default=default)
     ui = UI(choices=[choice])
@@ -73,11 +74,11 @@ def test_picker_refreshes_and_never_offers_a_model_missing_from_the_account():
             calls.append((options, default))
             return super().choose(title, options, default=default)
     catalogs = iter([models(), (models()[1],)])
-    ui = UI(choices=[2, 0])
-    assert select_model(ui, lambda: next(catalogs), previous='gpt-6.1-sol') == 'gpt-6.1-sol'
+    ui = UI(choices=[3, 0])
+    assert select_model(ui, lambda: next(catalogs), previous='gpt-6.2-sol') == 'gpt-6.2-sol'
     assert calls[0][1] == 1
-    assert calls[1] == (('GPT-6.1-Sol', 'Refresh model list'), 0)
-    assert any('Not listed by the connected host: Astra.' == line for line in ui.output)
+    assert calls[1] == (('GPT-6.2 Sol', 'Refresh model list'), 0)
+    assert any('Not listed by the connected host: GPT-6.2 Astra, GPT-6 Astra.' == line for line in ui.output)
 
 
 def test_catalog_without_supported_models_offers_retry_back_quit_only():
@@ -104,7 +105,7 @@ def test_loading_failure_can_retry():
         if len(calls) == 1:
             raise RuntimeError('offline')
         return models(1)
-    assert select_model(FakeUI(choices=[0, 0]), load) == 'gpt-6-astra'
+    assert select_model(FakeUI(choices=[0, 0]), load) == 'gpt-6.2-astra'
     assert len(calls) == 2
 
 
@@ -116,7 +117,7 @@ def test_selected_live_model_reaches_plan_and_installation_without_a_model_text_
                             complete=lambda ui, request, response: seen.append(request) or True)
     ui = FakeUI(choices=[0, 0, 0, 1, 0, 0], fields=['Avery'])
     assert run_wizard(ui, backend=backend(), host_setup=setup) == 0
-    assert seen[0]['provider']['model'] == 'gpt-6.1-sol'
+    assert seen[0]['provider']['model'] == 'gpt-6.2-sol'
     assert 'Model identifier (advanced preview only)' not in ui.output
 
 
@@ -218,5 +219,5 @@ def test_resume_rechecks_live_catalog_before_reusing_model():
     assert select_model(FakeUI(), load, "gpt-6-astra", resume=True) == "gpt-6-astra"
     assert calls == [1]
     ui = FakeUI(choices=[0])
-    assert select_model(ui, lambda: models(1), "gpt-6.1-sol", resume=True) == "gpt-6-astra"
+    assert select_model(ui, lambda: models(1), "gpt-6.1-sol", resume=True) == "gpt-6.2-astra"
     assert "Choose your model" in ui.output

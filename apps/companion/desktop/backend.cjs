@@ -250,7 +250,7 @@ class Backend {
     if (!['setup', 'new', 'status', 'add-host', 'change-provider', 'update-daemon'].includes(mode)) throw new Error('Unsupported action.');
     if ((mode === 'update-daemon') !== Boolean(daemonUpdate && ['source_profile','base'].every(k=>typeof daemonUpdate[k]==='string'&&path.isAbsolute(daemonUpdate[k])) && typeof daemonUpdate.name==='string')) throw new Error('Unsupported action.');
     if ((mode === 'add-host') !== Boolean(hostAddition)) throw new Error('Unsupported action.');
-    if ((mode === 'change-provider') !== Boolean(providerChange && ['profile','base'].every(k=>typeof providerChange[k]==='string'&&path.isAbsolute(providerChange[k])) && typeof providerChange.name==='string')) throw new Error('Unsupported action.');
+    if ((mode === 'change-provider') !== Boolean(providerChange && ['profile','base'].every(k=>typeof providerChange[k]==='string'&&path.isAbsolute(providerChange[k])) && typeof providerChange.name==='string' && [undefined,true].includes(providerChange.model_only))) throw new Error('Unsupported action.');
     if (restoreArchive && (mode !== 'new' || !path.isAbsolute(restoreArchive))) throw new Error('Unsupported action.');
     if (hostChange && (mode !== 'new' || restoreArchive || !['profile','base'].every(k=>typeof hostChange[k]==='string'&&path.isAbsolute(hostChange[k])))) throw new Error('Unsupported action.');
     if (restoreArchive) {

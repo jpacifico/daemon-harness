@@ -280,6 +280,40 @@ def codex_binary(owned):
     return binary
 
 
+@pytest.mark.parametrize("host", ["hermes", "openclaw"])
+def test_a_subscription_daemon_changes_its_model_and_private_codex_in_place(daemon, host):
+    owned = daemon(host=host)
+    assert owned.describe()["model_changeable"] is False  # An API-key daemon edits its model in the form.
+    old = codex_binary(owned)
+    owned.switch(owned.revision(), "codex_cli", "gpt-6-astra", None, old, SERVICES)
+    owned.commit()
+    assert owned.describe()["model_changeable"] is True
+    before = snapshot(owned)
+    new = owned.scope.attempt / "codex/0.170.0/codex"
+    new.parent.mkdir(parents=True)
+    new.write_bytes(b"newer synthetic codex")
+    with pytest.raises(module.ProviderSettingsError, match="provider.model-unavailable"):
+        owned.switch(owned.revision(), "codex_cli", "gpt-6.1-sol", None, new, SERVICES)  # Retired: not offered.
+    owned.switch(owned.revision(), "codex_cli", "gpt-6.2-sol", None, new, SERVICES)
+    assert json.loads(owned.provider_file.read_text())["model"] == "gpt-6.2-sol"
+    connection = json.loads(owned.private_connection.read_text())
+    assert connection["codex"] == str(new) and connection["user_id"] == "12345"
+    assert owned.host_matches("codex_cli", "gpt-6.2-sol")
+    # Without a reply, everything goes back exactly, the older Codex included.
+    owned.revert(Scheduler(SERVICES))
+    assert snapshot(owned) == before
+    assert json.loads(owned.private_connection.read_text())["codex"] == str(old)
+
+
+def test_a_retired_model_keeps_its_daemon_recognised(daemon):
+    from daemons_companion.setup.model_selection import ACCEPTED_MODELS, SUPPORTED_MODELS
+    assert "gpt-6.1-sol" in ACCEPTED_MODELS and "gpt-6.1-sol" not in {m.identifier for m in SUPPORTED_MODELS}
+    assert [m.identifier for m in SUPPORTED_MODELS] == ["gpt-6.2-astra", "gpt-6.2-sol", "gpt-6-astra"]
+    assert native_config("codex_cli", "gpt-6.1-sol", "1", 1)["agents"]["defaults"]["model"]["primary"] == "openai/gpt-6.1-sol"
+    with pytest.raises(ValueError):
+        native_config("codex_cli", "gpt-5.6-terra", "1", 1)
+
+
 def test_describe_offers_the_same_providers_on_both_hosts(daemon):
     hermes, openclaw = daemon(host="hermes"), daemon(host="openclaw")
     assert hermes.describe()["offers"] == ["codex_cli", "openai_api", "anthropic_api"]

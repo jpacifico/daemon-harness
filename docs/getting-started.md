@@ -41,8 +41,8 @@ computer's security protections.
    (recommended) or **OpenClaw**. Choose your daemon's name, its grammatical
    gender and the conversation language. The daemon learns how to address you
    in its first conversation.
-3. Choose your model connection. The ChatGPT subscription with the Astra model
-   is recommended. With an OpenAI or Anthropic API key, paste it into the masked field and
+3. Choose your model connection. The ChatGPT subscription with the GPT-6.2 Astra
+   model is recommended. With an OpenAI or Anthropic API key, paste it into the masked field and
    select an available model. The app checks access before continuing. Which models are
    offered, and why, is listed in [Model providers](model_providers.md).
 4. Follow the Telegram instructions on the computer. Find your Telegram user ID first, then create a dedicated bot with BotFather

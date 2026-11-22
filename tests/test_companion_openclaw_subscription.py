@@ -229,7 +229,7 @@ def test_first_model_refresh_reloads_native_catalog(tmp_path, monkeypatch):
 
     def connect(h, emit, **kwargs):
         calls.append(kwargs)
-        return ("gpt-6.1-sol",) if len(calls) == 1 else ("gpt-6-astra",)
+        return ("gpt-6.2-sol",) if len(calls) == 1 else ("gpt-6-astra",)
 
     class UI:
         cancelled = False
@@ -251,8 +251,8 @@ def test_first_model_refresh_reloads_native_catalog(tmp_path, monkeypatch):
     monkeypatch.setattr(subscription, "connect", connect)
     assert subscription.first_connection(host, UI(), {})[1] == "gpt-6-astra"
     assert len(calls) == 2 and calls[1]["catalog_only"] is True
-    assert prompts[0][0].startswith("GPT-6.1-Sol")
-    assert prompts[1][0].startswith("Astra")
+    assert prompts[0][0].startswith("GPT-6.2 Sol")
+    assert prompts[1][0].startswith("GPT-6 Astra")
 
 
 @pytest.mark.parametrize("complete", [False, True])
@@ -260,7 +260,7 @@ def test_bridge_completion_distinguishes_login_from_result(monkeypatch, complete
     import io
     frames = [{"stage": "authenticated"}, {"stage": "catalog"}]
     if complete:
-        frames.append({"models": ["gpt-6.1-sol"]})
+        frames.append({"models": ["gpt-6.2-sol"]})
     process = SimpleNamespace(
         stdin=io.BytesIO(), stdout=io.BytesIO(b"".join(json.dumps(f).encode()+b"\n" for f in frames)),
         returncode=0, poll=lambda: 0,
@@ -269,7 +269,7 @@ def test_bridge_completion_distinguishes_login_from_result(monkeypatch, complete
     monkeypatch.setattr(subscription.subprocess, "Popen", lambda *a, **kw: process)
     host = SimpleNamespace(node="synthetic-node", entry=__import__('pathlib').Path('/synthetic/host/entry'), profile='/synthetic/profile', attempt='/synthetic')
     if complete:
-        assert subscription.connect(host) == ("gpt-6.1-sol",)
+        assert subscription.connect(host) == ("gpt-6.2-sol",)
     else:
         with pytest.raises(subscription.SubscriptionFailure) as raised:
             subscription.connect(host)
@@ -294,7 +294,8 @@ def test_new_host_receives_reference_conversation_settings(tmp_path, kind):
         )
     )
     for config in (cfg, projected):
-        assert config["agents"]["defaults"]["heartbeat"] == {"every": "0m"}
+        # OpenClaw 2026.11.6 refuses to start with the retired heartbeat key.
+        assert "heartbeat" not in config["agents"]["defaults"]
         assert config["messages"] == {
             "visibleReplies": "automatic",
             "ackReactionScope": "off",

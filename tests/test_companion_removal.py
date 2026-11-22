@@ -769,3 +769,26 @@ def test_a_memory_outside_the_daemon_folder_is_never_offered(tmp_path):
     with pytest.raises(Refused, match="memory"):
         engine.memory_check(review["revision"])
     assert (memory / "Projects/synthetic.md").exists()
+
+
+def test_restoring_a_config_rewritten_by_a_provider_change_keeps_valid_yaml():
+    """yaml.safe_dump writes lists at their key's indentation; removal must still parse."""
+    import yaml
+    from daemons_companion.hermes.profile import HERMES_CONFIG_VALUES
+    from daemons_companion.removal.removal import yaml_restore
+
+    before = b"model:\n  provider: openai-codex\n  default: gpt-6-astra\n"
+    installed = {"model": {"provider": "openai-codex", "default": "gpt-6.2-sol"},
+                 "plugins": {"enabled": ["daemon_voice", "native-x"], "disabled": ["daemon_core"]}}
+    for dotted, value in HERMES_CONFIG_VALUES:
+        node = installed
+        *parents, leaf = dotted.split(".")
+        for part in parents:
+            node = node.setdefault(part, {})
+        node[leaf] = value
+    text = yaml.safe_dump(installed, sort_keys=False).encode()
+    assert b"\n  - daemon_voice" in text  # The layout that broke the text patch.
+    restored = yaml.safe_load(yaml_restore(text, before))
+    assert restored["plugins"]["enabled"] == ["native-x"] and restored["plugins"]["disabled"] == []
+    assert restored["model"]["default"] == "gpt-6.2-sol"
+    assert "load_timeout_seconds" not in restored["plugins"]

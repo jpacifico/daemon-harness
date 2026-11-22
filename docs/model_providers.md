@@ -8,8 +8,10 @@ warning.
 
 | Provider | Model tested | Tested | Offered | Why |
 | --- | --- | --- | --- | --- |
+| ChatGPT subscription | GPT-6.2 Astra | 2026-11-18 | Yes, recommended since 2026-11-22 | Offered at the maintainer's request. On 2026-11-18 it answered a request from Hermes Agent and one from Codex 0.170.0. Its replies and memory on a real daemon over time are not tested yet. |
+| ChatGPT subscription | GPT-6.2 Sol | 2026-11-18 | Yes, since 2026-11-22 | Offered at the maintainer's request with GPT-6.2 Astra; answered in the same check. Its replies and memory on a real daemon over time are not tested yet. |
 | ChatGPT subscription | GPT-6 Astra | 2026-10-03, 2026-10-24 | Yes | The reference daemon runs entirely on it since 2026-10-03, every day. A new daemon gives it the same inputs as the reference. |
-| ChatGPT subscription | GPT-6.1 Sol | 2026-10-29 | Offered until fully tested | Kept track of the situation as well as the reference in four test conversations. Its replies and memory on a real daemon are not tested yet. |
+| ChatGPT subscription | GPT-6.1 Sol | 2026-10-29 | No longer offered since 2026-11-22 | Replaced by GPT-6.2 Sol. A daemon created with it keeps working with it and can change model. |
 | ChatGPT subscription | GPT-6.1 Terra | 2026-10-29 | Not yet | Kept track of the situation as well as the reference in four test conversations, three times faster. Its replies and memory on a real daemon are not tested yet. |
 | ChatGPT subscription | GPT-5.6 Terra | 2026-08-31 | No | Withdrawn on 2026-10-29: Companion warned that the experience may be degraded with it, and a warned model is not offered. |
 | Mistral (API key) | Mistral Large 4 | 2026-10-29, again after its public release the same evening | No | Loses track of what is going on in the conversation, and records unconfirmed things as facts. See below. |
@@ -17,7 +19,7 @@ warning.
 | Anthropic (API key) | Claude Opus 5.5 | 2026-10-29, 2026-10-30 | Only this model | On a real test daemon the maintainer judged its replies relevant and the daemon at the expected level overall. Known gap below. The other Claude models are not offered. |
 | SpaceXSI (API key) | Grok 4.7 | 2026-10-29 | No | Its replies are shorter, drier and slower than the reference's. See below. |
 
-Setup recommends the ChatGPT subscription with GPT-6 Astra, on both hosts.
+Setup recommends the ChatGPT subscription with GPT-6.2 Astra, on both hosts. OpenClaw `2026.10.7`, kept by OpenClaw daemons created before 2026-11-22, does not list the GPT-6.2 models.
 
 ## Claude Opus 5.5: known gap
 

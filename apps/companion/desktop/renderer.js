@@ -12,7 +12,7 @@ let update = {enabled:false, state:'disabled'}, updateBusy = false;
 let renderedPage = null;
 let started={steps:null,open:false,loading:false};
 const reportState={id:null,health:null,diagnostic:null,service:null,busy:false,message:'',back:'instances',expanded:new Set()};
-const discardState={plan:null,busy:false,id:null};
+const discardState={plan:null,busy:false,id:null,deleteMemory:false};
 // Passwords stay in these fields until submitted; they are cleared afterwards.
 const backupState={id:null,name:'',busy:false,result:null,password:'',confirm:'',mode:'once',destination:'file'};
 const restoreState={file:'',busy:false,password:'',step:'password',drive:null,move:false};
@@ -85,6 +85,7 @@ const flow = () => state.mode === 'add-host' ? phases.filter(p => p !== 'identit
 const hostHeadings = { host: 'Add OpenClaw to your daemon.', model: 'Connect OpenClaw to a model.', telegram: 'Create the OpenClaw bot.', installation: 'Starting OpenClaw.', conversation: 'First conversation on OpenClaw.' };
 const updateHeadings = { installation: 'Updating your daemon.' };
 const providerHeadings = { model: 'Choose another model provider.', installation: 'Switching the model connection.', conversation: 'Check your daemon’s reply.' };
+const modelHeadings = { model: 'Choose your daemon’s model.', installation: 'Changing the model.', conversation: 'Check your daemon’s reply.' };
 const headings = { host: 'Install your daemon’s host.', identity: 'Name your daemon.', model: 'Connect your model.', review: 'Review your setup.', telegram: 'Connect Telegram.', installation: 'Installing your daemon.', conversation: 'First meeting.' };
 
 function links() {
@@ -115,7 +116,7 @@ function body() {
   if (state.page === 'about') return aboutBody();
   if (state.page === 'settings') return settingsBody();
   const current = flow().indexOf(state.phase);
-  return `<div class="steps" aria-label="${escape(labels[state.phase] || 'Setup')}">${flow().map((_, i) => `<span class="${i === current ? 'current' : i < current ? 'past' : ''}"></span>`).join('')}</div><div class="eyebrow">${escape(labels[state.phase] || 'Setup')}</div><h1>${escape(state.prompt?.title === 'Conversation language' ? 'Choose your conversation language.' : state.prompt?.title === 'Choose your model' ? 'Choose your model.' : state.prompt?.title === 'ChatGPT setup needs attention' ? 'Complete your ChatGPT setup.' : (state.mode === 'add-host' ? hostHeadings : state.mode === 'change-provider' ? providerHeadings : state.mode === 'update-daemon' ? updateHeadings : headings)[state.phase] || 'Setting things up.')}</h1>
+  return `<div class="steps" aria-label="${escape(labels[state.phase] || 'Setup')}">${flow().map((_, i) => `<span class="${i === current ? 'current' : i < current ? 'past' : ''}"></span>`).join('')}</div><div class="eyebrow">${escape(labels[state.phase] || 'Setup')}</div><h1>${escape(state.prompt?.title === 'Conversation language' ? 'Choose your conversation language.' : state.prompt?.title === 'Choose your model' ? 'Choose your model.' : state.prompt?.title === 'ChatGPT setup needs attention' ? 'Complete your ChatGPT setup.' : (state.mode === 'add-host' ? hostHeadings : state.mode === 'change-provider' ? (state.modelOnly ? modelHeadings : providerHeadings) : state.mode === 'update-daemon' ? updateHeadings : headings)[state.phase] || 'Setting things up.')}</h1>
     ${state.phase==='host'&&state.mode!=='add-host'?`<p class="hint">${escape(locale.t('setup.duration',language))}</p>`:''}
     <div id="activity" role="status" aria-live="polite">${activityBody()}</div>
     ${!state.prompt && state.result ? `<div class="note">${state.result.result === 'error' ? errorBody(state.result.message) : escape(state.result.message || 'Setup ended. See the details below for the verified result.')}</div>` : ''}
@@ -262,7 +263,7 @@ function render() {
   const runningSetup = state.active && state.operation === 'setup';
   let controls;
   if(['health','diagnostic'].includes(state.page))controls=button('Back','report-back',false,reportState.busy)+button('Refresh','report-refresh',false,reportState.busy)+button('Export diagnostic','report-export',true,reportState.busy||!(state.page==='health'?reportState.health:reportState.diagnostic));
-  else if(state.page==='discard')controls=button(discardState.plan?.done?'Back to my daemons':'Cancel','discard-back',false,discardState.busy)+(discardState.plan&&!discardState.plan.done?button('Delete unfinished installation','discard-confirm',false,discardState.busy):'');
+  else if(state.page==='discard')controls=button(discardState.plan?.done?'Back to my daemons':'Cancel','discard-back',false,discardState.busy)+(discardState.plan&&!discardState.plan.done?button(discardState.deleteMemory?'Delete installation and memory':'Delete unfinished installation','discard-confirm',false,discardState.busy):'');
   else if(state.page==='removal')controls=button(removalState.plan?.done?'Back to my daemons':'Cancel','removal-back',false,removalState.busy)+(removalState.plan&&!removalState.plan.done?button(removalState.plan.recovery?'Recover removal':removalState.plan.action==='detach'?'Remove daemon':removalState.deleteMemory?'Uninstall and delete memory':'Confirm uninstall','removal-confirm',false,removalState.busy||removalState.name!==removalState.plan.confirmationText):'');
   else if(state.page==='backup')controls=button(backupState.result?'Back to daemon settings':'Cancel','backup-back',false,backupState.busy)+(backupState.result?'':button(backupState.mode==='automatic'?'Turn on daily backup':'Create backup','backup-confirm',true,backupState.busy));
   else if(state.page==='restore')controls=button('Cancel','restore-back',false,restoreState.busy)+(restoreState.step==='source'?'':button('Install this daemon','restore-confirm',true,restoreState.busy));
@@ -281,6 +282,7 @@ function render() {
   document.querySelector('#removal-name')?.addEventListener('input',event=>{removalState.name=event.target.value;document.querySelector('[data-action=removal-confirm]').disabled=removalState.busy||removalState.name!==removalState.plan.confirmationText;});
   document.querySelectorAll('[data-setup-resume]').forEach(el=>el.addEventListener('click',()=>resumeSetup(el.dataset.setupResume)));
   document.querySelectorAll('[data-setup-discard]').forEach(el=>el.addEventListener('click',()=>openDiscard(el.dataset.setupDiscard)));
+  document.querySelector('[data-discard-memory]')?.addEventListener('change',event=>{discardState.deleteMemory=event.target.checked===true;render();});
   document.querySelectorAll('[data-setup-report]').forEach(el=>el.addEventListener('click',()=>openReport('diagnostic',el.dataset.setupReport)));
   document.querySelectorAll('[data-health-export]').forEach(el=>el.addEventListener('click',()=>reportAction('report-export',el.dataset.healthExport||null)));
   document.querySelectorAll('[data-health-detail]').forEach(el=>el.addEventListener('toggle',()=>{if(el.open)reportState.expanded.add(el.dataset.healthDetail);else reportState.expanded.delete(el.dataset.healthDetail);}));
@@ -726,6 +728,7 @@ function providerSection() {
   const status=s.busy?`<span class="spinner" aria-hidden="true"></span>${t(s.busy)}`:s.done?escape(locale.t(s.done.key,language,{model:s.done.model})):'';
   const checked=s.checked?`<p class="${s.checked.available?'':'note'}">${t(s.checked.available?'provider.valid':'provider.validMissing')}</p>`:'';
   const switchButton=p.switchable&&!s.editing?`<button class="button" data-provider-switch ${s.busy||state.active?'disabled':''}>${t('provider.switch')}</button>`:'';
+  const modelButton=p.model_changeable?`<button class="button" data-provider-model ${s.busy||state.active?'disabled':''}>${t('provider.changeModel')}</button>`:'';
   const options=(s.models||[p.model]).map(m=>`<option value="${escape(m)}" ${m===(s.model||p.model)?'selected':''}>${escape(m)}</option>`).join('');
   const form=s.editing?`<form id="provider-form" class="daemon-fields">
       <label class="field-label" for="provider-key">${t('provider.newKey')}</label>
@@ -742,7 +745,7 @@ function providerSection() {
     ${api?`${checked}
       ${s.editing?form:`<div class="links">${p.key?`<button class="button" data-provider-check ${s.busy?'disabled':''}>${t('provider.check')}</button>`:''}${p.editable?`<button class="button" data-provider-edit ${s.busy?'disabled':''}>${t('provider.edit')}</button>`:''}${switchButton}</div>`}
       ${p.editable||p.switchable?'':`<p class="hint">${t('provider.notEditable')}</p>`}`
-      :`<p class="hint">${t(p.kind==='codex_cli'?'provider.subscription':'provider.compatibleHint')}</p>${switchButton?`<div class="links">${switchButton}</div>`:''}`}
+      :`<p class="hint">${t(p.kind==='codex_cli'?'provider.subscription':'provider.compatibleHint')}</p>${modelButton||switchButton?`<div class="links">${modelButton}${switchButton}</div>`:''}${modelButton?`<p class="hint">${t('provider.changeModelHint')}</p>`:''}`}
     ${p.switchable&&!s.editing?`<p class="hint">${t('provider.switchHint')}</p>`:''}
     ${s.error?`<p class="error" role="alert">${providerError(s.error)}</p>`:''}
     <p role="status" class="row">${status}</p></section>`;
@@ -766,6 +769,7 @@ function bindProvider() {
   },'provider.checking'));
   document.querySelector('[data-provider-edit]')?.addEventListener('click',()=>{Object.assign(providerState,{editing:true,key:'',model:providerInfo.model,models:null,error:'',done:null,checked:null});render();document.querySelector('#provider-key')?.focus();});
   document.querySelector('[data-provider-switch]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startProviderSwitch(id);});
+  document.querySelector('[data-provider-model]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startProviderSwitch(id,true);});
   document.querySelector('[data-daemon-update]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startDaemonUpdate(id);});
   document.querySelector('[data-provider-cancel]')?.addEventListener('click',()=>{providerState={};render();});
   document.querySelector('[data-provider-models]')?.addEventListener('click',()=>providerAction(async id=>{
@@ -1012,7 +1016,7 @@ function crumbs() {
   if(state.page==='removal')return [home,daemon,{label:t('topbar.removal')}];
   if(state.page==='restore')return [home,{label:t('topbar.restore')}];
   if(state.page==='diagnostic'||state.page==='discard')return [home,{label:t(state.page==='discard'?'topbar.discard':'topbar.diagnostic')}];
-  return [home,{label:t(state.mode==='add-host'?'topbar.addHost':state.mode==='change-provider'?'topbar.changeProvider':state.mode==='update-daemon'?'topbar.updateDaemon':'topbar.install')},...(labels[state.phase]?[{label:labels[state.phase]}]:[])];
+  return [home,{label:t(state.mode==='add-host'?'topbar.addHost':state.mode==='change-provider'?(state.modelOnly?'topbar.changeModel':'topbar.changeProvider'):state.mode==='update-daemon'?'topbar.updateDaemon':'topbar.install')},...(labels[state.phase]?[{label:labels[state.phase]}]:[])];
 }
 function topbarStatus() {
   const t=key=>locale.t(key,language),rows=state.inventory?.instances||[];
@@ -1141,13 +1145,27 @@ function discardBody() {
   return `<h1>${p?.done?'Unfinished installation deleted':'Delete this unfinished installation?'}</h1>
     ${discardState.busy?'<div class="row busy" role="status"><span class="spinner"></span><span>Checking and cleaning up this installation…</span></div>':''}
     ${p&&!p.done?'<p>The private programs, downloads and background services created for this attempt will be removed. You will need to start a new installation to try again.</p><p>Other installations, your Telegram bot and provider accounts are not deleted.</p>':''}
-    ${p?`<div class="note"><b>Your memory is kept.</b>${p.memory.length?p.memory.map(m=>`<p class="memory-path" data-original>${escape(m)}</p>`).join(''):'<p>No memory folder was created for this attempt.</p>'}</div>
+    ${p?discardMemory(p)+`
     <details><summary>Retained files</summary><p>Diagnostics, settings, conversation history and saved local sign-ins stay in this folder. They can be removed manually after checking whether you need them.</p><p class="memory-path" data-original>${escape(p.retained)}</p></details>`:''}
     ${!p&&!discardState.busy?'<p>The installation has been kept. Return to the list to retry or open its diagnostic.</p>':''}`;
 }
+// The memory note; a vault Companion created for this attempt may also go to
+// the trash, asked here and confirmed again before anything starts.
+function discardMemory(p) {
+  const windows=backgroundMode.platform==='win32',paths=p.memory.map(m=>`<p class="memory-path" data-original>${escape(m)}</p>`).join('');
+  if(p.done&&p.memoryRemoved===true)return `<div class="note removal-memory"><b>${windows?'Memory moved to the Recycle Bin.':'Memory moved to the Trash.'}</b><p>It can be recovered from there until it is emptied.</p>${paths}</div>`;
+  if(!p.memory.length)return '<div class="note"><b>Your memory is kept.</b><p>No memory folder was created for this attempt.</p></div>';
+  const offered=p.memoryDeletable===true&&!p.done,chosen=offered&&discardState.deleteMemory;
+  const size=Math.max(1,Math.round((p.memoryBytes||0)/1e6));
+  return `<div class="note removal-memory ${chosen?'removal-memory-chosen':''}"><b>${chosen?(windows?'Your memory will be moved to the Recycle Bin.':'Your memory will be moved to the Trash.'):'Your memory is kept.'}</b>
+    ${chosen?`<p>After the cleanup, this folder is moved there (${p.memoryFiles} files, about ${size} MB). It can be recovered until it is emptied. A second confirmation is asked before anything starts.</p>`:''}
+    ${paths}
+    ${p.done&&p.memoryRemoved===false?'<p class="error">The memory could not be deleted. It is kept in this folder.</p>':''}
+    ${offered?`<label class="check removal-memory-delete"><input type="checkbox" data-discard-memory ${chosen?'checked':''} ${discardState.busy?'disabled':''}><span>Also delete this installation’s memory</span></label>`:''}</div>`;
+}
 async function openDiscard(id) {
   if(state.active||state.instanceBusy||discardState.busy)return;
-  discardState.id=id;discardState.plan=null;discardState.busy=true;state.page='discard';state.error='';render();
+  discardState.id=id;discardState.plan=null;discardState.deleteMemory=false;discardState.busy=true;state.page='discard';state.error='';render();
   try{discardState.plan=await window.companion.reviewDiscard(id);}
   catch(error){state.error=discardError(error);}
   finally{discardState.busy=false;render();}
@@ -1162,19 +1180,23 @@ async function discardAction(action) {
   discardState.busy=true;state.error='';render();
   try {
     const p=discardState.plan;
-    discardState.plan=await window.companion.applyDiscard(p.id,p.token);
+    const result=await window.companion.applyDiscard(p.id,p.token,discardState.deleteMemory);
+    if(result?.cancelled)return;
+    discardState.plan={...p,...result};
     state.savedSetup=(await window.companion.preferences()).setup||'none';
     state.overview=null;state.setupStarted=false;
   }catch(error){state.error=discardError(error);discardState.plan=null;}
   finally{discardState.busy=false;render();}
 }
 
-async function startProviderSwitch(id) {
+// modelOnly: a ChatGPT subscription daemon changes its model in the same
+// guided session (hosts/provider_change.py).
+async function startProviderSwitch(id,modelOnly=false) {
   if(state.active||state.instanceBusy||providerState.busy)return;
   hostAdditionState.id=id;
-  Object.assign(state,{page:'setup',mode:'change-provider',operation:'setup',active:true,result:null,messages:[],guidance:[],links:[],prompt:null,phase:'model',error:'',modelCatalog:null,chatgptCode:'',chatgptStage:'',activity:'Preparing the model change…'});
+  Object.assign(state,{page:'setup',mode:'change-provider',modelOnly,operation:'setup',active:true,result:null,messages:[],guidance:[],links:[],prompt:null,phase:'model',error:'',modelCatalog:null,chatgptCode:'',chatgptStage:'',activity:'Preparing the model change…'});
   render();
-  try{await window.companion.startProviderSwitch(id);}catch(error){state.active=false;showError(error);}
+  try{await window.companion.startProviderSwitch(id,modelOnly);}catch(error){state.active=false;showError(error);}
 }
 
 async function startHostAddition(id) {
@@ -1186,7 +1208,7 @@ async function startHostAddition(id) {
 }
 
 function modelCatalogBody(c) {
- const allowed=['gpt-6-astra','gpt-6.1-sol'];
+ const allowed=['gpt-6.2-astra','gpt-6.2-sol','gpt-6-astra'];
  if(!c||!Array.isArray(c.models)||!c.models.every(m=>allowed.includes(m.id)&&['offered','absent-native'].includes(m.status)))return '';
  const tr=key=>escape(locale.t(key,language));
  const missing=c.models.filter(m=>m.status==='absent-native').map(m=>m.id);

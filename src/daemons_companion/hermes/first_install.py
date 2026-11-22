@@ -137,14 +137,32 @@ def configure_telegram(layout, codex, *, token, user_id, model, provider_kind="c
     return identity
 
 
-def first_exchange(receipts: Path, *, since: float, user_id: str, platform: str = "telegram"):
-    """Read bounded technical receipts; never poll Telegram or copy dialogue."""
-    if not receipts.is_dir() or receipts.is_symlink():
-        return False
-    for path in sorted(receipts.glob("*.jsonl"), key=lambda p: p.stat().st_mtime, reverse=True)[:100]:
+def daemon_receipt_dirs(state_root: Path) -> tuple[Path, Path]:
+    """Where a Companion daemon's turn receipts are written.
+
+    The after-turn worker writes to ``receipts``; an OpenClaw daemon's live
+    service writes the turn's identity and reply to ``continuity/shared``.
+    A turn is only complete when both are read together.
+    """
+    return state_root / "receipts", state_root / "continuity/shared"
+
+
+def first_exchange(receipts, *, since: float, user_id: str, platform: str = "telegram"):
+    """Read bounded technical receipts; never poll Telegram or copy dialogue.
+
+    ``receipts`` is one directory or several; a turn's events are merged across
+    all of them by turn id.
+    """
+    directories = [receipts] if isinstance(receipts, Path) else list(receipts)
+    files = []
+    for directory in directories:
+        if not directory.is_dir() or directory.is_symlink():
+            continue
+        files.extend(directory.glob("*.jsonl"))
+    turns = {}
+    for path in sorted(files, key=lambda p: p.stat().st_mtime, reverse=True)[:100]:
         if path.is_symlink() or path.stat().st_mtime < since or path.stat().st_size > 2 * 1024 * 1024:
             continue
-        turns = {}
         for line in path.read_text(encoding="utf-8").splitlines():
             try:
                 event = json.loads(line)
@@ -166,13 +184,13 @@ def first_exchange(receipts: Path, *, since: float, user_id: str, platform: str 
             turn["stages"][event["stage"]] = event.get("status")
             if isinstance(event.get("details"), dict) and event["details"].get("degraded") is True:
                 turn["degraded"] = True
-        for turn in turns.values():
-            identity, stages = turn["identity"], turn["stages"]
-            if (not turn["degraded"] and "failed" not in stages.values()
-                    and identity.get("user_ref") == hashlib.sha256(user_id.encode()).hexdigest()[:16]
-                    and identity.get("platform") == platform
-                    and all(stages.get(name) == "completed" for name in ("response", "l0", "cycle"))):
-                return True
+    for turn in turns.values():
+        identity, stages = turn["identity"], turn["stages"]
+        if (not turn["degraded"] and "failed" not in stages.values()
+                and identity.get("user_ref") == hashlib.sha256(user_id.encode()).hexdigest()[:16]
+                and identity.get("platform") == platform
+                and all(stages.get(name) == "completed" for name in ("response", "l0", "cycle"))):
+            return True
     return False
 
 

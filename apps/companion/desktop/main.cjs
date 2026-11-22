@@ -208,12 +208,22 @@ handle('setup-discard-review', async id => {
   const context=await discardContext(id);
   const plan=await backend.daemonSettings({...context,action:'review'},'discard');
   const token=require('node:crypto').randomUUID();
-  discardReview={id,token,context,revision:plan.revision,at:Date.now()};
+  discardReview={id,token,context,plan,revision:plan.revision,at:Date.now()};
   return {...plan,id,token};
 });
-handle('setup-discard-apply', async (id,token) => {
+handle('setup-discard-apply', async (id,token,deleteMemory=false) => {
   const review=discardReview;
   if(!review||review.id!==id||review.token!==token||Date.now()-review.at>600000)throw new Error('discard.changed');
+  if(deleteMemory===true) {
+    if(!review.plan.memoryDeletable)throw new Error('discard.changed');
+    // The second confirmation, before anything changes; cancelling keeps everything.
+    const t=(key,args)=>locale.t(key,preferences.language,args);
+    const answer=await dialog.showMessageBox(window,{type:'warning',
+      message:t('discard.memory.confirm'),
+      detail:t('discard.memory.confirm.detail',{files:review.plan.memoryFiles,size:Math.max(1,Math.round(review.plan.memoryBytes/1e6))})+'\n\n'+review.plan.memory.join('\n'),
+      buttons:[t('instances.cancel'),t('discard.memory.confirm.button')],defaultId:0,cancelId:0});
+    if(answer.response!==1)return {cancelled:true};
+  }
   const context=await discardContext(id);
   if(JSON.stringify(context)!==JSON.stringify(review.context))throw new Error('discard.changed');
   discardReview=null;
@@ -225,7 +235,24 @@ handle('setup-discard-apply', async (id,token) => {
     diagnostic.record({phase:'installation',operation:'discard',status:'completed'});
     diagnostic.observe({type:'finished',result:'completed'});
     backend.overview=null;
-    return {...result,id};
+    if(deleteMemory!==true)return {...result,id};
+    // The discard stands either way; a refused or failed move keeps the memory.
+    try {
+      const checked=await backend.daemonSettings({...context,action:'memory-check',revision:review.revision},'discard');
+      if(JSON.stringify(checked.memory)!==JSON.stringify(review.plan.memory))throw new Error('discard.changed');
+      for(const target of checked.memory) {
+        if(await instances.memoryInUse(target))throw new Error('discard.shared');
+        if(await fs.realpath(target)!==target)throw new Error('discard.unsafe');
+        await (smoke&&backend.smokeTrash?backend.smokeTrash:shell.trashItem)(target);
+        if(await fs.stat(target).then(()=>true,()=>false))throw new Error('discard.unsafe');
+      }
+      diagnostic.record({phase:'installation',operation:'discard-memory',status:'completed'});
+      return {...result,id,memoryRemoved:true};
+    }catch(error) {
+      const code=/discard\.([a-z]+)/.exec(error.message)?.[1]||'cleanup';
+      diagnostic.record({phase:'installation',operation:'discard-memory',status:'failed',error_code:'discard.'+code});
+      return {...result,id,memoryRemoved:false};
+    }
   }catch(error) {
     const code=/discard\.([a-z]+)/.exec(error.message)?.[1]||'cleanup';
     diagnostic.record({phase:'installation',operation:'discard',status:'failed',error_code:'discard.'+code});
@@ -415,13 +442,14 @@ handle('provider-change', async (id,revision,model,key=null) => {
 });
 // Another provider for the same daemon: a guided session (hosts/provider_change.py),
 // because ChatGPT needs its native sign-ins and a reply confirms the change.
-handle('provider-switch-start', async id => {
+// modelOnly: a ChatGPT subscription daemon changes its model the same way.
+handle('provider-switch-start', async (id,modelOnly=false) => {
   const profile=await providerProfile(id);
   const name=instances.rows.get(id)?.daemon?.name||'';
   const info=await providerRun({action:'describe',profile});
-  if(!info.switchable||info.pending)throw new Error('provider.unsupported');
+  if(!(modelOnly===true?info.model_changeable:info.switchable)||info.pending)throw new Error('provider.unsupported');
   backend.conversationLanguage=preferences.language;
-  return backend.start('change-provider',null,null,null,false,null,{profile,base:instances.base,name:name||'Your daemon'});
+  return backend.start('change-provider',null,null,null,false,null,{profile,base:instances.base,name:name||'Your daemon',...(modelOnly===true?{model_only:true}:{})});
 });
 // Runtime update of a daemon this app created (hosts/update.py, runtime/upgrade.py).
 // The page asks what is possible; the update itself is a guided session.

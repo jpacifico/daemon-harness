@@ -51,9 +51,14 @@ def parse_catalog(raw: str) -> tuple[ModelChoice, ...]:
 # Product selection, explicitly approved for this installer. Availability still
 # comes from the connected account; this is never an offline catalog fallback.
 SUPPORTED_MODELS = (
-    ModelChoice('gpt-6-astra', 'Astra', 'Recommended'),
-    ModelChoice('gpt-6.1-sol', 'GPT-6.1-Sol'),
+    ModelChoice('gpt-6.2-astra', 'GPT-6.2 Astra', 'Recommended'),
+    ModelChoice('gpt-6.2-sol', 'GPT-6.2 Sol'),
+    ModelChoice('gpt-6-astra', 'GPT-6 Astra'),
 )
+# No longer offered; a daemon created with it keeps working and can change model.
+RETIRED_MODELS = ('gpt-6.1-sol',)
+# Models a subscription daemon's host may be configured with.
+ACCEPTED_MODELS = frozenset(item.identifier for item in SUPPORTED_MODELS) | frozenset(RETIRED_MODELS)
 
 
 def select_model(ui, load, previous: str = '', *, resume=False, show_unavailable=True) -> str:
@@ -65,7 +70,7 @@ def select_model(ui, load, previous: str = '', *, resume=False, show_unavailable
             if not models:
                 raise RuntimeError('No supported models available.')
         except (OSError, RuntimeError, ValueError):
-            ui.say('None of the three supported models could be loaded from your account. Check your connection and ChatGPT access.')
+            ui.say('None of the supported models could be loaded from your account. Check your connection and ChatGPT access.')
             choice = ui.choose('Model list unavailable', ('Try again', 'Back to model access', 'Quit'))
             if choice == 1:
                 raise Back
@@ -76,7 +81,7 @@ def select_model(ui, load, previous: str = '', *, resume=False, show_unavailable
             ui.say('Saved model is available. Continuing setup.')
             return previous
         resume = False
-        ui.say('Choose your daemon model. Astra is recommended; account limits still apply.')
+        ui.say('Choose your daemon model. GPT-6.2 Astra is recommended; account limits still apply.')
         missing = [item.label for item in SUPPORTED_MODELS if item.identifier not in available]
         if missing and show_unavailable:
             ui.say('Not listed by the connected host: ' + ', '.join(missing) + '.')

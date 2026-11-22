@@ -5,9 +5,9 @@ daemons_install() (
     set -eu
     umask 077
     daemon_repo=jpacifico/daemon-harness
-    daemon_tag=companion-v0.11.19
+    daemon_tag=companion-v0.11.20
     daemon_asset=Daemons-Companion-macOS-arm64.dmg
-    daemon_sha=d54ab445d1988035cf9b506aa6ff04cb6ad24b1805bb24e67a66674416641639
+    daemon_sha=589a51e00099e1f59324b8c8705b80fd15c9177f6abc963821632cbcaf7a29de
     daemon_dest="$HOME/Applications"
     daemon_package=
     daemon_launch=yes

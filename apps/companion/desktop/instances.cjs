@@ -210,6 +210,9 @@ class Instances {
     const managedReceipts=stateRoot?path.join(stateRoot,'receipts'):null;
     row.healthPaths={spool:absolute(healthEnv.DAEMON_CORE_AFTER_TURN_SPOOL_DIR,this.home)||(sourceRoot?path.join(sourceRoot,'exports/after_turn_spool'):null),
       receipts:absolute(healthEnv.DAEMON_CORE_CONTINUITY_RECEIPT_DIR,this.home)||(managedReceipts&&await directory(managedReceipts)?managedReceipts:sourceRoot?path.join(sourceRoot,'exports/continuity_receipts'):null)};
+    // An app-created daemon's state holds both receipt directories: the memory
+    // worker's and, on OpenClaw, its live service's. Health reads a turn whole.
+    row.healthPaths.receiptDirs=[...new Set([row.healthPaths.receipts,...(stateRoot?[managedReceipts,path.join(stateRoot,'continuity/shared')]:[])].filter(Boolean))];
     this.rows.set(id,row); return row;
   }
   async refresh() {

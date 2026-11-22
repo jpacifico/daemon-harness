@@ -327,9 +327,11 @@ class HostChange:
         from daemons_companion.runtime.installation_scope import InstallationScope
 
         home = InstallationScope(Path(data["target_profile"]).parent).home
-        if self.target == "openclaw":
-            return home / "data/state/continuity/shared", "openclaw"
-        return home / "data/state/receipts", "telegram"
+        from daemons_companion.hermes.first_install import daemon_receipt_dirs
+
+        return daemon_receipt_dirs(home / "data/state"), (
+            "openclaw" if self.target == "openclaw" else "telegram"
+        )
 
     def answered(self, data: dict) -> bool:
         from daemons_companion.hermes.first_install import first_exchange

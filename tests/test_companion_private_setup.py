@@ -773,6 +773,33 @@ def test_private_status_does_not_require_rolled_back_api_configuration(
     assert Path(environment["HOME"]).is_relative_to(scope.attempt)
 
 
+def test_first_exchange_merges_an_openclaw_turn_split_across_its_receipt_dirs(tmp_path):
+    from daemons_companion.hermes.first_install import daemon_receipt_dirs
+
+    worker, live = daemon_receipt_dirs(tmp_path)
+    live.parent.mkdir()
+    # The live service writes the identity and reply; the worker, without
+    # identity, writes the memory stages of the same turn.
+    receipt(live, [event("turn", "response", platform="openclaw")])
+    bare = []
+    for stage in ("l0", "cycle"):
+        entry = event("turn", stage)
+        del entry["identity"]
+        bare.append(entry)
+    receipt(worker, bare)
+    assert not first_exchange(live, since=0, user_id="12345", platform="openclaw")
+    assert not first_exchange(worker, since=0, user_id="12345", platform="openclaw")
+    assert first_exchange((worker, live), since=0, user_id="12345", platform="openclaw")
+    assert not first_exchange((worker, live), since=0, user_id="999", platform="openclaw")
+    assert not first_exchange((worker, live), since=0, user_id="12345")
+    # A missing directory is simply not read.
+    assert first_exchange((worker, live, tmp_path / "absent"), since=0, user_id="12345",
+                          platform="openclaw")
+    failed = dict(bare[1], status="failed")
+    receipt(worker, [bare[0], failed])
+    assert not first_exchange((worker, live), since=0, user_id="12345", platform="openclaw")
+
+
 def test_first_exchange_keeps_host_receipts_separate(tmp_path):
     receipt(tmp_path, [event("openclaw-turn", stage, platform="openclaw")
                        for stage in ("response", "l0", "cycle")])

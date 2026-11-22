@@ -234,12 +234,12 @@ def _switch(ui, daemon, base, connection, revision) -> float:
 
 def _answered(daemon, since: float) -> bool:
     import json
-    from daemons_companion.hermes.first_install import first_exchange
+    from daemons_companion.hermes.first_install import daemon_receipt_dirs, first_exchange
     from daemons_companion.openclaw.host_install import checked_file
 
     user = json.loads(checked_file(daemon.private_connection, 8192))["user_id"]
-    receipts, platform = ((daemon.scope.home / "data/state/continuity/shared", "openclaw") if daemon.openclaw
-                          else (daemon.scope.home / "data/state/receipts", "telegram"))
+    receipts = daemon_receipt_dirs(daemon.scope.home / "data/state")
+    platform = "openclaw" if daemon.openclaw else "telegram"
     deadline = time.monotonic() + FIRST_REPLY_SECONDS
     while True:
         if first_exchange(receipts, since=since, user_id=user, platform=platform):

@@ -345,7 +345,10 @@ Profiles and conversation history are kept, as are Hermes Agent's saved
 native sign-ins; bots and provider accounts are not deleted.
 
 An unfinished new installation, on Hermes Agent or OpenClaw, can be deleted
-from its card, keeping memory, profiles and recovery records. An unfinished
+from its card, keeping profiles and recovery records. Its memory is kept by
+default; when it is the memory Companion created inside that installation, the
+same unchecked option and second confirmation as a full uninstall can move it
+to the Trash after the cleanup. An unfinished
 OpenClaw from Add a host is resumed, not deleted, and is uninstalled only with
 its Hermes Agent daemon. Shared, changed or
 ambiguous configurations are refused rather than removed unsafely. If recovery

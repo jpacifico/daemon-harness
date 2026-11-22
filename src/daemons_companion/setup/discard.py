@@ -1,4 +1,7 @@
-"""Discard an unfinished Companion setup, retaining memory and recovery records.
+"""Discard an unfinished Companion setup, retaining recovery records.
+
+Memory is kept unless the owner also chose to delete it: then only a vault
+Companion created inside the attempt may go to the trash, after the cleanup.
 
 Only application-selected roots and receipt-owned program directories qualify.
 This controller never imports the partially installed host or daemon code.
@@ -233,11 +236,60 @@ class Discard:
         result["revision"] = digest(encoded(result))
         return result
 
+    def owned_memory(self, value):
+        """Only the vault Companion created inside one of this setup's attempts."""
+        memory = direct(Path(value))
+        try:
+            parts = memory.relative_to(self.root).parts
+        except ValueError:
+            return False
+        return (
+            len(parts) == 7
+            and parts[0] == "hosts" and parts[1] in {"hermes", "openclaw"} and parts[2] == "installations"
+            and re.fullmatch(r"[a-f0-9]{32}", parts[3]) is not None
+            and parts[4:] == ("daemon", "data", "memory")
+            and memory.is_dir() and not os.path.ismount(memory)
+        )
+
     def inspect(self):
         plan = self.plan()
-        return {"revision": plan["revision"], "memory": plan["memories"],
-                "retained": str(self.root), "programs": plan["programs"],
-                "services": [key for key, value in plan["services"].items() if value], "done": False}
+        result = {"revision": plan["revision"], "memory": plan["memories"],
+                  "retained": str(self.root), "programs": plan["programs"],
+                  "services": [key for key, value in plan["services"].items() if value], "done": False}
+        # Offered only when every memory of this setup is one Companion created
+        # here: a vault chosen elsewhere is never proposed for deletion.
+        deletable = bool(plan["memories"]) and all(self.owned_memory(m) for m in plan["memories"])
+        result["memoryDeletable"] = deletable
+        if deletable:
+            files = size = 0
+            for memory in plan["memories"]:
+                for parent, _directories, names in os.walk(memory, followlinks=False):
+                    for name in names:
+                        files += 1
+                        size += os.lstat(os.path.join(parent, name)).st_size
+            result.update(memoryFiles=files, memoryBytes=size)
+        return result
+
+    def memory_check(self, revision):
+        """After a finished discard, confirm that its reviewed vaults may go to the trash."""
+        if not direct(self.marker).exists():
+            raise Refused("changed")
+        marker = document(self.marker)
+        if (marker.get("schema") != SCHEMA or marker.get("status") != "done"
+                or marker.get("revision") != revision or marker.get("memoryDeletable") is not True):
+            raise Refused("changed")
+        memories = marker.get("memories")
+        if not isinstance(memories, list) or not memories or not all(isinstance(m, str) for m in memories):
+            raise Refused("changed")
+        self.stopped()
+        for memory in memories:
+            if not self.owned_memory(memory):
+                raise Refused("memory")
+            # Its attempt's jobs are gone, and no other definition names it.
+            _, captures = self.services(Path(memory).parents[2])
+            if any(captures.values()):
+                raise Refused("services")
+        return {"memory": memories, "revision": revision}
 
     def stopped(self):
         processes = self.processes()
@@ -298,7 +350,10 @@ class Discard:
                 pointer = direct(self.root / "hosts/hermes/current.json")
                 pointer.unlink(missing_ok=True)
                 direct(self.root / "hosts/openclaw/current.json").unlink(missing_ok=True)
-                save(self.marker, {"schema": SCHEMA, "status": "done"})
+                # The reviewed vaults, for an optional move to the trash afterwards.
+                deletable = bool(plan["memories"]) and all(self.owned_memory(m) for m in plan["memories"])
+                save(self.marker, {"schema": SCHEMA, "status": "done", "revision": revision,
+                                   "memories": plan["memories"], "memoryDeletable": deletable})
             except Exception as error:
                 save(self.marker, {"schema": SCHEMA, "status": "failed",
                                    "code": error.code if isinstance(error, Refused) else "cleanup"})
@@ -320,6 +375,8 @@ def main():
             result = operation.inspect()
         elif request["action"] == "apply":
             result = operation.apply(request["revision"])
+        elif request["action"] == "memory-check":
+            result = operation.memory_check(request["revision"])
         else:
             raise Refused("request")
         output = {"ok": True, "result": result}

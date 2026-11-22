@@ -18,7 +18,7 @@ contextBridge.exposeInMainWorld('companion', Object.freeze({
   startDaemonUpdate: id => ipcRenderer.invoke('daemon-update-start',id),
   openObsidian: id => ipcRenderer.invoke('obsidian-open',id),
   reviewDiscard: id => ipcRenderer.invoke('setup-discard-review',id),
-  applyDiscard: (id,token) => ipcRenderer.invoke('setup-discard-apply',id,token),
+  applyDiscard: (id,token,deleteMemory) => ipcRenderer.invoke('setup-discard-apply',id,token,deleteMemory===true),
   reviewRemoval: (id,action) => ipcRenderer.invoke('removal-review',id,action),
   applyRemoval: (id,token,name,deleteMemory=false) => ipcRenderer.invoke('removal-apply',id,token,name,deleteMemory===true),
   removalFolder: (id,token,kind,copy=false) => ipcRenderer.invoke('removal-folder',id,token,kind,copy),

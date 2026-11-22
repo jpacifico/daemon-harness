@@ -983,15 +983,31 @@ async function discardTrial(window,backend,instances,output) {
     await evaluate("action('discard-back')");await wait('!state.instanceBusy');
     assert(await evaluate('!!document.querySelector("[data-setup-discard]") && !document.querySelector("[data-setup-resume]")'));
     await evaluate(`openDiscard(${JSON.stringify(setupId)})`);await wait('!discardState.busy');
-    assert(await evaluate('!!discardState.plan && !state.error'),await evaluate('state.error'));
-    await evaluate("action('discard-confirm');void 0");await wait('!discardState.busy');
-    assert(await evaluate('discardState.plan?.done && !state.error'),await evaluate('state.error'));
+    assert(await evaluate('!!discardState.plan && !state.error && discardState.plan.memoryDeletable===true'),await evaluate('state.error'));
+    // The memory option: confirmed natively before anything starts; a synthetic
+    // trash replaces the real one.
+    const {dialog}=require('electron'),originalDialog=dialog.showMessageBox,trash=path.join(root,'trash');
+    const answers=[0,1];
+    try {
+      dialog.showMessageBox=async()=>({response:answers.shift()});
+      backend.smokeTrash=async target=>{await fs.rename(target,trash);};
+      await evaluate("document.querySelector('[data-discard-memory]').click()");
+      assert(await evaluate("discardState.deleteMemory===true && document.body.textContent.includes('Supprimer l’installation et la mémoire')"));
+      await evaluate("action('discard-confirm');void 0");await wait('!discardState.busy');
+      // Cancelling the second confirmation changes nothing.
+      assert(await evaluate('!discardState.plan.done && !state.error'),await evaluate('state.error'));
+      assert.equal((await instances.services.list()).items.length,4);
+      await evaluate("action('discard-confirm');void 0");await wait('!discardState.busy');
+    } finally {dialog.showMessageBox=originalDialog;delete backend.smokeTrash;}
+    assert(await evaluate('discardState.plan?.done && discardState.plan.memoryRemoved===true && !state.error'),await evaluate('state.error'));
+    assert(await evaluate("document.body.textContent.includes('Mémoire placée dans la Corbeille.')"));
     assert.equal((await instances.services.list()).items.length,0);
     assert.equal((await instances.refresh()).instances.length,0);
-    assert.deepEqual(await fs.readFile(path.join(fixture.memory,'Projects/synthetic.md')),memory);
+    assert(!(await fs.stat(fixture.memory).then(()=>true,()=>false)));
+    assert.deepEqual(await fs.readFile(path.join(trash,'Projects/synthetic.md')),memory);
     await evaluate("action('discard-back')");await window.webContents.reload();await wait('!!state.inventory && !state.instanceBusy');
     assert(await evaluate('state.inventory.setups.length===0 && !document.querySelector("[data-setup-discard]") && !document.querySelector("[data-setup-resume]")'));
-    return {status:'passed',elapsed_ms:Math.round(performance.now()-started),real_packaged_ipc:true,real_python_engine:true,native_launchd_jobs_removed:4,cancel_preserved:true,bilingual:true,filesystem_failure_and_retry:true,diagnostic_without_private_paths:true,memory_exact:true,reload_removed_card:true,personal_services_changed:0};
+    return {status:'passed',elapsed_ms:Math.round(performance.now()-started),real_packaged_ipc:true,real_python_engine:true,native_launchd_jobs_removed:4,cancel_preserved:true,bilingual:true,filesystem_failure_and_retry:true,diagnostic_without_private_paths:true,memory_trashed_exact:true,memory_cancel_preserved:true,reload_removed_card:true,personal_services_changed:0};
   } finally {
     await fs.chmod(path.join(attempt,'source'),0o700).catch(()=>{});
     await invoke(['stop',metadata]);Object.assign(instances,prior);backend.settingsRuntime=priorRuntime;backend.setupHomes=priorHomes;

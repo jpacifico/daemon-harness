@@ -12,7 +12,7 @@ let update = {enabled:false, state:'disabled'}, updateBusy = false;
 let renderedPage = null;
 let started={steps:null,open:false,loading:false};
 const reportState={id:null,health:null,diagnostic:null,service:null,busy:false,message:'',back:'instances',expanded:new Set()};
-const discardState={plan:null,busy:false,id:null};
+const discardState={plan:null,busy:false,id:null,deleteMemory:false};
 // Passwords stay in these fields until submitted; they are cleared afterwards.
 const backupState={id:null,name:'',busy:false,result:null,password:'',confirm:'',mode:'once',destination:'file'};
 const restoreState={file:'',busy:false,password:'',step:'password',drive:null,move:false};
@@ -263,7 +263,7 @@ function render() {
   const runningSetup = state.active && state.operation === 'setup';
   let controls;
   if(['health','diagnostic'].includes(state.page))controls=button('Back','report-back',false,reportState.busy)+button('Refresh','report-refresh',false,reportState.busy)+button('Export diagnostic','report-export',true,reportState.busy||!(state.page==='health'?reportState.health:reportState.diagnostic));
-  else if(state.page==='discard')controls=button(discardState.plan?.done?'Back to my daemons':'Cancel','discard-back',false,discardState.busy)+(discardState.plan&&!discardState.plan.done?button('Delete unfinished installation','discard-confirm',false,discardState.busy):'');
+  else if(state.page==='discard')controls=button(discardState.plan?.done?'Back to my daemons':'Cancel','discard-back',false,discardState.busy)+(discardState.plan&&!discardState.plan.done?button(discardState.deleteMemory?'Delete installation and memory':'Delete unfinished installation','discard-confirm',false,discardState.busy):'');
   else if(state.page==='removal')controls=button(removalState.plan?.done?'Back to my daemons':'Cancel','removal-back',false,removalState.busy)+(removalState.plan&&!removalState.plan.done?button(removalState.plan.recovery?'Recover removal':removalState.plan.action==='detach'?'Remove daemon':removalState.deleteMemory?'Uninstall and delete memory':'Confirm uninstall','removal-confirm',false,removalState.busy||removalState.name!==removalState.plan.confirmationText):'');
   else if(state.page==='backup')controls=button(backupState.result?'Back to daemon settings':'Cancel','backup-back',false,backupState.busy)+(backupState.result?'':button(backupState.mode==='automatic'?'Turn on daily backup':'Create backup','backup-confirm',true,backupState.busy));
   else if(state.page==='restore')controls=button('Cancel','restore-back',false,restoreState.busy)+(restoreState.step==='source'?'':button('Install this daemon','restore-confirm',true,restoreState.busy));
@@ -282,6 +282,7 @@ function render() {
   document.querySelector('#removal-name')?.addEventListener('input',event=>{removalState.name=event.target.value;document.querySelector('[data-action=removal-confirm]').disabled=removalState.busy||removalState.name!==removalState.plan.confirmationText;});
   document.querySelectorAll('[data-setup-resume]').forEach(el=>el.addEventListener('click',()=>resumeSetup(el.dataset.setupResume)));
   document.querySelectorAll('[data-setup-discard]').forEach(el=>el.addEventListener('click',()=>openDiscard(el.dataset.setupDiscard)));
+  document.querySelector('[data-discard-memory]')?.addEventListener('change',event=>{discardState.deleteMemory=event.target.checked===true;render();});
   document.querySelectorAll('[data-setup-report]').forEach(el=>el.addEventListener('click',()=>openReport('diagnostic',el.dataset.setupReport)));
   document.querySelectorAll('[data-health-export]').forEach(el=>el.addEventListener('click',()=>reportAction('report-export',el.dataset.healthExport||null)));
   document.querySelectorAll('[data-health-detail]').forEach(el=>el.addEventListener('toggle',()=>{if(el.open)reportState.expanded.add(el.dataset.healthDetail);else reportState.expanded.delete(el.dataset.healthDetail);}));
@@ -1144,13 +1145,27 @@ function discardBody() {
   return `<h1>${p?.done?'Unfinished installation deleted':'Delete this unfinished installation?'}</h1>
     ${discardState.busy?'<div class="row busy" role="status"><span class="spinner"></span><span>Checking and cleaning up this installation…</span></div>':''}
     ${p&&!p.done?'<p>The private programs, downloads and background services created for this attempt will be removed. You will need to start a new installation to try again.</p><p>Other installations, your Telegram bot and provider accounts are not deleted.</p>':''}
-    ${p?`<div class="note"><b>Your memory is kept.</b>${p.memory.length?p.memory.map(m=>`<p class="memory-path" data-original>${escape(m)}</p>`).join(''):'<p>No memory folder was created for this attempt.</p>'}</div>
+    ${p?discardMemory(p)+`
     <details><summary>Retained files</summary><p>Diagnostics, settings, conversation history and saved local sign-ins stay in this folder. They can be removed manually after checking whether you need them.</p><p class="memory-path" data-original>${escape(p.retained)}</p></details>`:''}
     ${!p&&!discardState.busy?'<p>The installation has been kept. Return to the list to retry or open its diagnostic.</p>':''}`;
 }
+// The memory note; a vault Companion created for this attempt may also go to
+// the trash, asked here and confirmed again before anything starts.
+function discardMemory(p) {
+  const windows=backgroundMode.platform==='win32',paths=p.memory.map(m=>`<p class="memory-path" data-original>${escape(m)}</p>`).join('');
+  if(p.done&&p.memoryRemoved===true)return `<div class="note removal-memory"><b>${windows?'Memory moved to the Recycle Bin.':'Memory moved to the Trash.'}</b><p>It can be recovered from there until it is emptied.</p>${paths}</div>`;
+  if(!p.memory.length)return '<div class="note"><b>Your memory is kept.</b><p>No memory folder was created for this attempt.</p></div>';
+  const offered=p.memoryDeletable===true&&!p.done,chosen=offered&&discardState.deleteMemory;
+  const size=Math.max(1,Math.round((p.memoryBytes||0)/1e6));
+  return `<div class="note removal-memory ${chosen?'removal-memory-chosen':''}"><b>${chosen?(windows?'Your memory will be moved to the Recycle Bin.':'Your memory will be moved to the Trash.'):'Your memory is kept.'}</b>
+    ${chosen?`<p>After the cleanup, this folder is moved there (${p.memoryFiles} files, about ${size} MB). It can be recovered until it is emptied. A second confirmation is asked before anything starts.</p>`:''}
+    ${paths}
+    ${p.done&&p.memoryRemoved===false?'<p class="error">The memory could not be deleted. It is kept in this folder.</p>':''}
+    ${offered?`<label class="check removal-memory-delete"><input type="checkbox" data-discard-memory ${chosen?'checked':''} ${discardState.busy?'disabled':''}><span>Also delete this installation’s memory</span></label>`:''}</div>`;
+}
 async function openDiscard(id) {
   if(state.active||state.instanceBusy||discardState.busy)return;
-  discardState.id=id;discardState.plan=null;discardState.busy=true;state.page='discard';state.error='';render();
+  discardState.id=id;discardState.plan=null;discardState.deleteMemory=false;discardState.busy=true;state.page='discard';state.error='';render();
   try{discardState.plan=await window.companion.reviewDiscard(id);}
   catch(error){state.error=discardError(error);}
   finally{discardState.busy=false;render();}
@@ -1165,7 +1180,9 @@ async function discardAction(action) {
   discardState.busy=true;state.error='';render();
   try {
     const p=discardState.plan;
-    discardState.plan=await window.companion.applyDiscard(p.id,p.token);
+    const result=await window.companion.applyDiscard(p.id,p.token,discardState.deleteMemory);
+    if(result?.cancelled)return;
+    discardState.plan={...p,...result};
     state.savedSetup=(await window.companion.preferences()).setup||'none';
     state.overview=null;state.setupStarted=false;
   }catch(error){state.error=discardError(error);discardState.plan=null;}

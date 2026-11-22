@@ -119,7 +119,8 @@ def main() -> None:
                 if discard is not None and not windows:
                     assert discard['status'] == 'passed'
                     assert discard['native_launchd_jobs_removed'] == 4
-                    assert discard['memory_exact'] and discard['reload_removed_card']
+                    assert discard['memory_trashed_exact'] and discard['memory_cancel_preserved']
+                    assert discard['reload_removed_card']
                     assert discard['filesystem_failure_and_retry']
                     assert discard['personal_services_changed'] == 0
                     extra_services = 4

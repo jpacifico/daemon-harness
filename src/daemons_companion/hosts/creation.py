@@ -222,12 +222,10 @@ def native_config(kind, model, user, port):
                 }
             }
         },
-        "agents": {
-            "defaults": {
-                "model": {"primary": provider + "/" + model},
-                "heartbeat": {"every": "0m"},
-            }
-        },
+        # No heartbeat key: OpenClaw 2026.11.6 retired it and refuses to start
+        # with it. Without its own setup command, that host creates no
+        # periodic check, so the daemon still gets no unsolicited turn.
+        "agents": {"defaults": {"model": {"primary": provider + "/" + model}}},
         "channels": {
             "telegram": {
                 "enabled": True,
@@ -266,7 +264,7 @@ def _reference_conversation():
     """Conversation settings of the reference daemon, explicit on new hosts.
 
     Telegram shows the voice's brief sentence and tool progress before the
-    final reply; no acknowledgement reaction or unsolicited heartbeat turn.
+    final reply; no acknowledgement reaction.
     """
     return {
         "messages": {

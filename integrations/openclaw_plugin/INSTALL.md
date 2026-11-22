@@ -52,7 +52,6 @@ daemon's native settings:
 
 ```json
 {
-  "agents": {"defaults": {"heartbeat": {"every": "0m"}}},
   "messages": {
     "visibleReplies": "automatic",
     "ackReactionScope": "off",
@@ -86,8 +85,14 @@ approval (`openclaw exec-policy show` reports `full`, no approval prompts).
 Daemons created before this setting keep their configuration; their owner can
 add these two values to apply it.
 
-Without them, OpenClaw's defaults (measured on `2026.9.1-beta.1`) run a
-heartbeat turn every 30 minutes (API key) or hour (OAuth), share one main
+There is no heartbeat setting: OpenClaw `2026.11.6` no longer accepts
+`agents.defaults.heartbeat` and does not start while it is present. That
+version creates a periodic check only through its own setup command, which
+Companion does not run, so the daemon gets no unsolicited turn. Hosts created
+with OpenClaw `2026.10.7` keep their `"heartbeat": {"every": "0m"}` setting.
+
+Without the settings above, OpenClaw's defaults (measured on `2026.9.1-beta.1`)
+run a heartbeat turn every 30 minutes (API key) or hour (OAuth), share one main
 session across direct messages, use the `full` tool profile and hide the
 progress commentary, so the plugin's progress sentence is not shown. In `progress` mode the final reply arrives in
 one message.

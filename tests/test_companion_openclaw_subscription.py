@@ -294,7 +294,8 @@ def test_new_host_receives_reference_conversation_settings(tmp_path, kind):
         )
     )
     for config in (cfg, projected):
-        assert config["agents"]["defaults"]["heartbeat"] == {"every": "0m"}
+        # OpenClaw 2026.11.6 refuses to start with the retired heartbeat key.
+        assert "heartbeat" not in config["agents"]["defaults"]
         assert config["messages"] == {
             "visibleReplies": "automatic",
             "ackReactionScope": "off",

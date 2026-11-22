@@ -93,7 +93,7 @@ locations; older installations can have different paths.
 
 | Part | What is installed |
 | --- | --- |
-| Host | Hermes Agent `0.21.5` with its locked `messaging`, `bedrock`, `edge-tts` and `anthropic` extras, or OpenClaw `2026.10.7` with its own Node `24.22.1` |
+| Host | Hermes Agent `0.21.5` with its locked `messaging`, `bedrock`, `edge-tts` and `anthropic` extras, or OpenClaw `2026.11.6` with its own Node `24.22.1`; an OpenClaw daemon keeps the version it was installed with, `2026.10.7` for one created earlier |
 | Runtime | A private Python environment with the Daemon Harness plugins and the host's **gateway**, the service that receives and sends messages |
 | Memory maintenance | An after-turn worker and a nightly maintenance job (Dreaming and episodic REM) |
 | Memory search | A local embedding service with Qwen3-Embedding 0.6B (about 640 MB), separate from the model that writes replies |
@@ -193,9 +193,14 @@ small request check access before Telegram setup; a failed check keeps the key
 for a retry or another model.
 
 With ChatGPT, the host signs in natively and the daemon's maintenance uses a
-separate private Codex session (Codex CLI `0.159.2`, installed inside the
-private installation; a Codex already on the computer is not used). On OpenClaw, only Astra
-and GPT-6.1-Sol are offered, when the account's native catalogue returns them. Cancelling or failing a sign-in starts no service.
+separate private Codex session (Codex CLI `0.170.0`, installed inside the
+private installation; a Codex already on the computer is not used). The models
+offered are GPT-6.2 Astra (recommended), GPT-6.2 Sol and GPT-6 Astra, when the
+account's model list returns them; ChatGPT lists the GPT-6.2 models only to a
+recent client. On OpenClaw the host's own list decides: OpenClaw `2026.10.7`,
+kept by daemons created earlier, does not list the GPT-6.2 models. A daemon
+created earlier with GPT-6.1 Sol keeps working with it; that model is no longer
+offered. Cancelling or failing a sign-in starts no service.
 
 API keys are stored in the macOS Keychain or Windows Credential Manager. The
 host receives the key when it starts; it is not written into the service
@@ -212,8 +217,8 @@ settings (`openclaw.json` or Hermes `config.yaml`) and the daemon's
 `provider.json`, stores a new key under new Keychain or Credential Manager
 entries, and restarts the gateway if it was running. The previous files and
 keys are kept until the restart succeeds; a failed restart, or a change left
-unfinished, restores them exactly. The model of a ChatGPT subscription daemon
-is changed by choosing the subscription again through **Change provider**.
+unfinished, restores them exactly. A ChatGPT subscription daemon changes its
+model with **Change model**, below.
 
 **Change provider** moves a daemon created by the app, on Hermes Agent or
 OpenClaw, to another provider offered to new daemons: an OpenAI or Anthropic API
@@ -232,6 +237,16 @@ left unfinished restores them exactly and restarts the previous services.
 Memory, identity, conversation history and the Telegram bot are not touched.
 Sign-ins made for ChatGPT stay in the private installation if the change is
 undone.
+
+**Change model**, for a daemon created by the app on the ChatGPT subscription,
+is the same guided session without a new provider: the existing sign-ins are
+reused (a missing one is asked again), the private Codex of the current release
+is installed beside the daemon's older one if needed, and the models offered are
+those the account and the daemon's host list. The daemon then stops, switches
+and restarts as above, with `provider.json`, `connection.json` (the Codex path)
+and the host's settings rewritten, and the change is kept only after a reply on
+Telegram. Going back restores the previous files, including the older Codex
+path; the older Codex stays in the private installation.
 
 Memory is local. Relevant context is sent to the model provider you choose.
 OpenAI and Anthropic API billing is separate from consumer chat subscriptions.

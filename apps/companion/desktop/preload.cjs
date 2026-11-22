@@ -13,7 +13,7 @@ contextBridge.exposeInMainWorld('companion', Object.freeze({
   startHostChange: id => ipcRenderer.invoke('host-change-start',id),
   checkProvider: (id,key=null) => ipcRenderer.invoke('provider-check',id,key),
   changeProvider: (id,revision,model,key=null) => ipcRenderer.invoke('provider-change',id,revision,model,key),
-  startProviderSwitch: id => ipcRenderer.invoke('provider-switch-start',id),
+  startProviderSwitch: (id,modelOnly=false) => ipcRenderer.invoke('provider-switch-start',id,modelOnly===true),
   daemonUpdateStatus: id => ipcRenderer.invoke('daemon-update-status',id),
   startDaemonUpdate: id => ipcRenderer.invoke('daemon-update-start',id),
   openObsidian: id => ipcRenderer.invoke('obsidian-open',id),

@@ -6,18 +6,22 @@ preparing model context, and a local Python HTTP bridge.
 
 ## Installed by Companion
 
-Companion creates a private OpenClaw `2026.10.7` installation with its own Node
+Companion creates a private OpenClaw `2026.11.6` installation with its own Node
 `24.22.1`, either as a first daemon or through **Add a host** on a Hermes Agent
-daemon created by Companion. Hosts installed earlier with `2026.9.1-beta.1` keep
-their version and stay recognised for services, attachment and removal.
+daemon created by Companion. Hosts installed earlier with `2026.10.7` or
+`2026.9.1-beta.1` keep their version and stay recognised for services,
+attachment and removal; the app does not replace a daemon's host.
 
 - **Model:** ChatGPT sign-in, listed first as recommended, or an OpenAI or
   Anthropic API key. The pinned OpenClaw provider owns
-  the device-code login, credential refresh and account-model discovery; only
-  Astra and GPT-6.1-Sol are offered when the account returns them.
+  the device-code login, credential refresh and account-model discovery;
+  GPT-6.2 Astra, GPT-6.2 Sol and GPT-6 Astra are offered when the host's list
+  returns them. OpenClaw `2026.10.7` does not list the GPT-6.2 models.
   Credentials stay in the private host profile; no Hermes sign-in is copied.
   A first daemon also connects a separate private Codex session (Codex CLI
-  `0.159.2`) for memory maintenance; Add a host reuses the existing one.
+  `0.170.0`) for memory maintenance; Add a host reuses the existing one.
+  **Change model** on the daemon's page installs this Codex for a daemon
+  created with an older one.
 - **Daemon:** the memory, after-turn worker, nightly maintenance, local search
   and loopback API, with the `parga-v1` profile and the reference voice. An added
   host shares the existing daemon's memory and worker instead.

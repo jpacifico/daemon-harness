@@ -126,7 +126,7 @@ any memory you care about, and avoid giving it sensitive information. See
    The daemon introduces itself and learns how to address you.
 
 The guided path creates a **separate private installation of your chosen host**.
-Both hosts recommend ChatGPT subscription sign-in with the Astra model, and also
+Both hosts recommend ChatGPT subscription sign-in with the GPT-6.2 Astra model, and also
 accept an OpenAI or Anthropic API key. **Add a host** can later add OpenClaw
 to a Hermes Agent daemon, sharing the same memory. Adopting an arbitrary
 existing host is not a guided operation.

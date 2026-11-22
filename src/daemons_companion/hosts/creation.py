@@ -172,8 +172,8 @@ def verify_bot(token):
 
 def native_config(kind, model, user, port):
     if kind == "codex_cli":
-        from daemons_companion.setup.model_selection import SUPPORTED_MODELS
-        if model not in {item.identifier for item in SUPPORTED_MODELS}:
+        from daemons_companion.setup.model_selection import ACCEPTED_MODELS
+        if model not in ACCEPTED_MODELS:
             raise ValueError("Unsupported subscription model.")
         config = native_config("openai_api", model, user, port)
         # Keep the canonical native OpenClaw loop and its daemon hooks.

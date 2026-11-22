@@ -41,7 +41,8 @@ export async function connect({root,profile,emit,signal,login=true,forceLogin=fa
   throw Error('catalog');
  }
  const available=new Set(catalog.providers.openai.models.map(m=>m.id));
- const approved=['gpt-6-astra','gpt-6.1-sol'];
+ // Same identifiers and order as SUPPORTED_MODELS (setup/model_selection.py).
+ const approved=['gpt-6.2-astra','gpt-6.2-sol','gpt-6-astra'];
  const models=approved.filter(id=>available.has(id));
  // Public provider API returns already-filtered rows, not the raw upstream response.
  // Only fixed model identifiers/counts cross this bridge, never arbitrary metadata.

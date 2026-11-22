@@ -10,7 +10,7 @@ const ERRORS=['attachment.unconfirmed','attachment.source-profile','attachment.s
 const ERROR_CLASS=/^(?:[A-Z][A-Za-z0-9]{0,47})?(?:Error|Exception|Refused|Timeout|Expired|Stopped|Failure|Unavailable|Iteration|Back|Quit)$/;
 const validTime=x=>typeof x==='string'&&/^\d{4}-\d\d-\d\dT[0-9:.]+(?:Z|[+-]\d\d:\d\d)$/.test(x)&&Number.isFinite(Date.parse(x));
 const AUTH_STAGES=['starting','waiting','exchanging','authenticated','catalog'];
-const CHATGPT_MODELS=['gpt-6-astra','gpt-6.1-sol'];
+const CHATGPT_MODELS=['gpt-6.2-astra','gpt-6.2-sol','gpt-6-astra'];
 function modelCatalog(value) {
   if(!value||value.status!=='ready'||value.raw_catalog_observed!==false||!Array.isArray(value.models)||value.models.length!==CHATGPT_MODELS.length)return null;
   if(!['native_count','excluded_count'].every(k=>Number.isInteger(value[k])&&value[k]>=0&&value[k]<=10000))return null;

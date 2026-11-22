@@ -495,8 +495,8 @@
     "fr": "Choisissez votre modèle"
   },
   "model.astra": {
-    "en": "Astra — Recommended",
-    "fr": "Astra — Recommandé"
+    "en": "GPT-6.2 Astra — Recommended",
+    "fr": "GPT-6.2 Astra — Recommandé"
   },
   "model.terra": {
     "en": "GPT-5.6-Terra — Experience may be degraded",
@@ -507,16 +507,16 @@
     "fr": "Actualiser la liste des modèles"
   },
   "model.hint": {
-    "en": "Choose your daemon model. Astra is recommended; account limits still apply.",
-    "fr": "Choisissez le modèle de votre daemon. Astra est recommandé ; les limites de votre compte s’appliquent."
+    "en": "Choose your daemon model. GPT-6.2 Astra is recommended; account limits still apply.",
+    "fr": "Choisissez le modèle de votre daemon. GPT-6.2 Astra est recommandé ; les limites de votre compte s’appliquent."
   },
   "model.warning": {
     "en": "With GPT-5.6-Terra, the daemon experience may be degraded.",
     "fr": "Avec GPT-5.6-Terra, l’expérience du daemon peut être dégradée."
   },
   "model.failed": {
-    "en": "None of the three supported models could be loaded from your account. Check your connection and ChatGPT access.",
-    "fr": "Aucun des trois modèles pris en charge n’a pu être chargé. Vérifiez votre connexion et votre accès ChatGPT."
+    "en": "None of the supported models could be loaded from your account. Check your connection and ChatGPT access.",
+    "fr": "Aucun des modèles pris en charge n’a pu être chargé. Vérifiez votre connexion et votre accès ChatGPT."
   },
   "model.unavailable": {
     "en": "Model list unavailable",
@@ -4559,8 +4559,8 @@
     "fr": "Cette liste provient du catalogue natif d’OpenClaw. L’absence d’un modèle ne suffit pas à établir une restriction du compte. Les limites de votre abonnement s’appliquent."
   },
   "chatgpt.label.astra": {
-    "en": "Astra (recommended)",
-    "fr": "Astra (recommandé)"
+    "en": "GPT-6.2 Astra (recommended)",
+    "fr": "GPT-6.2 Astra (recommandé)"
   },
   "chatgpt.label.terra": {
     "en": "GPT-5.6-Terra (experience may be degraded)",
@@ -5717,8 +5717,8 @@
     "fr": "Les réglages de l’hôte de ce daemon ont été modifiés en dehors de l’app : sa clé et son modèle ne peuvent pas être changés ici."
   },
   "provider.subscription": {
-    "en": "This daemon uses ChatGPT through your subscription. Changing the provider will come in a later version.",
-    "fr": "Ce daemon utilise ChatGPT avec votre abonnement. Le changement de fournisseur arrivera dans une prochaine version."
+    "en": "This daemon uses ChatGPT through your subscription.",
+    "fr": "Ce daemon utilise ChatGPT avec votre abonnement."
   },
   "provider.compatibleHint": {
     "en": "This daemon uses a compatible API set up during installation. It cannot be changed from the app yet.",
@@ -6402,5 +6402,49 @@
   "daemons.restart.connected": {
     "en": "Reconnected to Telegram.",
     "fr": "Reconnecté à Telegram."
+  },
+  "provider.changeModel": {
+    "en": "Change model…",
+    "fr": "Changer de modèle…"
+  },
+  "provider.changeModelHint": {
+    "en": "Your daemon restarts with the chosen model; the change is kept only once it has answered. Memory, identity and Telegram bot stay the same.",
+    "fr": "Votre daemon redémarre avec le modèle choisi ; le changement n’est conservé qu’après sa réponse. La mémoire, l’identité et le bot Telegram ne changent pas."
+  },
+  "topbar.changeModel": {
+    "en": "Change model",
+    "fr": "Changer de modèle"
+  },
+  "modelChange.heading.model": {
+    "en": "Choose your daemon’s model.",
+    "fr": "Choisissez le modèle de votre daemon."
+  },
+  "modelChange.heading.installation": {
+    "en": "Changing the model.",
+    "fr": "Changement du modèle."
+  },
+  "modelChange.current": {
+    "en": "{name} uses ChatGPT with {current}. Its memory, its identity and its Telegram bot stay the same; only the model changes. Nothing changes before you confirm.",
+    "fr": "{name} utilise ChatGPT avec {current}. Sa mémoire, son identité et son bot Telegram ne changent pas ; seul le modèle change. Rien ne change avant votre confirmation.",
+    "template": true
+  },
+  "modelChange.unchanged": {
+    "en": "{name} already uses {current}. Nothing was changed.",
+    "fr": "{name} utilise déjà {current}. Rien n’a été changé.",
+    "template": true
+  },
+  "modelChange.confirm": {
+    "en": "Change {name}'s model to {chosen}?",
+    "fr": "Passer {name} sur {chosen} ?",
+    "template": true
+  },
+  "modelChange.confirm.button": {
+    "en": "Change to {chosen}",
+    "fr": "Passer sur {chosen}",
+    "template": true
+  },
+  "model.astra.api": {
+    "en": "Astra — Recommended",
+    "fr": "Astra — Recommandé"
   }
 }

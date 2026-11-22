@@ -210,17 +210,17 @@ from daemons_companion.desktop.terminal import Terminal
 from daemons_companion.setup.model_selection import ModelChoice, select_model
 ui = Terminal(animate=False)
 with ui.session():
-    result = select_model(ui, lambda: tuple(ModelChoice(i, i) for i in ('gpt-5.6-terra', 'other-model', 'gpt-6.1-sol', 'gpt-6-astra')))
+    result = select_model(ui, lambda: tuple(ModelChoice(i, i) for i in ('gpt-5.6-terra', 'other-model', 'gpt-6.1-sol', 'gpt-6-astra', 'gpt-6.2-sol', 'gpt-6.2-astra')))
     print('RESULT=' + result)
 """
     console = Console(code)
     try:
         console.until(b'Selection: 1')
-        assert b'Astra' in console.output and b'Recommended' in console.output
+        assert b'GPT-6.2 Astra' in console.output and b'Recommended' in console.output
         assert b'Experience may be degraded' not in console.output and b'Terra' not in console.output
-        assert b'other-model' not in console.output
+        assert b'other-model' not in console.output and b'6.1' not in console.output
         console.send(b'2\r')
-        console.until(b'RESULT=gpt-6.1-sol')
+        console.until(b'RESULT=gpt-6.2-sol')
         assert console.finish() == 0
         console.assert_mode_restored()
     finally:

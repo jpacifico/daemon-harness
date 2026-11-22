@@ -14,11 +14,13 @@ from daemons_companion.runtime.acquisition import open_with_retry
 
 from daemons_companion.runtime.installation_scope import InstallationScope
 
-# gpt-6-astra, the recommended ChatGPT model, refuses older Codex releases.
-VERSION = "0.159.2"
+# ChatGPT lists and serves the GPT-6.2 models only to Codex 0.166.0 or later;
+# 0.159.2 is refused for them. A daemon installed with an older Codex gets this
+# one when its model changes (hosts/provider_change.py).
+VERSION = "0.170.0"
 PACKAGES = {
-    "macos": ("aarch64-apple-darwin", 129522674, "38aaf6dce63099fd10988948d03bbc6c0474253aef6961fcbe60f8d154b39101"),
-    "windows": ("x86_64-pc-windows-msvc", 156614559, "a7ab591043d99e8a88d0c2bebf15f810b15599a71148c4af944a755af3c71eef"),
+    "macos": ("aarch64-apple-darwin", 173593904, "975524bf13aedd1b122d8d0e00c09ee67091b8f688c0b374943dbb3cf22c7893"),
+    "windows": ("x86_64-pc-windows-msvc", 210098091, "6ff4b22c63645ffd83aed9b722cbb0b9e5b79dc6e8916f50e362b3015fb327a9"),
 }
 
 

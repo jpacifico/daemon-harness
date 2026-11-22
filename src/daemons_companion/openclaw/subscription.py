@@ -228,7 +228,12 @@ def chatgpt_events(ui):
     return emit
 
 
-def first_connection(host, ui, saved):
+def first_connection(host, ui, saved, *, current: str = ""):
+    """The private Codex, the ChatGPT sign-ins (reused when valid) and a model.
+
+    ``current`` is the model of a daemon changing model: preselected, never
+    taken without asking.
+    """
     from daemons_companion.setup.codex_install import install_private_codex
     from daemons_companion.setup.subscription import native_command
     from daemons_companion.setup.model_selection import select_model
@@ -303,7 +308,7 @@ def first_connection(host, ui, saved):
     model = select_model(
         ui,
         load_models,
-        saved.get("model", ""),
+        saved.get("model", "") or current,
         resume=bool(saved.get("model")),
         show_unavailable=False,
     )

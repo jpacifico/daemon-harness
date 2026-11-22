@@ -415,13 +415,14 @@ handle('provider-change', async (id,revision,model,key=null) => {
 });
 // Another provider for the same daemon: a guided session (hosts/provider_change.py),
 // because ChatGPT needs its native sign-ins and a reply confirms the change.
-handle('provider-switch-start', async id => {
+// modelOnly: a ChatGPT subscription daemon changes its model the same way.
+handle('provider-switch-start', async (id,modelOnly=false) => {
   const profile=await providerProfile(id);
   const name=instances.rows.get(id)?.daemon?.name||'';
   const info=await providerRun({action:'describe',profile});
-  if(!info.switchable||info.pending)throw new Error('provider.unsupported');
+  if(!(modelOnly===true?info.model_changeable:info.switchable)||info.pending)throw new Error('provider.unsupported');
   backend.conversationLanguage=preferences.language;
-  return backend.start('change-provider',null,null,null,false,null,{profile,base:instances.base,name:name||'Your daemon'});
+  return backend.start('change-provider',null,null,null,false,null,{profile,base:instances.base,name:name||'Your daemon',...(modelOnly===true?{model_only:true}:{})});
 });
 // Runtime update of a daemon this app created (hosts/update.py, runtime/upgrade.py).
 // The page asks what is possible; the update itself is a guided session.

@@ -153,11 +153,11 @@ def test_chatgpt_on_openclaw_uses_its_native_connection(tmp_path, setup, monkeyp
     monkeypatch.setattr(module, "OwnedDaemon", lambda profile: daemon)
     monkeypatch.setattr("daemons_companion.openclaw.gateway.host_for", lambda scope: "host")
     monkeypatch.setattr("daemons_companion.openclaw.subscription.first_connection",
-                        lambda host, ui, saved: (binary, "gpt-6.1-sol"))
+                        lambda host, ui, saved, **_: (binary, "gpt-6.2-sol"))
     # OpenClaw offers ChatGPT, OpenAI (the current Anthropic is left out).
     ui = UI(answers=[0, 0, 0])
     assert module.run(ui, Path("/p"), Path("/b"), "Nova", None) is True
-    assert daemon.switched[1:5] == ("codex_cli", "gpt-6.1-sol", None, binary)
+    assert daemon.switched[1:5] == ("codex_cli", "gpt-6.2-sol", None, binary)
 
 
 def test_an_unfinished_session_goes_back(tmp_path, setup, monkeypatch):
@@ -166,3 +166,98 @@ def test_an_unfinished_session_goes_back(tmp_path, setup, monkeypatch):
     monkeypatch.setattr(module, "OwnedDaemon", lambda profile: daemon)
     module.abandon(Path("/p"), Path("/b"))
     assert daemon.events == [("revert", setup.scheduler)]
+
+
+class SubscriptionDaemon(Daemon):
+    def __init__(self, tmp_path, host="hermes", codex="codex/0.159.2/bin/codex"):
+        super().__init__(tmp_path, host)
+        self.private_connection.write_text('{"codex": "%s"}' % (tmp_path / codex))
+
+    def describe(self):
+        return {"kind": "codex_cli", "model": "gpt-6-astra", "pending": False, "switchable": True,
+                "model_changeable": True, "revision": "r1"}
+
+    def provider(self):
+        return {"kind": "codex_cli", "model": "gpt-6-astra"}
+
+
+@pytest.mark.parametrize("host", ["hermes", "openclaw"])
+def test_a_subscription_daemon_changes_model_with_the_current_codex_and_keeps_after_a_reply(
+        tmp_path, setup, monkeypatch, host):
+    daemon = SubscriptionDaemon(tmp_path, host)
+    monkeypatch.setattr(module, "OwnedDaemon", lambda profile: daemon)
+    newer = tmp_path / "codex/0.170.0/bin/codex"
+    seen = {}
+
+    def subscription(ui, owned, context, *, signed_in=False):
+        seen["signed_in"] = signed_in
+        return module.Connection("codex_cli", "gpt-6.2-sol", codex=newer)
+
+    monkeypatch.setattr(module, "_subscription", subscription)
+    ui = UI(answers=[0, 0])  # Change to GPT-6.2 Sol, then keep it after the reply.
+    assert module.run(ui, tmp_path / "profile", tmp_path, "Nova", None, model_only=True) is True
+    assert seen == {"signed_in": True}
+    assert daemon.switched[1:5] == ("codex_cli", "gpt-6.2-sol", None, newer)
+    assert ui.prompts[0] == ("Change Nova's model to GPT-6.2 Sol?", ("Change to GPT-6.2 Sol", "Cancel"))
+    assert ui.prompts[1][1][2] == "Go back to GPT-6 Astra"
+    assert daemon.events == ["switch", "commit"]
+
+
+def test_choosing_the_same_model_and_codex_changes_nothing(tmp_path, setup, monkeypatch):
+    daemon = SubscriptionDaemon(tmp_path, codex="codex/0.170.0/bin/codex")
+    monkeypatch.setattr(module, "OwnedDaemon", lambda profile: daemon)
+    monkeypatch.setattr(module, "_subscription", lambda ui, owned, context, **_: module.Connection(
+        "codex_cli", "gpt-6-astra", codex=tmp_path / "codex/0.170.0/bin/codex"))
+    ui = UI()
+    assert module.run(ui, tmp_path / "profile", tmp_path, "Nova", None, model_only=True) is False
+    assert daemon.events == [] and "Nova already uses GPT-6 Astra. Nothing was changed." in ui.said
+
+
+def test_the_same_model_with_an_older_codex_is_still_a_change(tmp_path, setup, monkeypatch):
+    daemon = SubscriptionDaemon(tmp_path)
+    monkeypatch.setattr(module, "OwnedDaemon", lambda profile: daemon)
+    newer = tmp_path / "codex/0.170.0/bin/codex"
+    monkeypatch.setattr(module, "_subscription", lambda ui, owned, context, **_: module.Connection(
+        "codex_cli", "gpt-6-astra", codex=newer))
+    assert module.run(UI(answers=[0, 0]), tmp_path / "profile", tmp_path, "Nova", None, model_only=True)
+    assert daemon.switched[1:5] == ("codex_cli", "gpt-6-astra", None, newer)
+
+
+def test_an_api_daemon_has_no_guided_model_change(tmp_path, setup, monkeypatch):
+    daemon = Daemon(tmp_path)
+    monkeypatch.setattr(module, "OwnedDaemon", lambda profile: daemon)
+    with pytest.raises(module.ProviderSettingsError, match="provider.unsupported"):
+        module.run(UI(), tmp_path / "profile", tmp_path, "Nova", None, model_only=True)
+    assert daemon.events == []
+
+
+@pytest.mark.parametrize("request_value,model_only", [
+    ({"profile": "/p", "base": "/b", "name": "Nova"}, False),
+    ({"profile": "/p", "base": "/b", "name": "Nova", "model_only": True}, True),
+])
+def test_the_app_asks_for_a_model_change_with_one_explicit_flag(monkeypatch, request_value, model_only):
+    from types import SimpleNamespace
+    from daemons_companion.desktop import protocol
+
+    seen = {}
+    monkeypatch.setattr(module, "run", lambda ui, profile, base, name, context, **kw: seen.update(kw) or True)
+    events = []
+    ui = SimpleNamespace(emit=lambda *a, **k: events.append((a, k)), finished=False)
+    assert protocol.serve_provider_change(ui, request_value, SimpleNamespace(context=None)) == 0
+    assert seen == {"model_only": model_only} and events[-1][1]["result"] == "installed"
+
+
+@pytest.mark.parametrize("request_value", [
+    {"profile": "/p", "base": "/b", "name": "Nova", "model_only": "yes"},
+    {"profile": "/p", "base": "/b", "name": "Nova", "model_only": False},
+    {"profile": "/p", "base": "/b", "name": "Nova", "other": True},
+])
+def test_any_other_model_change_request_is_refused(monkeypatch, request_value):
+    from types import SimpleNamespace
+    from daemons_companion.desktop import protocol
+
+    monkeypatch.setattr(module, "run", lambda *a, **k: pytest.fail("must not run"))
+    events = []
+    ui = SimpleNamespace(emit=lambda *a, **k: events.append((a, k)), diagnostic=lambda *a: None, finished=False)
+    assert protocol.serve_provider_change(ui, request_value, SimpleNamespace(context=None)) == 1
+    assert events[-1][1]["result"] == "error"

@@ -44,6 +44,13 @@ class OpenClawRelease:
 RELEASES = {
     release.version: release
     for release in (
+        # The first release lists the GPT-6.2 models to a ChatGPT subscription.
+        OpenClawRelease("2026.11.6", "24.22.1", {
+            "macos": ("darwin-arm64.tar.gz",
+                      "89c682593d76cd44233fa53b1563264e7de9cbb189cad169135c5b4fadfbc0a7"),
+            "windows": ("win-x64.zip",
+                        "d2046d28c2c3dcd211ac5145c0bf30e2047ef9dfb306693c8c6e2eccd8b95fa5"),
+        }),
         OpenClawRelease("2026.10.7", "24.22.1", {
             "macos": ("darwin-arm64.tar.gz",
                       "89c682593d76cd44233fa53b1563264e7de9cbb189cad169135c5b4fadfbc0a7"),
@@ -58,7 +65,7 @@ RELEASES = {
         }),
     )
 }
-CURRENT = RELEASES["2026.10.7"]
+CURRENT = RELEASES["2026.11.6"]
 NODE_VERSION = CURRENT.node_version
 OPENCLAW_VERSION = CURRENT.version
 NODE_ARCHIVES = CURRENT.node_archives

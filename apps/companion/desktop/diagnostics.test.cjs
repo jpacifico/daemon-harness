@@ -83,7 +83,7 @@ test('attachment preflight details survive export, arbitrary text does not',()=>
 
 test('model evidence survives export without provider metadata or codes',t=>{
  const root=fixture(t),d=new Diagnostics(root);d.begin();
- const model_catalog={status:'ready',raw_catalog_observed:false,native_count:2,excluded_count:1,token:'never-save',models:['gpt-6-astra','gpt-6.1-sol'].map((id,i)=>({id,status:i===1?'offered':'absent-native',private:'never-save'}))};
+ const model_catalog={status:'ready',raw_catalog_observed:false,native_count:2,excluded_count:1,token:'never-save',models:['gpt-6.2-astra','gpt-6.2-sol','gpt-6-astra'].map((id,i)=>({id,status:i===1?'offered':'absent-native',private:'never-save'}))};
  d.observe({type:'diagnostic',phase:'model',operation:'model-check',status:'completed',model_catalog,auth_stage:'catalog',code:'TEST-0000'});
  const exported=d.read();assert.equal(exported.events.at(-1).model_catalog.models[0].status,'absent-native');
  const raw=JSON.stringify(exported);assert(!raw.includes('never-save'));assert(!raw.includes('TEST-0000'));

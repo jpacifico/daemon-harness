@@ -164,6 +164,9 @@ class OwnedDaemon:
             # Another provider can be chosen when the host uses exactly what the
             # daemon records; only the providers offered to new daemons.
             "switchable": kind in {*API_PROVIDERS, SUBSCRIPTION} and self.host_matches(kind, model),
+            # A subscription daemon changes its model through the same guided
+            # session (hosts/provider_change.py), not the API key form.
+            "model_changeable": kind == SUBSCRIPTION and self.host_matches(kind, model),
             "offers": list(model_access.options()[0]),
             "key": bool(self.current_key(config)) if kind in API_PROVIDERS else None,
             "pending": self.pending() is not None,
@@ -270,6 +273,8 @@ class OwnedDaemon:
 
         ``key`` is a verified API key, or None for the ChatGPT subscription,
         whose native sign-ins and private Codex (``codex``) are already done.
+        A subscription daemon may also stay on the subscription: its model and
+        private Codex change, with the same snapshot, reply check and revert.
         ``services`` are the definitions captured before they were stopped.
         """
         from daemons_companion.setup import model_access
@@ -283,7 +288,7 @@ class OwnedDaemon:
         before = config["kind"]
         if not self.host_matches(before, config["model"]):
             raise ProviderSettingsError("provider.unsupported")
-        if kind == before or kind not in model_access.options()[0]:
+        if kind not in model_access.options()[0] or (kind == before and kind != SUBSCRIPTION):
             raise ProviderSettingsError("provider.unsupported")
         if kind == SUBSCRIPTION:
             if key is not None or model not in {m.identifier for m in SUPPORTED_MODELS}:

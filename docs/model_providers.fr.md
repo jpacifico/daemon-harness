@@ -8,8 +8,10 @@ avertissement.
 
 | Fournisseur | Modèle testé | Testé le | Proposé | Pourquoi |
 | --- | --- | --- | --- | --- |
+| Abonnement ChatGPT | GPT-6.2 Astra | 2026-11-18 | Oui, recommandé depuis le 2026-11-22 | Proposé à la demande du mainteneur. Le 2026-11-18, il a répondu à une requête de Hermes Agent et à une de Codex 0.170.0. Ses réponses et sa mémoire sur un vrai daemon dans la durée ne sont pas encore testées. |
+| Abonnement ChatGPT | GPT-6.2 Sol | 2026-11-18 | Oui, depuis le 2026-11-22 | Proposé à la demande du mainteneur avec GPT-6.2 Astra ; a répondu lors de la même vérification. Ses réponses et sa mémoire sur un vrai daemon dans la durée ne sont pas encore testées. |
 | Abonnement ChatGPT | GPT-6 Astra | 2026-10-03, 2026-10-24 | Oui | Le daemon de référence fonctionne entièrement avec lui depuis le 2026-10-03, chaque jour. Un nouveau daemon lui fournit les mêmes éléments que la référence. |
-| Abonnement ChatGPT | GPT-6.1 Sol | 2026-10-29 | Proposé en attendant le test complet | A suivi la situation aussi bien que la référence dans quatre conversations de test. Ses réponses et sa mémoire sur un vrai daemon ne sont pas encore testées. |
+| Abonnement ChatGPT | GPT-6.1 Sol | 2026-10-29 | Plus proposé depuis le 2026-11-22 | Remplacé par GPT-6.2 Sol. Un daemon créé avec lui continue de fonctionner avec lui et peut changer de modèle. |
 | Abonnement ChatGPT | GPT-6.1 Terra | 2026-10-29 | Pas encore | A suivi la situation aussi bien que la référence dans quatre conversations de test, trois fois plus vite. Ses réponses et sa mémoire sur un vrai daemon ne sont pas encore testées. |
 | Abonnement ChatGPT | GPT-5.6 Terra | 2026-08-31 | Non | Retiré le 2026-10-29 : Companion avertissait que l'expérience pouvait être dégradée avec lui, et un modèle qui demande un avertissement n'est pas proposé. |
 | Mistral (clé API) | Mistral Large 4 | 2026-10-29, de nouveau le soir même après sa sortie publique | Non | Perd le fil de ce qui se passe dans la conversation, et enregistre comme faits des choses non confirmées. Voir ci-dessous. |

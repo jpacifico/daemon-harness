@@ -261,3 +261,20 @@ def test_an_unqualified_version_is_refused(tmp_path):
     lock = _lock_directory(tmp_path / "lock", "2026.10.8", {})
     with pytest.raises(ValueError, match="not a qualified release"):
         OpenClawHostLayout(tmp_path / "companion", "c" * 32, "macos", lock).validate()
+
+
+def test_new_daemons_get_2026_11_6_and_2026_10_7_hosts_stay_recognised(tmp_path):
+    from daemons_companion.openclaw.host_install import CURRENT, RELEASES
+    from daemons_companion.runtime.acquisition import recognized_version
+
+    bundled = Path(__file__).resolve().parents[1] / "apps/companion/openclaw-runtime"
+    assert CURRENT.version == "2026.11.6" and CURRENT.node_version == "24.22.1"
+    fresh = OpenClawHostLayout.existing(tmp_path / "companion", "c" * 32, "macos", bundled)
+    assert fresh.release is CURRENT and plan(fresh)["openclaw_version"] == "2026.11.6"
+    # A daemon created with 0.11.19 keeps the release its staged manifest names.
+    previous = RELEASES["2026.10.7"]
+    _lock_directory(fresh.attempt / "host", previous.version, {})
+    reopened = OpenClawHostLayout.existing(tmp_path / "companion", "c" * 32, "macos", bundled)
+    assert reopened.release is previous and plan(reopened)["openclaw_version"] == "2026.10.7"
+    assert recognized_version("openclaw", "OpenClaw 2026.11.6 (06afb10)", "verified") == "2026.11.6"
+    assert recognized_version("openclaw", "OpenClaw 2026.10.7 (abc1234)", "verified") == "2026.10.7"

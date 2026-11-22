@@ -54,7 +54,7 @@ async function scenario(window, backend, language) {
   await evaluate("globalThis.savedAuthState={...state};Object.assign(state,{page:'setup',mode:'add-host',phase:'model',active:true,prompt:null,guidance:[],error:'',chatgptStage:'waiting',chatgptCode:'TEST-0000',links:['https://auth.openai.com/codex/device'],activity:'Connect ChatGPT for OpenClaw conversations...'});render()");
   await assert("document.body.textContent.includes('TEST-0000') && !!document.querySelector('[data-link]') && !!document.querySelector('#activity .spinner') && document.querySelectorAll('.steps span').length===5", 'Add a host shows the same ChatGPT code, browser action and progress, without the naming step');
   await capture('01-chatgpt-openclaw');
-  await evaluate("globalThis.catalogFixture={status:'ready',raw_catalog_observed:false,native_count:2,excluded_count:1,models:['gpt-6-astra','gpt-6.1-sol'].map((id,i)=>({id,status:i===1?'offered':'absent-native'}))}");
+  await evaluate("globalThis.catalogFixture={status:'ready',raw_catalog_observed:false,native_count:2,excluded_count:1,models:['gpt-6.2-astra','gpt-6.2-sol','gpt-6-astra'].map((id,i)=>({id,status:i===1?'offered':'absent-native'}))}");
   await evaluate("Object.assign(state,{page:'setup',phase:'model',active:true,prompt:null,guidance:['ChatGPT sign-in could not be completed. You can retry or choose another provider.'],error:'stale error'});render()");
   window.webContents.send('setup-event',{type:'connection-start'});
   window.webContents.send('setup-event',{type:'chatgpt-stage',stage:'authenticated'});

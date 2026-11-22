@@ -85,6 +85,7 @@ const flow = () => state.mode === 'add-host' ? phases.filter(p => p !== 'identit
 const hostHeadings = { host: 'Add OpenClaw to your daemon.', model: 'Connect OpenClaw to a model.', telegram: 'Create the OpenClaw bot.', installation: 'Starting OpenClaw.', conversation: 'First conversation on OpenClaw.' };
 const updateHeadings = { installation: 'Updating your daemon.' };
 const providerHeadings = { model: 'Choose another model provider.', installation: 'Switching the model connection.', conversation: 'Check your daemon’s reply.' };
+const modelHeadings = { model: 'Choose your daemon’s model.', installation: 'Changing the model.', conversation: 'Check your daemon’s reply.' };
 const headings = { host: 'Install your daemon’s host.', identity: 'Name your daemon.', model: 'Connect your model.', review: 'Review your setup.', telegram: 'Connect Telegram.', installation: 'Installing your daemon.', conversation: 'First meeting.' };
 
 function links() {
@@ -115,7 +116,7 @@ function body() {
   if (state.page === 'about') return aboutBody();
   if (state.page === 'settings') return settingsBody();
   const current = flow().indexOf(state.phase);
-  return `<div class="steps" aria-label="${escape(labels[state.phase] || 'Setup')}">${flow().map((_, i) => `<span class="${i === current ? 'current' : i < current ? 'past' : ''}"></span>`).join('')}</div><div class="eyebrow">${escape(labels[state.phase] || 'Setup')}</div><h1>${escape(state.prompt?.title === 'Conversation language' ? 'Choose your conversation language.' : state.prompt?.title === 'Choose your model' ? 'Choose your model.' : state.prompt?.title === 'ChatGPT setup needs attention' ? 'Complete your ChatGPT setup.' : (state.mode === 'add-host' ? hostHeadings : state.mode === 'change-provider' ? providerHeadings : state.mode === 'update-daemon' ? updateHeadings : headings)[state.phase] || 'Setting things up.')}</h1>
+  return `<div class="steps" aria-label="${escape(labels[state.phase] || 'Setup')}">${flow().map((_, i) => `<span class="${i === current ? 'current' : i < current ? 'past' : ''}"></span>`).join('')}</div><div class="eyebrow">${escape(labels[state.phase] || 'Setup')}</div><h1>${escape(state.prompt?.title === 'Conversation language' ? 'Choose your conversation language.' : state.prompt?.title === 'Choose your model' ? 'Choose your model.' : state.prompt?.title === 'ChatGPT setup needs attention' ? 'Complete your ChatGPT setup.' : (state.mode === 'add-host' ? hostHeadings : state.mode === 'change-provider' ? (state.modelOnly ? modelHeadings : providerHeadings) : state.mode === 'update-daemon' ? updateHeadings : headings)[state.phase] || 'Setting things up.')}</h1>
     ${state.phase==='host'&&state.mode!=='add-host'?`<p class="hint">${escape(locale.t('setup.duration',language))}</p>`:''}
     <div id="activity" role="status" aria-live="polite">${activityBody()}</div>
     ${!state.prompt && state.result ? `<div class="note">${state.result.result === 'error' ? errorBody(state.result.message) : escape(state.result.message || 'Setup ended. See the details below for the verified result.')}</div>` : ''}
@@ -726,6 +727,7 @@ function providerSection() {
   const status=s.busy?`<span class="spinner" aria-hidden="true"></span>${t(s.busy)}`:s.done?escape(locale.t(s.done.key,language,{model:s.done.model})):'';
   const checked=s.checked?`<p class="${s.checked.available?'':'note'}">${t(s.checked.available?'provider.valid':'provider.validMissing')}</p>`:'';
   const switchButton=p.switchable&&!s.editing?`<button class="button" data-provider-switch ${s.busy||state.active?'disabled':''}>${t('provider.switch')}</button>`:'';
+  const modelButton=p.model_changeable?`<button class="button" data-provider-model ${s.busy||state.active?'disabled':''}>${t('provider.changeModel')}</button>`:'';
   const options=(s.models||[p.model]).map(m=>`<option value="${escape(m)}" ${m===(s.model||p.model)?'selected':''}>${escape(m)}</option>`).join('');
   const form=s.editing?`<form id="provider-form" class="daemon-fields">
       <label class="field-label" for="provider-key">${t('provider.newKey')}</label>
@@ -742,7 +744,7 @@ function providerSection() {
     ${api?`${checked}
       ${s.editing?form:`<div class="links">${p.key?`<button class="button" data-provider-check ${s.busy?'disabled':''}>${t('provider.check')}</button>`:''}${p.editable?`<button class="button" data-provider-edit ${s.busy?'disabled':''}>${t('provider.edit')}</button>`:''}${switchButton}</div>`}
       ${p.editable||p.switchable?'':`<p class="hint">${t('provider.notEditable')}</p>`}`
-      :`<p class="hint">${t(p.kind==='codex_cli'?'provider.subscription':'provider.compatibleHint')}</p>${switchButton?`<div class="links">${switchButton}</div>`:''}`}
+      :`<p class="hint">${t(p.kind==='codex_cli'?'provider.subscription':'provider.compatibleHint')}</p>${modelButton||switchButton?`<div class="links">${modelButton}${switchButton}</div>`:''}${modelButton?`<p class="hint">${t('provider.changeModelHint')}</p>`:''}`}
     ${p.switchable&&!s.editing?`<p class="hint">${t('provider.switchHint')}</p>`:''}
     ${s.error?`<p class="error" role="alert">${providerError(s.error)}</p>`:''}
     <p role="status" class="row">${status}</p></section>`;
@@ -766,6 +768,7 @@ function bindProvider() {
   },'provider.checking'));
   document.querySelector('[data-provider-edit]')?.addEventListener('click',()=>{Object.assign(providerState,{editing:true,key:'',model:providerInfo.model,models:null,error:'',done:null,checked:null});render();document.querySelector('#provider-key')?.focus();});
   document.querySelector('[data-provider-switch]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startProviderSwitch(id);});
+  document.querySelector('[data-provider-model]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startProviderSwitch(id,true);});
   document.querySelector('[data-daemon-update]')?.addEventListener('click',()=>{const id=state.daemon?.id;if(id)startDaemonUpdate(id);});
   document.querySelector('[data-provider-cancel]')?.addEventListener('click',()=>{providerState={};render();});
   document.querySelector('[data-provider-models]')?.addEventListener('click',()=>providerAction(async id=>{
@@ -1012,7 +1015,7 @@ function crumbs() {
   if(state.page==='removal')return [home,daemon,{label:t('topbar.removal')}];
   if(state.page==='restore')return [home,{label:t('topbar.restore')}];
   if(state.page==='diagnostic'||state.page==='discard')return [home,{label:t(state.page==='discard'?'topbar.discard':'topbar.diagnostic')}];
-  return [home,{label:t(state.mode==='add-host'?'topbar.addHost':state.mode==='change-provider'?'topbar.changeProvider':state.mode==='update-daemon'?'topbar.updateDaemon':'topbar.install')},...(labels[state.phase]?[{label:labels[state.phase]}]:[])];
+  return [home,{label:t(state.mode==='add-host'?'topbar.addHost':state.mode==='change-provider'?(state.modelOnly?'topbar.changeModel':'topbar.changeProvider'):state.mode==='update-daemon'?'topbar.updateDaemon':'topbar.install')},...(labels[state.phase]?[{label:labels[state.phase]}]:[])];
 }
 function topbarStatus() {
   const t=key=>locale.t(key,language),rows=state.inventory?.instances||[];
@@ -1169,12 +1172,14 @@ async function discardAction(action) {
   finally{discardState.busy=false;render();}
 }
 
-async function startProviderSwitch(id) {
+// modelOnly: a ChatGPT subscription daemon changes its model in the same
+// guided session (hosts/provider_change.py).
+async function startProviderSwitch(id,modelOnly=false) {
   if(state.active||state.instanceBusy||providerState.busy)return;
   hostAdditionState.id=id;
-  Object.assign(state,{page:'setup',mode:'change-provider',operation:'setup',active:true,result:null,messages:[],guidance:[],links:[],prompt:null,phase:'model',error:'',modelCatalog:null,chatgptCode:'',chatgptStage:'',activity:'Preparing the model change…'});
+  Object.assign(state,{page:'setup',mode:'change-provider',modelOnly,operation:'setup',active:true,result:null,messages:[],guidance:[],links:[],prompt:null,phase:'model',error:'',modelCatalog:null,chatgptCode:'',chatgptStage:'',activity:'Preparing the model change…'});
   render();
-  try{await window.companion.startProviderSwitch(id);}catch(error){state.active=false;showError(error);}
+  try{await window.companion.startProviderSwitch(id,modelOnly);}catch(error){state.active=false;showError(error);}
 }
 
 async function startHostAddition(id) {
@@ -1186,7 +1191,7 @@ async function startHostAddition(id) {
 }
 
 function modelCatalogBody(c) {
- const allowed=['gpt-6-astra','gpt-6.1-sol'];
+ const allowed=['gpt-6.2-astra','gpt-6.2-sol','gpt-6-astra'];
  if(!c||!Array.isArray(c.models)||!c.models.every(m=>allowed.includes(m.id)&&['offered','absent-native'].includes(m.status)))return '';
  const tr=key=>escape(locale.t(key,language));
  const missing=c.models.filter(m=>m.status==='absent-native').map(m=>m.id);

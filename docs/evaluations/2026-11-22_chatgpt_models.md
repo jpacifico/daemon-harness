@@ -67,6 +67,11 @@ Date: 22 November 2026. Branch `companion/chatgpt-models`, from `main` at
 Reported as not covered: Windows (unit tests only), an attached host, a
 change refused or undone after no reply (unit tests only).
 
+**Amendment (22 November 2026, before any trial daemon was created).** At the
+owner's request, to keep trials short, only criteria 1 and 2 are run on real
+daemons. Criteria 3 (new Hermes daemon) and 4 (existing OpenClaw daemon) are
+covered by unit tests only and reported as such.
+
 ## Protocol
 
 - Companion 0.11.19 and a build of this branch run unpackaged with

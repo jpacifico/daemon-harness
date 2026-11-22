@@ -85,6 +85,82 @@ covered by unit tests only and reported as such.
   versions and timings. No message text is read or kept.
 - Cleanup: each daemon is removed with the app; trial folders go to the Trash.
 
+**Amendment (22 November 2026, during the trial).** Two defects found while
+running criterion 2 were fixed on this branch, and the owner asked for one
+addition; see "Found during the trial".
+
 ## Results
 
-Pending.
+All times UTC.
+
+1. **Existing Hermes daemon: passed.** Throwaway Hermes daemon created with
+   Companion 0.11.19 (GPT-6 Astra, Codex 0.159.2). After **Update** and
+   **Change model** to GPT-6.2 Sol: host config and provider record name
+   `gpt-6.2-sol`; the daemon's private Codex is 0.170.0, the 0.159.2 folder is
+   kept; no change left pending. Next turn: reply 10:30:19, memory work
+   completed 10:31:06; Codex fetched the model catalog as 0.170.0; no error in
+   the memory worker's log.
+2. **New OpenClaw daemon: passed after two fixes.** Created with the branch
+   build (`eb7498a`): OpenClaw 2026.11.6, offered GPT-6.2 Astra, GPT-6.2 Sol and
+   GPT-6 Astra, created with GPT-6.2 Astra, private Codex 0.170.0, daemon plugin
+   loaded, native memory off. First turns: replies 16:41:48 and 16:42:05,
+   memory work completed 16:43:12. A command turn at 17:04 completed; the owner
+   saw the approval request in Telegram (approvals leave no line in the host
+   logs). The app did not confirm the first reply: see defect 2 below.
+   With the fix, on the same daemon: **Update** applied, **Change model** to
+   GPT-6.2 Sol applied 17:11:35, gateway restarted on `openai/gpt-6.2-sol`,
+   reply 17:12:25, memory work 17:12:54; the app then offered to keep the
+   change and the owner kept it.
+3. **New Hermes daemon:** unit tests only (amendment).
+4. **Existing OpenClaw daemon:** unit tests only (amendment). Change model on
+   OpenClaw was run live on the new OpenClaw daemon (criterion 2), not on a
+   2026.10.7 host.
+5. **Other daemons untouched: passed.** The owner's 15 service definitions are
+   byte-identical to their state before the trial; all their services kept
+   the same processes.
+6. **Suites:** Python 3.12 full suite 3,272 passed and 25 skipped; desktop
+   tests 175 passed; native discard smoke passed. CI: pending.
+
+## Found during the trial
+
+1. **Removal of a Hermes daemon whose provider or model changed failed**
+   (`unconfirmed`). The app rewrites the host config with lists in a form the
+   removal's text patch did not handle, producing invalid YAML. Present since
+   0.11.16 for provider changes. Fixed (`68a7988`), with a test that fails on
+   0.11.19.
+2. **OpenClaw 2026.11.6 refused the app's configuration.** It retired
+   `agents.defaults.heartbeat`; the gateway refused to start and the app rolled
+   the installation back after 7 minutes. The key is no longer written
+   (`eb7498a`). Checked on an isolated 2026.11.6 gateway: the configuration is
+   valid and no periodic check is created, since that version creates one only
+   through its own setup command, which Companion does not run. Hosts created
+   with 2026.10.7 keep their setting. No test runs the real host against the
+   configuration the app writes, which is why this was found only live.
+3. **The app never confirmed an OpenClaw daemon's reply.** The live service
+   writes a turn's reply to `state/continuity/shared`, the memory worker writes
+   its memory stages to `state/receipts`; every reader read one directory. So a
+   new OpenClaw daemon's first reply was never confirmed, a provider or model
+   change on OpenClaw could never be kept, and health missed its memory stages.
+   Present since the first public source. Readers now merge both directories
+   by turn (`04828ca`); writers are unchanged, so existing daemons are covered
+   without an update. Verified on the trial daemon's real receipts, then live
+   by the kept model change above.
+4. **Addition at the owner's request:** deleting an unfinished installation
+   can also move its memory to the trash, as uninstalling a daemon can
+   (`e738eb0`, `e3a9e29`): offered only for a memory folder the app created
+   inside that installation, after a second confirmation. Covered by unit
+   tests and the native discard smoke, which first caught a defect in it (the
+   memory was kept); not run by hand.
+
+## Limits
+
+- The trial apps also listed the owner's real daemons; nothing was done on
+  their cards.
+- During criterion 2 the trial app was closed while it waited for the first
+  reply; the installation was already committed.
+- Not covered live: Windows, an attached host, a change refused or undone
+  after no reply, Change model on an OpenClaw 2026.10.7 host.
+
+## Decision
+
+Pending the owner's review of the new texts and CI.

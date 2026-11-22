@@ -417,14 +417,18 @@ class Instances {
   async memoryRemoval(id,token,run) {
     const record=this.removalResult;
     if(!record||record.id!==id||record.token!==token||!record.done||record.action!=='uninstall'||!record.memoryDeletable)throw new Error('removal.changed');
-    const {key}=hostAssociations;
-    const inside=(parent,child)=>{const a=key(parent),b=key(child);return Boolean(a&&b)&&(a===b||b.startsWith(a+path.sep));};
-    const inventory=await this.refresh();
-    if(inventory.instances.some(r=>[r.profile,r.daemon?.memory,r.daemon?.source].some(p=>p&&(inside(record.memory,p)||inside(p,record.memory)))))throw new Error('removal.shared');
+    if(await this.memoryInUse(record.memory))throw new Error('removal.shared');
     const checked=await run({operation:'memory-check',action:'uninstall',profile:record.profile,base:this.base,revision:record.revision});
     if(checked.memory!==record.memory||await fs.realpath(record.memory)!==record.memory)throw new Error('removal.unsafe');
     this.removalResult=null;
     return record.memory;
+  }
+  // Whether a listed installation still uses a folder about to go to the trash.
+  async memoryInUse(memory) {
+    const {key}=hostAssociations;
+    const inside=(parent,child)=>{const a=key(parent),b=key(child);return Boolean(a&&b)&&(a===b||b.startsWith(a+path.sep));};
+    const inventory=await this.refresh();
+    return inventory.instances.some(r=>[r.profile,r.daemon?.memory,r.daemon?.source].some(p=>p&&(inside(memory,p)||inside(p,memory))));
   }
   async removalTarget(id,token,kind) {
     const record=this.removalReview?.token===token?{...this.removalReview.plan,id:this.removalReview.id}:this.removalResult?.token===token?this.removalResult:null;

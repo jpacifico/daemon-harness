@@ -996,7 +996,9 @@ async function discardTrial(window,backend,instances,output) {
       await evaluate("action('discard-confirm');void 0");await wait('!discardState.busy');
       // Cancelling the second confirmation changes nothing.
       assert(await evaluate('!discardState.plan.done && !state.error'),await evaluate('state.error'));
-      assert.equal((await instances.services.list()).items.length,4);
+      // (The earlier failed attempt already stopped the services.)
+      assert.deepEqual(await fs.readFile(path.join(fixture.memory,'Projects/synthetic.md')),memory);
+      assert(await fs.stat(path.join(attempt,'source')).then(()=>true,()=>false));
       await evaluate("action('discard-confirm');void 0");await wait('!discardState.busy');
     } finally {dialog.showMessageBox=originalDialog;delete backend.smokeTrash;}
     assert(await evaluate('discardState.plan?.done && discardState.plan.memoryRemoved===true && !state.error'),await evaluate('state.error'));

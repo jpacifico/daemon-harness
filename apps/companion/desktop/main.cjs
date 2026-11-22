@@ -238,10 +238,10 @@ handle('setup-discard-apply', async (id,token,deleteMemory=false) => {
     if(deleteMemory!==true)return {...result,id};
     // The discard stands either way; a refused or failed move keeps the memory.
     try {
-      await discardContext(id); // No listed installation uses these folders.
       const checked=await backend.daemonSettings({...context,action:'memory-check',revision:review.revision},'discard');
       if(JSON.stringify(checked.memory)!==JSON.stringify(review.plan.memory))throw new Error('discard.changed');
       for(const target of checked.memory) {
+        if(await instances.memoryInUse(target))throw new Error('discard.shared');
         if(await fs.realpath(target)!==target)throw new Error('discard.unsafe');
         await (smoke&&backend.smokeTrash?backend.smokeTrash:shell.trashItem)(target);
         if(await fs.stat(target).then(()=>true,()=>false))throw new Error('discard.unsafe');

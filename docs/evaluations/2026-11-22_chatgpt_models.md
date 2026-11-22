@@ -119,7 +119,8 @@ All times UTC.
    byte-identical to their state before the trial; all their services kept
    the same processes.
 6. **Suites:** Python 3.12 full suite 3,272 passed and 25 skipped; desktop
-   tests 175 passed; native discard smoke passed. CI: pending.
+   tests 175 passed; native discard smoke passed. CI (`canonical-runtime`)
+   passed on the pull request.
 
 ## Found during the trial
 
@@ -163,4 +164,7 @@ All times UTC.
 
 ## Decision
 
-Pending the owner's review of the new texts and CI.
+The owner validated the new texts. Merged on `main` (#27), for the next
+Companion release. Existing daemons reach GPT-6.2 through **Change model**,
+which installs Codex 0.170.0; existing OpenClaw daemons keep OpenClaw
+2026.10.7, which does not list the GPT-6.2 models.

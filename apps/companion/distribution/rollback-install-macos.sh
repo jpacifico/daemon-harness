@@ -1,13 +1,13 @@
 #!/bin/sh
-# Daemons Companion candidate. This installs the app, not a daemon or its services.
+# Daemons Companion installer. This installs the app, not a daemon or its services.
 # Keep execution inside one function: a truncated download must not partially run.
 daemons_install() (
     set -eu
     umask 077
     daemon_repo=jpacifico/daemon-harness
-    daemon_tag=companion-v0.11.17
+    daemon_tag=companion-v0.11.18
     daemon_asset=Daemons-Companion-macOS-arm64.dmg
-    daemon_sha=7093ad01e90755969f139952572c7be48c7b3a1377d363f1a52b10daa2928aa4
+    daemon_sha=7fbda8034785be93a1d65585911239af9be238f0fa4d3520a763e2de6e130dfc
     daemon_dest="$HOME/Applications"
     daemon_package=
     daemon_launch=yes
@@ -56,7 +56,7 @@ daemons_install() (
         esac
     done
     [ "$(/usr/bin/uname -s)" = Darwin ] || daemon_fail 'This package requires macOS.'
-    [ "$(/usr/bin/uname -m)" = arm64 ] || daemon_fail 'This candidate requires an Apple Silicon Mac.'
+    [ "$(/usr/bin/uname -m)" = arm64 ] || daemon_fail 'Daemons Companion requires an Apple Silicon Mac.'
     [ "$(/usr/bin/id -u)" -ne 0 ] || daemon_fail 'Run as your normal user, without sudo.'
     case "$daemon_dest" in /*) ;; *) daemon_fail 'Destination must be an absolute path.' ;; esac
     [ ! -L "$daemon_dest" ] || daemon_fail 'The destination cannot be a symbolic link.'
@@ -65,20 +65,24 @@ daemons_install() (
     if [ -z "$daemon_package" ]; then
         daemon_package="$daemon_tmp/$daemon_asset"
         printf 'Downloading Daemons Companion (145 MB)...\n'
-        if command -v gh >/dev/null 2>&1; then
+        # A public release downloads directly. A signed-in GitHub CLI also
+        # reaches a release the account can read but the public cannot.
+        if ! /usr/bin/curl --proto '=https' --tlsv1.2 --fail --location --retry 3 --progress-bar \
+            "https://github.com/$daemon_repo/releases/download/$daemon_tag/$daemon_asset" \
+            --output "$daemon_package"; then
+            /bin/rm -f "$daemon_package"
+            if ! command -v gh >/dev/null 2>&1 || ! gh auth status >/dev/null 2>&1; then
+                daemon_fail 'Download failed. Check your internet connection, then run this command again.'
+            fi
             gh release download "$daemon_tag" --repo "$daemon_repo" --pattern "$daemon_asset" --output "$daemon_package" &
             daemon_download_pid=$!
             while kill -0 "$daemon_download_pid" 2>/dev/null; do
                 printf '.'
                 sleep 1
             done
-            wait "$daemon_download_pid" || daemon_fail 'Download failed. Check your GitHub access with gh auth login.'
+            wait "$daemon_download_pid" || daemon_fail 'Download failed. Check your internet connection, then run this command again.'
             daemon_download_pid=
             printf '\n'
-        else
-            /usr/bin/curl --proto '=https' --tlsv1.2 --fail --location --retry 3 --progress-bar \
-                "https://github.com/$daemon_repo/releases/download/$daemon_tag/$daemon_asset" \
-                --output "$daemon_package" || daemon_fail 'This candidate is private. Install GitHub CLI and run gh auth login, then retry.'
         fi
     fi
     [ -f "$daemon_package" ] && [ ! -L "$daemon_package" ] || daemon_fail 'Package must be a regular file.'

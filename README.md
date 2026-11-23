@@ -84,7 +84,7 @@ computer. With it, you can:
   and restore it to move your daemon to another computer.
 
 Use these commands on **Apple Silicon Macs** or **Windows x64**. No account
-is needed. Each run downloads the current published **alpha**, checks its
+is needed. Each run downloads the current published **research preview**, checks its
 SHA-256 checksum against the value pinned in the script, installs it and opens
 it. The commands never change: no version number needs to be edited.
 
@@ -109,7 +109,7 @@ The packages do not yet have recognized distribution signatures.
 See the [installation guide](docs/companion_installation.md) for platform
 prompts and troubleshooting.
 
-**Alpha software, use with care.** Daemon Harness is under active development:
+**Research preview, use with care.** Daemon Harness is under active development:
 expect bugs, breaking changes and rough edges. It has not had an independent
 security audit, and the app is not yet signed. Your daemon runs on your
 computer with your model account and can use its host's tools there, so try it

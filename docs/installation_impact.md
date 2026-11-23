@@ -71,7 +71,7 @@ From 0.11.0 these are off until you turn them on.
   Windows DPAPI, never in plain text. A daily backup runs while the app is
   running and keeps the last seven automatic backups of each daemon; manual
   backups are never deleted. Disconnecting removes the stored sign-in and keys.
-  During the alpha, Google accepts only the accounts the publisher lists as
+  During the research preview, Google accepts only the accounts the publisher lists as
   testers.
 - **Restore from a backup** (My daemons) creates a new daemon with the usual
   setup, around the restored memory: name, identity, voice and memories are
@@ -355,4 +355,4 @@ ambiguous configurations are refused rather than removed unsafely. If recovery
 is required, use the same operation on the same installation instead of
 deleting folders by hand.
 
-See [your memory](memory.md) and [alpha limitations](alpha-testing.md).
+See [your memory](memory.md) and [research preview limitations](alpha-testing.md).

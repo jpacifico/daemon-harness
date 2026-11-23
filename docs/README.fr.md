@@ -86,8 +86,8 @@ Elle permet de :
   ordinateur.
 
 Ces commandes conviennent aux **Mac Apple Silicon** et à **Windows x64**.
-Aucun compte n’est nécessaire. Chaque exécution télécharge la version **alpha
-actuellement publiée**, vérifie son empreinte SHA-256 par rapport à celle que
+Aucun compte n’est nécessaire. Chaque exécution télécharge la version **research
+preview actuellement publiée**, vérifie son empreinte SHA-256 par rapport à celle que
 fixe le script, l’installe puis l’ouvre. Les commandes ne changent jamais :
 aucun numéro de version à modifier.
 
@@ -113,7 +113,7 @@ Les paquets ne disposent pas encore de signatures de distribution reconnues.
 Le [guide d’installation](companion_installation.md) explique les difficultés
 connues et leurs solutions.
 
-**Version alpha, à utiliser avec prudence.** Daemon Harness est en développement
+**Research preview, à utiliser avec prudence.** Daemon Harness est en développement
 actif : attendez-vous à des bugs, à des changements incompatibles et à des
 aspects encore bruts. Le projet n’a pas fait l’objet d’un audit de sécurité
 indépendant, et l’app n’est pas encore signée. Votre daemon fonctionne sur

@@ -172,5 +172,5 @@ installation or an existing one. Missing measurements are unknown, not zero.
 
 A short local smoke test cannot establish conversation quality, long-term
 retention or Windows behavior on a Mac. The
-[alpha checklist](alpha-testing.md) and evaluation requirements
+[research preview checklist](alpha-testing.md) and evaluation requirements
 state the remaining validation.

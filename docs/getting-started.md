@@ -93,4 +93,4 @@ Updating replaces the app, not your existing daemon or its memory.
 When the app carries changes to how it installs and runs daemons, the daemon's
 page offers **Update**. Host versions are not updated.
 
-Next: [try the alpha and report useful feedback](alpha-testing.md).
+Next: [try the research preview and report useful feedback](alpha-testing.md).

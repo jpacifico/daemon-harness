@@ -66,7 +66,7 @@ actual packaged revision. Do not assume that main alone reproduces the app.
 ## Documentation organization
 
 - README: project introduction, install commands and clear limits.
-- User guides: setup, memory, installation effects and alpha feedback.
+- User guides: setup, memory, installation effects and research preview feedback.
 - Developer references: architecture, contracts and implementation details.
 - Evaluations: dated evidence, including negative results.
 - Archives: superseded procedures and development history, never current setup instructions.

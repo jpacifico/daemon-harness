@@ -1,6 +1,6 @@
-# Trying the alpha
+# Trying the research preview
 
-The alpha is for checking the experience on real computers and accounts.
+The research preview is for checking the experience on real computers and accounts.
 It is early software: a successful build or an automated check is not a promise
 that every provider and operating-system combination has been exercised.
 
@@ -64,5 +64,5 @@ The maintainer keeps the preceding release and its installation scripts so the
 download can be reverted after a regression. Replacing Companion does not
 delete memory or automatically roll back a daemon created in the meantime.
 
-Repository preparation and alpha testing do not themselves make the repository
+Repository preparation and research preview testing do not themselves make the repository
 public. Opening access is a separate publication decision.

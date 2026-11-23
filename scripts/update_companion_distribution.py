@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish or verify the approved alpha download scripts, without installing apps.
+"""Publish or verify the approved download scripts, without installing apps.
 
 The maintainer selects an immutable release. Both package assets must already
 exist and match the SHA-256 values in its scripts. Default mode checks local

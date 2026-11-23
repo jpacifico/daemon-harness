@@ -21,5 +21,5 @@ After successful cleanup, the test directory reported by summary.json can be
 removed to recover download space. If cleanup failed or the app was forcibly
 closed, keep those files and report the failure: do not manually delete files
 while the test services might still reference them. No automatic upload occurs.
-The package is unsigned, like the current alpha app; managed Windows security
+The package is unsigned, like the current research preview app; managed Windows security
 policy may block it. Do not disable security software to run this test.

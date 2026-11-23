@@ -42,7 +42,7 @@ The same command installs the current published app after closing the window;
 it does not reinstall an already configured daemon. An installation in another
 folder is refused instead of silently relocated. NSIS owns the app replacement.
 
-The app is an alpha: Mac signing is ad hoc, without notarization; Windows
+The app is a research preview: Mac signing is ad hoc, without notarization; Windows
 has no Authenticode certificate. No security setting or quarantine attribute
 is disabled by these scripts. Initial onboarding offers Hermes Agent or OpenClaw;
 Add a host adds OpenClaw to an existing Hermes Agent daemon.
@@ -76,7 +76,7 @@ Each release has an app version `MAJOR.MINOR.PATCH`, declared in
 
 - A release with new or changed behaviour raises MINOR (`0.11.0`, `0.12.0`).
 - A release that only corrects the previous one raises PATCH (`0.11.1`).
-- MAJOR stays `0` during the alpha.
+- MAJOR stays `0` during the research preview.
 - A candidate for the next version adds `-rc.N`: `companion-v0.11.0-rc.1`,
   then `-rc.2`. Once qualified, the same code is rebuilt as `0.11.0` for `main`.
 
@@ -95,11 +95,11 @@ follows r10.
 
 ## Publishing a release
 
-When publishing an alpha for both platforms:
+When publishing a release for both platforms:
 
 1. Finish package checks, document OS limitations, and obtain the required scope
    authorization. Publish both packages and their exact scripts to an immutable,
-   non-draft release. A prerelease is eligible for the alpha channel.
+   non-draft release. A prerelease is eligible for the main channel.
 2. In an isolated checkout based on main, run:
 
    ```sh

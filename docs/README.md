@@ -13,7 +13,7 @@ records. Technical detail belongs here; terms are introduced before use.
 | Open and manage memory in Obsidian | [Your memory](memory.md) |
 | Understand how memory is organized | [PARGA: the five folders](parga.md) |
 | Know what an installation changes | [Exact installation impact](installation_impact.md) |
-| Test the alpha and report a failure | [Alpha checklist and limits](alpha-testing.md) |
+| Try the research preview and report a failure | [Research preview checklist and limits](alpha-testing.md) |
 
 ## Develop and operate Daemon Harness
 
